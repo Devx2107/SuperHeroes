@@ -516,6 +516,11 @@ const appState = {
   selectedHeroId: "ironman",
   revealedOtherId: null,
   otherIndex: 0,
+  visiblePickerIds: [...rosterOrder, "other"],
+  search: {
+    query: "",
+    universe: "all"
+  },
   battle: {
     active: false,
     heroId: "ironman",
@@ -547,11 +552,17 @@ const appState = {
   }
 };
 
+const STORAGE_KEY = "hero-hub-selection-v1";
+const THEME_KEY = "hero-hub-theme-v1";
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const pageType = document.body?.dataset.page || "roster";
 
 const elements = {
   heroPicker: document.getElementById("heroPicker"),
   pickerNote: document.getElementById("pickerNote"),
+  heroSearch: document.getElementById("heroSearch"),
+  heroUniverseFilter: document.getElementById("heroUniverseFilter"),
+  searchFeedback: document.getElementById("searchFeedback"),
   spotlightUniverse: document.getElementById("spotlightUniverse"),
   spotlightName: document.getElementById("spotlightName"),
   spotlightTag: document.getElementById("spotlightTag"),
@@ -567,6 +578,8 @@ const elements = {
   battleStatus: document.getElementById("battleStatus"),
   battleHeroName: document.getElementById("battleHeroName"),
   battleEnemyName: document.getElementById("battleEnemyName"),
+  battleHeroImage: document.getElementById("battleHeroImage"),
+  battleEnemyImage: document.getElementById("battleEnemyImage"),
   battleHeroHealth: document.getElementById("battleHeroHealth"),
   battleEnemyHealth: document.getElementById("battleEnemyHealth"),
   battleLog: document.getElementById("battleLog"),
@@ -576,9 +589,14 @@ const elements = {
   voteMessage: document.getElementById("voteMessage"),
   voteTotal: document.getElementById("voteTotal"),
   voteBoard: document.getElementById("voteBoard"),
+  externalHeroCard: document.getElementById("externalHeroCard"),
+  themeToggle: document.getElementById("themeToggle"),
   cursorDot: document.getElementById("cursorDot"),
   cursorRing: document.getElementById("cursorRing")
 };
+
+restoreSelection();
+restoreTheme();
 
 function getSurpriseIds() {
   return Object.keys(heroes).filter((id) => !rosterOrder.includes(id));
@@ -586,6 +604,61 @@ function getSurpriseIds() {
 
 function resolveDisplayHero() {
   return heroes[appState.selectedHeroId];
+}
+
+function persistSelection() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({
+    selectedPickerId: appState.selectedPickerId,
+    selectedHeroId: appState.selectedHeroId,
+    revealedOtherId: appState.revealedOtherId,
+    otherIndex: appState.otherIndex
+  }));
+}
+
+function restoreSelection() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) {
+      return;
+    }
+    const saved = JSON.parse(raw);
+    if (saved.selectedPickerId) {
+      appState.selectedPickerId = saved.selectedPickerId;
+    }
+    if (saved.selectedHeroId && heroes[saved.selectedHeroId]) {
+      appState.selectedHeroId = saved.selectedHeroId;
+    }
+    if (saved.revealedOtherId && heroes[saved.revealedOtherId]) {
+      appState.revealedOtherId = saved.revealedOtherId;
+    }
+    if (Number.isInteger(saved.otherIndex) && saved.otherIndex >= 0) {
+      appState.otherIndex = saved.otherIndex;
+    }
+  } catch (error) {
+    localStorage.removeItem(STORAGE_KEY);
+  }
+}
+
+function applyTheme(theme) {
+  document.body.dataset.theme = theme;
+  if (elements.themeToggle) {
+    elements.themeToggle.textContent = theme === "light" ? "Dark Mode" : "Light Mode";
+  }
+}
+
+function restoreTheme() {
+  const theme = localStorage.getItem(THEME_KEY) || "dark";
+  applyTheme(theme);
+}
+
+function toggleTheme() {
+  const nextTheme = document.body.dataset.theme === "light" ? "dark" : "light";
+  localStorage.setItem(THEME_KEY, nextTheme);
+  applyTheme(nextTheme);
+}
+
+function getCorePickerIds() {
+  return [...rosterOrder, "other"];
 }
 
 function getHeroLabelForPicker(id) {
@@ -609,7 +682,10 @@ function setTheme(hero) {
 }
 
 function buildPicker() {
-  const pickerIds = [...rosterOrder, "other"];
+  if (!elements.heroPicker) {
+    return;
+  }
+  const pickerIds = appState.visiblePickerIds.length ? appState.visiblePickerIds : getCorePickerIds();
   elements.heroPicker.innerHTML = "";
   pickerIds.forEach((id) => {
     const label = getHeroLabelForPicker(id);
@@ -632,41 +708,65 @@ function buildPicker() {
         appState.selectedPickerId = id;
         appState.selectedHeroId = id;
       }
+      persistSelection();
       renderPickerState();
       renderHeroExperience();
-      prepareBattle();
+      if (elements.battleOpponent) {
+        prepareBattle();
+      }
     });
     elements.heroPicker.appendChild(button);
   });
 }
 
 function renderPickerState() {
+  if (!elements.heroPicker && !elements.pickerNote) {
+    return;
+  }
   buildPicker();
   const hero = resolveDisplayHero();
-  elements.pickerNote.textContent = appState.selectedPickerId === "other"
-    ? `Other is a curated surprise pool. Current reveal: ${hero.name}. Pick Other again to rotate the reveal.`
-    : `${hero.name} now drives the theme, power bars, villain cards, timeline, team-up recommendation, and interactive flavor text.`;
+  if (elements.pickerNote) {
+    elements.pickerNote.textContent = appState.selectedPickerId === "other"
+      ? `Other is a curated surprise pool. Current reveal: ${hero.name}. Pick Other again to rotate the reveal.`
+      : `${hero.name} now drives this page and follows you across the other feature pages.`;
+  }
 }
 
 function renderHeroExperience() {
   const hero = resolveDisplayHero();
   setTheme(hero);
-  elements.spotlightUniverse.textContent = appState.selectedPickerId === "other" ? "Surprise Pool Reveal" : hero.universe;
-  elements.spotlightName.textContent = hero.name;
-  elements.spotlightTag.textContent = hero.tag;
-  elements.spotlightStory.textContent = hero.story;
-  elements.spotlightImage.src = hero.image;
-  elements.spotlightImage.alt = `${hero.name} cinematic portrait`;
-  elements.spotlightBadges.innerHTML = hero.badges.map((badge) => `<span class="spotlight-badge">${badge}</span>`).join("");
+  if (elements.spotlightUniverse) {
+    elements.spotlightUniverse.textContent = appState.selectedPickerId === "other" ? "Surprise Pool Reveal" : hero.universe;
+  }
+  if (elements.spotlightName) {
+    elements.spotlightName.textContent = hero.name;
+  }
+  if (elements.spotlightTag) {
+    elements.spotlightTag.textContent = hero.tag;
+  }
+  if (elements.spotlightStory) {
+    elements.spotlightStory.textContent = hero.story;
+  }
+  if (elements.spotlightImage) {
+    elements.spotlightImage.src = hero.image;
+    elements.spotlightImage.alt = `${hero.name} cinematic portrait`;
+  }
+  if (elements.spotlightBadges) {
+    elements.spotlightBadges.innerHTML = hero.badges.map((badge) => `<span class="spotlight-badge">${badge}</span>`).join("");
+  }
   renderPowerBars(hero);
   renderSignatureMoves(hero);
   renderVillains(hero);
   renderTimeline(hero);
   renderTeamUp(hero);
   renderBattleHeroName();
+  fetchExternalHeroData(hero.id);
 }
 
 function renderPowerBars(hero) {
+  if (!elements.powerBars) {
+    return;
+  }
   elements.powerBars.innerHTML = "";
   Object.entries(hero.stats).forEach(([label, value]) => {
     const wrap = document.createElement("div");
@@ -685,10 +785,16 @@ function renderPowerBars(hero) {
 }
 
 function renderSignatureMoves(hero) {
+  if (!elements.signatureMoves) {
+    return;
+  }
   elements.signatureMoves.innerHTML = hero.abilities.map((move) => `<li>${move}</li>`).join("");
 }
 
 function renderVillains(hero) {
+  if (!elements.villainGrid) {
+    return;
+  }
   elements.villainGrid.innerHTML = hero.villains.map((villain) => `
     <article class="villain-card reveal visible" tabindex="0">
       <div class="villain-card-inner">
@@ -709,6 +815,9 @@ function renderVillains(hero) {
 }
 
 function renderTimeline(hero) {
+  if (!elements.timelineRail) {
+    return;
+  }
   elements.timelineRail.innerHTML = hero.timeline.map((entry) => `
     <article class="timeline-card">
       <time>${entry.year}</time>
@@ -719,6 +828,9 @@ function renderTimeline(hero) {
 }
 
 function renderTeamUp(hero) {
+  if (!elements.teamupCard) {
+    return;
+  }
   elements.teamupCard.innerHTML = `
     <div>
       <p class="eyebrow">Recommended pairing</p>
@@ -735,6 +847,9 @@ function renderTeamUp(hero) {
 }
 
 function buildBattleOpponents() {
+  if (!elements.battleOpponent) {
+    return;
+  }
   const ids = [...rosterOrder, ...getSurpriseIds()];
   elements.battleOpponent.innerHTML = ids
     .filter((id) => id !== appState.selectedHeroId)
@@ -743,10 +858,20 @@ function buildBattleOpponents() {
 }
 
 function renderBattleHeroName() {
-  elements.battleHeroName.textContent = resolveDisplayHero().name;
+  if (elements.battleHeroName) {
+    const hero = resolveDisplayHero();
+    elements.battleHeroName.textContent = hero.name;
+    if (elements.battleHeroImage) {
+      elements.battleHeroImage.src = hero.image;
+      elements.battleHeroImage.alt = `${hero.name} battle portrait`;
+    }
+  }
 }
 
 function prepareBattle() {
+  if (!elements.battleOpponent) {
+    return;
+  }
   buildBattleOpponents();
   const heroId = appState.selectedHeroId;
   const defaultEnemy = elements.battleOpponent.value || rosterOrder.find((id) => id !== heroId) || getSurpriseIds()[0];
@@ -764,6 +889,9 @@ function prepareBattle() {
 }
 
 function startBattle() {
+  if (!elements.battleOpponent) {
+    return;
+  }
   const heroId = appState.selectedHeroId;
   const enemyId = elements.battleOpponent.value;
   if (!enemyId) {
@@ -791,24 +919,41 @@ function calculateDamage(base, variance, guarded) {
 }
 
 function logBattle(text) {
+  if (!elements.battleLog) {
+    return;
+  }
   const item = document.createElement("li");
   item.textContent = text;
   elements.battleLog.prepend(item);
 }
 
 function renderBattleState(message) {
+  if (!elements.battleStatus || !elements.battleHeroName || !elements.battleEnemyName || !elements.battleHeroHealth || !elements.battleEnemyHealth) {
+    return;
+  }
   const { heroId, enemyId, heroHp, enemyHp, active, ended } = appState.battle;
   elements.battleStatus.textContent = message;
   elements.battleHeroName.textContent = heroes[heroId].name;
   elements.battleEnemyName.textContent = enemyId ? heroes[enemyId].name : "No opponent";
+  if (elements.battleHeroImage) {
+    elements.battleHeroImage.src = heroes[heroId].image;
+    elements.battleHeroImage.alt = `${heroes[heroId].name} battle portrait`;
+  }
+  if (elements.battleEnemyImage && enemyId) {
+    elements.battleEnemyImage.src = heroes[enemyId].image;
+    elements.battleEnemyImage.alt = `${heroes[enemyId].name} battle portrait`;
+  }
   if (enemyId) {
     elements.battleHeroHealth.style.width = `${Math.max(0, (heroHp / heroes[heroId].battle.hp) * 100)}%`;
     elements.battleEnemyHealth.style.width = `${Math.max(0, (enemyHp / heroes[enemyId].battle.hp) * 100)}%`;
   }
   const disableActions = !active || ended;
-  document.getElementById("actionAttack").disabled = disableActions;
-  document.getElementById("actionSpecial").disabled = disableActions;
-  document.getElementById("actionGuard").disabled = disableActions;
+  const attackButton = document.getElementById("actionAttack");
+  const specialButton = document.getElementById("actionSpecial");
+  const guardButton = document.getElementById("actionGuard");
+  if (attackButton) attackButton.disabled = disableActions;
+  if (specialButton) specialButton.disabled = disableActions;
+  if (guardButton) guardButton.disabled = disableActions;
 }
 
 function performHeroAction(type) {
@@ -905,6 +1050,9 @@ function scoreQuizAnswer(weights) {
 }
 
 function renderQuiz() {
+  if (!elements.quizCard) {
+    return;
+  }
   if (appState.quiz.complete) {
     const hero = heroes[appState.quiz.resultId];
     const otherNote = getSurpriseIds().includes(hero.id) ? "Unlocked through the surprise pool archetype." : "Matched from the core roster.";
@@ -984,6 +1132,9 @@ function nextTrivia() {
 }
 
 function renderTrivia(feedback = "") {
+  if (!elements.triviaCard) {
+    return;
+  }
   if (appState.trivia.complete) {
     elements.triviaCard.innerHTML = `
       <div class="result-card">
@@ -1030,6 +1181,9 @@ function renderTrivia(feedback = "") {
 }
 
 async function fetchVotes() {
+  if (!elements.voteButtons || !elements.voteMessage || !elements.voteTotal || !elements.voteBoard) {
+    return;
+  }
   try {
     const response = await fetch("/api/votes");
     if (!response.ok) {
@@ -1049,6 +1203,9 @@ async function fetchVotes() {
 }
 
 async function submitVote(heroId) {
+  if (!elements.voteMessage) {
+    return;
+  }
   elements.voteMessage.textContent = `Submitting vote for ${heroId === "other" ? "Other" : heroes[heroId].name}...`;
   try {
     const response = await fetch("/api/votes", {
@@ -1070,6 +1227,9 @@ async function submitVote(heroId) {
 }
 
 function renderVoteBoard() {
+  if (!elements.voteButtons || !elements.voteMessage || !elements.voteTotal || !elements.voteBoard) {
+    return;
+  }
   elements.voteButtons.innerHTML = "";
   voteRoster.forEach((id) => {
     const button = document.createElement("button");
@@ -1124,7 +1284,7 @@ function initParallax() {
 
 function initCursor() {
   const finePointer = window.matchMedia("(pointer: fine)").matches;
-  if (!finePointer || prefersReducedMotion) {
+  if (!finePointer || prefersReducedMotion || !elements.cursorDot || !elements.cursorRing) {
     return;
   }
   document.body.classList.add("cursor-enabled");
@@ -1159,29 +1319,155 @@ function initCursor() {
 }
 
 function initBattleEvents() {
-  document.getElementById("battleStart").addEventListener("click", startBattle);
-  document.getElementById("actionAttack").addEventListener("click", () => performHeroAction("attack"));
-  document.getElementById("actionSpecial").addEventListener("click", () => performHeroAction("special"));
-  document.getElementById("actionGuard").addEventListener("click", () => performHeroAction("guard"));
+  const battleStart = document.getElementById("battleStart");
+  const actionAttack = document.getElementById("actionAttack");
+  const actionSpecial = document.getElementById("actionSpecial");
+  const actionGuard = document.getElementById("actionGuard");
+  if (!battleStart || !actionAttack || !actionSpecial || !actionGuard || !elements.battleOpponent) {
+    return;
+  }
+  battleStart.addEventListener("click", startBattle);
+  actionAttack.addEventListener("click", () => performHeroAction("attack"));
+  actionSpecial.addEventListener("click", () => performHeroAction("special"));
+  actionGuard.addEventListener("click", () => performHeroAction("guard"));
   elements.battleOpponent.addEventListener("change", (event) => {
     appState.battle.enemyId = event.target.value;
   });
+}
+
+function buildUniverseFilter() {
+  if (!elements.heroUniverseFilter) {
+    return;
+  }
+  const universeOptions = ["all", ...new Set(Object.values(heroes).map((hero) => hero.universe))];
+  elements.heroUniverseFilter.innerHTML = universeOptions
+    .map((universe) => `<option value="${universe}">${universe === "all" ? "All Universes" : universe}</option>`)
+    .join("");
+  elements.heroUniverseFilter.value = appState.search.universe;
+}
+
+async function applySearchFilter() {
+  if (!elements.heroSearch && !elements.heroUniverseFilter) {
+    return;
+  }
+  const query = elements.heroSearch?.value?.trim() || "";
+  const universe = elements.heroUniverseFilter?.value || "all";
+  appState.search = { query, universe };
+
+  if (!query && universe === "all") {
+    appState.visiblePickerIds = getCorePickerIds();
+    if (elements.searchFeedback) {
+      elements.searchFeedback.textContent = "Showing the full roster.";
+    }
+    renderPickerState();
+    return;
+  }
+
+  try {
+    const params = new URLSearchParams({ q: query, universe });
+    const response = await fetch(`/api/search?${params.toString()}`);
+    const data = await response.json();
+    const visible = [];
+    const hasSurprise = data.results.some((hero) => !rosterOrder.includes(hero.id));
+    data.results.forEach((hero) => {
+      if (rosterOrder.includes(hero.id) && !visible.includes(hero.id)) {
+        visible.push(hero.id);
+      }
+    });
+    if (hasSurprise || query.toLowerCase().includes("other")) {
+      visible.push("other");
+    }
+    appState.visiblePickerIds = visible.length ? visible : [];
+    if (elements.searchFeedback) {
+      elements.searchFeedback.textContent = visible.length
+        ? `Found ${data.count} matching hero records for this filter.`
+        : "No direct matches. Clear the search to restore the full roster.";
+    }
+  } catch (error) {
+    const fallbackVisible = getCorePickerIds().filter((id) => {
+      if (id === "other") {
+        return query ? "other".includes(query.toLowerCase()) : true;
+      }
+      const hero = heroes[id];
+      const inUniverse = universe === "all" || hero.universe === universe;
+      const haystack = `${hero.name} ${hero.universe} ${hero.tag} ${hero.story}`.toLowerCase();
+      return inUniverse && (!query || haystack.includes(query.toLowerCase()));
+    });
+    appState.visiblePickerIds = fallbackVisible;
+    if (elements.searchFeedback) {
+      elements.searchFeedback.textContent = "Search API unavailable, using in-page filtering instead.";
+    }
+  }
+  renderPickerState();
+}
+
+function initSearchControls() {
+  if (!elements.heroSearch || !elements.heroUniverseFilter) {
+    return;
+  }
+  buildUniverseFilter();
+  elements.heroSearch.addEventListener("input", applySearchFilter);
+  elements.heroUniverseFilter.addEventListener("change", applySearchFilter);
+}
+
+async function fetchExternalHeroData(heroId) {
+  if (!elements.externalHeroCard || pageType !== "roster") {
+    return;
+  }
+  elements.externalHeroCard.innerHTML = '<p class="search-feedback">Fetching optional external hero data...</p>';
+  try {
+    const response = await fetch(`/api/heroes/${heroId}/external`);
+    const data = await response.json();
+    if (!data.available) {
+      elements.externalHeroCard.innerHTML = `
+        <p class="eyebrow">External source</p>
+        <h3>${heroes[heroId].name}</h3>
+        <p class="search-feedback">${data.message || "External hero API is not configured yet."}</p>
+      `;
+      return;
+    }
+    elements.externalHeroCard.innerHTML = `
+      <p class="eyebrow">External source</p>
+      <h3>${heroes[heroId].name}</h3>
+      <p class="search-feedback">Connected to ${data.source}. This payload is available for future enrichment, comparisons, or stat overlays.</p>
+      <pre class="api-preview">${JSON.stringify(data.payload, null, 2).slice(0, 800)}</pre>
+    `;
+  } catch (error) {
+    elements.externalHeroCard.innerHTML = '<p class="search-feedback">External superhero API request failed.</p>';
+  }
+}
+
+function initThemeToggle() {
+  if (!elements.themeToggle) {
+    return;
+  }
+  elements.themeToggle.addEventListener("click", toggleTheme);
 }
 
 function init() {
   initRevealObserver();
   initParallax();
   initCursor();
+  initThemeToggle();
   buildPicker();
+  initSearchControls();
   renderPickerState();
   renderHeroExperience();
-  prepareBattle();
-  initBattleEvents();
-  resetQuiz();
-  buildTriviaDeck();
-  renderTrivia();
-  renderVoteBoard();
-  fetchVotes();
+  if (elements.battleOpponent) {
+    prepareBattle();
+    initBattleEvents();
+  }
+  if (elements.quizCard) {
+    resetQuiz();
+  }
+  if (elements.triviaCard) {
+    buildTriviaDeck();
+    renderTrivia();
+  }
+  if (elements.voteButtons) {
+    renderVoteBoard();
+    fetchVotes();
+  }
 }
 
 init();

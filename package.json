@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "jest --runInBand"
   },
   "dependencies": {
-    "express": "^5.2.1"
+    "dotenv": "^17.2.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.1.0"
   },
   "devDependencies": {
     "jest": "^30.4.2",
