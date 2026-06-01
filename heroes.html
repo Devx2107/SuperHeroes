@@ -3,19 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< ours
   <title>Hero Hub | Cinematic Superhero Experience</title>
+=======
+  <title>Hero Hub | Roster</title>
+>>>>>>> theirs
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
+<<<<<<< ours
 <body>
+=======
+<body data-page="roster">
+>>>>>>> theirs
   <div class="page-noise" aria-hidden="true"></div>
   <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
   <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
   <header class="topbar">
+<<<<<<< ours
     <a class="brand" href="#intro">Hero Hub</a>
     <nav class="topnav" aria-label="Primary">
       <a href="#picker">Roster</a>
@@ -23,10 +32,20 @@
       <a href="#quiz">Quiz</a>
       <a href="#trivia">Trivia</a>
       <a href="#votes">Votes</a>
+=======
+    <a class="brand" href="heroes.html">Hero Hub</a>
+    <nav class="topnav" aria-label="Primary">
+      <a class="nav-link active" href="heroes.html">Roster</a>
+      <a class="nav-link" href="battle.html">Battle</a>
+      <a class="nav-link" href="quiz.html">Quiz</a>
+      <a class="nav-link" href="trivia.html">Trivia</a>
+      <a class="nav-link" href="votes.html">Votes</a>
+>>>>>>> theirs
     </nav>
   </header>
 
   <main>
+<<<<<<< ours
     <section class="intro section" id="intro">
       <div class="intro-backdrop">
         <div class="intro-ray intro-ray-a"></div>
@@ -56,13 +75,24 @@
       <div class="scroll-cue" aria-hidden="true">
         <span></span>
         <small>Scroll</small>
+=======
+    <section class="feature-hero section">
+      <div class="feature-shell reveal">
+        <p class="eyebrow">Roster Page</p>
+        <h1>Pick the hero. Shape the whole dossier.</h1>
+        <p class="lede">This page is now only about the roster experience: selection, spotlight, power bars, villains, timeline, and team-up chemistry.</p>
+>>>>>>> theirs
       </div>
     </section>
 
     <section class="section picker-section" id="picker">
       <div class="section-heading reveal">
         <p class="eyebrow">Feature Picker</p>
+<<<<<<< ours
         <h2>Build the page around one hero at a time</h2>
+=======
+        <h2>Choose a hero and rebuild the dossier</h2>
+>>>>>>> theirs
       </div>
       <div class="picker-grid">
         <div class="picker-panel reveal reveal-delay-1">
@@ -85,6 +115,7 @@
       </div>
     </section>
 
+<<<<<<< ours
     <section class="section comic-strip reveal" aria-label="Comic panel highlight">
       <div class="panel panel-a parallax-panel" data-speed="0.08">
         <p class="panel-kicker">Animated power bars</p>
@@ -100,6 +131,8 @@
       </div>
     </section>
 
+=======
+>>>>>>> theirs
     <section class="section stats-section">
       <div class="section-heading reveal">
         <p class="eyebrow">Power Bars</p>
@@ -125,7 +158,11 @@
     <section class="section timeline-section">
       <div class="section-heading reveal">
         <p class="eyebrow">Movie Timeline</p>
+<<<<<<< ours
         <h2>Franchise milestones and canon moments</h2>
+=======
+        <h2>Milestones for the active hero</h2>
+>>>>>>> theirs
       </div>
       <div class="timeline-rail" id="timelineRail"></div>
     </section>
@@ -137,6 +174,7 @@
       </div>
       <div class="teamup-card reveal" id="teamupCard"></div>
     </section>
+<<<<<<< ours
 
     <section class="section interactivity-section">
       <div class="section-heading reveal">
@@ -211,11 +249,17 @@
         </article>
       </div>
     </section>
+=======
+>>>>>>> theirs
   </main>
 
   <footer class="site-footer">
     <p>Hero Hub</p>
+<<<<<<< ours
     <small>Built as a cinematic single-page front end with a lightweight Express vote API.</small>
+=======
+    <small>Use the header to jump to a dedicated page for each feature.</small>
+>>>>>>> theirs
   </footer>
 
   <script defer src="app.js"></script>

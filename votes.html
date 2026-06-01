@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero Hub | Votes</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="votes">
+  <div class="page-noise" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="heroes.html">Hero Hub</a>
+    <nav class="topnav" aria-label="Primary">
+      <a class="nav-link" href="heroes.html">Roster</a>
+      <a class="nav-link" href="battle.html">Battle</a>
+      <a class="nav-link" href="quiz.html">Quiz</a>
+      <a class="nav-link" href="trivia.html">Trivia</a>
+      <a class="nav-link active" href="votes.html">Votes</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="feature-hero section">
+      <div class="feature-shell reveal">
+        <p class="eyebrow">Votes Page</p>
+        <h1>The fan vote board now lives on its own page.</h1>
+        <p class="lede">This page is dedicated to voting and leaderboard totals only, backed by the shared server API.</p>
+      </div>
+    </section>
+
+    <section class="section single-feature-section">
+      <div class="vote-layout">
+        <article class="vote-card reveal reveal-delay-1">
+          <p class="eyebrow">Cast Your Vote</p>
+          <div class="vote-buttons" id="voteButtons"></div>
+          <p class="vote-message" id="voteMessage">Loading shared totals...</p>
+        </article>
+        <article class="leaderboard-card reveal reveal-delay-2">
+          <div class="leaderboard-head">
+            <p class="eyebrow">Live Rankings</p>
+            <p id="voteTotal"></p>
+          </div>
+          <div id="voteBoard" class="vote-board"></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Hero Hub</p>
+    <small>The header links now open standalone feature pages.</small>
+  </footer>
+
+  <script defer src="app.js"></script>
+</body>
+</html>

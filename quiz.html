@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero Hub | Quiz</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="quiz">
+  <div class="page-noise" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="heroes.html">Hero Hub</a>
+    <nav class="topnav" aria-label="Primary">
+      <a class="nav-link" href="heroes.html">Roster</a>
+      <a class="nav-link" href="battle.html">Battle</a>
+      <a class="nav-link active" href="quiz.html">Quiz</a>
+      <a class="nav-link" href="trivia.html">Trivia</a>
+      <a class="nav-link" href="votes.html">Votes</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="feature-hero section">
+      <div class="feature-shell reveal">
+        <p class="eyebrow">Quiz Page</p>
+        <h1>Which hero are you, without the rest of the site in the way?</h1>
+        <p class="lede">This page is focused only on the personality alignment quiz, with the current hero theme still carried over visually.</p>
+      </div>
+    </section>
+
+    <section class="section compact-picker-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Current Hero Theme</p>
+        <h2>Change the page mood without leaving the quiz</h2>
+      </div>
+      <div class="compact-picker reveal" id="heroPicker"></div>
+      <p class="picker-note reveal" id="pickerNote"></p>
+    </section>
+
+    <section class="section single-feature-section">
+      <article class="module-card reveal" id="quiz">
+        <div class="module-head">
+          <p class="eyebrow" id="spotlightUniverse"></p>
+          <h3 id="spotlightName">Personality alignment quiz</h3>
+        </div>
+        <p class="spotlight-tag" id="spotlightTag"></p>
+        <div id="quizCard" class="quiz-card"></div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Hero Hub</p>
+    <small>The header links now open standalone feature pages.</small>
+  </footer>
+
+  <script defer src="app.js"></script>
+</body>
+</html>
