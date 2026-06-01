@@ -159,6 +159,83 @@ body[data-theme="light"] .topbar {
   color: var(--muted);
 }
 
+.roster-subheader {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 4vw;
+  background: rgba(4, 8, 18, 0.9);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+  transform: translateY(-10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 9;
+}
+
+.roster-subheader.visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.universe-dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  padding: 0.8rem 1.2rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+  background: var(--panel-strong);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  z-index: 10;
+}
+
+.universe-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  color: var(--text);
+}
+
+.dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .topnav a:hover {
   color: var(--text);
 }
@@ -443,6 +520,7 @@ body[data-theme="light"] .topbar {
   font-size: clamp(3rem, 8vw, 6rem);
   line-height: 0.92;
   letter-spacing: 0.04em;
+  color: var(--primary);
 }
 
 .compact-picker-section {
@@ -563,6 +641,7 @@ body[data-theme="light"] .topbar {
 .intro h1 {
   font-size: clamp(4.2rem, 12vw, 8rem);
   max-width: 8ch;
+  color: var(--primary);
 }
 
 .lede,
@@ -646,6 +725,7 @@ body[data-theme="light"] .topbar {
 
 .section-heading h2 {
   font-size: clamp(2.2rem, 6vw, 4rem);
+  color: var(--primary);
 }
 
 .picker-grid,
@@ -809,11 +889,17 @@ body[data-theme="light"] .topbar {
   transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
 }
 
-.hero-picker-btn:hover,
+.hero-picker-btn:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--primary) 50%, white 8%);
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .hero-picker-btn[aria-selected="true"] {
   transform: translateY(-3px);
   border-color: color-mix(in srgb, var(--primary) 50%, white 8%);
   background: rgba(255, 255, 255, 0.08);
+  color: var(--primary);
 }
 
 .hero-picker-btn strong {
