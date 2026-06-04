@@ -17,16 +17,13 @@ function createApp({ env }) {
   const app = express();
   const voteStore = createVoteStore({
     voteFile: env.voteFile,
+    voteLockFile: env.voteLockFile || path.join(env.dataDir, 'vote-locks.json'),
     voteHeroIds: voteRoster
   });
   const heroService = createHeroService();
   const externalHeroService = createExternalHeroService({ env });
   const globalRateLimit = createGlobalRateLimit(env);
   const voteRateLimit = createVoteRateLimit(env);
-
-  voteStore.ensureVoteStore().catch((error) => {
-    console.error('Failed to initialize vote store', error);
-  });
 
   app.disable('x-powered-by');
   app.use(express.json());

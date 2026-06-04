@@ -22,9 +22,14 @@ function createVotesRouter({ voteStore, voteHeroIds, voteRateLimit }) {
     }
 
     try {
-      const board = await voteStore.incrementVote(heroId);
+      const voterId = request.ip || request.headers['x-forwarded-for'] || 'unknown';
+      const board = await voteStore.incrementVote(heroId, voterId);
       response.json(board);
     } catch (error) {
+      if (error.code === 'DUPLICATE_VOTE') {
+        response.status(409).json({ error: 'You have already voted from this browser or IP.' });
+        return;
+      }
       next(error);
     }
   });

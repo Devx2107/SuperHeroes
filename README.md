@@ -1,6 +1,6 @@
 # SuperHeroes
 
-Hero Hub is a cinematic multi-page superhero experience with roster browsing, battle simulation, villain cards, timelines, quiz, trivia, search, and a shared fan vote board.
+Legendrium is a cinematic multi-page superhero experience with roster browsing, battle simulation, villain cards, timelines, quiz, trivia, search, and a shared fan vote board.
 
 ## Features
 

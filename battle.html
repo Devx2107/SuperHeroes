@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hero Hub | Battle</title>
+  <title>Legendrium | Battle</title>
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,7 @@
   <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
   <header class="topbar">
-    <a class="brand" href="heroes.html">Hero Hub</a>
+    <a class="brand" href="heroes.html">Legendrium</a>
     <nav class="topnav site-nav" id="siteNav" aria-label="Primary"></nav>
   </header>
 
@@ -42,15 +42,15 @@
       <article class="module-card reveal" id="battle">
         <div class="module-head">
           <p class="eyebrow">Arena</p>
-          <h3>Turn-based showdown</h3>
+          <h3>Hero comparison showdown</h3>
         </div>
-        <p class="spotlight-tag" id="spotlightTag"></p>
+        <p class="battle-status" id="battleStatus">Choose two heroes to compare.</p>
         <div class="battle-controls">
           <label for="battleOpponent">Opponent</label>
           <select id="battleOpponent"></select>
-          <button class="button button-secondary" id="battleStart" type="button">Start Match</button>
+          <button class="button button-secondary" id="battleStart" type="button">Compare Heroes</button>
         </div>
-        <div class="battle-status" id="battleStatus">Choose an opponent to initialize the arena.</div>
+        <div class="battle-result" id="battleResult"></div>
         <div class="battle-arena">
           <div class="fighter-panel">
             <div class="fighter-photo-frame">
@@ -68,17 +68,17 @@
           </div>
         </div>
         <div class="battle-actions">
-          <button class="button button-primary" id="actionAttack" type="button">Attack</button>
-          <button class="button button-primary" id="actionSpecial" type="button">Special</button>
-          <button class="button button-primary" id="actionGuard" type="button">Guard</button>
+          <button class="button button-primary" id="actionAttack" type="button">Compare</button>
+          <button class="button button-primary" id="actionSpecial" type="button">Random Opponent</button>
+          <button class="button button-primary" id="actionGuard" type="button">Reset</button>
         </div>
-        <ol class="battle-log" id="battleLog"></ol>
+        <div class="battle-log" id="battleLog"></div>
       </article>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>Hero Hub</p>
+    <p>Legendrium</p>
     <small>The header links now open standalone feature pages.</small>
   </footer>
 

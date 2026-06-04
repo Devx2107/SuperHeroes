@@ -7,17 +7,18 @@ const { createApp } = require('../src/create-app');
 const { getEnv } = require('../src/config/env');
 const request = require('supertest');
 
-describe('Hero Hub API', () => {
+describe('Legendrium API', () => {
   let tempDir;
   let app;
 
   beforeEach(async () => {
-    tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'hero-hub-'));
+    tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'legendrium-'));
     const env = {
       ...getEnv(),
       nodeEnv: 'test',
       dataDir: tempDir,
       voteFile: path.join(tempDir, 'votes.json'),
+      voteLockFile: path.join(tempDir, 'vote-locks.json'),
       publicDir: process.cwd(),
       rateLimitMax: 1000,
       voteRateLimitMax: 1000
@@ -52,6 +53,14 @@ describe('Hero Hub API', () => {
     const getResponse = await request(app).get('/api/votes');
     const thorEntry = getResponse.body.board.find((entry) => entry.id === 'thor');
     expect(thorEntry.votes).toBe(1);
+  });
+
+  test('POST /api/votes blocks duplicate submissions from the same client', async () => {
+    const firstResponse = await request(app).post('/api/votes').send({ heroId: 'thor' });
+    expect(firstResponse.status).toBe(200);
+
+    const duplicateResponse = await request(app).post('/api/votes').send({ heroId: 'ironman' });
+    expect(duplicateResponse.status).toBe(409);
   });
 
   test('POST /api/votes rejects unsupported ids', async () => {

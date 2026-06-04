@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hero Hub | Trivia</title>
+  <title>Legendrium | Trivia</title>
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +16,7 @@
   <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
   <header class="topbar">
-    <a class="brand" href="heroes.html">Hero Hub</a>
+    <a class="brand" href="heroes.html">Legendrium</a>
     <nav class="topnav site-nav" id="siteNav" aria-label="Primary"></nav>
   </header>
 
@@ -49,10 +49,12 @@
             <div class="metric-pill"><span>Score</span><strong id="triviaScore">0</strong></div>
             <div class="metric-pill"><span>Streak</span><strong id="triviaStreak">0</strong></div>
             <div class="metric-pill"><span>Timer</span><strong id="triviaTimer">0s</strong></div>
+            <div class="metric-pill"><span>Accuracy</span><strong id="triviaAccuracy">0%</strong></div>
           </div>
         </div>
         <div class="trivia-controls">
           <div class="difficulty-row" id="triviaDifficultyButtons"></div>
+          <div class="trivia-stage" id="triviaStage">Question 1 of 51</div>
           <p class="difficulty-label" id="triviaDifficulty">MEDIUM</p>
         </div>
         <div class="progress-line" id="triviaProgress"><span></span></div>
@@ -62,7 +64,7 @@
   </main>
 
   <footer class="site-footer">
-    <p>Hero Hub</p>
+    <p>Legendrium</p>
     <small>The header links now open standalone feature pages.</small>
   </footer>
 

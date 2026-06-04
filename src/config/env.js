@@ -16,6 +16,7 @@ function getEnv() {
     nodeEnv: process.env.NODE_ENV || 'development',
     dataDir: process.env.DATA_DIR || path.join(process.cwd(), 'data'),
     voteFile: process.env.VOTE_FILE || path.join(process.env.DATA_DIR || path.join(process.cwd(), 'data'), 'votes.json'),
+    voteLockFile: process.env.VOTE_LOCK_FILE || path.join(process.env.DATA_DIR || path.join(process.cwd(), 'data'), 'vote-locks.json'),
     publicDir: process.env.PUBLIC_DIR || process.cwd(),
     superheroApiBaseUrl: process.env.SUPERHERO_API_BASE_URL || '',
     superheroApiToken: process.env.SUPERHERO_API_TOKEN || '',

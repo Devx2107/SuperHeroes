@@ -1389,12 +1389,111 @@ select {
 }
 
 .battle-log {
+  display: grid;
+  gap: 0.5rem;
   max-height: 240px;
   overflow: auto;
   margin: 1rem 0 0;
-  padding-left: 1.2rem;
+  padding: 0;
   color: var(--muted);
   line-height: 1.6;
+}
+
+.battle-log p {
+  margin: 0;
+}
+
+.battle-result {
+  margin: 1rem 0;
+}
+
+.battle-result-card {
+  display: grid;
+  gap: 1rem;
+  padding: 1.4rem;
+  border-radius: 26px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03)),
+    var(--panel-strong);
+  box-shadow: var(--shadow);
+}
+
+.battle-result-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+
+.battle-result-card h3 {
+  margin: 0;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  letter-spacing: 0.06em;
+}
+
+.battle-reason {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.battle-scoreline {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.battle-scoreline div {
+  padding: 0.9rem 1rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.battle-scoreline span {
+  display: block;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+}
+
+.battle-scoreline strong {
+  display: block;
+  margin-top: 0.3rem;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2rem;
+}
+
+.battle-comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.battle-compare-panel {
+  padding: 1rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.winner-panel {
+  border-color: color-mix(in srgb, var(--primary) 55%, white 10%);
+}
+
+.comparison-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.45rem 0;
+  color: var(--muted);
+}
+
+.comparison-row strong {
+  color: var(--text);
 }
 
 .module-card,
@@ -1695,6 +1794,12 @@ select {
   color: var(--text);
 }
 
+.vote-choice.selected,
+.vote-choice:disabled {
+  opacity: 0.9;
+  border-color: color-mix(in srgb, var(--primary) 55%, white 8%);
+}
+
 .vote-choice-name {
   font-family: "Bebas Neue", sans-serif;
   letter-spacing: 0.05em;
@@ -1720,6 +1825,11 @@ select {
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.leader-row.winner {
+  border-color: color-mix(in srgb, var(--accent) 60%, white 10%);
+  background: rgba(255, 255, 255, 0.07);
 }
 
 .leader-row-head {

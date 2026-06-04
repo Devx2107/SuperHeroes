@@ -50,6 +50,7 @@ const heroData = {
       { year: "2011", title: "The New 52", text: "The Court of Owls era pushes Batman deeper into conspiracy and urban myth." }
     ],
     teamup: { partner: "Superman", synergy: 92, title: "World's Finest", text: "Strategy meets hope. Batman gives the plan, Superman gives the lift, and the world gets a team that can handle anything from a street-level crisis to a cosmic invasion." },
+    comparison: { strength: 78, speed: 72, intelligence: 98, durability: 80, combat: 100, power: 18 },
     battle: { hp: 100, attack: 17, special: 27, moves: { attack: "disappears into shadow and strikes", special: "deploys a tactical gauntlet combo", guard: "raises an armored cape shield" } },
     quizAffinity: { leader: 4, scholar: 4, rebel: 2, heart: 1, speedster: 0, mystic: 0, feral: 1 },
     lore: {
@@ -127,6 +128,7 @@ const heroData = {
       { year: "2003", title: "All-Star voice", text: "All-Star Superman turns the character into a perfect statement on hope and legacy." }
     ],
     teamup: { partner: "Batman", synergy: 95, title: "World's Finest", text: "Batman supplies the contingency plan. Superman supplies the impossible lift. Together they balance inspiration with realism." },
+    comparison: { strength: 100, speed: 96, intelligence: 88, durability: 100, combat: 85, power: 100 },
     battle: { hp: 150, attack: 22, special: 36, moves: { attack: "delivers a thunderous blitz", special: "fires heat vision at full power", guard: "anchors the battlefield with calm force" } },
     quizAffinity: { leader: 4, scholar: 1, rebel: 0, heart: 5, speedster: 0, mystic: 0, feral: 0 },
     lore: {
@@ -203,6 +205,7 @@ const heroData = {
       { year: "2019", title: "Endgame", text: "Tony closes the Infinity Saga with a sacrifice that redefines the character's legacy." }
     ],
     teamup: { partner: "Spider-Man", synergy: 94, title: "Mentor and student", text: "Tony gives Peter resources, standards, and occasional sarcasm. Peter gives Tony the reminder that heroism still needs wonder." },
+    comparison: { strength: 85, speed: 82, intelligence: 100, durability: 88, combat: 84, power: 86 },
     battle: { hp: 118, attack: 20, special: 33, moves: { attack: "fires a repulsor barrage", special: "launches a nanotech overdrive", guard: "locks in a kinetic shield" } },
     quizAffinity: { leader: 4, scholar: 5, rebel: 2, heart: 1, speedster: 0, mystic: 0, feral: 0 },
     lore: {
@@ -279,6 +282,7 @@ const heroData = {
       { year: "2023", title: "Across the Spider-Verse", text: "Miles and Peter continue pushing the idea that responsibility can evolve across generations." }
     ],
     teamup: { partner: "Iron Man", synergy: 90, title: "Mentor and student", text: "Tony gives Peter a framework and advanced tech. Peter gives Tony the kind of hopeful energy he often forgets to protect." },
+    comparison: { strength: 75, speed: 98, intelligence: 85, durability: 78, combat: 89, power: 74 },
     battle: { hp: 92, attack: 14, special: 24, moves: { attack: "throws a web-and-kick combo", special: "unleashes a spider-sense counterburst", guard: "dodges into a webbed evasive stance" } },
     quizAffinity: { leader: 1, scholar: 3, rebel: 2, heart: 5, speedster: 3, mystic: 0, feral: 0 },
     lore: {
@@ -355,6 +359,7 @@ const heroData = {
       { year: "2017", title: "Cinematic breakthrough", text: "Wonder Woman becomes a global blockbuster and a major superhero milestone." }
     ],
     teamup: { partner: "Batman", synergy: 88, title: "Justice League founders", text: "Batman brings strategy, Diana brings moral clarity. Their contrast makes them natural allies when the stakes turn global." },
+    comparison: { strength: 98, speed: 86, intelligence: 84, durability: 92, combat: 98, power: 94 },
     battle: { hp: 124, attack: 19, special: 31, moves: { attack: "cuts through with Amazonian precision", special: "binds foes with the Lasso of Truth", guard: "crosses the bracelets in a shining block" } },
     quizAffinity: { leader: 3, scholar: 1, rebel: 2, heart: 4, speedster: 0, mystic: 2, feral: 0 },
     lore: {
@@ -455,6 +460,132 @@ const quizQuestions = [
       { label: "Patience, honesty, and the space to breathe again", weights: { heart: 3 } },
       { label: "A strange angle nobody else thought to use", weights: { mystic: 2, scholar: 2 } }
     ]
+  },
+  {
+    prompt: "If your city had to survive one impossible night, what would you protect first?",
+    answers: [
+      { label: "The command center and the people steering the response", weights: { leader: 3, scholar: 1 } },
+      { label: "The rooftops, alleys, and evacuation routes", weights: { rebel: 2, speedster: 2 } },
+      { label: "The families still waiting for someone to show up", weights: { heart: 3 } },
+      { label: "The hidden truth behind whoever planned it", weights: { mystic: 2, scholar: 2 } }
+    ]
+  },
+  {
+    prompt: "What kind of technology feels most like your style?",
+    answers: [
+      { label: "Precision gear built for a flawless operation", weights: { leader: 2, scholar: 2 } },
+      { label: "A sleek upgrade that turns chaos into motion", weights: { speedster: 2, rebel: 2 } },
+      { label: "Something handcrafted and a little imperfect", weights: { heart: 2, rebel: 1 } },
+      { label: "A tool with a secret history and a bigger purpose", weights: { mystic: 2, scholar: 1 } }
+    ]
+  },
+  {
+    prompt: "Your toughest enemy exposes one weakness. How do you respond?",
+    answers: [
+      { label: "Study the pattern until it becomes useful", weights: { scholar: 3, leader: 1 } },
+      { label: "Turn the weakness into a daring surprise", weights: { rebel: 2, speedster: 1 } },
+      { label: "Accept it, then keep the promise anyway", weights: { heart: 3 } },
+      { label: "Fight harder until they realize you won't break", weights: { feral: 3 } }
+    ]
+  },
+  {
+    prompt: "Which kind of victory feels most satisfying?",
+    answers: [
+      { label: "Everyone survives and the plan worked", weights: { leader: 3 } },
+      { label: "The underdog gets a shot they were denied", weights: { heart: 2, rebel: 1 } },
+      { label: "The impossible machine finally runs", weights: { scholar: 3 } },
+      { label: "You outpaced the odds and never stopped moving", weights: { speedster: 3 } }
+    ]
+  },
+  {
+    prompt: "What do you trust most when everything gets weird?",
+    answers: [
+      { label: "The people who have stayed loyal through the worst of it", weights: { heart: 3 } },
+      { label: "The data, evidence, and a clean tactical read", weights: { scholar: 3 } },
+      { label: "Instinct, even when it looks reckless", weights: { rebel: 2, feral: 1 } },
+      { label: "The bigger moral line you refuse to cross", weights: { leader: 2, mystic: 1 } }
+    ]
+  },
+  {
+    prompt: "Which version of a legend do you respect most?",
+    answers: [
+      { label: "The one who keeps the city safe without asking for credit", weights: { leader: 2, heart: 1 } },
+      { label: "The one who changes the system from the inside", weights: { scholar: 2, rebel: 2 } },
+      { label: "The one who is as inspiring in person as in stories", weights: { heart: 3 } },
+      { label: "The one whose style is so sharp it becomes myth", weights: { speedster: 1, rebel: 2 } }
+    ]
+  },
+  {
+    prompt: "How do you recharge after a brutal mission?",
+    answers: [
+      { label: "Review the mission and sharpen the next plan", weights: { scholar: 3, leader: 1 } },
+      { label: "Disappear somewhere loud, fast, and alive", weights: { speedster: 3, rebel: 1 } },
+      { label: "Call the people who make the work feel worth it", weights: { heart: 3 } },
+      { label: "Train until the frustration becomes focus", weights: { feral: 2, leader: 1 } }
+    ]
+  },
+  {
+    prompt: "What does a real symbol need most?",
+    answers: [
+      { label: "Consistency", weights: { leader: 3 } },
+      { label: "Curiosity", weights: { scholar: 3 } },
+      { label: "Compassion", weights: { heart: 3 } },
+      { label: "Momentum", weights: { speedster: 3 } }
+    ]
+  },
+  {
+    prompt: "If someone challenged your identity, what would you lean on?",
+    answers: [
+      { label: "The values I keep showing up for", weights: { heart: 2, leader: 1 } },
+      { label: "The work I’ve already done", weights: { scholar: 3 } },
+      { label: "The courage to reinvent myself", weights: { rebel: 2, speedster: 1 } },
+      { label: "The fact that I can survive the answer", weights: { feral: 3 } }
+    ]
+  },
+  {
+    prompt: "Which sidekick trait would help you most?",
+    answers: [
+      { label: "Loyal and steady under pressure", weights: { leader: 2, heart: 2 } },
+      { label: "Smart enough to solve the second problem too", weights: { scholar: 3 } },
+      { label: "Quick enough to keep up with chaos", weights: { speedster: 3 } },
+      { label: "Brave enough to say the hard truth", weights: { rebel: 2, heart: 1 } }
+    ]
+  },
+  {
+    prompt: "What kind of legacy do you want?",
+    answers: [
+      { label: "A safer world for the next generation", weights: { heart: 3 } },
+      { label: "A smarter world that learns from its mistakes", weights: { scholar: 3 } },
+      { label: "A freer world that refuses to stay broken", weights: { rebel: 3 } },
+      { label: "A world that never stops moving toward hope", weights: { leader: 2, speedster: 1 } }
+    ]
+  },
+  {
+    prompt: "If the public only remembered one thing about you, what would you hope it was?",
+    answers: [
+      { label: "That I never stopped showing up", weights: { heart: 3 } },
+      { label: "That I solved problems nobody else could untangle", weights: { scholar: 3 } },
+      { label: "That I challenged a broken system and made it move", weights: { rebel: 3 } },
+      { label: "That I kept people together when everything fell apart", weights: { leader: 3 } }
+    ]
+  },
+  {
+    prompt: "Which kind of sacrifice feels most heroic to you?",
+    answers: [
+      { label: "Giving up recognition", weights: { heart: 2, leader: 1 } },
+      { label: "Giving up comfort to keep learning", weights: { scholar: 2, rebel: 1 } },
+      { label: "Giving up control so someone else can grow", weights: { leader: 2, heart: 1 } },
+      { label: "Giving up the easy path and taking the harder one", weights: { rebel: 2, feral: 1 } }
+    ]
+  },
+  {
+    prompt: "What kind of headline would make you smile the most?",
+    answers: [
+      { label: "City saved, no casualties", weights: { heart: 3 } },
+      { label: "Impossible strategy succeeds", weights: { scholar: 3 } },
+      { label: "Hero breaks the rules to do the right thing", weights: { rebel: 3 } },
+      { label: "Fastest response in the city’s history", weights: { speedster: 3 } }
+    ]
   }
 ];
 
@@ -483,6 +614,78 @@ const triviaDecks = {
       choices: ["Adamantium", "Vibranium", "Nth metal", "Titanium"],
       answer: 1,
       explanation: "Vibranium is the signature resource that powers Wakanda's advanced engineering."
+    },
+    {
+      question: "Which hero first appeared in Detective Comics #27?",
+      choices: ["Batman", "Superman", "Spider-Man", "Iron Man"],
+      answer: 0,
+      explanation: "Batman debuted in Detective Comics #27 in 1939."
+    },
+    {
+      question: "What city is Spider-Man most closely tied to?",
+      choices: ["New York City", "Chicago", "Gotham", "Metropolis"],
+      answer: 0,
+      explanation: "Spider-Man is defined by New York City."
+    },
+    {
+      question: "Which hero carries the Lasso of Truth?",
+      choices: ["Wonder Woman", "Captain Marvel", "Black Widow", "Storm"],
+      answer: 0,
+      explanation: "The Lasso of Truth belongs to Wonder Woman."
+    },
+    {
+      question: "What is Tony Stark's superhero identity?",
+      choices: ["Iron Man", "War Machine", "Falcon", "Hawkeye"],
+      answer: 0,
+      explanation: "Tony Stark is Iron Man."
+    },
+    {
+      question: "Which city is Batman's home base?",
+      choices: ["Gotham", "Metropolis", "Central City", "Atlantis"],
+      answer: 0,
+      explanation: "Batman protects Gotham City."
+    },
+    {
+      question: "Which hero is the Last Son of Krypton?",
+      choices: ["Superman", "Thor", "Cyclops", "Aquaman"],
+      answer: 0,
+      explanation: "Superman is the famous Kryptonian hero."
+    },
+    {
+      question: "What item is most closely linked with Wonder Woman's honesty powers?",
+      choices: ["The Lasso of Truth", "A magic ring", "A vibranium shield", "A speed belt"],
+      answer: 0,
+      explanation: "Wonder Woman's Lasso of Truth compels honesty."
+    },
+    {
+      question: "Which Marvel hero uses web-shooters?",
+      choices: ["Spider-Man", "Wolverine", "Doctor Strange", "Thor"],
+      answer: 0,
+      explanation: "Spider-Man is famous for his web-shooters."
+    },
+    {
+      question: "Who is known as the World's Greatest Detective?",
+      choices: ["Batman", "Superman", "The Flash", "Green Lantern"],
+      answer: 0,
+      explanation: "Batman is widely known as the World's Greatest Detective."
+    },
+    {
+      question: "Which hero's symbol stands for hope?",
+      choices: ["Superman", "Venom", "Joker", "Ultron"],
+      answer: 0,
+      explanation: "Superman's emblem is one of the most enduring symbols of hope in comics."
+    },
+    {
+      question: "Which city is Superman most associated with?",
+      choices: ["Metropolis", "Gotham", "Star City", "Krypton"],
+      answer: 0,
+      explanation: "Metropolis is Superman's primary city."
+    },
+    {
+      question: "What is the name of Wonder Woman's homeland?",
+      choices: ["Themyscira", "Asgard", "Latveria", "Genosha"],
+      answer: 0,
+      explanation: "Wonder Woman comes from Themyscira."
     }
   ],
   medium: [
@@ -509,6 +712,84 @@ const triviaDecks = {
       choices: ["Civil War", "Infinity Gauntlet", "Secret Invasion", "House of M"],
       answer: 0,
       explanation: "Civil War is the defining event for Tony's public ethical crisis."
+    },
+    {
+      question: "Which Batman story is known for breaking him physically and symbolically?",
+      choices: ["Knightfall", "Hush", "Year Two", "Black Mirror"],
+      answer: 0,
+      explanation: "Knightfall is the story where Bane breaks Batman's body and the myth is tested."
+    },
+    {
+      question: "Which Superman story is often praised for distilling the character into hope and sacrifice?",
+      choices: ["All-Star Superman", "The Killing Joke", "Infinite Crisis", "Secret Wars"],
+      answer: 0,
+      explanation: "All-Star Superman is a landmark meditation on hope and legacy."
+    },
+    {
+      question: "What lesson defines Spider-Man more than any other?",
+      choices: ["Great power means responsibility", "Power without limits", "Fear is the only truth", "Victory at any cost"],
+      answer: 0,
+      explanation: "Spider-Man's defining lesson is that great power requires responsibility."
+    },
+    {
+      question: "Which city is central to The Court of Owls in Batman lore?",
+      choices: ["Gotham", "Metropolis", "Central City", "Atlantis"],
+      answer: 0,
+      explanation: "The Court of Owls is a Gotham-centric conspiracy."
+    },
+    {
+      question: "What best describes Iron Man's combat edge?",
+      choices: ["Biological mutation", "Powered armor and rapid iteration", "Mystic training", "Speed Force manipulation"],
+      answer: 1,
+      explanation: "Iron Man's edge is powered armor plus constant design improvement."
+    },
+    {
+      question: "Which Wonder Woman story is a famous mediation between sacred duty and mortal conflict?",
+      choices: ["The Hiketeia", "No Man's Land", "Armor Wars", "Spider-Verse"],
+      answer: 0,
+      explanation: "The Hiketeia is one of Wonder Woman's most praised mythic stories."
+    },
+    {
+      question: "Who is most likely to serve as Superman's emotional anchor in Metropolis?",
+      choices: ["Lois Lane", "The Joker", "Bane", "Riddler"],
+      answer: 0,
+      explanation: "Lois Lane is a core emotional and narrative anchor for Superman."
+    },
+    {
+      question: "Which Marvel hero's origin is tied to an accident that heightened his senses rather than giving him flight or armor?",
+      choices: ["Daredevil", "Iron Man", "Thor", "Captain America"],
+      answer: 0,
+      explanation: "Daredevil's accident leads to his heightened senses."
+    },
+    {
+      question: "What is the most accurate description of Ultron as an Iron Man adversary?",
+      choices: ["A magic clone", "A mirror of Tony's logic without his conscience", "A Kryptonian warlord", "A mutant assassin"],
+      answer: 1,
+      explanation: "Ultron is Stark-like intelligence stripped of empathy."
+    },
+    {
+      question: "Which superhero team is Wonder Woman a founding member of in DC continuity?",
+      choices: ["Justice League", "Avengers", "X-Men", "Guardians of the Galaxy"],
+      answer: 0,
+      explanation: "Wonder Woman is a foundational Justice League member."
+    },
+    {
+      question: "What is the defining dramatic tension of Batman stories?",
+      choices: ["Whether speed beats time", "Whether trauma can become justice without becoming cruelty", "Whether magic can be outlawed", "Whether aliens can vote"],
+      answer: 1,
+      explanation: "Batman stories constantly test whether discipline can turn trauma into justice."
+    },
+    {
+      question: "Which Marvel event pushed Iron Man into the center of a public superhero conflict over accountability?",
+      choices: ["Civil War", "Flashpoint", "Blackest Night", "Zero Hour"],
+      answer: 0,
+      explanation: "Civil War is the key event for Tony's ethics under public scrutiny."
+    },
+    {
+      question: "What is the best description of Batman's greatest advantage in a fight against stronger opponents?",
+      choices: ["Luck", "Preparation and analysis", "Alien blood", "Infinite stamina"],
+      answer: 1,
+      explanation: "Batman wins many impossible fights by planning better than everyone else."
     }
   ],
   hard: [
@@ -535,6 +816,84 @@ const triviaDecks = {
       choices: ["The Court of Owls", "No Man's Land", "Zero Year", "Black Mirror"],
       answer: 0,
       explanation: "The Court of Owls arc reframes Gotham as a city with a secret ruling class."
+    },
+    {
+      question: "What makes Brainiac such a strong Superman rival conceptually?",
+      choices: ["He is faster than Superman", "He embodies cold collection without empathy", "He was raised by the Kents", "He commands the Bat-Family"],
+      answer: 1,
+      explanation: "Brainiac turns intelligence into a machine for control and extraction."
+    },
+    {
+      question: "Which Spider-Man storyline expands his myth into a multiversal legacy?",
+      choices: ["Spider-Verse", "Armor Wars", "Knightfall", "Infinite Crisis"],
+      answer: 0,
+      explanation: "Spider-Verse turns Spider-Man into a legacy across realities."
+    },
+    {
+      question: "Which Wonder Woman story is often praised for mythic and moral tension between gods and mortals?",
+      choices: ["The Hiketeia", "Demon in a Bottle", "Crisis on Infinite Earths", "Age of Ultron"],
+      answer: 0,
+      explanation: "The Hiketeia is a standout Wonder Woman story about duty and sacred obligation."
+    },
+    {
+      question: "Why is Ultron such a powerful Iron Man adversary conceptually?",
+      choices: ["He is Tony's clone", "He is Tony's technology without Tony's conscience", "He created the arc reactor", "He is from Krypton"],
+      answer: 1,
+      explanation: "Ultron is Stark-like intelligence stripped of ethics and empathy."
+    },
+    {
+      question: "Which Batman storyline is especially famous for Gotham being effectively cut off and left to fend for itself?",
+      choices: ["No Man's Land", "Hush", "Year One", "Dark Nights: Metal"],
+      answer: 0,
+      explanation: "No Man's Land turns Gotham into a fractured survival state."
+    },
+    {
+      question: "Which Marvel storyline is the classic Tony Stark character study about addiction and accountability?",
+      choices: ["Demon in a Bottle", "The Long Halloween", "Kingdom Come", "Blackest Night"],
+      answer: 0,
+      explanation: "Demon in a Bottle is the landmark Tony Stark character study."
+    },
+    {
+      question: "Which Superman event is most remembered for the cultural shock of losing his greatest symbol?",
+      choices: ["The Death of Superman", "Civil War", "Spider-Verse", "Flashpoint"],
+      answer: 0,
+      explanation: "The Death of Superman became a defining comics moment beyond the story itself."
+    },
+    {
+      question: "Which teamup best represents Batman and Superman's contrasting strengths?",
+      choices: ["World's Finest", "Secret Wars", "X-Force", "Legion of Doom"],
+      answer: 0,
+      explanation: "World's Finest is the classic Batman-Superman partnership."
+    },
+    {
+      question: "What is the most accurate reason Superman remains relatable despite near-limitless power?",
+      choices: ["He constantly loses every fight", "His restraint and compassion define the character", "He is secretly a human detective", "He never speaks to civilians"],
+      answer: 1,
+      explanation: "Superman remains relatable because his restraint matters as much as his power."
+    },
+    {
+      question: "Which Marvel hero is most closely associated with the phrase 'genius, billionaire, playboy, philanthropist'?",
+      choices: ["Tony Stark", "Peter Parker", "Bruce Banner", "Steve Rogers"],
+      answer: 0,
+      explanation: "That public persona belongs to Tony Stark."
+    },
+    {
+      question: "Which DC concept frames Wonder Woman as a mediator between mythic authority and modern ethics?",
+      choices: ["Ambassadorial diplomacy", "Speed Force training", "Kryptonian inheritance", "Lantern oath"],
+      answer: 0,
+      explanation: "Wonder Woman often functions as a bridge between gods, mortals, and ideals."
+    },
+    {
+      question: "Which Batman era is most associated with the idea that Gotham hides older power structures than the hero can easily see?",
+      choices: ["The Court of Owls", "The Age of Apocalypse", "Infinity Crisis", "The Red Zone"],
+      answer: 0,
+      explanation: "The Court of Owls arc exposes Gotham's hidden aristocracy."
+    },
+    {
+      question: "Which character is most central to the emotional core of Superman's life on Earth?",
+      choices: ["Lois Lane", "Bane", "Whiplash", "Brainiac"],
+      answer: 0,
+      explanation: "Lois Lane is one of the key emotional anchors in Superman stories."
     }
   ]
 };
@@ -544,13 +903,15 @@ const appState = {
   selectedVersionIndex: 0,
   selectedUniverse: "all",
   loreExpanded: false,
-  quiz: { index: 0, traits: {}, complete: false, resultId: null, feedback: "" },
+  quiz: { index: 0, traits: {}, score: 0, complete: false, resultId: null, feedback: "" },
   trivia: {
     difficulty: "medium",
     deck: [],
     index: 0,
     score: 0,
     streak: 0,
+    answered: 0,
+    correct: 0,
     timerSeconds: 0,
     locked: false,
     complete: false,
@@ -566,11 +927,12 @@ const appState = {
     enemyGuarded: false,
     ended: false
   },
-  vote: { board: [], total: 0, message: "Loading shared totals..." }
+  vote: { board: [], total: 0, message: "Loading shared totals...", lockedHeroId: null }
 };
 
 const STORAGE_KEY = "legendrium-selection-v2";
 const UNIVERSE_KEY = "legendrium-universe-v2";
+const VOTE_LOCK_KEY = "legendrium-vote-lock-v1";
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const elements = {};
 let revealObserver = null;
@@ -615,13 +977,16 @@ function cacheElements() {
     "quizCard",
     "quizProgress",
     "quizStage",
+    "quizScore",
     "quizFeedback",
     "quizTraitBars",
     "triviaCard",
     "triviaScore",
     "triviaStreak",
     "triviaTimer",
+    "triviaAccuracy",
     "triviaProgress",
+    "triviaStage",
     "triviaDifficulty",
     "triviaDifficultyButtons",
     "voteButtons",
@@ -676,6 +1041,23 @@ function restoreSelection() {
   }
 }
 
+function restoreVoteLock() {
+  try {
+    const lockedHeroId = localStorage.getItem(VOTE_LOCK_KEY);
+    if (lockedHeroId) {
+      appState.vote.lockedHeroId = lockedHeroId;
+      appState.vote.message = `You already voted for ${heroData[lockedHeroId] ? heroData[lockedHeroId].name : "a hero"} on this browser.`;
+    }
+  } catch (_error) {
+    localStorage.removeItem(VOTE_LOCK_KEY);
+  }
+}
+
+function saveVoteLock(heroId) {
+  localStorage.setItem(VOTE_LOCK_KEY, heroId);
+  appState.vote.lockedHeroId = heroId;
+}
+
 function setHeroTheme(hero) {
   document.documentElement.style.setProperty("--primary", hero.colors.primary);
   document.documentElement.style.setProperty("--secondary", hero.colors.secondary);
@@ -705,10 +1087,10 @@ function buildSharedNav() {
       return `<a class="nav-link${active}" href="${link.href}">${link.label}</a>`;
     })
     .join("");
-  observeRevealNodes(elements.villainGrid);
 }
 
 function observeRevealNodes(scope = document) {
+  if (!scope || typeof scope.querySelectorAll !== "function") return;
   const nodes = scope.querySelectorAll ? scope.querySelectorAll(".reveal") : [];
   if (!nodes.length) return;
   if (!revealObserver) {
@@ -877,7 +1259,7 @@ function renderVillains(hero) {
       `
     )
     .join("");
-  observeRevealNodes(elements.timelineRail);
+  observeRevealNodes(elements.villainGrid);
 }
 
 function renderTimeline(hero) {
@@ -893,6 +1275,7 @@ function renderTimeline(hero) {
       `
     )
     .join("");
+  observeRevealNodes(elements.timelineRail);
 }
 
 function renderTeamUp(hero) {
@@ -917,6 +1300,9 @@ function updateHeroSelection(heroId, { fromRoster = false } = {}) {
   appState.selectedVersionIndex = 0;
   saveSelection();
   renderAppHeroExperience();
+  if (elements.battleOpponent) {
+    prepareBattle();
+  }
   if (fromRoster && elements.heroDossier) {
     smoothScrollToElement(elements.heroDossier);
   }
@@ -972,10 +1358,14 @@ function renderBattleHeroName() {
 
 function buildBattleOpponents() {
   if (!elements.battleOpponent) return;
-  elements.battleOpponent.innerHTML = heroOrder
-    .filter((id) => id !== appState.selectedHeroId)
+  const opponentIds = heroOrder.filter((id) => id !== appState.selectedHeroId);
+  elements.battleOpponent.innerHTML = opponentIds
     .map((id) => `<option value="${id}">${heroData[id].name}</option>`)
     .join("");
+  if (!opponentIds.length) return;
+  if (!opponentIds.includes(elements.battleOpponent.value)) {
+    elements.battleOpponent.value = opponentIds[0];
+  }
 }
 
 function prepareBattle() {
@@ -991,24 +1381,81 @@ function prepareBattle() {
     enemyHp: heroData[enemyId].battle.hp,
     heroGuarded: false,
     enemyGuarded: false,
-    ended: false
+    ended: false,
+    heroScore: 0,
+    enemyScore: 0,
+    winnerId: null,
+    reason: ""
   };
-  renderBattleState("Choose an opponent to initialize the arena.");
+  renderBattleComparison();
 }
 
-function logBattle(text) {
-  if (!elements.battleLog) return;
-  const item = document.createElement("li");
-  item.textContent = text;
-  elements.battleLog.prepend(item);
+function getBattleComparisonStats(hero) {
+  return hero.comparison || {
+    strength: 0,
+    speed: 0,
+    intelligence: 0,
+    durability: 0,
+    combat: 0,
+    power: 0
+  };
 }
 
-function renderBattleState(message) {
-  if (!elements.battleStatus) return;
-  const state = appState.battle;
-  const hero = heroData[state.heroId];
-  const enemy = heroData[state.enemyId];
-  elements.battleStatus.textContent = message;
+function getBattleReason(hero, enemy) {
+  const heroStats = getBattleComparisonStats(hero);
+  const enemyStats = getBattleComparisonStats(enemy);
+  const advantages = Object.keys(heroStats)
+    .map((stat) => ({
+      stat,
+      delta: heroStats[stat] - enemyStats[stat]
+    }))
+    .filter((entry) => entry.delta > 0)
+    .sort((left, right) => right.delta - left.delta);
+  if (!advantages.length) {
+    return `${hero.name} and ${enemy.name} are evenly matched, but ${hero.name} edges it on consistency.`;
+  }
+  const labels = advantages.slice(0, 2).map((entry) => entry.stat);
+  const formatted = labels
+    .map((label) => label.charAt(0).toUpperCase() + label.slice(1))
+    .join(" and ");
+  return `${hero.name} leads on ${formatted}.`;
+}
+
+function renderBattleComparison() {
+  if (!elements.battleStatus || !elements.battleResult || !elements.battleOpponent) return;
+  const heroId = appState.selectedHeroId;
+  const enemyId = elements.battleOpponent.value;
+  const hero = heroData[heroId];
+  const enemy = heroData[enemyId];
+  if (!hero || !enemy) {
+    elements.battleStatus.textContent = "Choose two valid heroes to compare.";
+    elements.battleResult.innerHTML = "";
+    return;
+  }
+  if (heroId === enemyId) {
+    elements.battleStatus.textContent = "Pick two different heroes to compare.";
+    elements.battleResult.innerHTML = "";
+    return;
+  }
+
+  const heroStats = getBattleComparisonStats(hero);
+  const enemyStats = getBattleComparisonStats(enemy);
+  const heroScore = Object.values(heroStats).reduce((sum, value) => sum + value, 0);
+  const enemyScore = Object.values(enemyStats).reduce((sum, value) => sum + value, 0);
+  const winner = heroScore >= enemyScore ? hero : enemy;
+  const loser = winner.id === hero.id ? enemy : hero;
+  const reason = getBattleReason(winner, loser);
+  appState.battle = {
+    ...appState.battle,
+    heroId,
+    enemyId,
+    heroScore,
+    enemyScore,
+    winnerId: winner.id,
+    reason
+  };
+
+  elements.battleStatus.textContent = `${hero.name} vs ${enemy.name}`;
   if (elements.battleHeroName) elements.battleHeroName.textContent = hero.name;
   if (elements.battleEnemyName) elements.battleEnemyName.textContent = enemy.name;
   if (elements.battleHeroImage) {
@@ -1020,24 +1467,60 @@ function renderBattleState(message) {
     elements.battleEnemyImage.alt = enemy.name;
   }
   if (elements.battleHeroHealth) {
-    elements.battleHeroHealth.style.width = `${Math.max(0, (state.heroHp / hero.battle.hp) * 100)}%`;
+    elements.battleHeroHealth.style.width = `${Math.max(10, (heroScore / Math.max(heroScore, enemyScore)) * 100)}%`;
   }
   if (elements.battleEnemyHealth) {
-    elements.battleEnemyHealth.style.width = `${Math.max(0, (state.enemyHp / enemy.battle.hp) * 100)}%`;
+    elements.battleEnemyHealth.style.width = `${Math.max(10, (enemyScore / Math.max(heroScore, enemyScore)) * 100)}%`;
   }
-  ["actionAttack", "actionSpecial", "actionGuard"].forEach((id) => {
-    const button = document.getElementById(id);
-    if (button) button.disabled = !state.active || state.ended;
-  });
-}
 
-function startBattle() {
-  const { heroId, enemyId } = appState.battle;
-  appState.battle.active = true;
-  appState.battle.ended = false;
-  if (elements.battleLog) elements.battleLog.innerHTML = "";
-  logBattle(`${heroData[heroId].name} enters the arena against ${heroData[enemyId].name}.`);
-  renderBattleState("Battle in progress.");
+  if (elements.battleResult) {
+    const heroWinnerClass = winner.id === hero.id ? " winner-panel" : "";
+    const enemyWinnerClass = winner.id === enemy.id ? " winner-panel" : "";
+    const heroRows = Object.entries(heroStats)
+      .map(([stat, value]) => `<div class="comparison-row"><span>${stat.toUpperCase()}</span><strong>${value}</strong></div>`)
+      .join("");
+    const enemyRows = Object.entries(enemyStats)
+      .map(([stat, value]) => `<div class="comparison-row"><span>${stat.toUpperCase()}</span><strong>${value}</strong></div>`)
+      .join("");
+    elements.battleResult.innerHTML = `
+      <article class="battle-result-card reveal visible">
+        <div class="battle-result-head">
+          <p class="eyebrow">Winner</p>
+          <span class="badge-pill">${winner.name}</span>
+        </div>
+        <h3>${winner.name}</h3>
+        <p class="battle-reason">${reason}</p>
+        <div class="battle-scoreline">
+          <div>
+            <span>${hero.name}</span>
+            <strong>${heroScore}</strong>
+          </div>
+          <div>
+            <span>${enemy.name}</span>
+            <strong>${enemyScore}</strong>
+          </div>
+        </div>
+        <div class="battle-comparison-grid">
+          <div class="battle-compare-panel${heroWinnerClass}">
+            <p class="eyebrow">${hero.name}</p>
+            ${heroRows}
+          </div>
+          <div class="battle-compare-panel${enemyWinnerClass}">
+            <p class="eyebrow">${enemy.name}</p>
+            ${enemyRows}
+          </div>
+        </div>
+      </article>
+    `;
+    observeRevealNodes(elements.battleResult);
+  }
+
+  if (elements.battleLog) {
+    elements.battleLog.innerHTML = `
+      <p>${winner.name} wins by overall battlefield score.</p>
+      <p>${reason}</p>
+    `;
+  }
 }
 
 function enemyTurn() {
@@ -1089,16 +1572,29 @@ function performHeroAction(type) {
 function initBattleEvents() {
   const startButton = document.getElementById("battleStart");
   if (startButton) {
-    startButton.addEventListener("click", startBattle);
+    startButton.addEventListener("click", renderBattleComparison);
   }
   ["Attack", "Special", "Guard"].forEach((type) => {
     const button = document.getElementById(`action${type}`);
     if (button) {
-      button.addEventListener("click", () => performHeroAction(type.toLowerCase()));
+      button.addEventListener("click", () => {
+        if (type === "Attack") {
+          renderBattleComparison();
+        } else if (type === "Special") {
+          if (!elements.battleOpponent) return;
+          const options = Array.from(elements.battleOpponent.options).map((option) => option.value);
+          if (!options.length) return;
+          const randomOpponent = options[Math.floor(Math.random() * options.length)];
+          elements.battleOpponent.value = randomOpponent;
+          renderBattleComparison();
+        } else {
+          prepareBattle();
+        }
+      });
     }
   });
   if (elements.battleOpponent) {
-    elements.battleOpponent.addEventListener("change", prepareBattle);
+    elements.battleOpponent.addEventListener("change", renderBattleComparison);
   }
 }
 
@@ -1141,6 +1637,9 @@ function renderQuizTraits() {
 
 function renderQuizStage() {
   if (!elements.quizCard) return;
+  if (elements.quizScore) {
+    elements.quizScore.textContent = String(appState.quiz.score);
+  }
   if (appState.quiz.complete) {
     const resultHero = heroData[appState.quiz.resultId];
     const runnerUp = heroOrder
@@ -1177,6 +1676,7 @@ function renderQuizStage() {
         <div class="result-hero-meta">
           <span class="badge-pill">${heroTag(resultHero)}</span>
           <span class="badge-pill">${runnerUp ? `Closest rival score ${runnerUp}` : "No close runner-up"}</span>
+          <span class="badge-pill">Scan score ${appState.quiz.score}</span>
         </div>
         <div class="result-stats">
           ${heroStats
@@ -1253,6 +1753,8 @@ function updateQuizFeedback() {
 }
 
 function scoreQuizAnswer(weights) {
+  const answerScore = Object.values(weights).reduce((total, value) => total + value, 0);
+  appState.quiz.score += answerScore;
   Object.entries(weights).forEach(([trait, value]) => {
     appState.quiz.traits[trait] = (appState.quiz.traits[trait] || 0) + value;
   });
@@ -1282,7 +1784,7 @@ function handleQuizAnswer(answerIndex) {
 }
 
 function resetQuiz() {
-  appState.quiz = { index: 0, traits: {}, complete: false, resultId: null, feedback: "" };
+  appState.quiz = { index: 0, traits: {}, score: 0, complete: false, resultId: null, feedback: "" };
   renderQuizTraits();
   renderQuizStage();
   updateQuizFeedback();
@@ -1294,6 +1796,8 @@ function buildTriviaDeck() {
   appState.trivia.index = 0;
   appState.trivia.score = 0;
   appState.trivia.streak = 0;
+  appState.trivia.answered = 0;
+  appState.trivia.correct = 0;
   appState.trivia.complete = false;
   appState.trivia.locked = false;
   appState.trivia.message = "The challenge is live.";
@@ -1306,9 +1810,16 @@ function renderTriviaHud() {
   if (elements.triviaStreak) elements.triviaStreak.textContent = String(appState.trivia.streak);
   if (elements.triviaDifficulty) elements.triviaDifficulty.textContent = appState.trivia.difficulty.toUpperCase();
   if (elements.triviaTimer) elements.triviaTimer.textContent = `${appState.trivia.timerSeconds}s`;
+  if (elements.triviaAccuracy) {
+    const accuracy = appState.trivia.answered === 0 ? 0 : Math.round((appState.trivia.correct / appState.trivia.answered) * 100);
+    elements.triviaAccuracy.textContent = `${accuracy}%`;
+  }
   if (elements.triviaProgress) {
     const total = Math.max(1, appState.trivia.deck.length);
     elements.triviaProgress.querySelector("span").style.width = `${(appState.trivia.index / total) * 100}%`;
+  }
+  if (elements.triviaStage) {
+    elements.triviaStage.textContent = `Question ${Math.min(appState.trivia.index + 1, appState.trivia.deck.length)} of ${appState.trivia.deck.length}`;
   }
 }
 
@@ -1334,6 +1845,7 @@ function startTriviaTimer() {
 
 function renderTriviaCard(feedback = "") {
   if (!elements.triviaCard) return;
+  if (elements.triviaDifficulty) elements.triviaDifficulty.textContent = appState.trivia.difficulty.toUpperCase();
   if (appState.trivia.complete) {
     const totalPoints = appState.trivia.score;
     elements.triviaCard.innerHTML = `
@@ -1344,6 +1856,7 @@ function renderTriviaCard(feedback = "") {
         <div class="result-hero-meta">
           <span class="badge-pill">${appState.trivia.difficulty.toUpperCase()}</span>
           <span class="badge-pill">${appState.trivia.streak} streak</span>
+          <span class="badge-pill">${Math.round((appState.trivia.correct / Math.max(1, appState.trivia.answered)) * 100)}% accuracy</span>
         </div>
         <button class="button button-secondary" type="button" id="triviaRestart">Play Again</button>
       </article>
@@ -1357,7 +1870,6 @@ function renderTriviaCard(feedback = "") {
   }
 
   const current = appState.trivia.deck[appState.trivia.index];
-  const questionNumber = appState.trivia.index + 1;
   elements.triviaCard.innerHTML = `
     <article class="question-card trivia-question reveal">
       <p class="eyebrow">${appState.trivia.difficulty} challenge</p>
@@ -1375,9 +1887,6 @@ function renderTriviaCard(feedback = "") {
     button.addEventListener("click", () => handleTriviaAnswer(index, false));
     container.appendChild(button);
   });
-  if (elements.quizStage) {
-    elements.quizStage.textContent = `Question ${questionNumber} of ${appState.trivia.deck.length}`;
-  }
   renderTriviaHud();
   startTriviaTimer();
   observeRevealNodes(elements.triviaCard);
@@ -1404,10 +1913,12 @@ function handleTriviaAnswer(answerIndex, timedOut) {
   stopTriviaTimer();
   const current = appState.trivia.deck[appState.trivia.index];
   const correct = answerIndex === current.answer;
+  appState.trivia.answered += 1;
   const points = appState.trivia.difficulty === "easy" ? 1 : appState.trivia.difficulty === "hard" ? 3 : 2;
   if (correct) {
     appState.trivia.score += points;
     appState.trivia.streak += 1;
+    appState.trivia.correct += 1;
   } else {
     appState.trivia.streak = 0;
   }
@@ -1424,6 +1935,9 @@ function handleTriviaAnswer(answerIndex, timedOut) {
   if (elements.triviaScore) elements.triviaScore.textContent = String(appState.trivia.score);
   if (elements.triviaStreak) elements.triviaStreak.textContent = String(appState.trivia.streak);
   if (elements.triviaTimer) elements.triviaTimer.textContent = "0s";
+  if (elements.triviaAccuracy) {
+    elements.triviaAccuracy.textContent = `${Math.round((appState.trivia.correct / appState.trivia.answered) * 100)}%`;
+  }
 
   const message = timedOut
     ? `Time expired. ${current.explanation}`
@@ -1501,7 +2015,11 @@ async function fetchVotes() {
     const data = await response.json();
     appState.vote.board = data.board || [];
     appState.vote.total = data.totalVotes || 0;
-    appState.vote.message = "Live vote board connected.";
+    if (appState.vote.lockedHeroId) {
+      appState.vote.message = `Vote locked for ${heroData[appState.vote.lockedHeroId] ? heroData[appState.vote.lockedHeroId].name : "a hero"}.`;
+    } else {
+      appState.vote.message = "Live vote board connected.";
+    }
     renderVoteBoard();
   } catch (_error) {
     appState.vote.message = "Vote board is offline right now.";
@@ -1510,16 +2028,33 @@ async function fetchVotes() {
 }
 
 async function submitVote(heroId) {
+  if (!heroData[heroId]) {
+    appState.vote.message = "Invalid hero selection.";
+    renderVoteBoard();
+    return;
+  }
+  if (appState.vote.lockedHeroId) {
+    appState.vote.message = `You already voted for ${heroData[appState.vote.lockedHeroId] ? heroData[appState.vote.lockedHeroId].name : "a hero"} on this browser.`;
+    renderVoteBoard();
+    return;
+  }
   try {
     const response = await fetch("/api/votes", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ heroId })
     });
+    if (!response.ok) {
+      const errorPayload = await response.json().catch(() => ({}));
+      appState.vote.message = errorPayload.error || "That vote could not be saved.";
+      renderVoteBoard();
+      return;
+    }
     const data = await response.json();
     appState.vote.board = data.board || [];
     appState.vote.total = data.totalVotes || 0;
     appState.vote.message = `Vote recorded for ${heroData[heroId] ? heroData[heroId].name : heroId}.`;
+    saveVoteLock(heroId);
     renderVoteBoard();
   } catch (_error) {
     appState.vote.message = "That vote could not be saved.";
@@ -1532,14 +2067,16 @@ function renderVoteBoard() {
   const votingEntries = appState.vote.board.length
     ? appState.vote.board
     : fallbackVoteEntries;
+  const leaderId = appState.vote.board.length ? appState.vote.board[0].id : null;
   elements.voteButtons.innerHTML = votingEntries
     .map(
       (entry) => {
         const hero = heroData[entry.id];
         const label = entry.label || (hero ? hero.name : entry.id);
         const tag = hero ? heroTag(hero) : label;
+        const selected = appState.vote.lockedHeroId === entry.id;
         return `
-        <button class="vote-choice" type="button" data-vote="${entry.id}">
+        <button class="vote-choice${selected ? " selected" : ""}" type="button" data-vote="${entry.id}" aria-pressed="${selected}" ${appState.vote.lockedHeroId ? "disabled" : ""}>
           <span class="vote-choice-name">${label}</span>
           <span class="vote-choice-tag">${tag}</span>
         </button>
@@ -1555,10 +2092,10 @@ function renderVoteBoard() {
     elements.voteBoard.innerHTML = appState.vote.board
       .map(
         (entry) => `
-          <div class="leader-row">
+          <div class="leader-row${entry.id === leaderId ? " winner" : ""}">
             <div class="leader-row-head">
               <strong>${entry.label}</strong>
-              <span>${entry.votes} votes</span>
+              <span>${entry.votes} votes (${entry.percent}%)</span>
             </div>
             <div class="leader-meter"><span style="width:${Math.min(100, (entry.votes / Math.max(1, appState.vote.total)) * 100)}%"></span></div>
           </div>
@@ -1605,6 +2142,7 @@ function initTrivia() {
 
 function initVotes() {
   if (!elements.voteButtons) return;
+  restoreVoteLock();
   fetchVotes();
 }
 
