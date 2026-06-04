@@ -16,18 +16,8 @@
   <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
   <header class="topbar">
-    <a class="brand" href="heroes.html">Legendrium</a>
-    <nav class="topnav" id="heroNav" aria-label="Hero Selection">
-      <!-- Tabs will be injected here -->
-    </nav>
-    <div class="header-actions">
-        <nav class="feature-nav">
-          <a class="nav-link active" href="heroes.html">Roster</a>
-          <a class="nav-link" href="battle.html">Battle</a>
-          <a class="nav-link" href="quiz.html">Quiz</a>
-        </nav>
-        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark and light mode">Light Mode</button>
-    </div>
+    <a class="brand" href="heroes.html">Hero Hub</a>
+    <nav class="topnav site-nav" id="siteNav" aria-label="Primary"></nav>
   </header>
 
   <main>
@@ -35,25 +25,31 @@
       <div class="dossier-container reveal">
         <div class="dossier-content">
           <div class="dossier-header">
+            <p class="eyebrow">Roster Archive</p>
             <h1 id="dossierTitle" class="cinematic-title"></h1>
             <p id="dossierSubtitle" class="eyebrow"></p>
           </div>
 
-          <div class="version-selector" id="versionSelector">
-            <!-- Actor versions injected here -->
+          <div class="roster-panel">
+            <div class="section-heading roster-heading">
+              <p class="eyebrow">Universe Selector</p>
+              <h2>Browse the multiverse</h2>
+            </div>
+            <div class="hero-universe-selector" id="heroUniverseSelector"></div>
+            <div class="hero-roster-grid" id="heroRosterGrid"></div>
           </div>
 
           <div class="dossier-bio">
-            <p id="dossierStory"></p>
+            <p id="dossierStoryLeft"></p>
+            <p id="dossierStoryRight"></p>
           </div>
 
-          <div class="dossier-stats" id="dossierStats">
-            <!-- Stats items injected here -->
-          </div>
+          <div class="dossier-stats" id="dossierStats"></div>
+          <div class="dossier-badges" id="dossierBadges"></div>
 
           <div class="dossier-actions">
-            <button class="button button-lore" id="exploreLoreBtn">
-              EXPLORE LORE <span class="arrow">→</span>
+            <button class="button button-lore" id="exploreLoreBtn" aria-controls="loreSection" aria-expanded="false" type="button">
+              Explore Lore <span class="arrow">&rarr;</span>
             </button>
           </div>
         </div>
@@ -61,8 +57,8 @@
         <div class="dossier-visual">
           <div class="suit-hover-area" id="suitHoverArea">
             <div class="suit-frame">
-                <span class="hover-label">HOVER</span>
-                <img id="dossierImage" src="" alt="Hero Suit">
+              <span class="hover-label">HOVER</span>
+              <img id="dossierImage" src="" alt="Hero Suit">
             </div>
             <div class="glow-effect"></div>
           </div>
@@ -70,56 +66,36 @@
       </div>
     </section>
 
-    <!-- Hidden section for search and filter (existing feature) -->
-    <section class="section picker-section" id="picker" style="display: none;">
-      <div class="search-shell reveal">
-        <label class="search-field">
-          <span>Hero Search</span>
-          <input id="heroSearch" type="search" placeholder="Search hero, villain, power, universe">
-        </label>
-        <label class="search-field">
-          <span>Universe Filter</span>
-          <select id="heroUniverseFilter">
-            <option value="all">All Universes</option>
-          </select>
-        </label>
+    <section class="section lore-section" id="loreSection" aria-hidden="true" data-open="false">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Lore Archive</p>
+        <h2>Deep cuts from the mythos</h2>
       </div>
+      <div class="lore-grid" id="loreContent"></div>
     </section>
-
-
 
     <section class="section villains-section">
       <div class="section-heading reveal">
-        <p class="eyebrow">Villain Cards</p>
-        <h2>Rivalries that define the legend</h2>
+        <p class="eyebrow">Rivalries</p>
+        <h2>Enemies that sharpen the legend</h2>
       </div>
       <div class="villain-grid" id="villainGrid"></div>
     </section>
 
     <section class="section timeline-section">
       <div class="section-heading reveal">
-        <p class="eyebrow">Movie Timeline</p>
+        <p class="eyebrow">Timeline</p>
         <h2>Milestones for the active hero</h2>
       </div>
       <div class="timeline-rail" id="timelineRail"></div>
     </section>
 
-    <section class="section teamup-section">
+    <section class="section variants-section">
       <div class="section-heading reveal">
-        <p class="eyebrow">Team-Up Section</p>
-        <h2>Best crossover chemistry for the current hero</h2>
+        <p class="eyebrow">Variants</p>
+        <h2>Different eras, different faces</h2>
       </div>
-      <div class="teamup-card reveal" id="teamupCard"></div>
-    </section>
-
-    <section class="section">
-      <div class="section-heading reveal">
-        <p class="eyebrow">External Hero Data</p>
-        <h2>Optional superhero API integration</h2>
-      </div>
-      <article class="external-card reveal" id="externalHeroCard">
-        <p class="search-feedback">Checking whether an external superhero API is configured...</p>
-      </article>
+      <div class="version-selector" id="versionSelector"></div>
     </section>
   </main>
 

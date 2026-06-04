@@ -17,29 +17,22 @@
 
   <header class="topbar">
     <a class="brand" href="heroes.html">Hero Hub</a>
-    <nav class="topnav" aria-label="Primary">
-      <a class="nav-link" href="heroes.html">Roster</a>
-      <a class="nav-link" href="battle.html">Battle</a>
-      <a class="nav-link" href="quiz.html">Quiz</a>
-      <a class="nav-link active" href="trivia.html">Trivia</a>
-      <a class="nav-link" href="votes.html">Votes</a>
-    </nav>
-    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark and light mode">Light Mode</button>
+    <nav class="topnav site-nav" id="siteNav" aria-label="Primary"></nav>
   </header>
 
   <main>
     <section class="feature-hero section">
       <div class="feature-shell reveal">
-        <p class="eyebrow">Trivia Page</p>
-        <h1>Trivia gets its own page now.</h1>
-        <p class="lede">No more one-page scrolling to find it. This route is only for the question deck and replay loop.</p>
+        <p class="eyebrow">Trivia Challenge</p>
+        <h1>Prove your comic knowledge under pressure.</h1>
+        <p class="lede">Pick a difficulty, race the clock, and keep your streak alive across deeper lore, continuity, and mythic details.</p>
       </div>
     </section>
 
     <section class="section compact-picker-section">
       <div class="section-heading reveal">
         <p class="eyebrow">Current Hero Theme</p>
-        <h2>Use the picker to retheme the trivia page</h2>
+        <h2>Use the picker to retheme the challenge</h2>
       </div>
       <div class="compact-picker reveal" id="heroPicker"></div>
       <p class="picker-note reveal" id="pickerNote"></p>
@@ -47,11 +40,22 @@
 
     <section class="section single-feature-section">
       <article class="module-card reveal" id="trivia">
-        <div class="module-head">
-          <p class="eyebrow" id="spotlightUniverse"></p>
-          <h3 id="spotlightName">Fast facts across the roster</h3>
+        <div class="module-head trivia-head">
+          <div>
+            <p class="eyebrow">Challenge Mode</p>
+            <h3>Fast facts across the roster</h3>
+          </div>
+          <div class="trivia-metrics">
+            <div class="metric-pill"><span>Score</span><strong id="triviaScore">0</strong></div>
+            <div class="metric-pill"><span>Streak</span><strong id="triviaStreak">0</strong></div>
+            <div class="metric-pill"><span>Timer</span><strong id="triviaTimer">0s</strong></div>
+          </div>
         </div>
-        <p class="spotlight-tag" id="spotlightTag"></p>
+        <div class="trivia-controls">
+          <div class="difficulty-row" id="triviaDifficultyButtons"></div>
+          <p class="difficulty-label" id="triviaDifficulty">MEDIUM</p>
+        </div>
+        <div class="progress-line" id="triviaProgress"><span></span></div>
         <div id="triviaCard" class="trivia-card"></div>
       </article>
     </section>

@@ -17,29 +17,22 @@
 
   <header class="topbar">
     <a class="brand" href="heroes.html">Hero Hub</a>
-    <nav class="topnav" aria-label="Primary">
-      <a class="nav-link" href="heroes.html">Roster</a>
-      <a class="nav-link" href="battle.html">Battle</a>
-      <a class="nav-link active" href="quiz.html">Quiz</a>
-      <a class="nav-link" href="trivia.html">Trivia</a>
-      <a class="nav-link" href="votes.html">Votes</a>
-    </nav>
-    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark and light mode">Light Mode</button>
+    <nav class="topnav site-nav" id="siteNav" aria-label="Primary"></nav>
   </header>
 
   <main>
     <section class="feature-hero section">
       <div class="feature-shell reveal">
         <p class="eyebrow">Quiz Page</p>
-        <h1>Which hero are you, without the rest of the site in the way?</h1>
-        <p class="lede">This page is focused only on the personality alignment quiz, with the current hero theme still carried over visually.</p>
+        <h1>Which hero are you when the pressure turns cinematic?</h1>
+        <p class="lede">Answer instinctively, and the system will match your instincts to the closest legend in the roster.</p>
       </div>
     </section>
 
     <section class="section compact-picker-section">
       <div class="section-heading reveal">
         <p class="eyebrow">Current Hero Theme</p>
-        <h2>Change the page mood without leaving the quiz</h2>
+        <h2>Shift the visual mood without leaving the quiz</h2>
       </div>
       <div class="compact-picker reveal" id="heroPicker"></div>
       <p class="picker-note reveal" id="pickerNote"></p>
@@ -47,11 +40,18 @@
 
     <section class="section single-feature-section">
       <article class="module-card reveal" id="quiz">
-        <div class="module-head">
-          <p class="eyebrow" id="spotlightUniverse"></p>
-          <h3 id="spotlightName">Personality alignment quiz</h3>
+        <div class="module-head quiz-head">
+          <div>
+            <p class="eyebrow">Hero Alignment</p>
+            <h3>Personality scan</h3>
+          </div>
+          <div class="quiz-meta">
+            <div class="quiz-stage" id="quizStage">Question 1 of 5</div>
+            <div class="progress-line" id="quizProgress"><span></span></div>
+          </div>
         </div>
-        <p class="spotlight-tag" id="spotlightTag"></p>
+        <p class="quiz-feedback" id="quizFeedback">Start the scan to see which hero leads your instincts.</p>
+        <div id="quizTraitBars" class="trait-bars"></div>
         <div id="quizCard" class="quiz-card"></div>
       </article>
     </section>

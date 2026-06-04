@@ -10,7 +10,7 @@ Hero Hub is a cinematic multi-page superhero experience with roster browsing, ba
 - Movie timeline scroll
 - Cinematic intro and comic-panel parallax
 - Team-up section
-- Dark/light mode toggle
+- Dark-only cinematic theme
 - Hero search and filter
 - Which hero are you quiz
 - Superhero trivia game

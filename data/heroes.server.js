@@ -463,7 +463,14 @@ const heroes = {
 };
 
 const rosterOrder = ["ironman", "thor", "blackpanther", "flash", "wolverine"];
-const voteRoster = [...rosterOrder, "other"];
+const voteRoster = [
+  "ironman",
+  "thor",
+  "blackpanther",
+  "flash",
+  "wolverine",
+  "other"
+];
 
 function toHeroArray() {
   return Object.values(heroes).map((hero) => ({ ...hero }));

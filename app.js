@@ -1,591 +1,1644 @@
-const rosterOrder = ["batman", "superman", "ironman", "spiderman", "wonderwoman"];
-const voteRoster = ["batman", "superman", "ironman", "spiderman", "wonderwoman"];
+const heroOrder = ["batman", "superman", "ironman", "spiderman", "wonderwoman"];
+const universeFilters = ["all", "Marvel", "DC"];
+const featureNavLinks = [
+  { href: "heroes.html", label: "Heroes / Roster", key: "roster" },
+  { href: "battle.html", label: "Battle", key: "battle" },
+  { href: "quiz.html", label: "Quiz", key: "quiz" },
+  { href: "trivia.html", label: "Trivia", key: "trivia" },
+  { href: "votes.html", label: "Votes", key: "votes" }
+];
+const fallbackVoteEntries = [
+  { id: "ironman", label: "Iron Man" },
+  { id: "thor", label: "Thor" },
+  { id: "blackpanther", label: "Black Panther" },
+  { id: "flash", label: "The Flash" },
+  { id: "wolverine", label: "Wolverine" },
+  { id: "other", label: "Other" }
+];
 
-const heroes = {
+const heroData = {
   batman: {
     id: "batman",
     name: "Batman",
     universe: "DC",
     title: "THE DARK KNIGHT",
-    subtitle: "THE MAN BEHIND THE MASK",
+    subtitle: "THE DETECTIVE WHO TURNED GRIEF INTO A MISSION",
     bgText: "BATMAN",
     cityLabel: "GOTHAM CITY",
-    versions: [
-      {
-        actor: "CHRISTIAN BALE",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Christian_Bale_2014_%28cropped%29.jpg/440px-Christian_Bale_2014_%28cropped%29.jpg",
-        quote: "It's not who I am underneath, but what I do that defines me."
-      },
-      {
-        actor: "BEN AFFLECK",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ben_Affleck_by_Gage_Skidmore_3.jpg/440px-Ben_Affleck_by_Gage_Skidmore_3.jpg",
-        quote: "Tell me, do you bleed? You will."
-      },
-      {
-        actor: "MICHAEL KEATON",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Michael_Keaton_October_2014.jpg/440px-Michael_Keaton_October_2014.jpg",
-        quote: "I'm Batman."
-      }
-    ],
-    storyLeft: "He is vengeance. He is the night. Born from tragedy, forged in shadow — Gotham's last hope wears no badge, carries no gun, and fears nothing but the day his city stops fighting back.",
-    storyRight: "Billionaire by day. Guardian by night. Every scar is a lesson, every shadow a weapon. He doesn't kill — the darkness obeys him. Can one man's will hold a city together when evil never sleeps?",
-    ctaLabel: "ENTER THE DARK",
-    wiki: "https://en.wikipedia.org/wiki/Batman",
-    colors: { primary: "#ff4d4d", secondary: "#1a1a1a", accent: "#ff8c00", bg: "#0a0a0a" },
     image: "https://upload.wikimedia.org/wikipedia/en/c/c7/Batman_Infobox.jpg",
-    stats: { "SUPERPOWERS": "0", "WILLPOWER": "∞", "YRS OF LEGACY": "85+" },
-    abilities: ["Tactical Analysis", "Stealth Mastery", "Gadget Innovation", "Intimidation Technique"],
-    heroTabs: ["GOTHAM", "BRUCE WAYNE", "THE ROGUES", "THE MUSIC"],
+    wiki: "https://en.wikipedia.org/wiki/Batman",
+    colors: { primary: "#d64545", secondary: "#121212", accent: "#ffb84d", bg: "#050505" },
+    stats: { "TACTICAL EDGE": "MAX", "FEAR FACTOR": "HIGH", "LEGACY": "85+ YEARS" },
+    abilities: ["World-class detective", "Peak human conditioning", "Gadget mastery", "Psychological warfare"],
+    badges: ["World's Greatest Detective", "Master Martial Artist", "Gotham's Guardian"],
+    storyLeft: "Bruce Wayne watched his parents die in Crime Alley and turned that wound into a lifelong vow. He trained across the world, studied every angle of fear and crime, then came home to Gotham as a symbol criminals could not ignore.",
+    storyRight: "Batman succeeds by outthinking enemies who often outgun him. He plans for the impossible, trusts the evidence, and keeps standing when the city has every reason to fall apart.",
+    ctaLabel: "ENTER THE NIGHT",
+    versions: [
+      { actor: "MICHAEL KEATON", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Michael_Keaton_October_2014.jpg/440px-Michael_Keaton_October_2014.jpg", quote: "I'm Batman." },
+      { actor: "CHRISTIAN BALE", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Christian_Bale_2014_%28cropped%29.jpg/440px-Christian_Bale_2014_%28cropped%29.jpg", quote: "It's not who I am underneath, but what I do that defines me." },
+      { actor: "BEN AFFLECK", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ben_Affleck_by_Gage_Skidmore_3.jpg/440px-Ben_Affleck_by_Gage_Skidmore_3.jpg", quote: "Tell me, do you bleed?" }
+    ],
     villains: [
-      { name: "The Joker", threat: "Anarchist", image: "https://upload.wikimedia.org/wikipedia/en/1/17/Joker_%28DC_Comics_character%29.jpg", front: "A master of chaos.", back: "The absolute antithesis to order." },
-      { name: "Bane", threat: "Revolutionary", image: "https://upload.wikimedia.org/wikipedia/en/3/3e/Bane_%28DC_Comics_character%29.png", front: "The man who broke the bat.", back: "Born in the darkness." }
+      { name: "The Joker", threat: "Agent of chaos", image: "https://upload.wikimedia.org/wikipedia/en/1/17/Joker_%28DC_Comics_character%29.jpg", front: "Anarchy with a grin. The Joker tests whether Batman can protect a city that keeps reinventing madness.", back: "Every appearance turns into a moral stress test for Gotham's protector and the line he refuses to cross." },
+      { name: "Bane", threat: "The breaker", image: "https://upload.wikimedia.org/wikipedia/en/3/3e/Bane_%28DC_Comics_character%29.png", front: "Bane is the strategist who proves Batman can be beaten physically and mentally at the same time.", back: "Knightfall made Bane part of Batman's myth because he exposed the cost of carrying a city alone." }
     ],
     timeline: [
-      { year: "1939", title: "Detective Comics #27", text: "The first appearance of Batman." },
-      { year: "1989", title: "Keaton Era", text: "Tim Burton redefines Batman for the screen." },
-      { year: "2005", title: "Bale Era", text: "Nolan brings a grounded, gritty realism." },
-      { year: "2022", title: "Pattinson Era", text: "Reeves brings a detective noir vision." }
+      { year: "1939", title: "First appearance", text: "Batman debuts in Detective Comics #27 and reshapes crime fiction in caped form." },
+      { year: "1987", title: "Year One", text: "Frank Miller's origin focuses the legend on detective work, corruption, and discipline." },
+      { year: "1993", title: "Knightfall", text: "Bane breaks Batman, forcing Gotham's protector to confront his own limits." },
+      { year: "2011", title: "The New 52", text: "The Court of Owls era pushes Batman deeper into conspiracy and urban myth." }
     ],
-    teamup: { partner: "Superman", synergy: 85, title: "World's Finest", text: "The ultimate contrast of power and strategy." },
-    battle: { hp: 100, attack: 15, special: 25, moves: { attack: "strikes from shadows", special: "uses tactical gadgetry", guard: "deploys armored cape" } },
-    trivia: [{ question: "What is Batman's secret identity?", choices: ["Bruce Wayne", "Clark Kent", "Peter Parker"], answer: 0 }],
-    quizAffinity: { leader: 2, scholar: 3, rebel: 1, heart: 1, feral: 1, speedster: 1, mystic: 1 },
-    badges: ["World's Greatest Detective", "Master Martial Artist", "Billionaire Strategist"],
-    tag: "The Dark Knight", story: "Billionaire by day. Gotham's guardian by night."
+    teamup: { partner: "Superman", synergy: 92, title: "World's Finest", text: "Strategy meets hope. Batman gives the plan, Superman gives the lift, and the world gets a team that can handle anything from a street-level crisis to a cosmic invasion." },
+    battle: { hp: 100, attack: 17, special: 27, moves: { attack: "disappears into shadow and strikes", special: "deploys a tactical gauntlet combo", guard: "raises an armored cape shield" } },
+    quizAffinity: { leader: 4, scholar: 4, rebel: 2, heart: 1, speedster: 0, mystic: 0, feral: 1 },
+    lore: {
+      origin: [
+        "Bruce Wayne's origin is a study in grief weaponized into discipline. After the murder of Thomas and Martha Wayne, he committed himself to a life built around detection, endurance, and fear as a tool against criminals.",
+        "He did not become Batman because he wanted power. He became Batman because Gotham needed a symbol that could survive corruption, mob power, and supervillains without losing its nerve."
+      ],
+      powers: [
+        "Batman has no superhuman powers, and that is the point. His strength comes from peak physical training, forensic reasoning, planning, infiltration, and an unmatched ability to stay three moves ahead.",
+        "The utility belt, bat-gadgets, vehicles, and contingency plans are extensions of his mind. He fights like a detective, a soldier, and a strategist folded into one."
+      ],
+      storylines: [
+        "Year One defines his early war on crime. The Long Halloween turns Gotham into a detective mystery. Knightfall breaks his body, while The Court of Owls reminds him that the city has hidden rulers older than his mission.",
+        "No Man's Land, Hush, and countless modern arcs show the same thing: Batman is at his most interesting when Gotham itself becomes the adversary."
+      ],
+      allies: [
+        "Alfred Pennyworth anchors Bruce with honesty and dry wit. Gordon gives him a public ally inside the system. Robin, Batgirl, Nightwing, and the wider Bat-Family turn the mission from solitary obsession into a living network.",
+        "His Justice League alliances prove that the man who works best alone still understands trust when the stakes rise."
+      ],
+      legacy: [
+        "Batman set the modern template for grounded superheroes: trauma, consequence, urban atmosphere, and a hero whose brilliance is as important as his punch.",
+        "He remains one of comics' most flexible icons because every era can ask a different question of him: how much pain can a person carry, and still choose not to become the thing they fight?"
+      ],
+      funFacts: [
+        "Batman first appeared in Detective Comics #27 in 1939.",
+        "The Bat-Signal is as much a symbol of trust as it is a warning.",
+        "His greatest weapon is often the thing criminals forget to fear: patience."
+      ]
+    },
+    trivia: [
+      {
+        question: "Which comic famously introduced Batman's origin in a definitive modern form?",
+        choices: ["Year One", "Hush", "The Long Halloween", "The Killing Joke"],
+        answer: 0,
+        explanation: "Batman: Year One is the landmark modern retelling of Bruce Wayne's early years."
+      },
+      {
+        question: "What makes Batman most dangerous in a room full of metahumans?",
+        choices: ["A hidden power source", "Preparation and analysis", "Magic training", "Alien technology"],
+        answer: 1,
+        explanation: "He wins by preparation, not by powers."
+      }
+    ]
   },
   superman: {
     id: "superman",
     name: "Superman",
     universe: "DC",
     title: "MAN OF STEEL",
-    subtitle: "THE LAST SON OF KRYPTON",
+    subtitle: "HOPE GIVEN A HUMAN FACE",
     bgText: "SUPERMAN",
     cityLabel: "METROPOLIS",
-    versions: [
-      {
-        actor: "HENRY CAVILL",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Henry_Cavill_%2848429838422%29_%28cropped%29.jpg/440px-Henry_Cavill_%2848429838422%29_%28cropped%29.jpg",
-        quote: "You will give the people of Earth an ideal to strive towards."
-      },
-      {
-        actor: "CHRISTOPHER REEVE",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Christopher_Reeve_in_September_1978.jpg/440px-Christopher_Reeve_in_September_1978.jpg",
-        quote: "Easy, miss. I've got you."
-      },
-      {
-        actor: "TYLER HOECHLIN",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Tyler_Hoechlin_by_Gage_Skidmore.jpg/440px-Tyler_Hoechlin_by_Gage_Skidmore.jpg",
-        quote: "The world is big, but hope is bigger."
-      }
-    ],
-    storyLeft: "Sent to Earth from a dying world, he was raised in Smallville to be the greatest force for good the planet has ever seen. He doesn't just fly — he carries the weight of every hope.",
-    storyRight: "Clark Kent is the mask. Superman is the truth. A god among mortals who chose compassion over conquest. When the sky turns dark, look up — he's already there.",
-    ctaLabel: "RISE ABOVE",
-    wiki: "https://en.wikipedia.org/wiki/Superman",
-    colors: { primary: "#4d94ff", secondary: "#1a1a1a", accent: "#ffcc00", bg: "#0a0a0a" },
     image: "https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png",
-    stats: { "SUPERPOWERS": "∞", "WILLPOWER": "MAX", "YRS OF LEGACY": "85+" },
-    abilities: ["Solar Absorption", "Flight", "Invulnerability", "Heat Vision"],
-    heroTabs: ["METROPOLIS", "CLARK KENT", "THE VILLAINS", "THE LEGACY"],
+    wiki: "https://en.wikipedia.org/wiki/Superman",
+    colors: { primary: "#4d94ff", secondary: "#12223d", accent: "#ffd84d", bg: "#05070d" },
+    stats: { "SPEED": "LIGHTNING", "MIGHT": "PLANETARY", "LEGACY": "85+ YEARS" },
+    abilities: ["Solar-powered strength", "Flight", "Heat vision", "X-ray vision"],
+    badges: ["Symbol of Hope", "Last Son of Krypton", "The Man of Tomorrow"],
+    storyLeft: "Kal-El was sent from Krypton to survive the end of his world and was raised in Smallville as Clark Kent. The Kents taught him that power only matters if it is guided by compassion.",
+    storyRight: "Superman represents what happens when a godlike being chooses restraint, empathy, and public service. He does not rule the world; he protects it and tries to inspire it to do better.",
+    ctaLabel: "RISE ABOVE",
+    versions: [
+      { actor: "CHRISTOPHER REEVE", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Christopher_Reeve_in_September_1978.jpg/440px-Christopher_Reeve_in_September_1978.jpg", quote: "Easy, miss. I've got you." },
+      { actor: "HENRY CAVILL", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Henry_Cavill_%2848429838422%29_%28cropped%29.jpg/440px-Henry_Cavill_%2848429838422%29_%28cropped%29.jpg", quote: "You will give the people of Earth an ideal to strive towards." },
+      { actor: "TYLER HOECHLIN", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Tyler_Hoechlin_by_Gage_Skidmore.jpg/440px-Tyler_Hoechlin_by_Gage_Skidmore.jpg", quote: "Hope is bigger than fear." }
+    ],
     villains: [
-      { name: "Lex Luthor", threat: "Genius", image: "https://upload.wikimedia.org/wikipedia/en/0/09/Lex_Luthor.png", front: "Humanity's self-proclaimed savior.", back: "Driven by pure envy of a god." }
+      { name: "Lex Luthor", threat: "Human genius", image: "https://upload.wikimedia.org/wikipedia/en/0/09/Lex_Luthor.png", front: "Lex turns intellect into ego, then into an argument against alien power and public trust.", back: "The rivalry matters because it is a duel over what humanity should admire: compassion or control." },
+      { name: "Brainiac", threat: "Collector of worlds", image: "https://upload.wikimedia.org/wikipedia/en/6/64/Brainiac_DC_Comics.png", front: "Brainiac threatens not just Metropolis but the idea that knowledge should be used with empathy.", back: "He gives Superman an enemy that is cold, brilliant, and impossible to intimidate." }
     ],
     timeline: [
-      { year: "1938", title: "Action Comics #1", text: "The first appearance of Superman." },
-      { year: "1978", title: "Reeve Era", text: "Richard Donner makes you believe a man can fly." },
-      { year: "2013", title: "Cavill Era", text: "Zack Snyder's grounded, powerful Man of Steel." }
+      { year: "1938", title: "First appearance", text: "Superman launches in Action Comics #1 and defines the superhero archetype." },
+      { year: "1978", title: "Cinematic hope", text: "The Reeve films make the world believe a man can fly." },
+      { year: "1992", title: "Death and Return", text: "The Death of Superman arc proves that the symbol matters even when the man falls." },
+      { year: "2003", title: "All-Star voice", text: "All-Star Superman turns the character into a perfect statement on hope and legacy." }
     ],
-    teamup: { partner: "Batman", synergy: 85, title: "World's Finest", text: "The ultimate contrast of power and strategy." },
-    battle: { hp: 150, attack: 20, special: 35, moves: { attack: "delivers a sonic punch", special: "unleashes heat vision", guard: "stands unyielding" } },
-    trivia: [{ question: "Where was Superman born?", choices: ["Earth", "Krypton", "Mars"], answer: 1 }],
-    quizAffinity: { leader: 3, heart: 3, scholar: 1, rebel: 1, feral: 1, speedster: 2, mystic: 1 },
-    badges: ["Last Son of Krypton", "Symbol of Hope", "Man of Tomorrow"],
-    tag: "Man of Steel", story: "Sent to Earth from a dying planet."
+    teamup: { partner: "Batman", synergy: 95, title: "World's Finest", text: "Batman supplies the contingency plan. Superman supplies the impossible lift. Together they balance inspiration with realism." },
+    battle: { hp: 150, attack: 22, special: 36, moves: { attack: "delivers a thunderous blitz", special: "fires heat vision at full power", guard: "anchors the battlefield with calm force" } },
+    quizAffinity: { leader: 4, scholar: 1, rebel: 0, heart: 5, speedster: 0, mystic: 0, feral: 0 },
+    lore: {
+      origin: [
+        "Superman's origin is built on two homes: Krypton, the world he lost, and Earth, the world that raised him. Jor-El and Lara save their son by sending him away, while Jonathan and Martha Kent teach him how to become a good man.",
+        "The entire myth works because Clark Kent is not a disguise for weakness. He is the daily proof that immense power can coexist with humility."
+      ],
+      powers: [
+        "Under a yellow sun, Superman becomes one of the most powerful beings in comics. Flight, super strength, speed, invulnerability, heat vision, and sensory powers are only the beginning of what Kryptonian biology can do.",
+        "His most important power is restraint. The story only works when he is strong enough to solve almost anything, but wise enough to choose the solution that preserves lives and hope."
+      ],
+      storylines: [
+        "The Death of Superman and its aftermath turned him into a cultural event. Kingdom Come reframed him as a moral ideal in a broken future. All-Star Superman distilled the character into one of comics' purest reflections on hope.",
+        "More recent stories keep returning to the same core question: how does a near-perfect hero remain human, relatable, and compassionate while the world constantly demands more?"
+      ],
+      allies: [
+        "Lois Lane keeps Clark honest. Jimmy Olsen keeps him grounded in the messiest, funniest corners of Metropolis. The Justice League lets him be the first responder to cosmic disasters without losing his humanity.",
+        "The Super-Family and the Kent family ensure that Superman's life is not only about what he can lift, but who he listens to."
+      ],
+      legacy: [
+        "Superman is the blueprint for heroic optimism. He made it possible to imagine superheroes as public symbols rather than just vigilantes or adventurers.",
+        "Every generation revisits him because the world always needs a version of hope that is visible, generous, and strong enough to be credible."
+      ],
+      funFacts: [
+        "Superman first appeared in Action Comics #1 in 1938.",
+        "Clark Kent's glasses are not the real disguise; the persona is.",
+        "He is most compelling when his compassion feels more powerful than his fists."
+      ]
+    },
+    trivia: [
+      {
+        question: "What city does Superman protect as his main home base?",
+        choices: ["Gotham", "Metropolis", "Central City", "Star City"],
+        answer: 1,
+        explanation: "Metropolis is the bright city that pairs naturally with Superman's hopeful image."
+      },
+      {
+        question: "Which symbol best defines Superman's myth across eras?",
+        choices: ["Revenge", "Hope", "Chaos", "Secrecy"],
+        answer: 1,
+        explanation: "Superman endures because he stands for hope first."
+      }
+    ]
   },
   ironman: {
     id: "ironman",
     name: "Iron Man",
     universe: "Marvel",
-    title: "THE INVINCIBLE",
-    subtitle: "GENIUS. BILLIONAIRE. PLAYBOY. PHILANTHROPIST.",
+    title: "THE INVINCIBLE IRON MAN",
+    subtitle: "GENIUS, BILLIONAIRE, AND THE MAN WHO TURNED PANIC INTO FLIGHT",
     bgText: "IRON MAN",
     cityLabel: "STARK TOWER",
-    versions: [
-      {
-        actor: "ROBERT DOWNEY JR.",
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Robert_Downey_Jr_2014_Comic_Con_%28cropped%29.jpg/440px-Robert_Downey_Jr_2014_Comic_Con_%28cropped%29.jpg",
-        quote: "I am Iron Man."
-      },
-      {
-        actor: "COMIC CLASSIC",
-        image: "https://upload.wikimedia.org/wikipedia/en/4/47/Iron_Man_%28circa_2018%29.png",
-        quote: "The suit and I are one."
-      }
-    ],
-    storyLeft: "Tony Stark built his first suit in a cave. With a box of scraps. What started as survival became a crusade — one man's tech against every threat the universe can throw.",
-    storyRight: "He's not the strongest. Not the fastest. But he's the smartest man in every room. The armor changes, the ego stays. And when the endgame comes, he's the one who makes the sacrifice play.",
-    ctaLabel: "SUIT UP",
-    wiki: "https://en.wikipedia.org/wiki/Iron_Man",
-    colors: { primary: "#ff4d4d", secondary: "#1a1a1a", accent: "#ffcc00", bg: "#0a0a0a" },
     image: "https://upload.wikimedia.org/wikipedia/en/4/47/Iron_Man_%28circa_2018%29.png",
-    stats: { "SUPERPOWERS": "0 (TECH)", "WILLPOWER": "MAX", "YRS OF LEGACY": "60+" },
-    abilities: ["Arc Reactor Tech", "Flight Systems", "Repulsor Blasts", "JARVIS AI Integration"],
-    heroTabs: ["STARK INDUSTRIES", "TONY STARK", "THE ARMORS", "THE AVENGERS"],
+    wiki: "https://en.wikipedia.org/wiki/Iron_Man",
+    colors: { primary: "#ff6a3d", secondary: "#1b2433", accent: "#ffe27a", bg: "#06080c" },
+    stats: { "TECH LEVEL": "EXTREME", "RISK TOLERANCE": "UNMATCHED", "LEGACY": "60+ YEARS" },
+    abilities: ["Powered armor", "Repulsor blasts", "Flight systems", "AI-assisted combat"],
+    badges: ["Avengers founder", "Armor architect", "Arc reactor pioneer"],
+    storyLeft: "Tony Stark was a weapons billionaire who had to look directly at the consequences of his own industry. Captured and badly wounded, he built the first armor to survive, then kept building because survival was never the final goal.",
+    storyRight: "Iron Man is an arc of growth through invention, accountability, and sacrifice. Tony's brilliance makes him powerful; his willingness to change makes him heroic.",
+    ctaLabel: "SUIT UP",
+    versions: [
+      { actor: "ROBERT DOWNEY JR.", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Robert_Downey_Jr_2014_Comic_Con_%28cropped%29.jpg/440px-Robert_Downey_Jr_2014_Comic_Con_%28cropped%29.jpg", quote: "I am Iron Man." },
+      { actor: "COMIC CLASSIC", image: "https://upload.wikimedia.org/wikipedia/en/4/47/Iron_Man_%28circa_2018%29.png", quote: "The suit and I are one." }
+    ],
     villains: [
-      { name: "Thanos", threat: "Titan", image: "https://upload.wikimedia.org/wikipedia/en/2/2e/Thanos_MCU.jpg", front: "The inevitable.", back: "A mad titan with a righteous goal." },
-      { name: "Obadiah Stane", threat: "Betrayer", image: "https://upload.wikimedia.org/wikipedia/en/e/ec/Iron_Monger.jpg", front: "The man behind the curtain.", back: "Corporate greed in titanium." }
+      { name: "Whiplash", threat: "Engineered revenge", image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80", front: "Whiplash turns Stark's own technology culture into a personal vendetta.", back: "The rivalry works because it asks whether invention creates safety or just more elegant violence." },
+      { name: "Ultron", threat: "Runaway intelligence", image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=80", front: "Ultron is the nightmare that says Tony's logic can survive without his ethics.", back: "That makes Ultron one of Stark's sharpest mirrors: progress without conscience." }
     ],
     timeline: [
-      { year: "1963", title: "Tales of Suspense #39", text: "Iron Man's first appearance." },
-      { year: "2008", title: "MCU Launch", text: "Robert Downey Jr. kickstarts the Marvel Cinematic Universe." },
-      { year: "2019", title: "Endgame", text: "\"I am Iron Man.\" The ultimate sacrifice." }
+      { year: "1963", title: "First appearance", text: "Iron Man debuts in Tales of Suspense #39 and turns industrial tech into superhero mythology." },
+      { year: "2008", title: "MCU ignition", text: "The first Iron Man film launches the Marvel Cinematic Universe with a gamble that pays off instantly." },
+      { year: "2009", title: "Demon in a Bottle", text: "One of Marvel's essential stories confronts Tony's flaws without pretending genius solves everything." },
+      { year: "2019", title: "Endgame", text: "Tony closes the Infinity Saga with a sacrifice that redefines the character's legacy." }
     ],
-    teamup: { partner: "Spider-Man", synergy: 90, title: "Mentor & Student", text: "Tech genius meets youthful instinct." },
-    battle: { hp: 110, attack: 18, special: 30, moves: { attack: "fires repulsor blast", special: "orbital unibeam strike", guard: "activates nano-shield" } },
-    trivia: [{ question: "Who created Iron Man's first suit?", choices: ["Pepper Potts", "Tony Stark", "JARVIS"], answer: 1 }],
-    quizAffinity: { leader: 2, scholar: 3, rebel: 2, heart: 1, feral: 1, speedster: 1, mystic: 1 },
-    badges: ["Genius Inventor", "Avenger", "Arc Reactor Pioneer"],
-    tag: "The Invincible Iron Man", story: "Tony Stark built the future in a cave."
+    teamup: { partner: "Spider-Man", synergy: 94, title: "Mentor and student", text: "Tony gives Peter resources, standards, and occasional sarcasm. Peter gives Tony the reminder that heroism still needs wonder." },
+    battle: { hp: 118, attack: 20, special: 33, moves: { attack: "fires a repulsor barrage", special: "launches a nanotech overdrive", guard: "locks in a kinetic shield" } },
+    quizAffinity: { leader: 4, scholar: 5, rebel: 2, heart: 1, speedster: 0, mystic: 0, feral: 0 },
+    lore: {
+      origin: [
+        "Tony Stark built his first armor in captivity after a life-changing injury forced him to see the consequences of his own weapons empire. The escape suit became a turning point that transformed him from arms dealer to armored protector.",
+        "His origin is powerful because it is not about destiny. It is about responsibility, shame, and the decision to improve the world using the same brilliance that helped create the problem."
+      ],
+      powers: [
+        "Iron Man's strength comes from engineering. Powered armor gives him flight, heavy artillery, AI support, sensor suites, battlefield adaptation, and specialized loadouts for almost any threat.",
+        "Tony's real superpower is iteration. He treats every failure like a design brief and every victory like a prototype for the next impossible challenge."
+      ],
+      storylines: [
+        "Demon in a Bottle remains the essential Tony Stark story because it forces him to face self-destruction. Armor Wars turns his tech into a liability he must clean up. Civil War places his ethics under public scrutiny. Endgame rewards his growth with sacrifice.",
+        "Each major arc asks the same question differently: can Tony stay heroic when the world keeps rewarding the worst parts of his personality?"
+      ],
+      allies: [
+        "Pepper Potts, James Rhodes, and the Avengers are the people who keep Tony honest when his ego tries to outrun his judgment. Friday, Jarvis, and the wider Stark circle turn the suit into a team effort rather than a solo fantasy.",
+        "His best alliances work because people challenge him, not because they flatter him."
+      ],
+      legacy: [
+        "Iron Man modernized the idea of the technological superhero. He made armor feel like a character in itself and helped define the sleek, high-tech side of the Marvel universe.",
+        "The MCU elevated Tony Stark into a global icon of charisma and sacrifice, but the comic version remains just as important: a flawed genius trying to be worthy of his own inventions."
+      ],
+      funFacts: [
+        "Iron Man first appeared in Tales of Suspense #39 in 1963.",
+        "The armor has taken hundreds of forms, from bulky prototypes to elegant nano-tech designs.",
+        "Tony's best stories are usually the ones where his brilliance cannot outrun his conscience."
+      ]
+    },
+    trivia: [
+      {
+        question: "What powered Tony Stark's first life-saving prototype?",
+        choices: ["Arc reactor", "Vibranium core", "Gamma cell", "Cosmic shard"],
+        answer: 0,
+        explanation: "The arc reactor was the core that kept Tony alive and powered the first armor."
+      },
+      {
+        question: "Which storyline is a classic Tony Stark character study?",
+        choices: ["Demon in a Bottle", "Kingdom Come", "Crisis on Infinite Earths", "Kraven's Last Hunt"],
+        answer: 0,
+        explanation: "Demon in a Bottle is a landmark exploration of Tony's flaws and accountability."
+      }
+    ]
   },
   spiderman: {
     id: "spiderman",
     name: "Spider-Man",
     universe: "Marvel",
-    title: "SPIDER-MAN",
-    subtitle: "WITH GREAT POWER...",
+    title: "YOUR FRIENDLY NEIGHBORHOOD SPIDER-MAN",
+    subtitle: "POWERED BY RESPONSIBILITY, HUMOR, AND A LOT OF BAD LUCK",
     bgText: "SPIDER-MAN",
-    cityLabel: "NEW YORK",
+    cityLabel: "NEW YORK CITY",
+    image: "https://upload.wikimedia.org/wikipedia/en/2/21/Web_of_Spider-Man_Vol_1_129-1.png",
+    wiki: "https://en.wikipedia.org/wiki/Spider-Man",
+    colors: { primary: "#ff5b57", secondary: "#183c7a", accent: "#5cb7ff", bg: "#05070c" },
+    stats: { "SPIDER-SENSE": "ALWAYS ON", "AGILITY": "INSANE", "LEGACY": "60+ YEARS" },
+    abilities: ["Spider-sense", "Wall-crawling", "Webbing", "Enhanced agility"],
+    badges: ["Neighborhood hero", "Web-slinger", "Spider-Sense icon"],
+    storyLeft: "Peter Parker was bitten by a radioactive spider and got power before he understood responsibility. That mistake and Uncle Ben's death made him the hero who can never separate saving people from paying a personal price.",
+    storyRight: "Spider-Man works because he is brilliant, funny, anxious, and still willing to swing back into danger. He is the hero of the late homework, the bad day, and the impossible save.",
+    ctaLabel: "SWING IN",
     versions: [
       { actor: "TOM HOLLAND", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Tom_Holland_by_Gage_Skidmore.jpg/440px-Tom_Holland_by_Gage_Skidmore.jpg", quote: "I'm just a friendly neighborhood Spider-Man." },
       { actor: "TOBEY MAGUIRE", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Tobey_Maguire_2014.jpg/440px-Tobey_Maguire_2014.jpg", quote: "With great power comes great responsibility." }
     ],
-    storyLeft: "Bitten by a radioactive spider, Peter Parker balances high school with heroism.",
-    storyRight: "He stays for the little things while fighting the biggest threats in the multiverse.",
-    ctaLabel: "SWING IN",
-    wiki: "https://en.wikipedia.org/wiki/Spider-Man",
-    colors: { primary: "#ff4d4d", secondary: "#1a1a1a", accent: "#4d94ff", bg: "#0a0a0a" },
-    image: "https://upload.wikimedia.org/wikipedia/en/2/21/Web_of_Spider-Man_Vol_1_129-1.png",
-    stats: { "SUPERPOWERS": "12", "WILLPOWER": "HIGH", "YRS OF LEGACY": "60+" },
-    abilities: ["Wall Crawling", "Web Shooting", "Spider-Sense", "Peak Human Condition"],
-    heroTabs: ["NEW YORK", "PETER PARKER", "THE ROGUES", "THE MULTIVERSE"],
-    villains: [{ name: "Green Goblin", threat: "Psycho", image: "https://upload.wikimedia.org/wikipedia/en/e/e9/Green_Goblin_%28Alex_Ross%27s_art%29.jpg", front: "The Osborne curse.", back: "A glider and a grin." }],
-    timeline: [{ year: "1962", title: "Amazing Fantasy #15", text: "The first appearance of Spider-Man." }],
-    teamup: { partner: "Iron Man", synergy: 90, title: "Mentor and Student", text: "Tech meets instinct." },
-    battle: { hp: 90, attack: 12, special: 22, moves: { attack: "webs and strikes", special: "coordinated web-blast", guard: "evades with spider-sense" } },
-    trivia: [{ question: "What is Spider-Man's real name?", choices: ["Peter Parker", "Miles Morales", "Gwen Stacy"], answer: 0 }],
-    quizAffinity: { heart: 3, scholar: 2, rebel: 2, leader: 1, feral: 1, speedster: 3, mystic: 1 },
-    badges: ["Web-Slinger", "Wall-Crawler", "Spider-Sense"],
-    tag: "The Friendly Neighborhood Spider-Man", story: "A kid from Queens, bitten by greatness."
+    villains: [
+      { name: "Green Goblin", threat: "Chaos in a mask", image: "https://upload.wikimedia.org/wikipedia/en/e/e9/Green_Goblin_%28Alex_Ross%27s_art%29.jpg", front: "Norman Osborn turns wealth, obsession, and madness into Spider-Man's most personal tragedy machine.", back: "The Goblin matters because he knows exactly where Peter hurts." },
+      { name: "Doc Ock", threat: "Twisted intellect", image: "https://images.unsplash.com/photo-1516321310764-8d15de5d0cb0?auto=format&fit=crop&w=900&q=80", front: "Otto Octavius weaponizes brilliance and resentment, making Spider-Man fight a scientist who thinks he is the superior mind.", back: "Doc Ock stories are so strong because they turn the battle into a debate over who deserves to wear the hero's body or symbol." }
+    ],
+    timeline: [
+      { year: "1962", title: "First appearance", text: "Spider-Man debuts in Amazing Fantasy #15 and rewrites what a teenage superhero can be." },
+      { year: "1987", title: "Kraven's Last Hunt", text: "One of Marvel's darkest Spider-Man stories explores identity, mortality, and resilience." },
+      { year: "2014", title: "Spider-Verse", text: "The multiverse expands Spider-Man into a legacy bigger than one person." },
+      { year: "2023", title: "Across the Spider-Verse", text: "Miles and Peter continue pushing the idea that responsibility can evolve across generations." }
+    ],
+    teamup: { partner: "Iron Man", synergy: 90, title: "Mentor and student", text: "Tony gives Peter a framework and advanced tech. Peter gives Tony the kind of hopeful energy he often forgets to protect." },
+    battle: { hp: 92, attack: 14, special: 24, moves: { attack: "throws a web-and-kick combo", special: "unleashes a spider-sense counterburst", guard: "dodges into a webbed evasive stance" } },
+    quizAffinity: { leader: 1, scholar: 3, rebel: 2, heart: 5, speedster: 3, mystic: 0, feral: 0 },
+    lore: {
+      origin: [
+        "Peter Parker's life changed the moment a radioactive spider turned a smart, awkward teenager into someone powerful enough to help people and scared enough to get it wrong. Uncle Ben's death taught him that power without responsibility is a disaster waiting to happen.",
+        "Spider-Man's origin remains powerful because it blends science, guilt, humor, and adolescence in a way that never ages out of relevance."
+      ],
+      powers: [
+        "Spider-Man combines wall-crawling, superhuman agility, enhanced strength, web-shooting ingenuity, and a spider-sense that warns him before danger lands. His intellect is just as important as the powers.",
+        "He builds his own web fluid, improvises constantly, and fights like somebody who survives by instinct and creativity as much as by muscle."
+      ],
+      storylines: [
+        "The original Lee and Ditko stories established the responsibility mantra. Kraven's Last Hunt pushed the character into psychological depth. Spider-Verse turned his myth into a whole multiverse. Superior Spider-Man and related arcs tested what happens when identity is challenged from the inside.",
+        "Peter's greatest stories usually work because they balance joke, heartbreak, and sacrifice in the same breath."
+      ],
+      allies: [
+        "Mary Jane, Aunt May, the Fantastic Four, Miles Morales, and the wider Marvel community all reinforce the idea that Spider-Man is never truly alone, even when he feels that way.",
+        "His support system matters because the character is strongest when the audience sees how much he gives up to keep showing up."
+      ],
+      legacy: [
+        "Spider-Man is the archetypal relatable superhero. He made comics feel personal, urban, and emotionally accessible to a broader audience.",
+        "Every generation gets its own Spider-Man because the core idea is timeless: growing up is hard, but responsibility can still be heroic and fun."
+      ],
+      funFacts: [
+        "Spider-Man first appeared in Amazing Fantasy #15 in 1962.",
+        "He was one of the first major teenage superheroes to headline a title on his own.",
+        "His mask is iconic because it lets anyone imagine themselves behind it."
+      ]
+    },
+    trivia: [
+      {
+        question: "Which idea defines Spider-Man more than any web gadget?",
+        choices: ["Science", "Responsibility", "Luck", "Secrecy"],
+        answer: 1,
+        explanation: "Spider-Man is built on the responsibility lesson."
+      },
+      {
+        question: "What kind of warning system does Spider-Man rely on in a fight?",
+        choices: ["Spider-sense", "X-ray vision", "Telepathy", "Super hearing"],
+        answer: 0,
+        explanation: "Spider-sense is his early-warning reflex that makes him feel impossible to ambush."
+      }
+    ]
   },
   wonderwoman: {
     id: "wonderwoman",
     name: "Wonder Woman",
     universe: "DC",
-    title: "DIANA PRINCE",
-    subtitle: "THE AMAZON WARRIOR",
+    title: "DIANA OF THEMYSCIRA",
+    subtitle: "TRUTH, COMPASSION, AND WARRIOR GRACE",
     bgText: "WONDER WOMAN",
     cityLabel: "THEMYSCIRA",
+    image: "https://upload.wikimedia.org/wikipedia/en/9/93/Wonder_Woman.jpg",
+    wiki: "https://en.wikipedia.org/wiki/Wonder_Woman",
+    colors: { primary: "#f4c84a", secondary: "#6f1125", accent: "#ff7d66", bg: "#070508" },
+    stats: { "WARRIOR SKILL": "ELITE", "TRUTH": "UNBREAKABLE", "LEGACY": "80+ YEARS" },
+    abilities: ["Lasso of Truth", "Super strength", "Bracelet deflection", "Flight"],
+    badges: ["Amazon champion", "Champion of truth", "Justice League founder"],
+    storyLeft: "Diana was raised among the Amazons of Themyscira, trained in combat, diplomacy, and compassion before stepping into the world of men as its champion. Depending on the era, her origin shifts in detail, but her purpose stays constant: she brings truth into spaces built on war and fear.",
+    storyRight: "Wonder Woman is not just a warrior. She is a bridge between myth and humanity, proving that mercy and strength are not opposites when they are guided by conviction.",
+    ctaLabel: "TRUTH AWAITS",
     versions: [
       { actor: "GAL GADOT", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Gal_Gadot_%2833646498484%29_%28cropped2%29.jpg/440px-Gal_Gadot_%2833646498484%29_%28cropped2%29.jpg", quote: "I will fight for those who cannot fight for themselves." },
       { actor: "LYNDA CARTER", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Lynda_Carter_1977.jpg/440px-Lynda_Carter_1977.jpg", quote: "All the world is waiting for you." }
     ],
-    storyLeft: "Raised among the Amazons, Diana left Themyscira to bring peace to a world at war.",
-    storyRight: "Daughter of Hippolyta, champion of truth. She wields the lasso, and the lasso never lies.",
-    ctaLabel: "TRUTH AWAITS",
-    wiki: "https://en.wikipedia.org/wiki/Wonder_Woman",
-    colors: { primary: "#ffcc00", secondary: "#1a1a1a", accent: "#ff4d4d", bg: "#0a0a0a" },
-    image: "https://upload.wikimedia.org/wikipedia/en/9/93/Wonder_Woman.jpg",
-    stats: { "SUPERPOWERS": "8", "WILLPOWER": "INFINITE", "YRS OF LEGACY": "80+" },
-    abilities: ["Lasso of Truth", "Indestructible Bracelets", "Super Strength", "Flight"],
-    heroTabs: ["THEMYSCIRA", "DIANA", "THE GODS", "THE LEGACY"],
-    villains: [{ name: "Ares", threat: "God", image: "https://upload.wikimedia.org/wikipedia/en/7/72/AresMarvel.jpg", front: "The god of war.", back: "Eternal conflict embodied." }],
-    timeline: [{ year: "1941", title: "All Star Comics #8", text: "The first appearance of Wonder Woman." }],
-    teamup: { partner: "Batman", synergy: 82, title: "Justice League Founders", text: "Wisdom and strategy." },
-    battle: { hp: 120, attack: 18, special: 30, moves: { attack: "strikes with bracelets", special: "lasso of truth bind", guard: "deflects with bracelets" } },
-    trivia: [{ question: "What is Wonder Woman's weapon of truth?", choices: ["Sword", "Lasso", "Shield"], answer: 1 }],
-    quizAffinity: { leader: 3, heart: 2, scholar: 1, rebel: 2, feral: 1, speedster: 1, mystic: 2 },
-    badges: ["Amazonian Princess", "Champion of Truth", "Goddess of War"],
-    tag: "Amazon Warrior", story: "From Themyscira to the world of men."
+    villains: [
+      { name: "Ares", threat: "God of war", image: "https://upload.wikimedia.org/wikipedia/en/7/72/AresMarvel.jpg", front: "Ares personifies the seduction of conflict and the myth that war is inevitable.", back: "He matters because Wonder Woman's mission is fundamentally anti-war without being naive." },
+      { name: "Cheetah", threat: "Predatory rival", image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=900&q=80", front: "Cheetah is speed, envy, and ferocity turned against Diana's ideals.", back: "The rivalry is tragic because it often pits compassion against corruption from within." }
+    ],
+    timeline: [
+      { year: "1941", title: "First appearance", text: "Wonder Woman arrives in All Star Comics #8 and becomes a pillar of the DC Trinity." },
+      { year: "1970s", title: "A cultural icon", text: "The television era makes Diana a mainstream symbol of strength and justice." },
+      { year: "2011", title: "New 52 era", text: "Modern stories rework her mythic ties while keeping truth at the center." },
+      { year: "2017", title: "Cinematic breakthrough", text: "Wonder Woman becomes a global blockbuster and a major superhero milestone." }
+    ],
+    teamup: { partner: "Batman", synergy: 88, title: "Justice League founders", text: "Batman brings strategy, Diana brings moral clarity. Their contrast makes them natural allies when the stakes turn global." },
+    battle: { hp: 124, attack: 19, special: 31, moves: { attack: "cuts through with Amazonian precision", special: "binds foes with the Lasso of Truth", guard: "crosses the bracelets in a shining block" } },
+    quizAffinity: { leader: 3, scholar: 1, rebel: 2, heart: 4, speedster: 0, mystic: 2, feral: 0 },
+    lore: {
+      origin: [
+        "Wonder Woman's origin has shifted across continuities, but the essence remains clear: Diana is an Amazon princess raised to be both a warrior and a diplomat. She leaves Themyscira because the world beyond the island needs truth, courage, and healing.",
+        "Her power is rooted in myth, but her mission is human. She enters war zones to end cycles of violence, not to glorify them."
+      ],
+      powers: [
+        "Diana combines divine strength, elite combat training, flight, indestructible bracelets, and the Lasso of Truth. In many stories she is one of the strongest heroes in the DC universe, but her discipline matters as much as raw force.",
+        "Her weapons and skills are symbols of authority, but her greatest advantage is the moral clarity she brings into conflict."
+      ],
+      storylines: [
+        "A League of One, The Hiketeia, and modern origin retellings emphasize Diana's role as a protector first and a warrior second. Stories involving Ares and the gods often test whether she can hold onto compassion when the world rewards aggression.",
+        "Across eras, Wonder Woman remains most powerful when the narrative gives her both mythic scale and emotional intelligence."
+      ],
+      allies: [
+        "Steve Trevor, the Justice League, the Amazons, Donna Troy, Nubia, and her wider circle give Diana a world beyond battle. They help keep the character connected to community and diplomacy.",
+        "She is often the moral center of a team because she can speak with authority without losing warmth."
+      ],
+      legacy: [
+        "Wonder Woman is one of the defining superheroes of the medium. She expanded what a superhero icon could look like and what a heroic voice could sound like.",
+        "Her legacy lives in action, but also in the idea that truth is not passive. It is something you stand for, even when it costs you."
+      ],
+      funFacts: [
+        "Wonder Woman first appeared in All Star Comics #8 in 1941.",
+        "The Lasso of Truth is one of the most recognizable objects in comics.",
+        "She is one of the core DC Trinity alongside Batman and Superman."
+      ]
+    },
+    trivia: [
+      {
+        question: "What principle most defines Wonder Woman's mission?",
+        choices: ["Conquest", "Truth", "Secrecy", "Speed"],
+        answer: 1,
+        explanation: "Truth is at the center of Diana's mythology and her tactics."
+      },
+      {
+        question: "Which team is Wonder Woman famously part of as a foundational member?",
+        choices: ["Avengers", "Justice League", "X-Men", "Fantastic Four"],
+        answer: 1,
+        explanation: "Wonder Woman is a foundational member of the Justice League."
+      }
+    ]
   }
 };
 
 const quizQuestions = [
   {
-    prompt: "A crisis hits your city. What is your first instinct?",
+    prompt: "A crisis hits your city and the cameras are already rolling. What do you do first?",
     answers: [
-      { label: "Take command and coordinate everyone", weights: { leader: 3, heart: 1 } },
-      { label: "Improvise a risky move nobody else sees yet", weights: { rebel: 2, scholar: 1 } },
-      { label: "Protect the most vulnerable first", weights: { heart: 3 } },
-      { label: "Study the pattern before striking", weights: { scholar: 3, mystic: 1 } }
+      { label: "Map the threat, assign roles, and build a plan", weights: { leader: 3, scholar: 2 } },
+      { label: "Get to street level and improvise from the first impact", weights: { rebel: 2, feral: 1, speedster: 1 } },
+      { label: "Find the civilians who need a shield before the battle starts", weights: { heart: 3, leader: 1 } },
+      { label: "Read the symbols, the timing, and the hidden meaning behind it", weights: { scholar: 2, mystic: 2 } }
     ]
   },
   {
-    prompt: "Which flaw do you battle most often?",
+    prompt: "Which line sounds most like the code you would leave behind?",
     answers: [
-      { label: "Pride", weights: { leader: 1, scholar: 1 } },
-      { label: "Isolation", weights: { rebel: 2, feral: 1 } },
-      { label: "Overthinking", weights: { scholar: 2, speedster: 1 } },
-      { label: "Feeling too much", weights: { heart: 2, mystic: 2 } }
+      { label: "Never let fear make the decisions", weights: { leader: 2, rebel: 1 } },
+      { label: "If the answer is broken, rebuild it better", weights: { scholar: 3, leader: 1 } },
+      { label: "Power only matters when it helps people stay human", weights: { heart: 3, mystic: 1 } },
+      { label: "Rule one: get back up harder than before", weights: { feral: 2, rebel: 2 } }
+    ]
+  },
+  {
+    prompt: "What kind of reputation do you secretly want?",
+    answers: [
+      { label: "The person everyone calls when the plan matters", weights: { leader: 3, scholar: 1 } },
+      { label: "The legend who makes impossible things look effortless", weights: { speedster: 2, rebel: 1, feral: 1 } },
+      { label: "The ally who never stops showing up", weights: { heart: 3 } },
+      { label: "The one who sees what others miss", weights: { mystic: 2, scholar: 2 } }
+    ]
+  },
+  {
+    prompt: "How do you deal with an enemy who is stronger than you?",
+    answers: [
+      { label: "Outthink them and use their momentum against them", weights: { scholar: 3, leader: 1 } },
+      { label: "Outlast them with grit and raw will", weights: { feral: 2, rebel: 2 } },
+      { label: "Reach people first so the fight is never isolated", weights: { heart: 2, leader: 2 } },
+      { label: "Lean into a bigger truth they cannot control", weights: { mystic: 3, heart: 1 } }
+    ]
+  },
+  {
+    prompt: "What matters most after the battle ends?",
+    answers: [
+      { label: "The next plan", weights: { leader: 2, scholar: 2 } },
+      { label: "The people who made it through", weights: { heart: 3 } },
+      { label: "The chance to improve the system", weights: { rebel: 2, scholar: 1 } },
+      { label: "The promise to keep moving forward", weights: { speedster: 2, feral: 1 } }
+    ]
+  },
+  {
+    prompt: "When a teammate starts losing confidence, what do you offer?",
+    answers: [
+      { label: "A contingency plan and a quiet reminder that they're not alone", weights: { leader: 2, scholar: 1, heart: 1 } },
+      { label: "A bold push to remind them of their own fire", weights: { rebel: 2, speedster: 1 } },
+      { label: "Patience, honesty, and the space to breathe again", weights: { heart: 3 } },
+      { label: "A strange angle nobody else thought to use", weights: { mystic: 2, scholar: 2 } }
     ]
   }
 ];
 
+const triviaDecks = {
+  easy: [
+    {
+      question: "Which hero first appeared in Detective Comics #27?",
+      choices: ["Batman", "Superman", "Spider-Man", "Iron Man"],
+      answer: 0,
+      explanation: "Batman made his debut in Detective Comics #27 in 1939."
+    },
+    {
+      question: "What is Wonder Woman's most famous truth-based weapon?",
+      choices: ["The Shield of Athena", "The Lasso of Truth", "The Sword of Olympus", "The Bracelets of Victory"],
+      answer: 1,
+      explanation: "The Lasso of Truth is one of Wonder Woman's signature tools."
+    },
+    {
+      question: "What city is Superman most closely tied to?",
+      choices: ["Gotham", "Metropolis", "Central City", "Atlantis"],
+      answer: 1,
+      explanation: "Metropolis is Superman's principal city and symbolically bright home base."
+    },
+    {
+      question: "What metal is most associated with Wakanda's advanced technology in the wider Marvel mythos?",
+      choices: ["Adamantium", "Vibranium", "Nth metal", "Titanium"],
+      answer: 1,
+      explanation: "Vibranium is the signature resource that powers Wakanda's advanced engineering."
+    }
+  ],
+  medium: [
+    {
+      question: "Which story is a landmark exploration of Tony Stark's flaws and self-destruction?",
+      choices: ["Demon in a Bottle", "Civil War", "Secret Wars", "Armor Wars"],
+      answer: 0,
+      explanation: "Demon in a Bottle is the classic Tony Stark character study."
+    },
+    {
+      question: "What idea sits at the heart of Spider-Man's origin?",
+      choices: ["Duty before comfort", "Power before identity", "Secrets before family", "Luck before planning"],
+      answer: 0,
+      explanation: "Spider-Man is built on the lesson that power means responsibility."
+    },
+    {
+      question: "Which Batman storyline is known for breaking him physically and symbolically?",
+      choices: ["Knightfall", "Hush", "The Long Halloween", "Earth One"],
+      answer: 0,
+      explanation: "Knightfall is the story where Bane breaks Batman's body and his myth is tested."
+    },
+    {
+      question: "Which Marvel event is most associated with a fractured superhero community forcing Tony Stark into the center of the debate?",
+      choices: ["Civil War", "Infinity Gauntlet", "Secret Invasion", "House of M"],
+      answer: 0,
+      explanation: "Civil War is the defining event for Tony's public ethical crisis."
+    }
+  ],
+  hard: [
+    {
+      question: "Which Wonder Woman story is often praised for treating Diana as a mediator among gods and mortals?",
+      choices: ["The Hiketeia", "Kingdom Come", "Flashpoint", "Superman: Red Son"],
+      answer: 0,
+      explanation: "The Hiketeia is a standout Wonder Woman story about duty, truth, and consequences."
+    },
+    {
+      question: "What is the primary reason Ultron is such a strong Iron Man rival?",
+      choices: ["He copies Tony's armor line", "He reflects Tony's logic without his conscience", "He is Tony's older brother", "He controls the Avengers"],
+      answer: 1,
+      explanation: "Ultron is terrifying because he is Stark-like intelligence stripped of empathy."
+    },
+    {
+      question: "Which Spider-Man event expanded the character into a broader legacy rather than a single identity?",
+      choices: ["Spider-Verse", "House of M", "Inferno", "Age of Ultron"],
+      answer: 0,
+      explanation: "Spider-Verse turns Spider-Man into a multi-hero legacy across realities."
+    },
+    {
+      question: "Which Batman era is most associated with the discovery that Gotham has a hidden aristocracy watching from the shadows?",
+      choices: ["The Court of Owls", "No Man's Land", "Zero Year", "Black Mirror"],
+      answer: 0,
+      explanation: "The Court of Owls arc reframes Gotham as a city with a secret ruling class."
+    }
+  ]
+};
+
 const appState = {
   selectedHeroId: "batman",
   selectedVersionIndex: 0,
-  actorRevealed: false,
-  battle: { active: false, heroId: "batman", enemyId: "superman", heroHp: 0, enemyHp: 0, heroGuarded: false, enemyGuarded: false, ended: false },
-  quiz: { index: 0, scores: {}, complete: false, resultId: null },
-  trivia: { deck: [], index: 0, score: 0, answered: false, complete: false },
+  selectedUniverse: "all",
+  loreExpanded: false,
+  quiz: { index: 0, traits: {}, complete: false, resultId: null, feedback: "" },
+  trivia: {
+    difficulty: "medium",
+    deck: [],
+    index: 0,
+    score: 0,
+    streak: 0,
+    timerSeconds: 0,
+    locked: false,
+    complete: false,
+    message: ""
+  },
+  battle: {
+    active: false,
+    heroId: "batman",
+    enemyId: "superman",
+    heroHp: 0,
+    enemyHp: 0,
+    heroGuarded: false,
+    enemyGuarded: false,
+    ended: false
+  },
   vote: { board: [], total: 0, message: "Loading shared totals..." }
 };
 
-const STORAGE_KEY = "legendrium-selection-v1";
-const THEME_KEY = "legendrium-theme-v1";
+const STORAGE_KEY = "legendrium-selection-v2";
+const UNIVERSE_KEY = "legendrium-universe-v2";
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
 const elements = {};
-function cacheElements() {
-  const ids = [
-    "heroNav", "dossierTitle", "dossierSubtitle", "versionSelector",
-    "dossierStoryLeft", "dossierStoryRight", "dossierImage", "actorImage",
-    "dossierStats", "bgText", "cityLabel", "ctaBtn", "heroImageArea",
-    "villainGrid", "timelineRail", "teamupCard",
-    "battleOpponent", "battleStatus", "battleHeroName", "battleEnemyName",
-    "battleHeroImage", "battleEnemyImage", "battleHeroHealth", "battleEnemyHealth", "battleLog",
-    "quizCard", "triviaCard",
-    "voteButtons", "voteMessage", "voteTotal", "voteBoard",
-    "externalHeroCard", "themeToggle", "cursorDot", "cursorRing",
-    "dcDropdownBtn", "dcDropdownMenu", "marvelDropdownBtn", "marvelDropdownMenu",
-    "heroSubtabs"
-  ];
-  ids.forEach(id => { elements[id] = document.getElementById(id); });
+let revealObserver = null;
+
+function heroTag(hero) {
+  return hero.tag || hero.subtitle || hero.title || hero.name;
 }
 
-function resolveDisplayHero() { return heroes[appState.selectedHeroId]; }
+function heroSummary(hero) {
+  return hero.storyRight || hero.storyLeft || hero.subtitle || hero.name;
+}
 
-function persistSelection() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify({
-    selectedHeroId: appState.selectedHeroId,
-    selectedVersionIndex: appState.selectedVersionIndex
-  }));
+function cacheElements() {
+  const ids = [
+    "siteNav",
+    "heroUniverseSelector",
+    "heroRosterGrid",
+    "heroDossier",
+    "dossierTitle",
+    "dossierSubtitle",
+    "dossierStoryLeft",
+    "dossierStoryRight",
+    "dossierImage",
+    "dossierStats",
+    "dossierBadges",
+    "exploreLoreBtn",
+    "loreSection",
+    "loreContent",
+    "villainGrid",
+    "timelineRail",
+    "versionSelector",
+    "teamupCard",
+    "battleOpponent",
+    "battleStatus",
+    "battleHeroName",
+    "battleEnemyName",
+    "battleHeroImage",
+    "battleEnemyImage",
+    "battleHeroHealth",
+    "battleEnemyHealth",
+    "battleLog",
+    "quizCard",
+    "quizProgress",
+    "quizStage",
+    "quizFeedback",
+    "quizTraitBars",
+    "triviaCard",
+    "triviaScore",
+    "triviaStreak",
+    "triviaTimer",
+    "triviaProgress",
+    "triviaDifficulty",
+    "triviaDifficultyButtons",
+    "voteButtons",
+    "voteMessage",
+    "voteTotal",
+    "voteBoard",
+    "heroPicker",
+    "pickerNote"
+  ];
+  ids.forEach((id) => {
+    elements[id] = document.getElementById(id);
+  });
+}
+
+function currentHero() {
+  return heroData[appState.selectedHeroId];
+}
+
+function saveSelection() {
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify({
+      selectedHeroId: appState.selectedHeroId,
+      selectedVersionIndex: appState.selectedVersionIndex
+    })
+  );
 }
 
 function restoreSelection() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return;
+    if (!raw) {
+      const savedUniverse = localStorage.getItem(UNIVERSE_KEY);
+      if (savedUniverse && universeFilters.includes(savedUniverse)) {
+        appState.selectedUniverse = savedUniverse;
+      }
+      return;
+    }
     const saved = JSON.parse(raw);
-    if (saved.selectedHeroId && heroes[saved.selectedHeroId]) appState.selectedHeroId = saved.selectedHeroId;
-    if (Number.isInteger(saved.selectedVersionIndex)) appState.selectedVersionIndex = saved.selectedVersionIndex;
-  } catch (e) { localStorage.removeItem(STORAGE_KEY); }
+    if (saved.selectedHeroId && heroData[saved.selectedHeroId]) {
+      appState.selectedHeroId = saved.selectedHeroId;
+    }
+    if (Number.isInteger(saved.selectedVersionIndex)) {
+      appState.selectedVersionIndex = saved.selectedVersionIndex;
+    }
+    const savedUniverse = localStorage.getItem(UNIVERSE_KEY);
+    if (savedUniverse && universeFilters.includes(savedUniverse)) {
+      appState.selectedUniverse = savedUniverse;
+    }
+  } catch (_error) {
+    localStorage.removeItem(STORAGE_KEY);
+  }
 }
 
-function applyTheme(theme) {
-  document.body.dataset.theme = theme;
-  if (elements.themeToggle) elements.themeToggle.textContent = theme === "light" ? "☀" : "☾";
-}
-function restoreTheme() { applyTheme(localStorage.getItem(THEME_KEY) || "dark"); }
-function toggleTheme() {
-  const next = document.body.dataset.theme === "light" ? "dark" : "light";
-  localStorage.setItem(THEME_KEY, next);
-  applyTheme(next);
-}
-
-function setTheme(hero) {
+function setHeroTheme(hero) {
   document.documentElement.style.setProperty("--primary", hero.colors.primary);
   document.documentElement.style.setProperty("--secondary", hero.colors.secondary);
   document.documentElement.style.setProperty("--accent", hero.colors.accent);
   document.documentElement.style.setProperty("--bg", hero.colors.bg);
 }
 
-/* ── Dropdown Menus ── */
-function buildDropdowns() {
-  const dcHeroes = rosterOrder.filter(id => heroes[id].universe === "DC");
-  const marvelHeroes = rosterOrder.filter(id => heroes[id].universe === "Marvel");
+function refreshLayoutOffset() {
+  const topbar = document.querySelector(".topbar");
+  const offset = (topbar ? topbar.offsetHeight : 96) + 24;
+  document.documentElement.style.setProperty("--header-offset", `${offset}px`);
+}
 
-  if (elements.dcDropdownMenu) {
-    elements.dcDropdownMenu.innerHTML = dcHeroes.map(id => `
-      <button class="dropdown-hero-item ${appState.selectedHeroId === id ? 'active' : ''}" data-hero="${id}">${heroes[id].name}</button>
-    `).join("");
-    elements.dcDropdownMenu.querySelectorAll(".dropdown-hero-item").forEach(btn => {
-      btn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        selectHero(btn.dataset.hero);
-        closeAllDropdowns();
-      });
-    });
+function smoothScrollToElement(element) {
+  if (!element) return;
+  const offset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--header-offset")) || 120;
+  const top = window.scrollY + element.getBoundingClientRect().top - offset;
+  window.scrollTo({ top, behavior: prefersReducedMotion ? "auto" : "smooth" });
+}
+
+function buildSharedNav() {
+  if (!elements.siteNav) return;
+  const pageKey = document.body.dataset.page;
+  elements.siteNav.innerHTML = featureNavLinks
+    .map((link) => {
+      const active = pageKey === link.key ? " active" : "";
+      return `<a class="nav-link${active}" href="${link.href}">${link.label}</a>`;
+    })
+    .join("");
+  observeRevealNodes(elements.villainGrid);
+}
+
+function observeRevealNodes(scope = document) {
+  const nodes = scope.querySelectorAll ? scope.querySelectorAll(".reveal") : [];
+  if (!nodes.length) return;
+  if (!revealObserver) {
+    nodes.forEach((node) => node.classList.add("visible"));
+    return;
   }
-  if (elements.marvelDropdownMenu) {
-    elements.marvelDropdownMenu.innerHTML = marvelHeroes.map(id => `
-      <button class="dropdown-hero-item ${appState.selectedHeroId === id ? 'active' : ''}" data-hero="${id}">${heroes[id].name}</button>
-    `).join("");
-    elements.marvelDropdownMenu.querySelectorAll(".dropdown-hero-item").forEach(btn => {
-      btn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        selectHero(btn.dataset.hero);
-        closeAllDropdowns();
-      });
+  nodes.forEach((node) => revealObserver.observe(node));
+}
+
+function buildUniverseSelector() {
+  if (!elements.heroUniverseSelector) return;
+  elements.heroUniverseSelector.innerHTML = universeFilters
+    .map((filter) => {
+      const active = appState.selectedUniverse === filter ? " active" : "";
+      const label = filter === "all" ? "All Heroes" : filter;
+      return `<button class="universe-chip${active}" type="button" data-universe="${filter}" aria-pressed="${appState.selectedUniverse === filter}">${label}</button>`;
+    })
+    .join("");
+
+  elements.heroUniverseSelector.querySelectorAll("[data-universe]").forEach((button) => {
+    button.addEventListener("click", () => {
+      appState.selectedUniverse = button.dataset.universe;
+      localStorage.setItem(UNIVERSE_KEY, appState.selectedUniverse);
+      buildUniverseSelector();
+      renderRosterGrid();
     });
+  });
+}
+
+function renderRosterGrid() {
+  if (!elements.heroRosterGrid) return;
+  const heroes = heroOrder.map((id) => heroData[id]).filter((hero) => appState.selectedUniverse === "all" || hero.universe === appState.selectedUniverse);
+  elements.heroRosterGrid.innerHTML = heroes
+    .map((hero, index) => {
+      const active = hero.id === appState.selectedHeroId ? " selected" : "";
+      const delayClass = ` reveal-delay-${Math.min(index + 1, 3)}`;
+      return `
+        <button class="roster-card reveal${active}${delayClass}" type="button" data-hero="${hero.id}" aria-pressed="${hero.id === appState.selectedHeroId}">
+          <span class="roster-card-universe">${hero.universe}</span>
+          <span class="roster-card-title">${hero.name}</span>
+          <span class="roster-card-tag">${hero.tag || hero.subtitle}</span>
+        </button>
+      `;
+    })
+    .join("");
+
+  elements.heroRosterGrid.querySelectorAll("[data-hero]").forEach((button) => {
+    button.addEventListener("click", () => selectHero(button.dataset.hero, { fromRoster: true }));
+  });
+  observeRevealNodes(elements.heroRosterGrid);
+}
+
+function renderLore(hero) {
+  if (!elements.loreContent) return;
+  const sections = [
+    ["Origin", hero.lore.origin],
+    ["Powers & Abilities", hero.lore.powers],
+    ["Major Storylines", hero.lore.storylines],
+    ["Allies", hero.lore.allies],
+    ["Legacy", hero.lore.legacy],
+    ["Fun Facts", hero.lore.funFacts]
+  ];
+
+  elements.loreContent.innerHTML = sections
+    .map(
+      ([title, lines], index) => `
+        <article class="lore-block reveal reveal-delay-${Math.min(index + 1, 3)}">
+          <p class="eyebrow">${title}</p>
+          <div class="lore-copy">
+            ${lines.map((line) => `<p>${line}</p>`).join("")}
+          </div>
+        </article>
+      `
+    )
+    .join("");
+  observeRevealNodes(elements.loreContent);
+}
+
+function setLoreExpanded(expanded) {
+  appState.loreExpanded = expanded;
+  if (elements.loreSection) {
+    elements.loreSection.dataset.open = String(expanded);
+    elements.loreSection.setAttribute("aria-hidden", String(!expanded));
+    elements.loreSection.style.maxHeight = expanded ? `${elements.loreSection.scrollHeight}px` : "0px";
+  }
+  if (elements.exploreLoreBtn) {
+    elements.exploreLoreBtn.setAttribute("aria-expanded", String(expanded));
+    elements.exploreLoreBtn.innerHTML = `${expanded ? "Hide Lore" : "Explore Lore"} <span class="arrow">&rarr;</span>`;
   }
 }
 
-function closeAllDropdowns() {
-  document.querySelectorAll(".dropdown-menu").forEach(m => m.classList.remove("open"));
-  document.querySelectorAll(".dropdown-btn").forEach(b => b.classList.remove("open"));
-}
-
-function initDropdowns() {
-  if (elements.dcDropdownBtn) {
-    elements.dcDropdownBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const isOpen = elements.dcDropdownMenu.classList.contains("open");
-      closeAllDropdowns();
-      if (!isOpen) { elements.dcDropdownMenu.classList.add("open"); elements.dcDropdownBtn.classList.add("open"); }
-    });
-  }
-  if (elements.marvelDropdownBtn) {
-    elements.marvelDropdownBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const isOpen = elements.marvelDropdownMenu.classList.contains("open");
-      closeAllDropdowns();
-      if (!isOpen) { elements.marvelDropdownMenu.classList.add("open"); elements.marvelDropdownBtn.classList.add("open"); }
-    });
-  }
-  document.addEventListener("click", closeAllDropdowns);
-}
-
-function selectHero(id) {
-  appState.selectedHeroId = id;
-  appState.selectedVersionIndex = 0;
-  appState.actorRevealed = false;
-  persistSelection();
-  renderHeroExperience();
-}
-
-/* ── Cinematic Splash Rendering ── */
 function renderDossier() {
-  const hero = resolveDisplayHero();
-  const version = hero.versions[appState.selectedVersionIndex];
+  const hero = currentHero();
+  const variant = hero.versions[appState.selectedVersionIndex] || hero.versions[0];
 
-  if (elements.bgText) elements.bgText.textContent = hero.bgText;
-  if (elements.cityLabel) elements.cityLabel.textContent = `— ${hero.cityLabel}`;
+  setHeroTheme(hero);
+
   if (elements.dossierTitle) elements.dossierTitle.textContent = hero.title;
   if (elements.dossierSubtitle) elements.dossierSubtitle.textContent = hero.subtitle;
   if (elements.dossierStoryLeft) elements.dossierStoryLeft.textContent = hero.storyLeft;
   if (elements.dossierStoryRight) elements.dossierStoryRight.textContent = hero.storyRight;
-
-  // Hero image (character)
   if (elements.dossierImage) {
-    elements.dossierImage.src = hero.image;
-    elements.dossierImage.alt = hero.name;
+    elements.dossierImage.src = variant.image || hero.image;
+    elements.dossierImage.alt = `${hero.name} variant`;
   }
-  // Actor image (revealed on hover)
-  if (elements.actorImage) {
-    elements.actorImage.src = version.image;
-    elements.actorImage.alt = version.actor;
+  if (elements.dossierStats) {
+    elements.dossierStats.innerHTML = Object.entries(hero.stats)
+      .map(
+        ([label, value]) => `
+          <div class="stat-item reveal">
+            <span class="stat-value">${value}</span>
+            <span class="stat-label">${label}</span>
+          </div>
+        `
+      )
+      .join("");
   }
-
-  // CTA button
-  if (elements.ctaBtn) {
-    elements.ctaBtn.textContent = hero.ctaLabel;
-    elements.ctaBtn.onclick = () => window.open(hero.wiki, "_blank");
+  if (elements.dossierBadges) {
+    elements.dossierBadges.innerHTML = hero.badges
+      .map((badge) => `<span class="badge-pill">${badge}</span>`)
+      .join("");
+    observeRevealNodes(elements.dossierBadges);
   }
-
-  // Version selector tabs
   if (elements.versionSelector) {
-    elements.versionSelector.innerHTML = hero.versions.map((v, i) => `
-      <button class="version-btn ${appState.selectedVersionIndex === i ? 'active' : ''}" data-index="${i}">${v.actor}</button>
-    `).join("");
-    elements.versionSelector.querySelectorAll(".version-btn").forEach(btn => {
-      btn.addEventListener("click", (e) => {
-        appState.selectedVersionIndex = parseInt(e.target.dataset.index);
+    elements.versionSelector.innerHTML = hero.versions
+      .map(
+        (version, index) => `
+          <button class="version-btn${index === appState.selectedVersionIndex ? " active" : ""}" type="button" data-version="${index}" aria-pressed="${index === appState.selectedVersionIndex}">
+            <span>${version.actor}</span>
+            <small>${version.quote}</small>
+          </button>
+        `
+      )
+      .join("");
+    elements.versionSelector.querySelectorAll("[data-version]").forEach((button) => {
+      button.addEventListener("click", () => {
+        appState.selectedVersionIndex = Number(button.dataset.version);
+        saveSelection();
         renderDossier();
-        persistSelection();
       });
     });
   }
-
-  // Hero sub-tabs (decorative for now)
-  if (elements.heroSubtabs) {
-    elements.heroSubtabs.innerHTML = hero.heroTabs.map((tab, i) => `
-      <button class="hero-subtab ${i === 0 ? 'active' : ''}">${tab}</button>
-    `).join("");
-  }
-
-  // Stats
-  if (elements.dossierStats) {
-    elements.dossierStats.innerHTML = Object.entries(hero.stats).map(([label, value]) => `
-      <div class="stat-item"><span class="stat-value">${value}</span><span class="stat-label">${label}</span></div>
-    `).join("");
-  }
-
-  // Update dropdown active states
-  buildDropdowns();
-}
-
-function renderHeroExperience() {
-  const hero = resolveDisplayHero();
-  setTheme(hero);
-  renderDossier();
-  renderVillains(hero);
-  renderTimeline(hero);
-  renderTeamUp(hero);
-  renderBattleHeroName();
+  observeRevealNodes(elements.dossierStats);
 }
 
 function renderVillains(hero) {
   if (!elements.villainGrid) return;
-  elements.villainGrid.innerHTML = hero.villains.map(v => `
-    <article class="villain-card reveal visible" tabindex="0">
-      <div class="villain-card-inner">
-        <div class="villain-face front"><img src="${v.image}" alt="${v.name}"><span class="threat">${v.threat}</span><h3>${v.name}</h3><p>${v.front}</p></div>
-        <div class="villain-face back"><span class="threat">Why it matters</span><h3>${v.name}</h3><p>${v.back}</p></div>
-      </div>
-    </article>
-  `).join("");
+  elements.villainGrid.innerHTML = hero.villains
+    .map(
+      (villain) => `
+        <article class="villain-card reveal" tabindex="0">
+          <div class="villain-card-inner">
+            <div class="villain-face front">
+              <img src="${villain.image}" alt="${villain.name}">
+              <span class="threat">${villain.threat}</span>
+              <h3>${villain.name}</h3>
+              <p>${villain.front}</p>
+            </div>
+            <div class="villain-face back">
+              <span class="threat">Why it matters</span>
+              <h3>${villain.name}</h3>
+              <p>${villain.back}</p>
+            </div>
+          </div>
+        </article>
+      `
+    )
+    .join("");
+  observeRevealNodes(elements.timelineRail);
 }
 
 function renderTimeline(hero) {
   if (!elements.timelineRail) return;
-  elements.timelineRail.innerHTML = hero.timeline.map(e => `
-    <article class="timeline-card"><time>${e.year}</time><h3>${e.title}</h3><p>${e.text}</p></article>
-  `).join("");
+  elements.timelineRail.innerHTML = hero.timeline
+    .map(
+      (entry) => `
+        <article class="timeline-card reveal">
+          <time>${entry.year}</time>
+          <h3>${entry.title}</h3>
+          <p>${entry.text}</p>
+        </article>
+      `
+    )
+    .join("");
 }
 
 function renderTeamUp(hero) {
   if (!elements.teamupCard) return;
   elements.teamupCard.innerHTML = `
-    <div><p class="eyebrow">Recommended pairing</p><h3>${hero.teamup.partner}</h3><p><strong>${hero.teamup.title}</strong></p><p>${hero.teamup.text}</p></div>
-    <div class="synergy-meter"><strong>${hero.teamup.synergy}% synergy</strong><div class="meter"><span style="width:${hero.teamup.synergy}%"></span></div></div>
+    <div>
+      <p class="eyebrow">Recommended pairing</p>
+      <h3>${hero.teamup.partner}</h3>
+      <p><strong>${hero.teamup.title}</strong></p>
+      <p>${hero.teamup.text}</p>
+    </div>
+    <div class="synergy-meter">
+      <strong>${hero.teamup.synergy}% synergy</strong>
+      <div class="meter"><span style="width:${hero.teamup.synergy}%"></span></div>
+    </div>
   `;
 }
 
-/* ── Battle ── */
-function buildBattleOpponents() {
-  if (!elements.battleOpponent) return;
-  elements.battleOpponent.innerHTML = rosterOrder.filter(id => id !== appState.selectedHeroId)
-    .map(id => `<option value="${id}">${heroes[id].name}</option>`).join("");
+function updateHeroSelection(heroId, { fromRoster = false } = {}) {
+  if (!heroData[heroId]) return;
+  appState.selectedHeroId = heroId;
+  appState.selectedVersionIndex = 0;
+  saveSelection();
+  renderAppHeroExperience();
+  if (fromRoster && elements.heroDossier) {
+    smoothScrollToElement(elements.heroDossier);
+  }
 }
+
+function selectHero(heroId, options = {}) {
+  updateHeroSelection(heroId, options);
+}
+
+function renderAppHeroExperience() {
+  const hero = currentHero();
+  buildUniverseSelector();
+  renderRosterGrid();
+  renderDossier();
+  renderLore(hero);
+  renderVillains(hero);
+  renderTimeline(hero);
+  renderTeamUp(hero);
+  renderBattleHeroName();
+  renderPicker();
+  syncLoreSectionHeight();
+}
+
+function syncLoreSectionHeight() {
+  if (!elements.loreSection) return;
+  elements.loreSection.style.maxHeight = appState.loreExpanded ? `${elements.loreSection.scrollHeight}px` : "0px";
+}
+
+function initLoreToggle() {
+  if (!elements.exploreLoreBtn) return;
+  setLoreExpanded(false);
+  elements.exploreLoreBtn.addEventListener("click", () => {
+    const expanded = !appState.loreExpanded;
+    setLoreExpanded(expanded);
+    syncLoreSectionHeight();
+    if (expanded) {
+      requestAnimationFrame(() => {
+        smoothScrollToElement(elements.loreSection);
+      });
+    }
+  });
+}
+
 function renderBattleHeroName() {
   if (!elements.battleHeroName) return;
-  const hero = resolveDisplayHero();
+  const hero = currentHero();
   elements.battleHeroName.textContent = hero.name;
-  if (elements.battleHeroImage) { elements.battleHeroImage.src = hero.image; elements.battleHeroImage.alt = hero.name; }
+  if (elements.battleHeroImage) {
+    elements.battleHeroImage.src = hero.image;
+    elements.battleHeroImage.alt = hero.name;
+  }
 }
+
+function buildBattleOpponents() {
+  if (!elements.battleOpponent) return;
+  elements.battleOpponent.innerHTML = heroOrder
+    .filter((id) => id !== appState.selectedHeroId)
+    .map((id) => `<option value="${id}">${heroData[id].name}</option>`)
+    .join("");
+}
+
 function prepareBattle() {
   if (!elements.battleOpponent) return;
   buildBattleOpponents();
   const heroId = appState.selectedHeroId;
-  const enemyId = elements.battleOpponent.value || rosterOrder.find(id => id !== heroId);
-  appState.battle = { active: false, heroId, enemyId, heroHp: heroes[heroId].battle.hp, enemyHp: heroes[enemyId].battle.hp, heroGuarded: false, enemyGuarded: false, ended: false };
-  renderBattleState("Ready for showdown.");
+  const enemyId = elements.battleOpponent.value || heroOrder.find((id) => id !== heroId);
+  appState.battle = {
+    active: false,
+    heroId,
+    enemyId,
+    heroHp: heroData[heroId].battle.hp,
+    enemyHp: heroData[enemyId].battle.hp,
+    heroGuarded: false,
+    enemyGuarded: false,
+    ended: false
+  };
+  renderBattleState("Choose an opponent to initialize the arena.");
 }
-function startBattle() {
-  const { heroId, enemyId } = appState.battle;
-  appState.battle.active = true; appState.battle.ended = false;
-  if (elements.battleLog) elements.battleLog.innerHTML = "";
-  logBattle(`${heroes[heroId].name} vs ${heroes[enemyId].name}`);
-  renderBattleState("Battle in progress.");
-}
+
 function logBattle(text) {
   if (!elements.battleLog) return;
-  const li = document.createElement("li"); li.textContent = text; elements.battleLog.prepend(li);
+  const item = document.createElement("li");
+  item.textContent = text;
+  elements.battleLog.prepend(item);
 }
-function renderBattleState(msg) {
+
+function renderBattleState(message) {
   if (!elements.battleStatus) return;
-  const { heroId, enemyId, heroHp, enemyHp, active, ended } = appState.battle;
-  elements.battleStatus.textContent = msg;
-  if (elements.battleHeroName) elements.battleHeroName.textContent = heroes[heroId].name;
-  if (elements.battleEnemyName) elements.battleEnemyName.textContent = heroes[enemyId].name;
-  if (elements.battleHeroHealth) elements.battleHeroHealth.style.width = `${(heroHp / heroes[heroId].battle.hp) * 100}%`;
-  if (elements.battleEnemyHealth) elements.battleEnemyHealth.style.width = `${(enemyHp / heroes[enemyId].battle.hp) * 100}%`;
-  ["actionAttack", "actionSpecial", "actionGuard"].forEach(id => { const b = document.getElementById(id); if (b) b.disabled = !active || ended; });
-}
-function performHeroAction(type) {
-  const s = appState.battle; if (!s.active || s.ended) return;
-  const hero = heroes[s.heroId]; s.heroGuarded = false;
-  if (type === "guard") { s.heroGuarded = true; logBattle(`${hero.name} ${hero.battle.moves.guard}`); }
-  else { const dmg = Math.floor((type === "special" ? hero.battle.special : hero.battle.attack) * (s.enemyGuarded ? 0.6 : 1)); s.enemyHp = Math.max(0, s.enemyHp - dmg); s.enemyGuarded = false; logBattle(`${hero.name} ${hero.battle.moves[type]} for ${dmg}`); }
-  if (s.enemyHp <= 0) { s.ended = true; renderBattleState(`${hero.name} wins!`); return; }
-  enemyTurn();
-}
-function enemyTurn() {
-  const s = appState.battle; const enemy = heroes[s.enemyId]; const roll = Math.random(); s.enemyGuarded = false;
-  if (roll < 0.3) { s.enemyGuarded = true; logBattle(`${enemy.name} ${enemy.battle.moves.guard}`); }
-  else { const sp = roll > 0.8; const dmg = Math.floor((sp ? enemy.battle.special : enemy.battle.attack) * (s.heroGuarded ? 0.6 : 1)); s.heroHp = Math.max(0, s.heroHp - dmg); s.heroGuarded = false; logBattle(`${enemy.name} ${enemy.battle.moves[sp ? "special" : "attack"]} for ${dmg}`); }
-  if (s.heroHp <= 0) { s.ended = true; renderBattleState(`${enemy.name} wins!`); return; }
-  renderBattleState("Your turn.");
-}
-
-/* ── Quiz ── */
-function resetQuiz() { appState.quiz = { index: 0, scores: {}, complete: false, resultId: null }; renderQuiz(); }
-function scoreQuizAnswer(weights) {
-  Object.entries(weights).forEach(([t, v]) => appState.quiz.scores[t] = (appState.quiz.scores[t] || 0) + v);
-  appState.quiz.index++;
-  if (appState.quiz.index >= quizQuestions.length) { appState.quiz.complete = true; appState.quiz.resultId = rosterOrder[0]; }
-  renderQuiz();
-}
-function renderQuiz() {
-  if (!elements.quizCard) return;
-  if (appState.quiz.complete) {
-    const hero = heroes[appState.quiz.resultId];
-    elements.quizCard.innerHTML = `<h4>Matched: ${hero.name}</h4><button id="quizReset">Restart</button>`;
-    document.getElementById("quizReset").addEventListener("click", resetQuiz); return;
+  const state = appState.battle;
+  const hero = heroData[state.heroId];
+  const enemy = heroData[state.enemyId];
+  elements.battleStatus.textContent = message;
+  if (elements.battleHeroName) elements.battleHeroName.textContent = hero.name;
+  if (elements.battleEnemyName) elements.battleEnemyName.textContent = enemy.name;
+  if (elements.battleHeroImage) {
+    elements.battleHeroImage.src = hero.image;
+    elements.battleHeroImage.alt = hero.name;
   }
-  const q = quizQuestions[appState.quiz.index];
-  elements.quizCard.innerHTML = `<h4>${q.prompt}</h4><div id="qOpts"></div>`;
-  q.answers.forEach(a => { const btn = document.createElement("button"); btn.textContent = a.label; btn.addEventListener("click", () => scoreQuizAnswer(a.weights)); document.getElementById("qOpts").appendChild(btn); });
-}
-
-/* ── Trivia ── */
-function buildTriviaDeck() { appState.trivia.deck = rosterOrder.map(id => ({ ...heroes[id].trivia[0], heroId: id })); appState.trivia.index = 0; appState.trivia.score = 0; }
-function renderTrivia(feedback = "") {
-  if (!elements.triviaCard) return;
-  const current = appState.trivia.deck[appState.trivia.index];
-  elements.triviaCard.innerHTML = `<h4>${current.question}</h4><div id="tOpts"></div><p>${feedback}</p>`;
-  current.choices.forEach((c, i) => {
-    const btn = document.createElement("button"); btn.textContent = c;
-    btn.addEventListener("click", () => { const ok = i === current.answer; if (ok) appState.trivia.score++; appState.trivia.index++; if (appState.trivia.index >= appState.trivia.deck.length) elements.triviaCard.innerHTML = `<h4>Score: ${appState.trivia.score}</h4>`; else renderTrivia(ok ? "Correct!" : "Wrong."); });
-    document.getElementById("tOpts").appendChild(btn);
+  if (elements.battleEnemyImage) {
+    elements.battleEnemyImage.src = enemy.image;
+    elements.battleEnemyImage.alt = enemy.name;
+  }
+  if (elements.battleHeroHealth) {
+    elements.battleHeroHealth.style.width = `${Math.max(0, (state.heroHp / hero.battle.hp) * 100)}%`;
+  }
+  if (elements.battleEnemyHealth) {
+    elements.battleEnemyHealth.style.width = `${Math.max(0, (state.enemyHp / enemy.battle.hp) * 100)}%`;
+  }
+  ["actionAttack", "actionSpecial", "actionGuard"].forEach((id) => {
+    const button = document.getElementById(id);
+    if (button) button.disabled = !state.active || state.ended;
   });
 }
 
-/* ── Votes ── */
-async function fetchVotes() { try { const r = await fetch("/api/votes"); const d = await r.json(); appState.vote.board = d.board; renderVoteBoard(); } catch(e){} }
-async function submitVote(heroId) { try { const r = await fetch("/api/votes", { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify({heroId}) }); const d = await r.json(); appState.vote.board = d.board; renderVoteBoard(); } catch(e){} }
+function startBattle() {
+  const { heroId, enemyId } = appState.battle;
+  appState.battle.active = true;
+  appState.battle.ended = false;
+  if (elements.battleLog) elements.battleLog.innerHTML = "";
+  logBattle(`${heroData[heroId].name} enters the arena against ${heroData[enemyId].name}.`);
+  renderBattleState("Battle in progress.");
+}
+
+function enemyTurn() {
+  const state = appState.battle;
+  const enemy = heroData[state.enemyId];
+  const roll = Math.random();
+  state.enemyGuarded = false;
+  if (roll < 0.3) {
+    state.enemyGuarded = true;
+    logBattle(`${enemy.name} ${enemy.battle.moves.guard}.`);
+  } else {
+    const special = roll > 0.8;
+    const damage = Math.floor((special ? enemy.battle.special : enemy.battle.attack) * (state.heroGuarded ? 0.6 : 1));
+    state.heroHp = Math.max(0, state.heroHp - damage);
+    state.heroGuarded = false;
+    logBattle(`${enemy.name} ${enemy.battle.moves[special ? "special" : "attack"]} for ${damage}.`);
+  }
+  if (state.heroHp <= 0) {
+    state.ended = true;
+    renderBattleState(`${enemy.name} wins the showdown.`);
+    return;
+  }
+  renderBattleState("Your turn.");
+}
+
+function performHeroAction(type) {
+  const state = appState.battle;
+  if (!state.active || state.ended) return;
+  const hero = heroData[state.heroId];
+  state.heroGuarded = false;
+  if (type === "guard") {
+    state.heroGuarded = true;
+    logBattle(`${hero.name} ${hero.battle.moves.guard}.`);
+  } else {
+    const damageBase = type === "special" ? hero.battle.special : hero.battle.attack;
+    const damage = Math.floor(damageBase * (state.enemyGuarded ? 0.6 : 1));
+    state.enemyHp = Math.max(0, state.enemyHp - damage);
+    state.enemyGuarded = false;
+    logBattle(`${hero.name} ${hero.battle.moves[type]} for ${damage}.`);
+  }
+  if (state.enemyHp <= 0) {
+    state.ended = true;
+    renderBattleState(`${hero.name} wins the showdown.`);
+    return;
+  }
+  enemyTurn();
+}
+
+function initBattleEvents() {
+  const startButton = document.getElementById("battleStart");
+  if (startButton) {
+    startButton.addEventListener("click", startBattle);
+  }
+  ["Attack", "Special", "Guard"].forEach((type) => {
+    const button = document.getElementById(`action${type}`);
+    if (button) {
+      button.addEventListener("click", () => performHeroAction(type.toLowerCase()));
+    }
+  });
+  if (elements.battleOpponent) {
+    elements.battleOpponent.addEventListener("change", prepareBattle);
+  }
+}
+
+function getQuizLeader() {
+  const entries = Object.entries(appState.quiz.traits);
+  if (!entries.length) return heroData[appState.selectedHeroId];
+  let bestHero = heroData[appState.selectedHeroId];
+  let bestScore = -Infinity;
+  heroOrder.forEach((heroId) => {
+    const hero = heroData[heroId];
+    const score = Object.entries(hero.quizAffinity).reduce((total, [trait, weight]) => total + (appState.quiz.traits[trait] || 0) * weight, 0);
+    if (score > bestScore) {
+      bestScore = score;
+      bestHero = hero;
+    }
+  });
+  return bestHero;
+}
+
+function renderQuizTraits() {
+  if (!elements.quizTraitBars) return;
+  const traits = ["leader", "scholar", "rebel", "heart", "speedster", "mystic", "feral"];
+  const max = Math.max(1, ...traits.map((trait) => appState.quiz.traits[trait] || 0));
+  elements.quizTraitBars.innerHTML = traits
+    .map((trait) => {
+      const value = appState.quiz.traits[trait] || 0;
+      const percent = Math.max(8, (value / max) * 100);
+      return `
+        <div class="trait-row">
+          <div class="trait-row-head">
+            <strong>${trait.toUpperCase()}</strong>
+            <span>${value}</span>
+          </div>
+          <div class="meter"><span style="width:${percent}%"></span></div>
+        </div>
+      `;
+    })
+    .join("");
+}
+
+function renderQuizStage() {
+  if (!elements.quizCard) return;
+  if (appState.quiz.complete) {
+    const resultHero = heroData[appState.quiz.resultId];
+    const runnerUp = heroOrder
+      .filter((heroId) => heroId !== resultHero.id)
+      .map((heroId) => {
+        const hero = heroData[heroId];
+        const score = Object.entries(hero.quizAffinity).reduce((total, [trait, weight]) => total + (appState.quiz.traits[trait] || 0) * weight, 0);
+        return score;
+      })
+      .sort((a, b) => b - a)[0] || 0;
+    const resultScore = Object.entries(resultHero.quizAffinity).reduce((total, [trait, weight]) => total + (appState.quiz.traits[trait] || 0) * weight, 0);
+    const percentage = Math.max(68, Math.min(99, Math.round((resultScore / (resultScore + runnerUp * 0.45 + 1)) * 100)));
+    const heroStats = [
+      ["Leadership", resultHero.quizAffinity.leader || 0],
+      ["Intellect", resultHero.quizAffinity.scholar || 0],
+      ["Heart", resultHero.quizAffinity.heart || 0],
+      ["Momentum", resultHero.quizAffinity.speedster || 0],
+      ["Edge", (resultHero.quizAffinity.rebel || 0) + (resultHero.quizAffinity.feral || 0)]
+    ];
+    elements.quizCard.innerHTML = `
+      <article class="result-card reveal">
+        <div class="result-topline">
+          <p class="eyebrow">Match complete</p>
+          <span class="badge-pill">${resultHero.universe}</span>
+        </div>
+        <div class="result-hero-name">
+          <h4>You are ${percentage}% ${resultHero.name}</h4>
+          <p class="result-hero-subtitle">${heroSummary(resultHero)}</p>
+        </div>
+        <div class="result-score-ring">
+          <strong>${percentage}%</strong>
+          <span>hero match</span>
+        </div>
+        <div class="result-hero-meta">
+          <span class="badge-pill">${heroTag(resultHero)}</span>
+          <span class="badge-pill">${runnerUp ? `Closest rival score ${runnerUp}` : "No close runner-up"}</span>
+        </div>
+        <div class="result-stats">
+          ${heroStats
+            .map(
+              ([label, value]) => `
+                <div class="trait-row">
+                  <div class="trait-row-head">
+                    <strong>${label}</strong>
+                    <span>${value}</span>
+                  </div>
+                  <div class="meter"><span style="width:${Math.max(12, value * 20)}%"></span></div>
+                </div>
+              `
+            )
+            .join("")}
+        </div>
+        <div class="result-actions">
+          <button class="button button-secondary" type="button" id="quizRestart">Try Again</button>
+        </div>
+      </article>
+    `;
+    const restart = document.getElementById("quizRestart");
+    if (restart) restart.addEventListener("click", resetQuiz);
+    if (elements.quizFeedback) elements.quizFeedback.textContent = `Your dominant match is ${resultHero.name}.`;
+    if (elements.quizProgress) {
+      elements.quizProgress.querySelector("span").style.width = "100%";
+    }
+    if (elements.quizStage) {
+      elements.quizStage.textContent = "Match complete";
+    }
+    observeRevealNodes(elements.quizCard);
+    return;
+  }
+
+  const question = quizQuestions[appState.quiz.index];
+  const progress = ((appState.quiz.index) / quizQuestions.length) * 100;
+  if (elements.quizProgress) {
+    elements.quizProgress.querySelector("span").style.width = `${progress}%`;
+  }
+  if (elements.quizStage) {
+    elements.quizStage.textContent = `Question ${appState.quiz.index + 1} of ${quizQuestions.length}`;
+  }
+  elements.quizCard.innerHTML = `
+    <article class="question-card reveal">
+      <p class="eyebrow">Personality scan</p>
+      <h4>${question.prompt}</h4>
+      <div class="option-list" id="quizOptions"></div>
+    </article>
+  `;
+  const container = document.getElementById("quizOptions");
+  question.answers.forEach((answer, index) => {
+    const button = document.createElement("button");
+    button.className = "button button-secondary option-button";
+    button.type = "button";
+    button.textContent = answer.label;
+    button.addEventListener("click", () => handleQuizAnswer(index));
+    container.appendChild(button);
+  });
+  observeRevealNodes(elements.quizCard);
+}
+
+function updateQuizFeedback() {
+  const leader = getQuizLeader();
+  if (elements.quizFeedback) {
+    const traits = Object.entries(appState.quiz.traits)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 2)
+      .map(([trait]) => trait)
+      .filter(Boolean);
+    const traitLine = traits.length ? `Your strongest signals are ${traits.join(" and ")}.` : "The match is still forming.";
+    elements.quizFeedback.textContent = `${traitLine} Current lead: ${leader.name}.`;
+  }
+  renderQuizTraits();
+}
+
+function scoreQuizAnswer(weights) {
+  Object.entries(weights).forEach(([trait, value]) => {
+    appState.quiz.traits[trait] = (appState.quiz.traits[trait] || 0) + value;
+  });
+  updateQuizFeedback();
+  appState.quiz.index += 1;
+  if (appState.quiz.index >= quizQuestions.length) {
+    appState.quiz.complete = true;
+    appState.quiz.resultId = getQuizLeader().id;
+  }
+  renderQuizStage();
+}
+
+function handleQuizAnswer(answerIndex) {
+  const question = quizQuestions[appState.quiz.index];
+  const answer = question.answers[answerIndex];
+  if (elements.quizCard) {
+    const buttons = elements.quizCard.querySelectorAll("button");
+    buttons.forEach((button, index) => {
+      button.disabled = true;
+      if (index === answerIndex) button.classList.add("picked");
+    });
+  }
+  if (elements.quizFeedback) {
+    elements.quizFeedback.textContent = `Selected: ${answer.label}. ${getQuizLeader().name} is starting to pull ahead.`;
+  }
+  setTimeout(() => scoreQuizAnswer(answer.weights), prefersReducedMotion ? 0 : 450);
+}
+
+function resetQuiz() {
+  appState.quiz = { index: 0, traits: {}, complete: false, resultId: null, feedback: "" };
+  renderQuizTraits();
+  renderQuizStage();
+  updateQuizFeedback();
+}
+
+function buildTriviaDeck() {
+  const deck = triviaDecks[appState.trivia.difficulty] || triviaDecks.medium;
+  appState.trivia.deck = deck.map((entry) => ({ ...entry }));
+  appState.trivia.index = 0;
+  appState.trivia.score = 0;
+  appState.trivia.streak = 0;
+  appState.trivia.complete = false;
+  appState.trivia.locked = false;
+  appState.trivia.message = "The challenge is live.";
+  const baseSeconds = appState.trivia.difficulty === "easy" ? 18 : appState.trivia.difficulty === "hard" ? 10 : 14;
+  appState.trivia.timerSeconds = baseSeconds;
+}
+
+function renderTriviaHud() {
+  if (elements.triviaScore) elements.triviaScore.textContent = String(appState.trivia.score);
+  if (elements.triviaStreak) elements.triviaStreak.textContent = String(appState.trivia.streak);
+  if (elements.triviaDifficulty) elements.triviaDifficulty.textContent = appState.trivia.difficulty.toUpperCase();
+  if (elements.triviaTimer) elements.triviaTimer.textContent = `${appState.trivia.timerSeconds}s`;
+  if (elements.triviaProgress) {
+    const total = Math.max(1, appState.trivia.deck.length);
+    elements.triviaProgress.querySelector("span").style.width = `${(appState.trivia.index / total) * 100}%`;
+  }
+}
+
+function stopTriviaTimer() {
+  if (appState.trivia.timerId) {
+    clearInterval(appState.trivia.timerId);
+    appState.trivia.timerId = null;
+  }
+}
+
+function startTriviaTimer() {
+  stopTriviaTimer();
+  appState.trivia.timerId = setInterval(() => {
+    if (appState.trivia.complete || appState.trivia.locked) return;
+    appState.trivia.timerSeconds -= 1;
+    if (appState.trivia.timerSeconds <= 0) {
+      handleTriviaAnswer(-1, true);
+    } else {
+      renderTriviaHud();
+    }
+  }, 1000);
+}
+
+function renderTriviaCard(feedback = "") {
+  if (!elements.triviaCard) return;
+  if (appState.trivia.complete) {
+    const totalPoints = appState.trivia.score;
+    elements.triviaCard.innerHTML = `
+      <article class="result-card reveal">
+        <p class="eyebrow">Challenge complete</p>
+        <h4>${totalPoints} points earned</h4>
+        <p>Your final streak peaked at ${Math.max(appState.trivia.streak, 0)} and the difficulty was ${appState.trivia.difficulty.toUpperCase()}.</p>
+        <div class="result-hero-meta">
+          <span class="badge-pill">${appState.trivia.difficulty.toUpperCase()}</span>
+          <span class="badge-pill">${appState.trivia.streak} streak</span>
+        </div>
+        <button class="button button-secondary" type="button" id="triviaRestart">Play Again</button>
+      </article>
+    `;
+    const restart = document.getElementById("triviaRestart");
+    if (restart) restart.addEventListener("click", resetTrivia);
+    if (elements.triviaDifficulty) elements.triviaDifficulty.textContent = appState.trivia.difficulty.toUpperCase();
+    renderTriviaHud();
+    observeRevealNodes(elements.triviaCard);
+    return;
+  }
+
+  const current = appState.trivia.deck[appState.trivia.index];
+  const questionNumber = appState.trivia.index + 1;
+  elements.triviaCard.innerHTML = `
+    <article class="question-card trivia-question reveal">
+      <p class="eyebrow">${appState.trivia.difficulty} challenge</p>
+      <h4>${current.question}</h4>
+      <div class="option-list" id="triviaOptions"></div>
+      <p class="trivia-feedback ${feedback ? "visible" : ""}">${feedback || current.explanation || ""}</p>
+    </article>
+  `;
+  const container = document.getElementById("triviaOptions");
+  current.choices.forEach((choice, index) => {
+    const button = document.createElement("button");
+    button.className = "button button-secondary option-button trivia-option";
+    button.type = "button";
+    button.textContent = choice;
+    button.addEventListener("click", () => handleTriviaAnswer(index, false));
+    container.appendChild(button);
+  });
+  if (elements.quizStage) {
+    elements.quizStage.textContent = `Question ${questionNumber} of ${appState.trivia.deck.length}`;
+  }
+  renderTriviaHud();
+  startTriviaTimer();
+  observeRevealNodes(elements.triviaCard);
+}
+
+function advanceTrivia(feedback) {
+  stopTriviaTimer();
+  appState.trivia.index += 1;
+  if (appState.trivia.index >= appState.trivia.deck.length) {
+    appState.trivia.complete = true;
+    appState.trivia.message = feedback;
+    renderTriviaCard(feedback);
+    return;
+  }
+  appState.trivia.locked = false;
+  const baseSeconds = appState.trivia.difficulty === "easy" ? 18 : appState.trivia.difficulty === "hard" ? 10 : 14;
+  appState.trivia.timerSeconds = baseSeconds;
+  renderTriviaCard(feedback);
+}
+
+function handleTriviaAnswer(answerIndex, timedOut) {
+  if (appState.trivia.locked || appState.trivia.complete) return;
+  appState.trivia.locked = true;
+  stopTriviaTimer();
+  const current = appState.trivia.deck[appState.trivia.index];
+  const correct = answerIndex === current.answer;
+  const points = appState.trivia.difficulty === "easy" ? 1 : appState.trivia.difficulty === "hard" ? 3 : 2;
+  if (correct) {
+    appState.trivia.score += points;
+    appState.trivia.streak += 1;
+  } else {
+    appState.trivia.streak = 0;
+  }
+
+  if (elements.triviaCard) {
+    const buttons = elements.triviaCard.querySelectorAll("button");
+    buttons.forEach((button, index) => {
+      button.disabled = true;
+      if (index === answerIndex) button.classList.add(timedOut ? "timed-out" : correct ? "correct" : "wrong");
+      if (index === current.answer) button.classList.add("correct");
+    });
+  }
+
+  if (elements.triviaScore) elements.triviaScore.textContent = String(appState.trivia.score);
+  if (elements.triviaStreak) elements.triviaStreak.textContent = String(appState.trivia.streak);
+  if (elements.triviaTimer) elements.triviaTimer.textContent = "0s";
+
+  const message = timedOut
+    ? `Time expired. ${current.explanation}`
+    : correct
+      ? `Correct. ${current.explanation}`
+      : `Not quite. ${current.explanation}`;
+
+  appState.trivia.message = message;
+  const feedback = elements.triviaCard ? elements.triviaCard.querySelector(".trivia-feedback") : null;
+  if (feedback) {
+    feedback.textContent = message;
+    feedback.classList.add("visible");
+  }
+
+  setTimeout(() => advanceTrivia(message), prefersReducedMotion ? 0 : 900);
+}
+
+function resetTrivia() {
+  stopTriviaTimer();
+  buildTriviaDeck();
+  renderTriviaHud();
+  renderTriviaCard();
+}
+
+function buildTriviaDifficultyButtons() {
+  if (!elements.triviaDifficultyButtons) return;
+  const options = [
+    { key: "easy", label: "Easy" },
+    { key: "medium", label: "Medium" },
+    { key: "hard", label: "Hard" }
+  ];
+  elements.triviaDifficultyButtons.innerHTML = options
+    .map(
+      (option) => `
+        <button class="difficulty-chip${appState.trivia.difficulty === option.key ? " active" : ""}" type="button" data-difficulty="${option.key}">
+          ${option.label}
+        </button>
+      `
+    )
+    .join("");
+  elements.triviaDifficultyButtons.querySelectorAll("[data-difficulty]").forEach((button) => {
+    button.addEventListener("click", () => {
+      appState.trivia.difficulty = button.dataset.difficulty;
+      buildTriviaDifficultyButtons();
+      resetTrivia();
+    });
+  });
+  if (elements.triviaDifficulty) elements.triviaDifficulty.textContent = appState.trivia.difficulty.toUpperCase();
+}
+
+function renderPicker() {
+  if (!elements.heroPicker) return;
+  elements.heroPicker.innerHTML = heroOrder
+    .map(
+      (id) => `
+        <button class="hero-picker-btn${appState.selectedHeroId === id ? " active" : ""}" type="button" data-picker-hero="${id}" aria-selected="${appState.selectedHeroId === id}">
+          <strong>${heroData[id].name}</strong>
+          <span>${heroData[id].universe}</span>
+        </button>
+      `
+    )
+    .join("");
+  elements.heroPicker.querySelectorAll("[data-picker-hero]").forEach((button) => {
+    button.addEventListener("click", () => updateHeroSelection(button.dataset.pickerHero));
+  });
+  if (elements.pickerNote) {
+    elements.pickerNote.textContent = `Your selected hero is ${currentHero().name}. The choice stays with you across pages.`;
+  }
+}
+
+async function fetchVotes() {
+  if (!elements.voteMessage) return;
+  try {
+    const response = await fetch("/api/votes");
+    const data = await response.json();
+    appState.vote.board = data.board || [];
+    appState.vote.total = data.totalVotes || 0;
+    appState.vote.message = "Live vote board connected.";
+    renderVoteBoard();
+  } catch (_error) {
+    appState.vote.message = "Vote board is offline right now.";
+    renderVoteBoard();
+  }
+}
+
+async function submitVote(heroId) {
+  try {
+    const response = await fetch("/api/votes", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ heroId })
+    });
+    const data = await response.json();
+    appState.vote.board = data.board || [];
+    appState.vote.total = data.totalVotes || 0;
+    appState.vote.message = `Vote recorded for ${heroData[heroId] ? heroData[heroId].name : heroId}.`;
+    renderVoteBoard();
+  } catch (_error) {
+    appState.vote.message = "That vote could not be saved.";
+    renderVoteBoard();
+  }
+}
+
 function renderVoteBoard() {
   if (!elements.voteButtons) return;
-  elements.voteButtons.innerHTML = voteRoster.map(id => `<button onclick="submitVote('${id}')">${heroes[id].name}</button>`).join("");
-  if (elements.voteBoard) elements.voteBoard.innerHTML = appState.vote.board.map(e => `<div>${e.label}: ${e.votes}</div>`).join("");
+  const votingEntries = appState.vote.board.length
+    ? appState.vote.board
+    : fallbackVoteEntries;
+  elements.voteButtons.innerHTML = votingEntries
+    .map(
+      (entry) => {
+        const hero = heroData[entry.id];
+        const label = entry.label || (hero ? hero.name : entry.id);
+        const tag = hero ? heroTag(hero) : label;
+        return `
+        <button class="vote-choice" type="button" data-vote="${entry.id}">
+          <span class="vote-choice-name">${label}</span>
+          <span class="vote-choice-tag">${tag}</span>
+        </button>
+      `;
+      }
+    )
+    .join("");
+  elements.voteButtons.querySelectorAll("[data-vote]").forEach((button) => {
+    button.addEventListener("click", () => submitVote(button.dataset.vote));
+  });
+
+  if (elements.voteBoard) {
+    elements.voteBoard.innerHTML = appState.vote.board
+      .map(
+        (entry) => `
+          <div class="leader-row">
+            <div class="leader-row-head">
+              <strong>${entry.label}</strong>
+              <span>${entry.votes} votes</span>
+            </div>
+            <div class="leader-meter"><span style="width:${Math.min(100, (entry.votes / Math.max(1, appState.vote.total)) * 100)}%"></span></div>
+          </div>
+        `
+      )
+      .join("");
+  }
+  if (elements.voteTotal) {
+    elements.voteTotal.textContent = `${appState.vote.total} total votes`;
+  }
+  if (elements.voteMessage) {
+    elements.voteMessage.textContent = appState.vote.message;
+  }
 }
 
-/* ── Utilities ── */
 function initRevealObserver() {
-  const obs = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add("visible")), { threshold: 0.1 });
-  document.querySelectorAll(".reveal").forEach(n => obs.observe(n));
+  if (!("IntersectionObserver" in window)) {
+    document.querySelectorAll(".reveal").forEach((node) => node.classList.add("visible"));
+    return;
+  }
+  revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+  document.querySelectorAll(".reveal").forEach((node) => revealObserver.observe(node));
 }
-function initThemeToggle() { if (elements.themeToggle) elements.themeToggle.addEventListener("click", toggleTheme); }
-function initBattleEvents() {
-  const start = document.getElementById("battleStart"); if (start) start.addEventListener("click", startBattle);
-  ["Attack", "Special", "Guard"].forEach(type => { const b = document.getElementById("action" + type); if (b) b.addEventListener("click", () => performHeroAction(type.toLowerCase())); });
-}
-async function fetchExternalHeroData() {}
 
-/* ── Init ── */
+function initQuiz() {
+  if (!elements.quizCard) return;
+  resetQuiz();
+}
+
+function initTrivia() {
+  if (!elements.triviaCard) return;
+  buildTriviaDifficultyButtons();
+  resetTrivia();
+}
+
+function initVotes() {
+  if (!elements.voteButtons) return;
+  fetchVotes();
+}
+
+function initFeaturePagePicker() {
+  if (!elements.heroPicker) return;
+  renderPicker();
+}
+
 function init() {
   cacheElements();
   restoreSelection();
-  restoreTheme();
+  buildSharedNav();
+  refreshLayoutOffset();
   initRevealObserver();
-  initThemeToggle();
-  initDropdowns();
-  renderHeroExperience();
-  if (elements.battleOpponent) { prepareBattle(); initBattleEvents(); }
-  if (elements.quizCard) resetQuiz();
-  if (elements.triviaCard) { buildTriviaDeck(); renderTrivia(); }
-  if (elements.voteButtons) { renderVoteBoard(); fetchVotes(); }
+  renderAppHeroExperience();
+  initLoreToggle();
+  initFeaturePagePicker();
+  if (elements.battleOpponent) {
+    prepareBattle();
+    initBattleEvents();
+  }
+  if (elements.quizCard) {
+    initQuiz();
+  }
+  if (elements.triviaCard) {
+    initTrivia();
+  }
+  if (elements.voteButtons) {
+    initVotes();
+  }
+  window.addEventListener("resize", refreshLayoutOffset);
+  window.addEventListener("resize", syncLoreSectionHeight);
 }
 
 window.submitVote = submitVote;
+window.addEventListener("load", refreshLayoutOffset);
 init();
