@@ -965,6 +965,9 @@ function cacheElements() {
     "timelineRail",
     "versionSelector",
     "teamupCard",
+    "posterBackdropWord",
+    "posterBackdropLine",
+    "posterBackdropCaption",
     "battleOpponent",
     "battleStatus",
     "battleHeroName",
@@ -1184,26 +1187,31 @@ function setLoreExpanded(expanded) {
 
 function renderDossier() {
   const hero = currentHero();
-  const variant = hero.versions[appState.selectedVersionIndex] || hero.versions[0];
 
   setHeroTheme(hero);
 
-  if (elements.dossierTitle) elements.dossierTitle.textContent = hero.title;
+  if (elements.posterBackdropWord) elements.posterBackdropWord.textContent = hero.bgText || hero.name;
+  if (elements.posterBackdropLine) elements.posterBackdropLine.textContent = hero.title || hero.subtitle;
+  if (elements.posterBackdropCaption) elements.posterBackdropCaption.textContent = hero.cityLabel || hero.universe;
+  if (elements.dossierTitle) elements.dossierTitle.textContent = hero.name;
   if (elements.dossierSubtitle) elements.dossierSubtitle.textContent = hero.subtitle;
   if (elements.dossierStoryLeft) elements.dossierStoryLeft.textContent = hero.storyLeft;
   if (elements.dossierStoryRight) elements.dossierStoryRight.textContent = hero.storyRight;
   if (elements.dossierImage) {
-    elements.dossierImage.src = variant.image || hero.image;
-    elements.dossierImage.alt = `${hero.name} variant`;
+    elements.dossierImage.src = hero.image;
+    elements.dossierImage.alt = `${hero.name} cinematic poster`;
   }
   if (elements.dossierStats) {
-    elements.dossierStats.innerHTML = Object.entries(hero.stats)
+    const metadata = [
+      ["Universe", hero.universe],
+      ["Base", hero.cityLabel]
+    ].concat(Object.entries(hero.stats));
+
+    elements.dossierStats.innerHTML = metadata
       .map(
         ([label, value]) => `
-          <div class="stat-item reveal">
-            <span class="stat-value">${value}</span>
-            <span class="stat-label">${label}</span>
-          </div>
+          <dt class="reveal">${label}</dt>
+          <dd class="reveal">${value}</dd>
         `
       )
       .join("");
