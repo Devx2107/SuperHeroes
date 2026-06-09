@@ -117,7 +117,7 @@ const heroData = {
     subtitle: "HOPE GIVEN A HUMAN FACE",
     bgText: "SUPERMAN",
     cityLabel: "METROPOLIS",
-    image: "https://upload.wikimedia.org/wikipedia/en/3/35/Supermanflying.png",
+    image: "https://m.media-amazon.com/images/M/MV5BMTQ2MTgyNzY2MV5BMl5BanBnXkFtZTgwOTA5MjkxNjE@._CR42,94,1758,989_QL75_UX500_CR0,0,500,281_.jpg",
     wiki: "https://en.wikipedia.org/wiki/Superman",
     colors: { primary: "#4d94ff", secondary: "#12223d", accent: "#ffd84d", bg: "#05070d" },
     stats: { "SPEED": "LIGHTNING", "MIGHT": "PLANETARY", "LEGACY": "85+ YEARS" },
@@ -195,7 +195,7 @@ const heroData = {
     subtitle: "GENIUS, BILLIONAIRE, AND THE MAN WHO TURNED PANIC INTO FLIGHT",
     bgText: "IRON MAN",
     cityLabel: "STARK TOWER",
-    image: "https://upload.wikimedia.org/wikipedia/en/4/47/Iron_Man_%28circa_2018%29.png",
+    image: "https://images2.alphacoders.com/105/thumb-1920-1051995.jpg",
     wiki: "https://en.wikipedia.org/wiki/Iron_Man",
     colors: { primary: "#ff6a3d", secondary: "#1b2433", accent: "#ffe27a", bg: "#06080c" },
     stats: { "TECH LEVEL": "EXTREME", "RISK TOLERANCE": "UNMATCHED", "LEGACY": "60+ YEARS" },
@@ -272,7 +272,7 @@ const heroData = {
     subtitle: "POWERED BY RESPONSIBILITY, HUMOR, AND A LOT OF BAD LUCK",
     bgText: "SPIDER-MAN",
     cityLabel: "NEW YORK CITY",
-    image: "https://upload.wikimedia.org/wikipedia/en/2/21/Web_of_Spider-Man_Vol_1_129-1.png",
+    image: "https://c4.wallpaperflare.com/wallpaper/223/120/36/spider-man-video-games-marvel-cinematic-universe-spider-spider-webs-hd-wallpaper-preview.jpg",
     wiki: "https://en.wikipedia.org/wiki/Spider-Man",
     colors: { primary: "#ff5b57", secondary: "#183c7a", accent: "#5cb7ff", bg: "#05070c" },
     stats: { "SPIDER-SENSE": "ALWAYS ON", "AGILITY": "INSANE", "LEGACY": "60+ YEARS" },
@@ -349,7 +349,7 @@ const heroData = {
     subtitle: "TRUTH, COMPASSION, AND WARRIOR GRACE",
     bgText: "WONDER WOMAN",
     cityLabel: "THEMYSCIRA",
-    image: "https://upload.wikimedia.org/wikipedia/en/9/93/Wonder_Woman.jpg",
+    image: "https://c4.wallpaperflare.com/wallpaper/391/891/578/4k-8k-wonder-woman-wallpaper-preview.jpg",
     wiki: "https://en.wikipedia.org/wiki/Wonder_Woman",
     colors: { primary: "#f4c84a", secondary: "#6f1125", accent: "#ff7d66", bg: "#070508" },
     stats: { "WARRIOR SKILL": "ELITE", "TRUTH": "UNBREAKABLE", "LEGACY": "80+ YEARS" },
@@ -426,7 +426,7 @@ const heroData = {
     subtitle: "A SHIELD, A PROMISE, AND A WORLD AT WAR",
     bgText: "CAPTAIN AMERICA",
     cityLabel: "BROOKLYN",
-    image: "https://images.unsplash.com/photo-1516321310764-8d15de5d0cb0?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.wallpapersden.com/image/download/captain-america-awesome-pose-images_aG5uaWWUmZqaraWkpJRmZ2VlrWZsbGw.jpg",
     wiki: "https://en.wikipedia.org/wiki/Captain_America",
     colors: { primary: "#d74a4a", secondary: "#173b63", accent: "#f7f1d1", bg: "#050816" },
     stats: { "LEADERSHIP": "UNBREAKABLE", "DISCIPLINE": "ELITE", "LEGACY": "80+ YEARS" },
@@ -512,7 +512,7 @@ const heroData = {
     subtitle: "ROYAL DUTY WITH STORM-SIZED CONSEQUENCES",
     bgText: "THOR",
     cityLabel: "NEW ASGARD",
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
+    image: "https://brobible.com/wp-content/uploads/2021/12/chris-hemsworth-thor.jpeg?w=650",
     wiki: "https://en.wikipedia.org/wiki/Thor_(Marvel_Comics)",
     colors: { primary: "#66c9ff", secondary: "#1a2f5f", accent: "#ffd66b", bg: "#06111f" },
     stats: { "THUNDER": "COSMIC", "ENDURANCE": "MYTHIC", "LEGACY": "ASGARDIAN" },
@@ -598,7 +598,7 @@ const heroData = {
     subtitle: "GAMMA RAGE, SURVIVAL, AND UNSTOPPABLE POWER",
     bgText: "HULK",
     cityLabel: "WORLDWIDE",
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=80",
+    image: "https://www.intofilm.org/intofilm-production/scaledcropped/1096x548https%3A/s3-eu-west-1.amazonaws.com/images.cdn.filmclub.org/film__3508-the-incredible-hulk--hi_res-a7620a5e.jpg/film__3508-the-incredible-hulk--hi_res-a7620a5e.jpg",
     wiki: "https://en.wikipedia.org/wiki/Hulk",
     colors: { primary: "#58d26a", secondary: "#25412a", accent: "#d7ff9e", bg: "#07110c" },
     stats: { "RAGE": "INFINITE", "STRENGTH": "CATACLYSMIC", "LEGACY": "GAMMA ERA" },
@@ -684,7 +684,7 @@ const heroData = {
     subtitle: "THE DOCTOR WHO MADE MAGIC INTO STRATEGY",
     bgText: "DOCTOR STRANGE",
     cityLabel: "SANCTUM SANCTORUM",
-    image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80",
+    image: "https://compote.slate.com/images/6ac620f3-996e-408c-ba15-334c9c3450c3.jpeg",
     wiki: "https://en.wikipedia.org/wiki/Doctor_Strange",
     colors: { primary: "#ff7d3b", secondary: "#1f294d", accent: "#ffd27f", bg: "#100d18" },
     stats: { "MYSTIC CONTROL": "MASTERED", "STRATEGY": "COSMIC", "LEGACY": "ARCANE" },
@@ -770,7 +770,7 @@ const heroData = {
     subtitle: "KING OF WAKANDA, STRATEGIST OF THE SHADOWS",
     bgText: "BLACK PANTHER",
     cityLabel: "WAKANDA",
-    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80",
+    image: "https://d13jj08vfqimqg.cloudfront.net/uploads/article/header_marquee/4175/large_black-panther.jpg",
     wiki: "https://en.wikipedia.org/wiki/Black_Panther_(character)",
     colors: { primary: "#8d7dff", secondary: "#20323a", accent: "#f5e663", bg: "#0b1020" },
     stats: { "VIBRANIUM": "ADVANCED", "STRATEGY": "MASTERFUL", "LEGACY": "WAKANDAN" },
@@ -856,7 +856,7 @@ const heroData = {
     subtitle: "FERAL RESOLVE BONDED TO ADAMANTIUM",
     bgText: "WOLVERINE",
     cityLabel: "MADRIPOOR",
-    image: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=900&q=80",
+    image: "https://static.independent.co.uk/2024/07/29/15/newFile-17.jpg",
     wiki: "https://en.wikipedia.org/wiki/Wolverine_(character)",
     colors: { primary: "#f2c94c", secondary: "#4a6fa5", accent: "#ffd9a0", bg: "#110f1d" },
     stats: { "SURVIVAL": "EXTREME", "HEALING": "MUTANT", "LEGACY": "X-MEN" },
@@ -942,7 +942,7 @@ const heroData = {
     subtitle: "FASTEST MAN ALIVE WITH A HEART THAT OUTRUNS TIME",
     bgText: "FLASH",
     cityLabel: "CENTRAL CITY",
-    image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.wallpapersden.com/image/wxl-dc-the-flash-movie-2023_90200.jpg",
     wiki: "https://en.wikipedia.org/wiki/Flash_(character)",
     colors: { primary: "#ffd449", secondary: "#ff5f45", accent: "#ffeec2", bg: "#190a07" },
     stats: { "SPEED": "LIGHTSPEED", "FOCUS": "RELENTLESS", "LEGACY": "SPEED FORCE" },
@@ -1028,7 +1028,7 @@ const heroData = {
     subtitle: "TIDE, THRONE, AND TRIDENT",
     bgText: "AQUAMAN",
     cityLabel: "ATLANTIS",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.moviesanywhere.com/16c298314e2f28c3d8fe4911776ccec1/074bbdda-84cf-4b8e-9813-a7210f6b258e.jpg",
     wiki: "https://en.wikipedia.org/wiki/Aquaman",
     colors: { primary: "#32d3c6", secondary: "#15354f", accent: "#f2c94c", bg: "#07131a" },
     stats: { "TIDE": "TITANIC", "COMMAND": "ROYAL", "LEGACY": "ATLANTIC" },
@@ -1114,7 +1114,7 @@ const heroData = {
     subtitle: "WILLPOWER MADE VISIBLE",
     bgText: "GREEN LANTERN",
     cityLabel: "SECTOR 2814",
-    image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80",
+    image: "https://www.intofilm.org/intofilm-production/scaledcropped/1096x548https%3A/s3-eu-west-1.amazonaws.com/images.cdn.filmclub.org/film__16635-green-lantern--hi_res-f1099ccf.jpg/film__16635-green-lantern--hi_res-f1099ccf.jpg",
     wiki: "https://en.wikipedia.org/wiki/Green_Lantern",
     colors: { primary: "#47d86b", secondary: "#173021", accent: "#d9ff8f", bg: "#08110b" },
     stats: { "WILL": "UNBREAKABLE", "IMAGINATION": "LIMITLESS", "LEGACY": "CORPS" },
@@ -1200,7 +1200,7 @@ const heroData = {
     subtitle: "THE LEADER WHO LEARNED TO FLY SOLO",
     bgText: "NIGHTWING",
     cityLabel: "BLUDHAVEN",
-    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80",
+    image: "https://www.giantfreakinrobot.com/wp-content/uploads/2021/06/titans-season-2-finale-nightwing.jpeg",
     wiki: "https://en.wikipedia.org/wiki/Nightwing",
     colors: { primary: "#4bb3ff", secondary: "#111820", accent: "#8bf0ff", bg: "#060b12" },
     stats: { "ACROBATICS": "ELITE", "LEADERSHIP": "MATURE", "LEGACY": "BAT-FAMILY" },
@@ -1286,7 +1286,7 @@ const heroData = {
     subtitle: "LAST SON OF MARS, GUARDIAN OF TWO WORLDS",
     bgText: "MARTIAN MANHUNTER",
     cityLabel: "MARS",
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=80",
+    image: "https://static0.moviewebimages.com/wordpress/wp-content/uploads/article/dpxuwmsnxg9kYW6MumXHc9R6s9mC68.jpg?w=1200&h=628&fit=crop",
     wiki: "https://en.wikipedia.org/wiki/Martian_Manhunter",
     colors: { primary: "#5de07a", secondary: "#123026", accent: "#f2c94c", bg: "#07120d" },
     stats: { "TELEPATHY": "POWERFUL", "SHAPESHIFT": "TOTAL", "LEGACY": "JUSTICE LEAGUE" },
@@ -1905,6 +1905,16 @@ function heroSummary(hero) {
   return hero.storyRight || hero.storyLeft || hero.subtitle || hero.name;
 }
 
+function actorInitials(name) {
+  return String(name || "")
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((part) => part[0])
+    .slice(0, 2)
+    .join("")
+    .toUpperCase();
+}
+
 function cacheElements() {
   const ids = [
     "siteNav",
@@ -2187,8 +2197,14 @@ function renderDossier() {
       .map(
         (version, index) => `
           <button class="version-btn${index === appState.selectedVersionIndex ? " active" : ""}" type="button" data-version="${index}" aria-pressed="${index === appState.selectedVersionIndex}">
-            <span>${version.actor}</span>
-            <small>${version.quote}</small>
+            <span class="version-btn-portrait">
+              <img src="${version.image}" alt="${version.actor} portrait" loading="lazy" decoding="async" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
+              <span class="version-btn-placeholder" hidden>${actorInitials(version.actor)}</span>
+            </span>
+            <span class="version-btn-copy">
+              <span>${version.actor}</span>
+              <small>${version.quote}</small>
+            </span>
           </button>
         `
       )

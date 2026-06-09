@@ -710,6 +710,9 @@ main [id],
 }
 
 .version-btn {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--muted);
@@ -723,8 +726,41 @@ main [id],
   text-align: left;
 }
 
-.version-btn span {
+.version-btn-copy {
   display: block;
+  min-width: 0;
+}
+
+.version-btn-portrait {
+  flex: 0 0 auto;
+  width: 5.5rem;
+  height: 3.75rem;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--primary) 35%, transparent), rgba(255, 255, 255, 0.06));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.version-btn-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.version-btn-placeholder {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  color: var(--text);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--primary) 42%, transparent), color-mix(in srgb, var(--secondary) 62%, transparent));
 }
 
 .version-btn small {
