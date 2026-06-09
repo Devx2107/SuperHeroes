@@ -1,4 +1,18 @@
 const heroOrder = ["batman", "superman", "ironman", "spiderman", "wonderwoman"];
+const rosterHeroOrder = [
+  ...heroOrder,
+  "captainamerica",
+  "thor",
+  "hulk",
+  "doctorstrange",
+  "blackpanther",
+  "wolverine",
+  "flash",
+  "aquaman",
+  "greenlantern",
+  "nightwing",
+  "martianmanhunter"
+];
 const universeFilters = ["all", "Marvel", "DC"];
 const featureNavLinks = [
   { href: "heroes.html", label: "Heroes / Roster", key: "roster" },
@@ -25,7 +39,7 @@ const heroData = {
     subtitle: "THE DETECTIVE WHO TURNED GRIEF INTO A MISSION",
     bgText: "BATMAN",
     cityLabel: "GOTHAM CITY",
-    image: "https://upload.wikimedia.org/wikipedia/en/c/c7/Batman_Infobox.jpg",
+    image: "https://cdnb.artstation.com/p/assets/images/images/049/406/453/large/tomyt-batman-cinematic-wallpaper.jpg?1652412024",
     wiki: "https://en.wikipedia.org/wiki/Batman",
     colors: { primary: "#d64545", secondary: "#121212", accent: "#ffb84d", bg: "#050505" },
     stats: { "TACTICAL EDGE": "MAX", "FEAR FACTOR": "HIGH", "LEGACY": "85+ YEARS" },
@@ -36,7 +50,7 @@ const heroData = {
     ctaLabel: "ENTER THE NIGHT",
     versions: [
       { actor: "MICHAEL KEATON", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Michael_Keaton_October_2014.jpg/440px-Michael_Keaton_October_2014.jpg", quote: "I'm Batman." },
-      { actor: "CHRISTIAN BALE", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Christian_Bale_2014_%28cropped%29.jpg/440px-Christian_Bale_2014_%28cropped%29.jpg", quote: "It's not who I am underneath, but what I do that defines me." },
+      { actor: "CHRISTIAN BALE", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Christian_Bale-7837.jpg/250px-Christian_Bale-7837.jpg", quote: "It's not who I am underneath, but what I do that defines me." },
       { actor: "BEN AFFLECK", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ben_Affleck_by_Gage_Skidmore_3.jpg/440px-Ben_Affleck_by_Gage_Skidmore_3.jpg", quote: "Tell me, do you bleed?" }
     ],
     villains: [
@@ -401,6 +415,952 @@ const heroData = {
         choices: ["Avengers", "Justice League", "X-Men", "Fantastic Four"],
         answer: 1,
         explanation: "Wonder Woman is a foundational member of the Justice League."
+      }
+    ]
+  },
+  captainamerica: {
+    id: "captainamerica",
+    name: "Captain America",
+    universe: "Marvel",
+    title: "CAPTAIN AMERICA",
+    subtitle: "A SHIELD, A PROMISE, AND A WORLD AT WAR",
+    bgText: "CAPTAIN AMERICA",
+    cityLabel: "BROOKLYN",
+    image: "https://images.unsplash.com/photo-1516321310764-8d15de5d0cb0?auto=format&fit=crop&w=900&q=80",
+    wiki: "https://en.wikipedia.org/wiki/Captain_America",
+    colors: { primary: "#d74a4a", secondary: "#173b63", accent: "#f7f1d1", bg: "#050816" },
+    stats: { "LEADERSHIP": "UNBREAKABLE", "DISCIPLINE": "ELITE", "LEGACY": "80+ YEARS" },
+    abilities: ["Vibranium shield throws", "Peak human conditioning", "Battlefield leadership", "Tactical reads"],
+    badges: ["Super-soldier", "Shield bearer", "Avengers founder"],
+    storyLeft: "Steve Rogers was a determined underdog long before the serum gave him strength. He kept standing because he believed courage mattered more than size.",
+    storyRight: "Captain America turns defense into defiance. He leads with empathy, strategy, and a shield that always comes back when the fight is worth it.",
+    ctaLabel: "RAISE THE SHIELD",
+    versions: [
+      { actor: "CHRIS EVANS", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80", quote: "I can do this all day." },
+      { actor: "COMIC CLASSIC", image: "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=900&q=80", quote: "Freedom needs a defender." }
+    ],
+    villains: [
+      { name: "Red Skull", threat: "Ideological enemy", image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80", front: "Red Skull turns hate into doctrine and makes Cap fight for the future as much as the present.", back: "The rivalry matters because it pits democratic hope against fascist control." },
+      { name: "Crossbones", threat: "Relentless assassin", image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80", front: "Crossbones is the ugly, close-range violence that never stops testing Steve's restraint.", back: "He matters because he forces Captain America to stay disciplined when chaos gets personal." }
+    ],
+    timeline: [
+      { year: "1941", title: "First appearance", text: "Captain America debuts as a wartime symbol with a moral center." },
+      { year: "1964", title: "Modern return", text: "Steve returns to present-day stories and becomes a leader for a new age." },
+      { year: "2006", title: "Civil War", text: "Cap stands against registration and pays the price for principle." },
+      { year: "2011", title: "A Man Out of Time", text: "The character becomes a study in legacy, loss, and adaptation." }
+    ],
+    teamup: { partner: "Black Panther", synergy: 90, title: "Disciplined leaders", text: "Steve and T'Challa bring different traditions, but both understand that power means responsibility and restraint." },
+    comparison: { strength: 78, speed: 74, intelligence: 84, durability: 82, combat: 97, power: 62 },
+    battle: {
+      hp: 114,
+      attack: 19,
+      special: 28,
+      moves: {
+        attack: "ricochets a shield strike",
+        special: "launches a tactical shield combo",
+        guard: "raises the shield in a perfect block"
+      }
+    },
+    quizAffinity: { leader: 4, scholar: 1, rebel: 1, heart: 3, speedster: 0, mystic: 0, feral: 0 },
+    lore: {
+      origin: [
+        "Steve Rogers volunteered for the Super-Soldier program because he wanted to help in a world at war. The serum changed his body, but his convictions were already in place.",
+        "Captain America works because the symbol and the person are aligned. He becomes idealistic without becoming naive."
+      ],
+      powers: [
+        "The serum gives Steve peak physical condition, reflexes, endurance, and recovery far beyond normal human limits. The shield adds precision, protection, and devastating versatility.",
+        "His greatest edge is not raw power. It is decision-making under pressure."
+      ],
+      storylines: [
+        "Winter Soldier tests his loyalty, Civil War tests his principles, and modern political stories test whether America deserves the ideals he carries.",
+        "His best arcs are never just about fighting. They are about what kind of country or team he is willing to protect."
+      ],
+      allies: [
+        "Bucky Barnes, Peggy Carter, Sam Wilson, Sharon Carter, and the Avengers all frame Steve as someone defined by trust as much as duty.",
+        "He works best when the people around him challenge him to stay honest without losing hope."
+      ],
+      legacy: [
+        "Captain America remains one of Marvel's clearest symbols of civic idealism. He is the hero of principles held under pressure.",
+        "The character endures because every era can ask whether courage still means the same thing."
+      ],
+      funFacts: [
+        "Captain America first appeared in 1941.",
+        "His shield is as much a symbol of protection as offense.",
+        "Steve is at his best when he leads by example, not command."
+      ]
+    },
+    trivia: [
+      {
+        question: "What makes Captain America special beyond his shield?",
+        choices: ["Super-soldier physiology", "Cosmic magic", "Gamma mutation", "Time travel"],
+        answer: 0,
+        explanation: "The Super-Soldier Serum gave Steve his enhanced abilities."
+      },
+      {
+        question: "Which sidearm is most associated with Captain America?",
+        choices: ["Mjolnir", "Shield", "Ring", "Web shooters"],
+        answer: 1,
+        explanation: "Captain America is defined by his shield."
+      }
+    ]
+  },
+  thor: {
+    id: "thor",
+    name: "Thor",
+    universe: "Marvel",
+    title: "GOD OF THUNDER",
+    subtitle: "ROYAL DUTY WITH STORM-SIZED CONSEQUENCES",
+    bgText: "THOR",
+    cityLabel: "NEW ASGARD",
+    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
+    wiki: "https://en.wikipedia.org/wiki/Thor_(Marvel_Comics)",
+    colors: { primary: "#66c9ff", secondary: "#1a2f5f", accent: "#ffd66b", bg: "#06111f" },
+    stats: { "THUNDER": "COSMIC", "ENDURANCE": "MYTHIC", "LEGACY": "ASGARDIAN" },
+    abilities: ["Mjolnir recall", "Storm channeling", "Flight", "God-tier strength"],
+    badges: ["Asgardian royalty", "Storm wielder", "Mjolnir lineage"],
+    storyLeft: "Thor entered the world as a prince who had to earn humility before he could earn greatness. His story keeps turning on whether power serves pride or protection.",
+    storyRight: "He is strongest when thunder becomes mercy. Thor fights like a legend, but he learns like a mortal who has lost too much to waste another chance.",
+    ctaLabel: "SUMMON THE STORM",
+    versions: [
+      { actor: "CHRIS HEMSWORTH", image: "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?auto=format&fit=crop&w=900&q=80", quote: "Bring me Thanos!" },
+      { actor: "COMIC CLASSIC", image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80", quote: "For Asgard." }
+    ],
+    villains: [
+      { name: "Loki", threat: "Chaos tactician", image: "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=900&q=80", front: "Loki turns love, envy, and mischief into a weapon that only family can fully understand.", back: "He constantly tests whether Thor's strength includes forgiveness." },
+      { name: "Hela", threat: "Death sovereign", image: "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?auto=format&fit=crop&w=900&q=80", front: "Hela strips away certainty and forces Thor to define himself without his old symbols.", back: "Her arrival reframes him as the god of thunder, not the god of hammers." }
+    ],
+    timeline: [
+      { year: "1962", title: "First appearance", text: "Thor enters Marvel as a god among heroes." },
+      { year: "2011", title: "Earth exile", text: "Worthiness becomes the key to his return and growth." },
+      { year: "2017", title: "Ragnarok", text: "The fall of Asgard pushes Thor into reinvention." },
+      { year: "2022", title: "Love and Thunder", text: "He rediscovers tenderness while confronting god-level grief." }
+    ],
+    teamup: { partner: "The Flash", synergy: 90, title: "Lightning in two tempos", text: "Thor brings force while Flash controls pace. Together they overwhelm the field before it can stabilize." },
+    comparison: { strength: 97, speed: 76, intelligence: 78, durability: 96, combat: 86, power: 95 },
+    battle: {
+      hp: 128,
+      attack: 24,
+      special: 34,
+      moves: {
+        attack: "swings Mjolnir with thunderous force",
+        special: "calls down a bifrost stormbreaker combo",
+        guard: "summons a storm barrier"
+      }
+    },
+    quizAffinity: { leader: 2, scholar: 0, rebel: 1, heart: 2, speedster: 0, mystic: 3, feral: 0 },
+    lore: {
+      origin: [
+        "Thor began as a prince who had to be humbled before he could be trusted with power. His exile to Earth taught him that worthiness is earned through action.",
+        "He works as a mythic hero because his growth never feels optional. Every thunderstorm is a character test."
+      ],
+      powers: [
+        "As an Asgardian, Thor commands superhuman strength, durability, and endurance far beyond mortal limits. Mjolnir and Stormbreaker add flight, lightning, and cosmic force.",
+        "His greatest ability is not raw damage. It is the ability to stand back up and keep leading when the gods themselves have failed."
+      ],
+      storylines: [
+        "The original hammer era defined him. Ragnarok and Jason Aaron's runs pushed him into mythic reinvention. Love and Thunder leaned into loss, love, and renewed purpose.",
+        "Thor stories usually work best when they ask whether a god can remain kind without becoming weak."
+      ],
+      allies: [
+        "Loki, the Avengers, Valkyrie, and the people of New Asgard keep Thor connected to both family and responsibility.",
+        "He matters most when he is protecting others rather than proving himself."
+      ],
+      legacy: [
+        "Thor gave Marvel a god-sized hero who still had to learn humility. That contrast keeps the character fresh across decades.",
+        "He remains a bridge between fantasy spectacle and emotional vulnerability."
+      ],
+      funFacts: [
+        "Thor first appeared in 1962.",
+        "Mjolnir's worthiness enchantment is central to his myth.",
+        "Few heroes can make thunder feel noble and personal at once."
+      ]
+    },
+    trivia: [
+      {
+        question: "What makes Thor worthy of Mjolnir?",
+        choices: ["Royal blood", "Worthiness enchantment", "Gamma exposure", "Speed Force"],
+        answer: 1,
+        explanation: "Mjolnir responds to worthiness, not lineage."
+      },
+      {
+        question: "Which realm is Thor most closely tied to?",
+        choices: ["Asgard", "Wakanda", "Atlantis", "Krypton"],
+        answer: 0,
+        explanation: "Thor is the prince of Asgard."
+      }
+    ]
+  },
+  hulk: {
+    id: "hulk",
+    name: "Hulk",
+    universe: "Marvel",
+    title: "THE INCREDIBLE HULK",
+    subtitle: "GAMMA RAGE, SURVIVAL, AND UNSTOPPABLE POWER",
+    bgText: "HULK",
+    cityLabel: "WORLDWIDE",
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=80",
+    wiki: "https://en.wikipedia.org/wiki/Hulk",
+    colors: { primary: "#58d26a", secondary: "#25412a", accent: "#d7ff9e", bg: "#07110c" },
+    stats: { "RAGE": "INFINITE", "STRENGTH": "CATACLYSMIC", "LEGACY": "GAMMA ERA" },
+    abilities: ["Gamma strength", "Rapid healing", "Shockwave leaps", "Rage escalation"],
+    badges: ["Gamma giant", "Avenger wildcard", "Unstoppable force"],
+    storyLeft: "Bruce Banner became the Hulk after gamma exposure turned a brilliant scientist into a living contradiction. The monster is also a survival response, which is why the story never stays simple.",
+    storyRight: "Hulk is about the fight between control and release. When Bruce stops trying to suppress every emotion, he becomes a force the world cannot ignore.",
+    ctaLabel: "SMASH THROUGH",
+    versions: [
+      { actor: "MARK RUFFALO", image: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=900&q=80", quote: "I am always angry." },
+      { actor: "COMIC CLASSIC", image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=80", quote: "Hulk smash." }
+    ],
+    villains: [
+      { name: "Abomination", threat: "Gamma rival", image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80", front: "Abomination proves that power without restraint becomes a permanent threat.", back: "He is the clearest answer to Hulk's question: what happens when rage wins?" },
+      { name: "The Leader", threat: "Gamma intellect", image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80", front: "The Leader weaponizes intelligence and turns Bruce's own genius into a battlefield.", back: "He matters because he shows that intellect without empathy can be monstrous too." }
+    ],
+    timeline: [
+      { year: "1962", title: "First appearance", text: "The Hulk arrives as a tragic monster with emotional depth." },
+      { year: "1970s", title: "A TV icon", text: "The live-action era turns Hulk into a mainstream symbol of rage and sympathy." },
+      { year: "2006", title: "Planet Hulk", text: "The character gains an epic, gladiatorial scale." },
+      { year: "2018", title: "Immortal Hulk", text: "Modern stories lean into horror, myth, and the persistence of trauma." }
+    ],
+    teamup: { partner: "Doctor Strange", synergy: 88, title: "Mind and monster", text: "Strange handles the impossible structures while Hulk provides the force that breaks through them." },
+    comparison: { strength: 100, speed: 72, intelligence: 72, durability: 100, combat: 88, power: 100 },
+    battle: {
+      hp: 150,
+      attack: 26,
+      special: 34,
+      moves: {
+        attack: "hammers the ground in a gamma surge",
+        special: "erupts into a seismic smash combo",
+        guard: "braces behind an impossible bulk"
+      }
+    },
+    quizAffinity: { leader: 0, scholar: 2, rebel: 1, heart: 2, speedster: 0, mystic: 0, feral: 4 },
+    lore: {
+      origin: [
+        "Bruce Banner's life changed when gamma exposure merged genius with a second, furious self. The Hulk is both accident and coping mechanism.",
+        "The origin works because it asks how much damage a person can contain before the body invents a monster."
+      ],
+      powers: [
+        "Hulk grows stronger as anger rises. He combines overwhelming strength, durability, and healing with a terrifying ability to survive forces that should end him.",
+        "He is not just power. He is escalation with a heartbeat."
+      ],
+      storylines: [
+        "Planet Hulk gives him kingdom-scale tragedy. World War Hulk turns his pain outward. Immortal Hulk reframes him as horror, myth, and persistence.",
+        "The best Hulk stories let the monster be both threat and victim."
+      ],
+      allies: [
+        "Betty Ross, the Avengers, and Bruce's own scientific work anchor the character beyond the smash.",
+        "He is most compelling when people treat the monster like a person first."
+      ],
+      legacy: [
+        "Hulk made emotional volatility into superhero spectacle.",
+        "He remains one of Marvel's clearest examples of a hero whose power is inseparable from trauma."
+      ],
+      funFacts: [
+        "The Hulk first appeared in 1962.",
+        "Different Hulk eras have explored rage as tragedy, horror, and comedy.",
+        "The character always grows when the emotional stakes are personal."
+      ]
+    },
+    trivia: [
+      {
+        question: "What event created the Hulk?",
+        choices: ["Gamma exposure", "Magic storm", "Alien blood transfusion", "Vibranium serum"],
+        answer: 0,
+        explanation: "Gamma radiation created the Hulk."
+      },
+      {
+        question: "What is Bruce Banner's greatest recurring struggle?",
+        choices: ["Speed", "Control", "Flight", "Telepathy"],
+        answer: 1,
+        explanation: "Bruce's story is driven by the struggle to control the Hulk."
+      }
+    ]
+  },
+  doctorstrange: {
+    id: "doctorstrange",
+    name: "Doctor Strange",
+    universe: "Marvel",
+    title: "SORCERER SUPREME",
+    subtitle: "THE DOCTOR WHO MADE MAGIC INTO STRATEGY",
+    bgText: "DOCTOR STRANGE",
+    cityLabel: "SANCTUM SANCTORUM",
+    image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80",
+    wiki: "https://en.wikipedia.org/wiki/Doctor_Strange",
+    colors: { primary: "#ff7d3b", secondary: "#1f294d", accent: "#ffd27f", bg: "#100d18" },
+    stats: { "MYSTIC CONTROL": "MASTERED", "STRATEGY": "COSMIC", "LEGACY": "ARCANE" },
+    abilities: ["Eldritch shields", "Portals", "Astral projection", "Time-loop tactics"],
+    badges: ["Sorcerer Supreme", "Mystic guardian", "Sanctum protector"],
+    storyLeft: "Stephen Strange lost the hands that defined his surgical genius and found a larger calling in mysticism. His power comes from discipline, curiosity, and the willingness to accept impossible rules.",
+    storyRight: "Doctor Strange turns magic into a battlefield language. He protects reality by thinking in shapes, dimensions, and consequences other heroes barely see.",
+    ctaLabel: "OPEN THE PORTAL",
+    versions: [
+      { actor: "BENEDICT CUMBERBATCH", image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80", quote: "By the Hoary Hosts of Hoggoth." },
+      { actor: "COMIC CLASSIC", image: "https://images.unsplash.com/photo-1505672678657-cc7037095e02?auto=format&fit=crop&w=900&q=80", quote: "Reality bends to focus." }
+    ],
+    villains: [
+      { name: "Dormammu", threat: "Dimension tyrant", image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=80", front: "Dormammu is bigger than direct force and turns Strange's intellect into a survival tool.", back: "He matters because Strange's wins often come from outlasting the impossible." },
+      { name: "Baron Mordo", threat: "Former ally", image: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=900&q=80", front: "Mordo weaponizes knowledge and turns mentorship into a philosophical grudge.", back: "The rivalry stays sharp because it is about the ethics of power, not just the power itself." }
+    ],
+    timeline: [
+      { year: "1963", title: "First appearance", text: "Doctor Strange debuts as Marvel's doorway into the occult." },
+      { year: "1970s", title: "Mystic expansion", text: "The character grows into a cornerstone of Marvel's cosmic weirdness." },
+      { year: "2016", title: "MCU arrival", text: "Magic gets a sleek cinematic language and a new mainstream audience." },
+      { year: "2022", title: "Multiverse fracture", text: "Strange becomes central to reality-spanning consequences." }
+    ],
+    teamup: { partner: "Iron Man", synergy: 91, title: "Calculation on two frequencies", text: "Tony solves the machine and Strange solves the impossible. Together they cover every axis of disaster." },
+    comparison: { strength: 82, speed: 68, intelligence: 95, durability: 74, combat: 80, power: 97 },
+    battle: {
+      hp: 104,
+      attack: 20,
+      special: 33,
+      moves: {
+        attack: "lashes out with a sigil strike",
+        special: "folds the arena with eldritch geometry",
+        guard: "casts a rotating mandala shield"
+      }
+    },
+    quizAffinity: { leader: 1, scholar: 3, rebel: 0, heart: 1, speedster: 0, mystic: 4, feral: 0 },
+    lore: {
+      origin: [
+        "Stephen Strange began as a brilliant surgeon who lost the hands he depended on. The search for healing led him to the mystic arts and a much bigger responsibility.",
+        "The origin works because it replaces ego with discipline and asks what knowledge is for."
+      ],
+      powers: [
+        "Doctor Strange can wield spells, shields, portals, astral projection, and dimensional techniques that make him one of Marvel's most versatile protectors.",
+        "His real power is precision. He handles chaos by treating magic like a system."
+      ],
+      storylines: [
+        "Classic Strange stories focus on mystic threats beyond ordinary science. Modern multiverse arcs turn him into the person holding reality together while it tears apart.",
+        "His best stories always balance cosmic scale with a very human need to keep the world intact."
+      ],
+      allies: [
+        "Wong, the Avengers, and the Sanctum's guardians keep Strange grounded in responsibility.",
+        "He works best when the team trusts him to make the weird call."
+      ],
+      legacy: [
+        "Doctor Strange opened the door for Marvel's supernatural side and made magic feel structured rather than random.",
+        "He remains the character you call when physics stops being enough."
+      ],
+      funFacts: [
+        "Doctor Strange first appeared in 1963.",
+        "The Eye of Agamotto is among his most recognizable artifacts.",
+        "He often wins by knowing the rule before the enemy knows the game."
+      ]
+    },
+    trivia: [
+      {
+        question: "What title is Doctor Strange known by?",
+        choices: ["Master Builder", "Sorcerer Supreme", "Omega Herald", "High King"],
+        answer: 1,
+        explanation: "Doctor Strange is best known as the Sorcerer Supreme."
+      },
+      {
+        question: "What kind of threat is Dormammu to Strange?",
+        choices: ["Pure speed", "Dimensional power", "Street crime", "Political corruption"],
+        answer: 1,
+        explanation: "Dormammu is a dimensional tyrant and one of Strange's greatest mystical threats."
+      }
+    ]
+  },
+  blackpanther: {
+    id: "blackpanther",
+    name: "Black Panther",
+    universe: "Marvel",
+    title: "THE BLACK PANTHER",
+    subtitle: "KING OF WAKANDA, STRATEGIST OF THE SHADOWS",
+    bgText: "BLACK PANTHER",
+    cityLabel: "WAKANDA",
+    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80",
+    wiki: "https://en.wikipedia.org/wiki/Black_Panther_(character)",
+    colors: { primary: "#8d7dff", secondary: "#20323a", accent: "#f5e663", bg: "#0b1020" },
+    stats: { "VIBRANIUM": "ADVANCED", "STRATEGY": "MASTERFUL", "LEGACY": "WAKANDAN" },
+    abilities: ["Kinetic storage", "Enhanced senses", "Vibranium claws", "Royal strategy"],
+    badges: ["King of Wakanda", "Vibranium suit", "Ancestral line"],
+    storyLeft: "T'Challa carries the weight of a throne, a nation, and a legacy that demands both strength and wisdom. He moves like a shadow but rules with careful intent.",
+    storyRight: "Black Panther is where heritage meets precision. He protects Wakanda by turning intellect, discipline, and ancestry into one seamless defense.",
+    ctaLabel: "FOR WAKANDA",
+    versions: [
+      { actor: "CHADWICK BOSEMAN", image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80", quote: "Wakanda forever." },
+      { actor: "COMIC CLASSIC", image: "https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=900&q=80", quote: "The king must endure." }
+    ],
+    villains: [
+      { name: "Killmonger", threat: "Revolutionary insurgent", image: "https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=900&q=80", front: "Killmonger weaponizes shared history and turns Wakanda's isolation into an accusation.", back: "He forces T'Challa to confront the moral cost of protecting paradise alone." },
+      { name: "Namor", threat: "Ocean empire ruler", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80", front: "Namor is a sovereign threat with grief, principle, and impossible leverage.", back: "This rivalry measures diplomacy against vengeance and asks how far a kingdom should go." }
+    ],
+    timeline: [
+      { year: "1966", title: "First appearance", text: "Black Panther debuts and opens a new chapter in Marvel history." },
+      { year: "2016", title: "Civil War arrival", text: "T'Challa enters the spotlight as a poised force of vengeance and restraint." },
+      { year: "2018", title: "Wakanda opened", text: "The character becomes a cultural milestone and global icon." },
+      { year: "2022", title: "Wakanda Forever", text: "Legacy shifts from one king to a people carrying memory forward." }
+    ],
+    teamup: { partner: "Iron Man", synergy: 95, title: "Brains, resources, and battlefield calm", text: "T'Challa complements Stark's improvisation with discipline. One engineers the future, the other decides how it should be used." },
+    comparison: { strength: 84, speed: 86, intelligence: 93, durability: 82, combat: 90, power: 88 },
+    battle: {
+      hp: 112,
+      attack: 22,
+      special: 28,
+      moves: {
+        attack: "slashes with vibranium claws",
+        special: "releases stored kinetic force",
+        guard: "crosses his suit into a vibranium brace"
+      }
+    },
+    quizAffinity: { leader: 3, scholar: 2, rebel: 0, heart: 2, speedster: 0, mystic: 1, feral: 0 },
+    lore: {
+      origin: [
+        "T'Challa inherited the Black Panther mantle and the kingship of Wakanda. His origin ties personal duty to national responsibility.",
+        "He stands out because he is both warrior and strategist, never only one or the other."
+      ],
+      powers: [
+        "The heart-shaped herb and vibranium suit enhance T'Challa's strength, speed, senses, and resilience. His claws and suit store and redirect force.",
+        "His real power is leadership under pressure."
+      ],
+      storylines: [
+        "Civil War introduces him as a poised avenger. The Black Panther film expands Wakanda's myth. Wakanda Forever turns legacy into a communal responsibility.",
+        "Black Panther stories thrive when politics, family, and nationhood all matter at once."
+      ],
+      allies: [
+        "Shuri, Okoye, the Dora Milaje, and the ancestors all frame T'Challa as a ruler who never acts alone.",
+        "He is strongest when the kingdom itself is treated as part of the hero's identity."
+      ],
+      legacy: [
+        "Black Panther changed how superhero royalty could be portrayed.",
+        "The character remains one of Marvel's clearest intersections of myth, technology, and cultural pride."
+      ],
+      funFacts: [
+        "Black Panther first appeared in 1966.",
+        "Wakanda's technology is rooted in vibranium.",
+        "The mantle is bigger than any one person."
+      ]
+    },
+    trivia: [
+      {
+        question: "What metal is central to Black Panther's suit and kingdom?",
+        choices: ["Adamantium", "Vibranium", "Uru", "Promethium"],
+        answer: 1,
+        explanation: "Vibranium powers Wakanda's advanced technology."
+      },
+      {
+        question: "Which nation does T'Challa rule?",
+        choices: ["Atlantis", "Genosha", "Wakanda", "Latveria"],
+        answer: 2,
+        explanation: "T'Challa is king of Wakanda."
+      }
+    ]
+  },
+  wolverine: {
+    id: "wolverine",
+    name: "Wolverine",
+    universe: "Marvel | X-Men",
+    title: "WOLVERINE",
+    subtitle: "FERAL RESOLVE BONDED TO ADAMANTIUM",
+    bgText: "WOLVERINE",
+    cityLabel: "MADRIPOOR",
+    image: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=900&q=80",
+    wiki: "https://en.wikipedia.org/wiki/Wolverine_(character)",
+    colors: { primary: "#f2c94c", secondary: "#4a6fa5", accent: "#ffd9a0", bg: "#110f1d" },
+    stats: { "SURVIVAL": "EXTREME", "HEALING": "MUTANT", "LEGACY": "X-MEN" },
+    abilities: ["Adamantium claws", "Regenerative healing", "Enhanced senses", "Berserker bursts"],
+    badges: ["Mutant healing", "Adamantium skeleton", "X-Men icon"],
+    storyLeft: "Logan is claws, scars, and survival instinct wrapped around a life he can never fully leave behind. He is at his best when grit becomes a promise to keep going.",
+    storyRight: "Wolverine is ferocity with a conscience. The rage is real, but so is the refusal to let the worst parts of him win the whole story.",
+    ctaLabel: "UNLEASH THE CLAWS",
+    versions: [
+      { actor: "HUGH JACKMAN", image: "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=900&q=80", quote: "I'm the best there is." },
+      { actor: "COMIC CLASSIC", image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80", quote: "Don't push me." }
+    ],
+    villains: [
+      { name: "Sabretooth", threat: "Savage counterpart", image: "https://images.unsplash.com/photo-1509114397022-ed747cca3f65?auto=format&fit=crop&w=900&q=80", front: "Sabretooth turns every Wolverine fight into family trauma with claws out.", back: "Victor is the version of Logan who never learned restraint." },
+      { name: "Weapon X", threat: "Program, not person", image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80", front: "Weapon X is the machinery that turned Logan's body into a battlefield.", back: "Sometimes the villain is the institution that stole identity and commodified pain." }
+    ],
+    timeline: [
+      { year: "1974", title: "First appearance", text: "Wolverine arrives as a feral wildcard in Marvel's expanding world." },
+      { year: "1970s", title: "X-Men breakout", text: "He becomes the line's most dangerous and popular edge case." },
+      { year: "2000s", title: "Origins retold", text: "Weapon X history and memory scars move to the center." },
+      { year: "2017", title: "Logan", text: "The character reaches a raw, elegiac peak in a future-western finale." }
+    ],
+    teamup: { partner: "Black Panther", synergy: 84, title: "Instinct sharpened by discipline", text: "Wolverine absorbs pressure while Black Panther picks the moment where Logan's ferocity becomes mission-winning leverage." },
+    comparison: { strength: 87, speed: 74, intelligence: 76, durability: 98, combat: 92, power: 78 },
+    battle: {
+      hp: 135,
+      attack: 25,
+      special: 27,
+      moves: {
+        attack: "slashes in a berserker burst",
+        special: "dives into an adamantium frenzy",
+        guard: "drops into a low feral defense"
+      }
+    },
+    quizAffinity: { leader: 0, scholar: 0, rebel: 3, heart: 1, speedster: 0, mystic: 0, feral: 4 },
+    lore: {
+      origin: [
+        "Logan's history is tangled with trauma, experiments, and memory damage. Weapon X turned him into a living weapon, but not a willing one.",
+        "The origin works because his healing factor keeps the body alive while the past keeps trying to kill the man."
+      ],
+      powers: [
+        "Wolverine's adamantium claws and skeleton make him lethal in close quarters. His healing factor, senses, and stamina let him outlast fights that should end him.",
+        "He is a survival engine with a conscience he keeps trying to prove."
+      ],
+      storylines: [
+        "Weapon X defines the horror of his transformation. Old Man Logan and Logan lean into age, guilt, and legacy. X-Men stories keep him in the heart of mutant conflict.",
+        "Wolverine works best when the story lets him be both monster and protector."
+      ],
+      allies: [
+        "The X-Men, Jean Grey, Professor X, and even uneasy team-ups give Logan a place to channel the rage.",
+        "He is most interesting when found family gives him something to defend."
+      ],
+      legacy: [
+        "Wolverine turned the antihero into a mainstream Marvel icon.",
+        "He remains the model for a hero whose violence is always balanced by pain and loyalty."
+      ],
+      funFacts: [
+        "Wolverine first appeared in 1974.",
+        "His healing factor makes him nearly impossible to stop for long.",
+        "The character's popularity made the X-Men lineup feel dangerous and personal."
+      ]
+    },
+    trivia: [
+      {
+        question: "What metal coats Wolverine's skeleton?",
+        choices: ["Vibranium", "Carbonadium", "Adamantium", "Promethium"],
+        answer: 2,
+        explanation: "Adamantium is the metal bonded to Wolverine's skeleton."
+      },
+      {
+        question: "Which team is Wolverine most famously part of?",
+        choices: ["Avengers", "X-Men", "Fantastic Four", "Guardians"],
+        answer: 1,
+        explanation: "Wolverine is one of the defining members of the X-Men."
+      }
+    ]
+  },
+  flash: {
+    id: "flash",
+    name: "The Flash",
+    universe: "DC",
+    title: "THE FLASH",
+    subtitle: "FASTEST MAN ALIVE WITH A HEART THAT OUTRUNS TIME",
+    bgText: "FLASH",
+    cityLabel: "CENTRAL CITY",
+    image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80",
+    wiki: "https://en.wikipedia.org/wiki/Flash_(character)",
+    colors: { primary: "#ffd449", secondary: "#ff5f45", accent: "#ffeec2", bg: "#190a07" },
+    stats: { "SPEED": "LIGHTSPEED", "FOCUS": "RELENTLESS", "LEGACY": "SPEED FORCE" },
+    abilities: ["Speed Force", "Phasing", "Time remnant tactics", "Lightning acceleration"],
+    badges: ["Speed Force link", "Forensic scientist", "Temporal wildcard"],
+    storyLeft: "Barry Allen races through grief, timelines, and impossible rescues. Every choice is measured in microseconds and consequence.",
+    storyRight: "The Flash turns velocity into empathy. He is the hero who makes the impossible feel close enough to reach.",
+    ctaLabel: "RUN FORWARD",
+    versions: [
+      { actor: "EZRA MILLER", image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80", quote: "I should've been faster." },
+      { actor: "COMIC CLASSIC", image: "https://images.unsplash.com/photo-1505672678657-cc7037095e02?auto=format&fit=crop&w=900&q=80", quote: "The future is now." }
+    ],
+    villains: [
+      { name: "Reverse-Flash", threat: "Temporal stalker", image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80", front: "No villain makes heroism feel more intimate and invasive than a speedster who lives to ruin Barry's life.", back: "Reverse-Flash weaponizes obsession itself." },
+      { name: "Zoom", threat: "Predatory speed god", image: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80", front: "Zoom doesn't just chase the Flash. He tries to define what pain should teach him.", back: "He treats suffering as a curriculum and forces Barry to reject brutality as growth." }
+    ],
+    timeline: [
+      { year: "1956", title: "Modern debut", text: "Barry Allen reboots speedster mythology for the Silver Age." },
+      { year: "2014", title: "TV breakout", text: "The CW era turns speed into emotional serial storytelling." },
+      { year: "2017", title: "Justice League entry", text: "Barry becomes the awkward heartbeat of a world-scale team-up." },
+      { year: "2023", title: "Flashpoint cinema", text: "The film doubles down on multiverse consequence and family loss." }
+    ],
+    teamup: { partner: "Thor", synergy: 89, title: "One redirects weather, the other redirects time", text: "Flash handles chaos control and impossible saves while Thor turns every opening into thunderous impact." },
+    comparison: { strength: 79, speed: 100, intelligence: 81, durability: 72, combat: 85, power: 76 },
+    battle: {
+      hp: 96,
+      attack: 21,
+      special: 30,
+      moves: {
+        attack: "lands a blur-speed combo",
+        special: "detonates a Speed Force vortex",
+        guard: "phases between incoming strikes"
+      }
+    },
+    quizAffinity: { leader: 1, scholar: 1, rebel: 1, heart: 3, speedster: 4, mystic: 0, feral: 0 },
+    lore: {
+      origin: [
+        "Barry Allen became the Flash after a lightning accident changed his connection to the Speed Force. His story is built on science, hope, and the weight of mistakes.",
+        "The origin works because Barry is both a forensic analyst and a symbol of second chances."
+      ],
+      powers: [
+        "The Speed Force gives Barry speed, phasing, accelerated thought, and the ability to outrun danger itself. He can rescue, repair, and rearrange a battlefield in moments.",
+        "His greatest power is the ability to choose compassion at impossible speed."
+      ],
+      storylines: [
+        "Flashpoint remains the key multiverse warning. Rebirth stories focus on legacy and loss. Modern runs keep asking how much a speedster should change the timeline.",
+        "Barry's best stories are always about what happens when speed has a heart."
+      ],
+      allies: [
+        "Iris West, Team Flash, and the wider Justice League keep Barry grounded.",
+        "He is most compelling when the people he saves are the reason he keeps running."
+      ],
+      legacy: [
+        "The Flash made speed into a full superhero philosophy.",
+        "Barry's myth is simple: move fast enough to save, but not so fast that you forget why."
+      ],
+      funFacts: [
+        "Barry Allen first became the Flash in 1956.",
+        "The Speed Force is the heart of his myth.",
+        "Every Flash story asks what speed costs."
+      ]
+    },
+    trivia: [
+      {
+        question: "What power source fuels The Flash?",
+        choices: ["Speed Force", "Omega Radiation", "Solar Energy", "Hex magic"],
+        answer: 0,
+        explanation: "The Speed Force powers the Flash."
+      },
+      {
+        question: "What is Barry Allen's day job?",
+        choices: ["Forensic scientist", "Journalist", "Pilot", "Detective"],
+        answer: 0,
+        explanation: "Barry Allen is a forensic scientist."
+      }
+    ]
+  },
+  aquaman: {
+    id: "aquaman",
+    name: "Aquaman",
+    universe: "DC",
+    title: "KING OF ATLANTIS",
+    subtitle: "TIDE, THRONE, AND TRIDENT",
+    bgText: "AQUAMAN",
+    cityLabel: "ATLANTIS",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80",
+    wiki: "https://en.wikipedia.org/wiki/Aquaman",
+    colors: { primary: "#32d3c6", secondary: "#15354f", accent: "#f2c94c", bg: "#07131a" },
+    stats: { "TIDE": "TITANIC", "COMMAND": "ROYAL", "LEGACY": "ATLANTIC" },
+    abilities: ["Ocean command", "Trident strikes", "Pressure resistance", "Sea-sense"],
+    badges: ["King of Atlantis", "Sea commander", "Trident heir"],
+    storyLeft: "Arthur Curry bridges the surface world and the deep sea by living in both. His power is royal, but his responsibility is shared across two worlds.",
+    storyRight: "Aquaman rules with force when he has to and diplomacy when he can. The ocean is his kingdom, but people are his reason.",
+    ctaLabel: "RISE WITH THE TIDE",
+    versions: [
+      { actor: "JASON MOMOA", image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80", quote: "My man." },
+      { actor: "COMIC CLASSIC", image: "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?auto=format&fit=crop&w=900&q=80", quote: "The sea answers." }
+    ],
+    villains: [
+      { name: "Black Manta", threat: "Vengeful hunter", image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80", front: "Black Manta turns revenge into a lifelong ocean-spanning vendetta.", back: "He matters because he keeps Arthur's past from staying buried." },
+      { name: "Ocean Master", threat: "Royal rival", image: "https://images.unsplash.com/photo-1502134249126-9f3755a50d78?auto=format&fit=crop&w=900&q=80", front: "Ocean Master is the brother who turns claim, grievance, and ambition into civil war.", back: "Their rivalry asks whether rule comes from blood, strength, or consent." }
+    ],
+    timeline: [
+      { year: "1941", title: "First appearance", text: "Aquaman enters DC as a sea-bound adventurer." },
+      { year: "1990s", title: "Royal reinvention", text: "Modern stories turn him into a true king rather than a novelty." },
+      { year: "2011", title: "New 52 rebirth", text: "Atlantis becomes central to his identity and scale." },
+      { year: "2018", title: "Cinematic tide", text: "The solo film makes Atlantis feel epic, strange, and alive." }
+    ],
+    teamup: { partner: "Wonder Woman", synergy: 88, title: "Mythic rulers, shared burden", text: "Arthur brings tide-born power while Diana brings moral clarity. Together they balance kingdoms and compassion." },
+    comparison: { strength: 92, speed: 78, intelligence: 82, durability: 90, combat: 88, power: 85 },
+    battle: {
+      hp: 122,
+      attack: 21,
+      special: 30,
+      moves: {
+        attack: "thrusts the trident in a tidal sweep",
+        special: "calls an oceanic pressure surge",
+        guard: "raises a wall of surging water"
+      }
+    },
+    quizAffinity: { leader: 2, scholar: 1, rebel: 1, heart: 2, speedster: 0, mystic: 0, feral: 0 },
+    lore: {
+      origin: [
+        "Arthur Curry was born between worlds and raised to understand both surface and sea. That dual heritage defines everything about him.",
+        "His origin works because he can belong to neither side fully and still protect both."
+      ],
+      powers: [
+        "Aquaman commands sea life, swims at impossible speeds, survives crushing pressure, and wields the trident as both weapon and symbol.",
+        "His power is as much authority as muscle."
+      ],
+      storylines: [
+        "Modern stories elevate him from punchline to king. His best arcs deal with identity, sovereignty, and the politics of the ocean.",
+        "Aquaman works best when the sea feels like an empire, not a backdrop."
+      ],
+      allies: [
+        "Mera, the Justice League, and Atlantis itself keep Arthur grounded in responsibility.",
+        "He is strongest when diplomacy and duty move together."
+      ],
+      legacy: [
+        "Aquaman's reputation changed because stories gave him scale and seriousness.",
+        "He now stands as DC's bridge between mythic spectacle and environmental power."
+      ],
+      funFacts: [
+        "Aquaman first appeared in 1941.",
+        "He can communicate with sea life in many continuities.",
+        "The trident is both crown and weapon."
+      ]
+    },
+    trivia: [
+      {
+        question: "Where does Aquaman rule?",
+        choices: ["Atlantis", "Themyscira", "Metropolis", "Central City"],
+        answer: 0,
+        explanation: "Aquaman is king of Atlantis."
+      },
+      {
+        question: "What element is most closely tied to Aquaman's power?",
+        choices: ["Fire", "Earth", "Water", "Lightning"],
+        answer: 2,
+        explanation: "Water and the sea define Aquaman's myth."
+      }
+    ]
+  },
+  greenlantern: {
+    id: "greenlantern",
+    name: "Green Lantern",
+    universe: "DC",
+    title: "GREEN LANTERN",
+    subtitle: "WILLPOWER MADE VISIBLE",
+    bgText: "GREEN LANTERN",
+    cityLabel: "SECTOR 2814",
+    image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80",
+    wiki: "https://en.wikipedia.org/wiki/Green_Lantern",
+    colors: { primary: "#47d86b", secondary: "#173021", accent: "#d9ff8f", bg: "#08110b" },
+    stats: { "WILL": "UNBREAKABLE", "IMAGINATION": "LIMITLESS", "LEGACY": "CORPS" },
+    abilities: ["Constructs", "Flight", "Force fields", "Willpower focus"],
+    badges: ["Green Lantern Corps", "Willpower oath", "Sector defender"],
+    storyLeft: "Hal Jordan turns courage and imagination into a weapon against cosmic scale. The ring only works when his will stays sharper than fear.",
+    storyRight: "Green Lantern is a hero of creativity under pressure. He makes belief visible and then uses it to defend a sector that never sleeps.",
+    ctaLabel: "LIGHT THE GREEN",
+    versions: [
+      { actor: "RYAN REYNOLDS", image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80", quote: "In brightest day..." },
+      { actor: "COMIC CLASSIC", image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80", quote: "...in blackest night." }
+    ],
+    villains: [
+      { name: "Sinestro", threat: "Fallen mentor", image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80", front: "Sinestro proves that order without empathy becomes a trap.", back: "He matters because he is what Hal could become if fear wins." },
+      { name: "Parallax", threat: "Fear incarnate", image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=80", front: "Parallax is fear given shape, scale, and cosmic appetite.", back: "The rivalry turns willpower into a literal survival test." }
+    ],
+    timeline: [
+      { year: "1940", title: "First appearance", text: "Green Lantern starts as a Golden Age idea before evolving into cosmic law." },
+      { year: "1959", title: "Hal Jordan arrives", text: "The Silver Age rings in the modern Corps mythology." },
+      { year: "2004", title: "Rebirth", text: "The character's identity and myth are rebuilt around willpower." },
+      { year: "2010s", title: "Cosmic legacy", text: "The Corps expands into one of DC's biggest space epics." }
+    ],
+    teamup: { partner: "Superman", synergy: 90, title: "Hope and willpower", text: "Superman inspires belief while Green Lantern turns belief into tangible form." },
+    comparison: { strength: 88, speed: 81, intelligence: 89, durability: 85, combat: 86, power: 96 },
+    battle: {
+      hp: 118,
+      attack: 20,
+      special: 33,
+      moves: {
+        attack: "forms a precision construct strike",
+        special: "erupts into a willpower barrage",
+        guard: "wraps the ring in a hard-light shield"
+      }
+    },
+    quizAffinity: { leader: 2, scholar: 2, rebel: 0, heart: 1, speedster: 0, mystic: 0, feral: 0 },
+    lore: {
+      origin: [
+        "Hal Jordan was chosen by a power ring because his will and fearlessness made him fit for the Corps. The ring is a test as much as a gift.",
+        "Green Lantern works because imagination and discipline must be equal partners."
+      ],
+      powers: [
+        "A Green Lantern ring creates hard-light constructs, flight, force fields, and almost any shape the wielder can focus into existence.",
+        "The weakness is not the ring. It is doubt."
+      ],
+      storylines: [
+        "Sinestro Corps War and Blackest Night turned the Lantern myth into cosmic event storytelling. Rebirth rebuilt Hal around courage rather than recklessness.",
+        "The best Lantern stories ask what someone can imagine when fear is the obstacle."
+      ],
+      allies: [
+        "The Green Lantern Corps, the Justice League, and fellow Lanterns keep Hal connected to a larger mission.",
+        "He is strongest when he acts like a guardian, not a hotshot."
+      ],
+      legacy: [
+        "Green Lantern gave DC a hero powered by will and creativity rather than brute force.",
+        "The concept remains one of the clearest superhero metaphors for belief under pressure."
+      ],
+      funFacts: [
+        "The Green Lantern oath is one of comics' most famous lines.",
+        "The Corps spans the universe in many continuities.",
+        "Willpower is treated as a literal force in Lantern mythology."
+      ]
+    },
+    trivia: [
+      {
+        question: "What power fuels a Green Lantern ring?",
+        choices: ["Fear", "Willpower", "Speed", "Magic"],
+        answer: 1,
+        explanation: "Willpower powers the ring."
+      },
+      {
+        question: "What is the Corps' role in the universe?",
+        choices: ["Political council", "Space police", "Secret society", "Treasure hunters"],
+        answer: 1,
+        explanation: "The Green Lantern Corps acts as a galactic peacekeeping force."
+      }
+    ]
+  },
+  nightwing: {
+    id: "nightwing",
+    name: "Nightwing",
+    universe: "DC",
+    title: "NIGHTWING",
+    subtitle: "THE LEADER WHO LEARNED TO FLY SOLO",
+    bgText: "NIGHTWING",
+    cityLabel: "BLUDHAVEN",
+    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80",
+    wiki: "https://en.wikipedia.org/wiki/Nightwing",
+    colors: { primary: "#4bb3ff", secondary: "#111820", accent: "#8bf0ff", bg: "#060b12" },
+    stats: { "ACROBATICS": "ELITE", "LEADERSHIP": "MATURE", "LEGACY": "BAT-FAMILY" },
+    abilities: ["Escrima expertise", "Aerial combat", "Stealth", "Leadership"],
+    badges: ["Former Robin", "Bludhaven guardian", "Bat-Family leader"],
+    storyLeft: "Dick Grayson grew from circus acrobat to Robin and then into a hero strong enough to build a name of his own. He is proof that legacy can become independence without losing heart.",
+    storyRight: "Nightwing moves with confidence, humor, and a rare kind of warmth. He protects Bludhaven by being the kind of leader who can still jump first.",
+    ctaLabel: "FLY CLEAN",
+    versions: [
+      { actor: "ANIMATED LEGEND", image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80", quote: "Trust the swing." },
+      { actor: "COMIC CLASSIC", image: "https://images.unsplash.com/photo-1505672678657-cc7037095e02?auto=format&fit=crop&w=900&q=80", quote: "No cape, no problem." }
+    ],
+    villains: [
+      { name: "Deathstroke", threat: "Mercenary master", image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80", front: "Deathstroke tests whether Dick can outthink someone built for precision violence.", back: "The rivalry matters because it forces leadership to stay personal." },
+      { name: "Blockbuster", threat: "Crime titan", image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=80", front: "Blockbuster turns Bludhaven's streets into a test of endurance and nerve.", back: "He matters because Nightwing's city is as important as Gotham is to Batman." }
+    ],
+    timeline: [
+      { year: "1940", title: "Robin origins", text: "Dick Grayson enters the myth as the first Robin." },
+      { year: "1984", title: "Nightwing debut", text: "He steps out of Batman's shadow and claims his own identity." },
+      { year: "2010s", title: "Bludhaven guardian", text: "Nightwing grows into a city-scale protector." },
+      { year: "Present", title: "Bat-Family leader", text: "He becomes the clearest bridge between legacy and independence." }
+    ],
+    teamup: { partner: "Batman", synergy: 93, title: "Legacy with a pulse", text: "Batman built the foundation. Nightwing proves the mission can evolve without losing its edge." },
+    comparison: { strength: 76, speed: 82, intelligence: 86, durability: 76, combat: 95, power: 58 },
+    battle: {
+      hp: 104,
+      attack: 18,
+      special: 25,
+      moves: {
+        attack: "whips through with an escrima rush",
+        special: "launches a soaring acrobatic combo",
+        guard: "drops into a spinning staff block"
+      }
+    },
+    quizAffinity: { leader: 3, scholar: 1, rebel: 2, heart: 3, speedster: 1, mystic: 0, feral: 0 },
+    lore: {
+      origin: [
+        "Dick Grayson began as Robin after tragedy pushed him into Batman's orbit. He later claimed the Nightwing identity as a statement of independence.",
+        "His origin works because he becomes a leader without rejecting where he came from."
+      ],
+      powers: [
+        "Nightwing relies on elite acrobatics, martial arts, stealth, and improvised gear rather than powers. He wins by movement and confidence.",
+        "His charisma is part of the toolkit."
+      ],
+      storylines: [
+        "Nightwing stories often focus on leadership, trust, and the weight of living in Batman's shadow. Bludhaven gives him a city that belongs to him.",
+        "The best arcs let him be the heart of the Bat-Family without reducing him to sidekick history."
+      ],
+      allies: [
+        "The Bat-Family, Titans, and close relationships like Barbara Gordon keep Dick grounded.",
+        "He thrives when his optimism is treated as strength, not softness."
+      ],
+      legacy: [
+        "Nightwing is the proof that a sidekick can become an icon without losing the original appeal.",
+        "He remains one of DC's most beloved characters because he feels fully grown and still hopeful."
+      ],
+      funFacts: [
+        "Nightwing debuted in 1984.",
+        "Dick Grayson was the first Robin.",
+        "His blue emblem became a signature look for sleek heroism."
+      ]
+    },
+    trivia: [
+      {
+        question: "What was Nightwing's first heroic identity?",
+        choices: ["Robin", "Aqualad", "Kid Flash", "Speedy"],
+        answer: 0,
+        explanation: "Dick Grayson began as Robin."
+      },
+      {
+        question: "Which city is Nightwing most closely tied to?",
+        choices: ["Bludhaven", "Metropolis", "Central City", "Atlantis"],
+        answer: 0,
+        explanation: "Bludhaven is Nightwing's home base."
+      }
+    ]
+  },
+  martianmanhunter: {
+    id: "martianmanhunter",
+    name: "Martian Manhunter",
+    universe: "DC",
+    title: "MARTIAN MANHUNTER",
+    subtitle: "LAST SON OF MARS, GUARDIAN OF TWO WORLDS",
+    bgText: "MARTIAN MANHUNTER",
+    cityLabel: "MARS",
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=80",
+    wiki: "https://en.wikipedia.org/wiki/Martian_Manhunter",
+    colors: { primary: "#5de07a", secondary: "#123026", accent: "#f2c94c", bg: "#07120d" },
+    stats: { "TELEPATHY": "POWERFUL", "SHAPESHIFT": "TOTAL", "LEGACY": "JUSTICE LEAGUE" },
+    abilities: ["Shapeshifting", "Telepathy", "Phasing", "Flight"],
+    badges: ["Last son of Mars", "Telepathic sentinel", "Justice League cornerstone"],
+    storyLeft: "J'onn J'onzz is an exile who lost his home world and rebuilt his purpose on Earth. He carries grief quietly, then uses it to protect others from the same loss.",
+    storyRight: "Martian Manhunter is a guardian who sees more than most heroes ever can. His calm hides the ache of being the last witness to a dead world.",
+    ctaLabel: "ANSWER THE CALL",
+    versions: [
+      { actor: "JUSTICE LEAGUE ANIMATED", image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=80", quote: "I am J'onn J'onzz." },
+      { actor: "COMIC CLASSIC", image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80", quote: "Earth is my second home." }
+    ],
+    villains: [
+      { name: "M'comm", threat: "White Martian threat", image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80", front: "M'comm turns species conflict into personal grief and keeps J'onn's past alive.", back: "He matters because he weaponizes what J'onn lost." },
+      { name: "Lobo", threat: "Chaotic hunter", image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80", front: "Lobo is the loud, destructive opposite of J'onn's quiet restraint.", back: "The rivalry works because it pits cosmic patience against pure chaos." }
+    ],
+    timeline: [
+      { year: "1955", title: "First appearance", text: "Martian Manhunter arrives as one of DC's earliest sci-fi heroes." },
+      { year: "1960s", title: "Justice League core", text: "He becomes a foundational League member and strategic anchor." },
+      { year: "1990s", title: "Identity deepens", text: "Stories lean into exile, grief, and belonging." },
+      { year: "Present", title: "Telepathic sentinel", text: "J'onn remains one of DC's most quietly essential protectors." }
+    ],
+    teamup: { partner: "Superman", synergy: 92, title: "Two guardians, one planet", text: "Clark inspires hope while J'onn brings patience, strategy, and a second alien perspective." },
+    comparison: { strength: 95, speed: 88, intelligence: 90, durability: 96, combat: 89, power: 98 },
+    battle: {
+      hp: 126,
+      attack: 22,
+      special: 33,
+      moves: {
+        attack: "strikes with a phased telekinetic blow",
+        special: "unleashes a psychic shockwave",
+        guard: "melds into an intangible defensive veil"
+      }
+    },
+    quizAffinity: { leader: 2, scholar: 2, rebel: 0, heart: 3, speedster: 0, mystic: 1, feral: 0 },
+    lore: {
+      origin: [
+        "J'onn J'onzz is the last surviving Martian in many continuities, exiled to Earth after tragedy destroyed his home. His arrival turns loneliness into guardianship.",
+        "The origin works because he chooses compassion even after losing almost everything."
+      ],
+      powers: [
+        "Martian Manhunter can shapeshift, fly, phase, and read minds, making him one of DC's most versatile heroes.",
+        "His power is immense, but his restraint is what keeps him heroic."
+      ],
+      storylines: [
+        "Justice League stories make him the quiet stabilizer. Solo stories often focus on alienation, memory, and finding a home.",
+        "He shines when the story lets him be the heart of a team without making him loud."
+      ],
+      allies: [
+        "The Justice League, Superman, and the people who accept J'onn as family give him purpose on Earth.",
+        "He values connection because he has lost a world already."
+      ],
+      legacy: [
+        "Martian Manhunter remains one of DC's most emotionally rich science-fiction heroes.",
+        "He proves that empathy can be just as powerful as force."
+      ],
+      funFacts: [
+        "Martian Manhunter first appeared in 1955.",
+        "He is often one of the League's most powerful members.",
+        "Identity and belonging are core to his myth."
+      ]
+    },
+    trivia: [
+      {
+        question: "What species is Martian Manhunter?",
+        choices: ["Kryptonian", "Martian", "Atlantean", "Amazonian"],
+        answer: 1,
+        explanation: "J'onn J'onzz is a Martian."
+      },
+      {
+        question: "Which power is most associated with Martian Manhunter?",
+        choices: ["Telepathy", "Speed Force", "Lightning", "Ring constructs"],
+        answer: 0,
+        explanation: "Martian Manhunter is famous for telepathy."
       }
     ]
   }
@@ -1125,7 +2085,7 @@ function buildUniverseSelector() {
 
 function renderRosterGrid() {
   if (!elements.heroRosterGrid) return;
-  const heroes = heroOrder.map((id) => heroData[id]).filter((hero) => appState.selectedUniverse === "all" || hero.universe === appState.selectedUniverse);
+  const heroes = rosterHeroOrder.map((id) => heroData[id]).filter((hero) => appState.selectedUniverse === "all" || hero.universe === appState.selectedUniverse);
   elements.heroRosterGrid.innerHTML = heroes
     .map((hero, index) => {
       const active = hero.id === appState.selectedHeroId ? " selected" : "";
