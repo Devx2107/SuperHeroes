@@ -40,6 +40,8 @@ const heroData = {
     bgText: "BATMAN",
     cityLabel: "GOTHAM CITY",
     image: "https://cdnb.artstation.com/p/assets/images/images/049/406/453/large/tomyt-batman-cinematic-wallpaper.jpg?1652412024",
+    video: "https://videos.pexels.com/video-files/4323285/4323285-hd_1920_1080_30fps.mp4", // TODO: paste direct .mp4 link here (Cloudinary/Vercel Blob/GitHub raw, NOT a Google Drive share link)
+    audio: "", // TODO: paste direct .mp3 link here
     wiki: "https://en.wikipedia.org/wiki/Batman",
     colors: { primary: "#d64545", secondary: "#121212", accent: "#ffb84d", bg: "#050505" },
     stats: { "TACTICAL EDGE": "MAX", "FEAR FACTOR": "HIGH", "LEGACY": "85+ YEARS" },
@@ -118,6 +120,8 @@ const heroData = {
     bgText: "SUPERMAN",
     cityLabel: "METROPOLIS",
     image: "https://m.media-amazon.com/images/M/MV5BMTQ2MTgyNzY2MV5BMl5BanBnXkFtZTgwOTA5MjkxNjE@._CR42,94,1758,989_QL75_UX500_CR0,0,500,281_.jpg",
+    video: "", // TODO: paste direct .mp4 link here (Cloudinary/Vercel Blob/GitHub raw, NOT a Google Drive share link)
+    audio: "", // TODO: paste direct .mp3 link here
     wiki: "https://en.wikipedia.org/wiki/Superman",
     colors: { primary: "#4d94ff", secondary: "#12223d", accent: "#ffd84d", bg: "#05070d" },
     stats: { "SPEED": "LIGHTNING", "MIGHT": "PLANETARY", "LEGACY": "85+ YEARS" },
@@ -196,6 +200,8 @@ const heroData = {
     bgText: "IRON MAN",
     cityLabel: "STARK TOWER",
     image: "https://images2.alphacoders.com/105/thumb-1920-1051995.jpg",
+    video: "", // TODO: paste direct .mp4 link here (Cloudinary/Vercel Blob/GitHub raw, NOT a Google Drive share link)
+    audio: "", // TODO: paste direct .mp3 link here
     wiki: "https://en.wikipedia.org/wiki/Iron_Man",
     colors: { primary: "#ff6a3d", secondary: "#1b2433", accent: "#ffe27a", bg: "#06080c" },
     stats: { "TECH LEVEL": "EXTREME", "RISK TOLERANCE": "UNMATCHED", "LEGACY": "60+ YEARS" },
@@ -273,6 +279,8 @@ const heroData = {
     bgText: "SPIDER-MAN",
     cityLabel: "NEW YORK CITY",
     image: "https://c4.wallpaperflare.com/wallpaper/223/120/36/spider-man-video-games-marvel-cinematic-universe-spider-spider-webs-hd-wallpaper-preview.jpg",
+    video: "", // TODO: paste direct .mp4 link here (Cloudinary/Vercel Blob/GitHub raw, NOT a Google Drive share link)
+    audio: "", // TODO: paste direct .mp3 link here
     wiki: "https://en.wikipedia.org/wiki/Spider-Man",
     colors: { primary: "#ff5b57", secondary: "#183c7a", accent: "#5cb7ff", bg: "#05070c" },
     stats: { "SPIDER-SENSE": "ALWAYS ON", "AGILITY": "INSANE", "LEGACY": "60+ YEARS" },
@@ -350,6 +358,8 @@ const heroData = {
     bgText: "WONDER WOMAN",
     cityLabel: "THEMYSCIRA",
     image: "https://c4.wallpaperflare.com/wallpaper/391/891/578/4k-8k-wonder-woman-wallpaper-preview.jpg",
+    video: "", // TODO: paste direct .mp4 link here (Cloudinary/Vercel Blob/GitHub raw, NOT a Google Drive share link)
+    audio: "", // TODO: paste direct .mp3 link here
     wiki: "https://en.wikipedia.org/wiki/Wonder_Woman",
     colors: { primary: "#f4c84a", secondary: "#6f1125", accent: "#ff7d66", bg: "#070508" },
     stats: { "WARRIOR SKILL": "ELITE", "TRUTH": "UNBREAKABLE", "LEGACY": "80+ YEARS" },
@@ -427,6 +437,8 @@ const heroData = {
     bgText: "CAPTAIN AMERICA",
     cityLabel: "BROOKLYN",
     image: "https://images.wallpapersden.com/image/download/captain-america-awesome-pose-images_aG5uaWWUmZqaraWkpJRmZ2VlrWZsbGw.jpg",
+    video: "", // TODO: paste direct .mp4 link here (Cloudinary/Vercel Blob/GitHub raw, NOT a Google Drive share link)
+    audio: "", // TODO: paste direct .mp3 link here
     wiki: "https://en.wikipedia.org/wiki/Captain_America",
     colors: { primary: "#d74a4a", secondary: "#173b63", accent: "#f7f1d1", bg: "#050816" },
     stats: { "LEADERSHIP": "UNBREAKABLE", "DISCIPLINE": "ELITE", "LEGACY": "80+ YEARS" },
@@ -513,6 +525,8 @@ const heroData = {
     bgText: "THOR",
     cityLabel: "NEW ASGARD",
     image: "https://brobible.com/wp-content/uploads/2021/12/chris-hemsworth-thor.jpeg?w=650",
+    video: "", // TODO: paste direct .mp4 link here (Cloudinary/Vercel Blob/GitHub raw, NOT a Google Drive share link)
+    audio: "", // TODO: paste direct .mp3 link here
     wiki: "https://en.wikipedia.org/wiki/Thor_(Marvel_Comics)",
     colors: { primary: "#66c9ff", secondary: "#1a2f5f", accent: "#ffd66b", bg: "#06111f" },
     stats: { "THUNDER": "COSMIC", "ENDURANCE": "MYTHIC", "LEGACY": "ASGARDIAN" },
@@ -599,6 +613,8 @@ const heroData = {
     bgText: "HULK",
     cityLabel: "WORLDWIDE",
     image: "https://www.intofilm.org/intofilm-production/scaledcropped/1096x548https%3A/s3-eu-west-1.amazonaws.com/images.cdn.filmclub.org/film__3508-the-incredible-hulk--hi_res-a7620a5e.jpg/film__3508-the-incredible-hulk--hi_res-a7620a5e.jpg",
+    video: "", // TODO: paste direct .mp4 link here (Cloudinary/Vercel Blob/GitHub raw, NOT a Google Drive share link)
+    audio: "", // TODO: paste direct .mp3 link here
     wiki: "https://en.wikipedia.org/wiki/Hulk",
     colors: { primary: "#58d26a", secondary: "#25412a", accent: "#d7ff9e", bg: "#07110c" },
     stats: { "RAGE": "INFINITE", "STRENGTH": "CATACLYSMIC", "LEGACY": "GAMMA ERA" },
@@ -685,6 +701,8 @@ const heroData = {
     bgText: "DOCTOR STRANGE",
     cityLabel: "SANCTUM SANCTORUM",
     image: "https://compote.slate.com/images/6ac620f3-996e-408c-ba15-334c9c3450c3.jpeg",
+    video: "", // TODO: paste direct .mp4 link here (Cloudinary/Vercel Blob/GitHub raw, NOT a Google Drive share link)
+    audio: "", // TODO: paste direct .mp3 link here
     wiki: "https://en.wikipedia.org/wiki/Doctor_Strange",
     colors: { primary: "#ff7d3b", secondary: "#1f294d", accent: "#ffd27f", bg: "#100d18" },
     stats: { "MYSTIC CONTROL": "MASTERED", "STRATEGY": "COSMIC", "LEGACY": "ARCANE" },
@@ -771,6 +789,8 @@ const heroData = {
     bgText: "BLACK PANTHER",
     cityLabel: "WAKANDA",
     image: "https://d13jj08vfqimqg.cloudfront.net/uploads/article/header_marquee/4175/large_black-panther.jpg",
+    video: "", // TODO: paste direct .mp4 link here (Cloudinary/Vercel Blob/GitHub raw, NOT a Google Drive share link)
+    audio: "", // TODO: paste direct .mp3 link here
     wiki: "https://en.wikipedia.org/wiki/Black_Panther_(character)",
     colors: { primary: "#8d7dff", secondary: "#20323a", accent: "#f5e663", bg: "#0b1020" },
     stats: { "VIBRANIUM": "ADVANCED", "STRATEGY": "MASTERFUL", "LEGACY": "WAKANDAN" },
@@ -857,6 +877,8 @@ const heroData = {
     bgText: "WOLVERINE",
     cityLabel: "MADRIPOOR",
     image: "https://static.independent.co.uk/2024/07/29/15/newFile-17.jpg",
+    video: "", // TODO: paste direct .mp4 link here (Cloudinary/Vercel Blob/GitHub raw, NOT a Google Drive share link)
+    audio: "", // TODO: paste direct .mp3 link here
     wiki: "https://en.wikipedia.org/wiki/Wolverine_(character)",
     colors: { primary: "#f2c94c", secondary: "#4a6fa5", accent: "#ffd9a0", bg: "#110f1d" },
     stats: { "SURVIVAL": "EXTREME", "HEALING": "MUTANT", "LEGACY": "X-MEN" },
@@ -943,6 +965,8 @@ const heroData = {
     bgText: "FLASH",
     cityLabel: "CENTRAL CITY",
     image: "https://images.wallpapersden.com/image/wxl-dc-the-flash-movie-2023_90200.jpg",
+    video: "", // TODO: paste direct .mp4 link here (Cloudinary/Vercel Blob/GitHub raw, NOT a Google Drive share link)
+    audio: "", // TODO: paste direct .mp3 link here
     wiki: "https://en.wikipedia.org/wiki/Flash_(character)",
     colors: { primary: "#ffd449", secondary: "#ff5f45", accent: "#ffeec2", bg: "#190a07" },
     stats: { "SPEED": "LIGHTSPEED", "FOCUS": "RELENTLESS", "LEGACY": "SPEED FORCE" },
@@ -1029,6 +1053,8 @@ const heroData = {
     bgText: "AQUAMAN",
     cityLabel: "ATLANTIS",
     image: "https://images.moviesanywhere.com/16c298314e2f28c3d8fe4911776ccec1/074bbdda-84cf-4b8e-9813-a7210f6b258e.jpg",
+    video: "", // TODO: paste direct .mp4 link here (Cloudinary/Vercel Blob/GitHub raw, NOT a Google Drive share link)
+    audio: "", // TODO: paste direct .mp3 link here
     wiki: "https://en.wikipedia.org/wiki/Aquaman",
     colors: { primary: "#32d3c6", secondary: "#15354f", accent: "#f2c94c", bg: "#07131a" },
     stats: { "TIDE": "TITANIC", "COMMAND": "ROYAL", "LEGACY": "ATLANTIC" },
@@ -1115,6 +1141,8 @@ const heroData = {
     bgText: "GREEN LANTERN",
     cityLabel: "SECTOR 2814",
     image: "https://www.intofilm.org/intofilm-production/scaledcropped/1096x548https%3A/s3-eu-west-1.amazonaws.com/images.cdn.filmclub.org/film__16635-green-lantern--hi_res-f1099ccf.jpg/film__16635-green-lantern--hi_res-f1099ccf.jpg",
+    video: "", // TODO: paste direct .mp4 link here (Cloudinary/Vercel Blob/GitHub raw, NOT a Google Drive share link)
+    audio: "", // TODO: paste direct .mp3 link here
     wiki: "https://en.wikipedia.org/wiki/Green_Lantern",
     colors: { primary: "#47d86b", secondary: "#173021", accent: "#d9ff8f", bg: "#08110b" },
     stats: { "WILL": "UNBREAKABLE", "IMAGINATION": "LIMITLESS", "LEGACY": "CORPS" },
@@ -1201,6 +1229,8 @@ const heroData = {
     bgText: "NIGHTWING",
     cityLabel: "BLUDHAVEN",
     image: "https://www.giantfreakinrobot.com/wp-content/uploads/2021/06/titans-season-2-finale-nightwing.jpeg",
+    video: "", // TODO: paste direct .mp4 link here (Cloudinary/Vercel Blob/GitHub raw, NOT a Google Drive share link)
+    audio: "", // TODO: paste direct .mp3 link here
     wiki: "https://en.wikipedia.org/wiki/Nightwing",
     colors: { primary: "#4bb3ff", secondary: "#111820", accent: "#8bf0ff", bg: "#060b12" },
     stats: { "ACROBATICS": "ELITE", "LEADERSHIP": "MATURE", "LEGACY": "BAT-FAMILY" },
@@ -1287,6 +1317,8 @@ const heroData = {
     bgText: "MARTIAN MANHUNTER",
     cityLabel: "MARS",
     image: "https://static0.moviewebimages.com/wordpress/wp-content/uploads/article/dpxuwmsnxg9kYW6MumXHc9R6s9mC68.jpg?w=1200&h=628&fit=crop",
+    video: "", // TODO: paste direct .mp4 link here (Cloudinary/Vercel Blob/GitHub raw, NOT a Google Drive share link)
+    audio: "", // TODO: paste direct .mp3 link here
     wiki: "https://en.wikipedia.org/wiki/Martian_Manhunter",
     colors: { primary: "#5de07a", secondary: "#123026", accent: "#f2c94c", bg: "#07120d" },
     stats: { "TELEPATHY": "POWERFUL", "SHAPESHIFT": "TOTAL", "LEGACY": "JUSTICE LEAGUE" },

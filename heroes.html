@@ -9,6 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
 </head>
 <body data-page="roster">
   <div class="page-noise" aria-hidden="true"></div>
@@ -22,6 +25,14 @@
 
   <main class="batman-main">
     <section class="hero-dossier-section batman-poster" id="heroDossier" aria-label="Batman cinematic feature">
+      <div class="poster-media-bg" id="posterMediaBg" aria-hidden="true">
+        <video id="dossierVideo" muted loop playsinline preload="none"></video>
+        <audio id="dossierAudio" loop preload="none"></audio>
+      </div>
+      <button class="media-mute-toggle" id="mediaMuteToggle" type="button" aria-label="Unmute background audio" aria-pressed="false">
+        <span class="media-mute-icon" aria-hidden="true">&#128263;</span>
+      </button>
+
       <div class="poster-backdrop" aria-hidden="true">
         <span class="poster-backdrop-word" id="posterBackdropWord">BATMAN</span>
         <span class="poster-backdrop-line" id="posterBackdropLine">THE DARK KNIGHT</span>
@@ -30,7 +41,7 @@
       <div class="poster-orbit poster-orbit-left" aria-hidden="true"></div>
       <div class="poster-orbit poster-orbit-right" aria-hidden="true"></div>
 
-      <div class="poster-shell reveal">
+      <div class="poster-shell">
         <div class="poster-copy poster-copy-left">
           <p class="eyebrow">Gotham City / DC Files</p>
           <h1 id="dossierTitle" class="poster-title"></h1>
@@ -125,5 +136,7 @@
   </footer>
 
   <script defer src="app.js"></script>
+  <script defer src="poster-animations.js"></script>
+  <script defer src="microinteractions.js"></script>
 </body>
 </html>

@@ -100,7 +100,33 @@ button {
   height: 34px;
   border-radius: 999px;
   border: 1px solid color-mix(in srgb, var(--primary) 70%, white 20%);
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cursor-ring.is-growing {
+  width: 64px;
+  height: 64px;
+  background: color-mix(in srgb, var(--primary) 14%, transparent);
+  border-color: color-mix(in srgb, var(--primary) 90%, white 10%);
+}
+
+.cursor-ring .cursor-ring-label {
+  font-family: var(--font-heading);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.cursor-ring.has-label .cursor-ring-label {
+  opacity: 1;
 }
 
 main {
@@ -240,6 +266,34 @@ main [id],
   color: var(--text);
 }
 
+.nav-link {
+  position: relative;
+  padding-bottom: 0.3rem;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-link.active::after {
+  /* The active link already gets a solid border-bottom below --
+     suppress the draw-in underline here so the two don't double up. */
+  display: none;
+}
+
 .nav-link.active {
   color: var(--text);
   border-bottom: 2px solid var(--primary);
@@ -309,6 +363,84 @@ main [id],
     radial-gradient(circle at 50% 14%, rgba(214, 69, 69, 0.14), transparent 28%),
     radial-gradient(circle at 50% 78%, rgba(255, 184, 77, 0.08), transparent 24%),
     linear-gradient(180deg, rgba(4, 4, 4, 0.96), rgba(4, 4, 4, 0.86));
+}
+
+/* Full-bleed background video layer. Sits behind the backdrop word,
+   orbits, and poster-shell content (all of which use z-index 0-3),
+   so this stays at the very back. Image (poster-image-frame) is on
+   a higher z-index and crossfades out once the video kicks in. */
+.poster-media-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.poster-media-bg video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.poster-media-bg video.is-active {
+  opacity: 1;
+}
+
+/* Light scrim so text stays readable once the video is moving behind it,
+   matching the existing dark gradient mood of .batman-poster. */
+.poster-media-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(4, 4, 4, 0.55), rgba(4, 4, 4, 0.75));
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  pointer-events: none;
+}
+
+.poster-media-bg.video-on::after {
+  opacity: 1;
+}
+
+.media-mute-toggle {
+  position: absolute;
+  top: clamp(5.5rem, 8vw, 7.5rem);
+  right: 4vw;
+  z-index: 4;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.4);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.5s ease, transform 0.5s ease, background 0.3s ease, border-color 0.3s ease;
+  pointer-events: none;
+}
+
+.media-mute-toggle.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.media-mute-toggle:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.media-mute-toggle[aria-pressed="true"] .media-mute-icon {
+  filter: none;
 }
 
 .poster-backdrop {
@@ -408,6 +540,7 @@ main [id],
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.96);
   text-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+  perspective: 600px;
 }
 
 .poster-subtitle {
@@ -577,6 +710,10 @@ main [id],
   margin-top: 1.5rem;
 }
 
+.button-lore::before {
+  display: none;
+}
+
 .button-lore {
   background: none;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -671,7 +808,9 @@ main [id],
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--text);
   min-height: 120px;
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .roster-card:hover,
@@ -682,6 +821,27 @@ main [id],
   background:
     linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04)),
     var(--panel-strong);
+}
+
+.roster-card:hover {
+  box-shadow: 0 16px 40px color-mix(in srgb, var(--primary) 22%, transparent);
+}
+
+@keyframes roster-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary) 45%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--primary) 0%, transparent);
+  }
+}
+
+.roster-card[aria-pressed="true"] {
+  animation: roster-pulse 2.4s ease-in-out infinite;
+}
+
+.roster-card[aria-pressed="true"]:hover {
+  animation-play-state: paused;
 }
 
 .roster-card-universe {
@@ -1066,6 +1226,7 @@ main [id],
 }
 
 .button {
+  position: relative;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -1074,6 +1235,22 @@ main [id],
   letter-spacing: 0.08em;
   text-transform: uppercase;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateX(-105%);
+  transition: transform 0.4s ease;
+  z-index: -1;
+}
+
+.button:hover::before {
+  transform: translateX(0);
 }
 
 .button:hover {
@@ -1407,12 +1584,14 @@ main [id],
   width: 100%;
   min-height: 300px;
   transform-style: preserve-3d;
-  transition: transform 0.7s ease;
+  transition: transform 0.7s cubic-bezier(0.45, 0.05, 0.15, 1), filter 0.7s ease;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.35));
 }
 
 .villain-card:hover .villain-card-inner,
 .villain-card:focus-within .villain-card-inner {
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) translateY(-6px);
+  filter: drop-shadow(0 32px 48px rgba(0, 0, 0, 0.55));
 }
 
 .villain-face {
