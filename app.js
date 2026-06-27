@@ -2189,8 +2189,12 @@ function setLoreExpanded(expanded) {
 
 function renderDossier() {
   const hero = currentHero();
-
   setHeroTheme(hero);
+
+  // Everything below only exists on the roster page. Other pages
+  // (battle, quiz, trivia, votes) call this same function to stay
+  // in sync on hero theme/colors but don't have a dossier section.
+  if (!elements.dossierTitle && !elements.dossierImage && !elements.dossierStats) return;
 
   if (elements.posterBackdropWord) elements.posterBackdropWord.textContent = hero.bgText || hero.name;
   if (elements.posterBackdropLine) elements.posterBackdropLine.textContent = hero.title || hero.subtitle;
@@ -3142,7 +3146,21 @@ function initRevealObserver() {
     },
     { threshold: 0.12 }
   );
-  document.querySelectorAll(".reveal").forEach((node) => revealObserver.observe(node));
+  document.querySelectorAll(".reveal").forEach((node) => {
+    // Above-the-fold nodes can already be inside the viewport the
+    // instant observe() runs. Some browsers fire the callback for
+    // that initial state, some don't (it depends on layout timing
+    // right after fonts/images load and shift things around). Do
+    // a synchronous check here so those nodes never get stuck
+    // invisible waiting on a callback that may not come.
+    const rect = node.getBoundingClientRect();
+    const alreadyVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    if (alreadyVisible) {
+      node.classList.add("visible");
+    } else {
+      revealObserver.observe(node);
+    }
+  });
 }
 
 function initQuiz() {
@@ -3193,6 +3211,5 @@ function init() {
   window.addEventListener("resize", syncLoreSectionHeight);
 }
 
-window.submitVote = submitVote;
 window.addEventListener("load", refreshLayoutOffset);
 init();
