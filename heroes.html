@@ -90,6 +90,21 @@
               <p class="eyebrow">Universe Selector</p>
               <h2>Browse the multiverse</h2>
             </div>
+            <div class="search-shell" role="search">
+              <div class="search-field">
+                <label for="heroSearchInput">Search heroes</label>
+                <input type="search" id="heroSearchInput" placeholder="Try a name, power, or villain...">
+              </div>
+              <div class="search-field">
+                <label for="heroSearchUniverse">Universe</label>
+                <select id="heroSearchUniverse">
+                  <option value="all">All universes</option>
+                  <option value="Marvel">Marvel</option>
+                  <option value="DC">DC</option>
+                </select>
+              </div>
+              <p class="search-feedback" id="heroSearchFeedback"></p>
+            </div>
             <div class="hero-universe-selector" id="heroUniverseSelector"></div>
             <div class="hero-roster-grid" id="heroRosterGrid"></div>
           </div>

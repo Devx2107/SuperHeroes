@@ -1,6 +1,9 @@
-const heroOrder = ["batman", "superman", "ironman", "spiderman", "wonderwoman"];
-const rosterHeroOrder = [
-  ...heroOrder,
+const heroOrder = [
+  "batman",
+  "superman",
+  "ironman",
+  "spiderman",
+  "wonderwoman",
   "captainamerica",
   "thor",
   "hulk",
@@ -13,6 +16,7 @@ const rosterHeroOrder = [
   "nightwing",
   "martianmanhunter"
 ];
+const rosterHeroOrder = [...heroOrder];
 const universeFilters = ["all", "Marvel", "DC"];
 const featureNavLinks = [
   { href: "heroes.html", label: "Heroes / Roster", key: "roster" },
@@ -1894,6 +1898,7 @@ const appState = {
   selectedHeroId: "batman",
   selectedVersionIndex: 0,
   selectedUniverse: "all",
+  search: { query: "", matchedIds: null, surprisePool: [], status: "" },
   loreExpanded: false,
   quiz: { index: 0, traits: {}, score: 0, complete: false, resultId: null, feedback: "" },
   trivia: {
@@ -1952,6 +1957,9 @@ function cacheElements() {
     "siteNav",
     "heroUniverseSelector",
     "heroRosterGrid",
+    "heroSearchInput",
+    "heroSearchUniverse",
+    "heroSearchFeedback",
     "heroDossier",
     "dossierTitle",
     "dossierSubtitle",
@@ -2127,7 +2135,10 @@ function buildUniverseSelector() {
 
 function renderRosterGrid() {
   if (!elements.heroRosterGrid) return;
-  const heroes = rosterHeroOrder.map((id) => heroData[id]).filter((hero) => appState.selectedUniverse === "all" || hero.universe === appState.selectedUniverse);
+  const heroes = rosterHeroOrder
+    .map((id) => heroData[id])
+    .filter((hero) => appState.selectedUniverse === "all" || hero.universe.startsWith(appState.selectedUniverse))
+    .filter((hero) => !appState.search.matchedIds || appState.search.matchedIds.includes(hero.id));
   elements.heroRosterGrid.innerHTML = heroes
     .map((hero, index) => {
       const active = hero.id === appState.selectedHeroId ? " selected" : "";
@@ -3185,6 +3196,63 @@ function initFeaturePagePicker() {
   renderPicker();
 }
 
+let searchDebounceId = null;
+
+async function runHeroSearch() {
+  const query = elements.heroSearchInput.value.trim();
+  const universe = elements.heroSearchUniverse ? elements.heroSearchUniverse.value : "all";
+  appState.search.query = query;
+
+  if (!query) {
+    appState.search.matchedIds = null;
+    appState.search.surprisePool = [];
+    if (elements.heroSearchFeedback) elements.heroSearchFeedback.textContent = "";
+    renderRosterGrid();
+    return;
+  }
+
+  try {
+    const params = new URLSearchParams({ q: query, universe });
+    const response = await fetch(`/api/search?${params.toString()}`);
+    const data = await response.json();
+    const results = data.results || [];
+    const matchedIds = results.map((hero) => hero.id);
+    appState.search.matchedIds = matchedIds.filter((id) => rosterHeroOrder.includes(id));
+    appState.search.surprisePool = results.filter((hero) => !rosterHeroOrder.includes(hero.id));
+
+    const onRosterCount = appState.search.matchedIds.length;
+    const surpriseCount = appState.search.surprisePool.length;
+    if (!onRosterCount && !surpriseCount) {
+      appState.search.status = `No heroes found for "${query}".`;
+    } else if (surpriseCount) {
+      const names = appState.search.surprisePool.map((hero) => hero.name).join(", ");
+      appState.search.status = `${onRosterCount} on the roster. Also in the wider archive: ${names}.`;
+    } else {
+      appState.search.status = `${onRosterCount} hero${onRosterCount === 1 ? "" : "es"} matched.`;
+    }
+  } catch (_error) {
+    appState.search.matchedIds = null;
+    appState.search.surprisePool = [];
+    appState.search.status = "Search is offline right now.";
+  }
+
+  if (elements.heroSearchFeedback) elements.heroSearchFeedback.textContent = appState.search.status;
+  renderRosterGrid();
+}
+
+function initHeroSearch() {
+  if (!elements.heroSearchInput) return;
+  elements.heroSearchInput.addEventListener("input", () => {
+    clearTimeout(searchDebounceId);
+    searchDebounceId = setTimeout(runHeroSearch, 250);
+  });
+  if (elements.heroSearchUniverse) {
+    elements.heroSearchUniverse.addEventListener("change", () => {
+      if (elements.heroSearchInput.value.trim()) runHeroSearch();
+    });
+  }
+}
+
 function init() {
   cacheElements();
   restoreSelection();
@@ -3194,6 +3262,7 @@ function init() {
   renderAppHeroExperience();
   initLoreToggle();
   initFeaturePagePicker();
+  initHeroSearch();
   if (elements.battleOpponent) {
     prepareBattle();
     initBattleEvents();
