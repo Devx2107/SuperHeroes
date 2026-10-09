@@ -1,0 +1,1078 @@
+{
+  "quizQuestions": [
+    {
+      "prompt": "A crisis hits your city and the cameras are already rolling. What do you do first?",
+      "answers": [
+        {
+          "label": "Map the threat, assign roles, and build a plan",
+          "weights": {
+            "leader": 3,
+            "scholar": 2
+          }
+        },
+        {
+          "label": "Get to street level and improvise from the first impact",
+          "weights": {
+            "rebel": 2,
+            "feral": 1,
+            "speedster": 1
+          }
+        },
+        {
+          "label": "Find the civilians who need a shield before the battle starts",
+          "weights": {
+            "heart": 3,
+            "leader": 1
+          }
+        },
+        {
+          "label": "Read the symbols, the timing, and the hidden meaning behind it",
+          "weights": {
+            "scholar": 2,
+            "mystic": 2
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Which line sounds most like the code you would leave behind?",
+      "answers": [
+        {
+          "label": "Never let fear make the decisions",
+          "weights": {
+            "leader": 2,
+            "rebel": 1
+          }
+        },
+        {
+          "label": "If the answer is broken, rebuild it better",
+          "weights": {
+            "scholar": 3,
+            "leader": 1
+          }
+        },
+        {
+          "label": "Power only matters when it helps people stay human",
+          "weights": {
+            "heart": 3,
+            "mystic": 1
+          }
+        },
+        {
+          "label": "Rule one: get back up harder than before",
+          "weights": {
+            "feral": 2,
+            "rebel": 2
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "What kind of reputation do you secretly want?",
+      "answers": [
+        {
+          "label": "The person everyone calls when the plan matters",
+          "weights": {
+            "leader": 3,
+            "scholar": 1
+          }
+        },
+        {
+          "label": "The legend who makes impossible things look effortless",
+          "weights": {
+            "speedster": 2,
+            "rebel": 1,
+            "feral": 1
+          }
+        },
+        {
+          "label": "The ally who never stops showing up",
+          "weights": {
+            "heart": 3
+          }
+        },
+        {
+          "label": "The one who sees what others miss",
+          "weights": {
+            "mystic": 2,
+            "scholar": 2
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "How do you deal with an enemy who is stronger than you?",
+      "answers": [
+        {
+          "label": "Outthink them and use their momentum against them",
+          "weights": {
+            "scholar": 3,
+            "leader": 1
+          }
+        },
+        {
+          "label": "Outlast them with grit and raw will",
+          "weights": {
+            "feral": 2,
+            "rebel": 2
+          }
+        },
+        {
+          "label": "Reach people first so the fight is never isolated",
+          "weights": {
+            "heart": 2,
+            "leader": 2
+          }
+        },
+        {
+          "label": "Lean into a bigger truth they cannot control",
+          "weights": {
+            "mystic": 3,
+            "heart": 1
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "What matters most after the battle ends?",
+      "answers": [
+        {
+          "label": "The next plan",
+          "weights": {
+            "leader": 2,
+            "scholar": 2
+          }
+        },
+        {
+          "label": "The people who made it through",
+          "weights": {
+            "heart": 3
+          }
+        },
+        {
+          "label": "The chance to improve the system",
+          "weights": {
+            "rebel": 2,
+            "scholar": 1
+          }
+        },
+        {
+          "label": "The promise to keep moving forward",
+          "weights": {
+            "speedster": 2,
+            "feral": 1
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "When a teammate starts losing confidence, what do you offer?",
+      "answers": [
+        {
+          "label": "A contingency plan and a quiet reminder that they're not alone",
+          "weights": {
+            "leader": 2,
+            "scholar": 1,
+            "heart": 1
+          }
+        },
+        {
+          "label": "A bold push to remind them of their own fire",
+          "weights": {
+            "rebel": 2,
+            "speedster": 1
+          }
+        },
+        {
+          "label": "Patience, honesty, and the space to breathe again",
+          "weights": {
+            "heart": 3
+          }
+        },
+        {
+          "label": "A strange angle nobody else thought to use",
+          "weights": {
+            "mystic": 2,
+            "scholar": 2
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "If your city had to survive one impossible night, what would you protect first?",
+      "answers": [
+        {
+          "label": "The command center and the people steering the response",
+          "weights": {
+            "leader": 3,
+            "scholar": 1
+          }
+        },
+        {
+          "label": "The rooftops, alleys, and evacuation routes",
+          "weights": {
+            "rebel": 2,
+            "speedster": 2
+          }
+        },
+        {
+          "label": "The families still waiting for someone to show up",
+          "weights": {
+            "heart": 3
+          }
+        },
+        {
+          "label": "The hidden truth behind whoever planned it",
+          "weights": {
+            "mystic": 2,
+            "scholar": 2
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "What kind of technology feels most like your style?",
+      "answers": [
+        {
+          "label": "Precision gear built for a flawless operation",
+          "weights": {
+            "leader": 2,
+            "scholar": 2
+          }
+        },
+        {
+          "label": "A sleek upgrade that turns chaos into motion",
+          "weights": {
+            "speedster": 2,
+            "rebel": 2
+          }
+        },
+        {
+          "label": "Something handcrafted and a little imperfect",
+          "weights": {
+            "heart": 2,
+            "rebel": 1
+          }
+        },
+        {
+          "label": "A tool with a secret history and a bigger purpose",
+          "weights": {
+            "mystic": 2,
+            "scholar": 1
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Your toughest enemy exposes one weakness. How do you respond?",
+      "answers": [
+        {
+          "label": "Study the pattern until it becomes useful",
+          "weights": {
+            "scholar": 3,
+            "leader": 1
+          }
+        },
+        {
+          "label": "Turn the weakness into a daring surprise",
+          "weights": {
+            "rebel": 2,
+            "speedster": 1
+          }
+        },
+        {
+          "label": "Accept it, then keep the promise anyway",
+          "weights": {
+            "heart": 3
+          }
+        },
+        {
+          "label": "Fight harder until they realize you won't break",
+          "weights": {
+            "feral": 3
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Which kind of victory feels most satisfying?",
+      "answers": [
+        {
+          "label": "Everyone survives and the plan worked",
+          "weights": {
+            "leader": 3
+          }
+        },
+        {
+          "label": "The underdog gets a shot they were denied",
+          "weights": {
+            "heart": 2,
+            "rebel": 1
+          }
+        },
+        {
+          "label": "The impossible machine finally runs",
+          "weights": {
+            "scholar": 3
+          }
+        },
+        {
+          "label": "You outpaced the odds and never stopped moving",
+          "weights": {
+            "speedster": 3
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "What do you trust most when everything gets weird?",
+      "answers": [
+        {
+          "label": "The people who have stayed loyal through the worst of it",
+          "weights": {
+            "heart": 3
+          }
+        },
+        {
+          "label": "The data, evidence, and a clean tactical read",
+          "weights": {
+            "scholar": 3
+          }
+        },
+        {
+          "label": "Instinct, even when it looks reckless",
+          "weights": {
+            "rebel": 2,
+            "feral": 1
+          }
+        },
+        {
+          "label": "The bigger moral line you refuse to cross",
+          "weights": {
+            "leader": 2,
+            "mystic": 1
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Which version of a legend do you respect most?",
+      "answers": [
+        {
+          "label": "The one who keeps the city safe without asking for credit",
+          "weights": {
+            "leader": 2,
+            "heart": 1
+          }
+        },
+        {
+          "label": "The one who changes the system from the inside",
+          "weights": {
+            "scholar": 2,
+            "rebel": 2
+          }
+        },
+        {
+          "label": "The one who is as inspiring in person as in stories",
+          "weights": {
+            "heart": 3
+          }
+        },
+        {
+          "label": "The one whose style is so sharp it becomes myth",
+          "weights": {
+            "speedster": 1,
+            "rebel": 2
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "How do you recharge after a brutal mission?",
+      "answers": [
+        {
+          "label": "Review the mission and sharpen the next plan",
+          "weights": {
+            "scholar": 3,
+            "leader": 1
+          }
+        },
+        {
+          "label": "Disappear somewhere loud, fast, and alive",
+          "weights": {
+            "speedster": 3,
+            "rebel": 1
+          }
+        },
+        {
+          "label": "Call the people who make the work feel worth it",
+          "weights": {
+            "heart": 3
+          }
+        },
+        {
+          "label": "Train until the frustration becomes focus",
+          "weights": {
+            "feral": 2,
+            "leader": 1
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "What does a real symbol need most?",
+      "answers": [
+        {
+          "label": "Consistency",
+          "weights": {
+            "leader": 3
+          }
+        },
+        {
+          "label": "Curiosity",
+          "weights": {
+            "scholar": 3
+          }
+        },
+        {
+          "label": "Compassion",
+          "weights": {
+            "heart": 3
+          }
+        },
+        {
+          "label": "Momentum",
+          "weights": {
+            "speedster": 3
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "If someone challenged your identity, what would you lean on?",
+      "answers": [
+        {
+          "label": "The values I keep showing up for",
+          "weights": {
+            "heart": 2,
+            "leader": 1
+          }
+        },
+        {
+          "label": "The work I’ve already done",
+          "weights": {
+            "scholar": 3
+          }
+        },
+        {
+          "label": "The courage to reinvent myself",
+          "weights": {
+            "rebel": 2,
+            "speedster": 1
+          }
+        },
+        {
+          "label": "The fact that I can survive the answer",
+          "weights": {
+            "feral": 3
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Which sidekick trait would help you most?",
+      "answers": [
+        {
+          "label": "Loyal and steady under pressure",
+          "weights": {
+            "leader": 2,
+            "heart": 2
+          }
+        },
+        {
+          "label": "Smart enough to solve the second problem too",
+          "weights": {
+            "scholar": 3
+          }
+        },
+        {
+          "label": "Quick enough to keep up with chaos",
+          "weights": {
+            "speedster": 3
+          }
+        },
+        {
+          "label": "Brave enough to say the hard truth",
+          "weights": {
+            "rebel": 2,
+            "heart": 1
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "What kind of legacy do you want?",
+      "answers": [
+        {
+          "label": "A safer world for the next generation",
+          "weights": {
+            "heart": 3
+          }
+        },
+        {
+          "label": "A smarter world that learns from its mistakes",
+          "weights": {
+            "scholar": 3
+          }
+        },
+        {
+          "label": "A freer world that refuses to stay broken",
+          "weights": {
+            "rebel": 3
+          }
+        },
+        {
+          "label": "A world that never stops moving toward hope",
+          "weights": {
+            "leader": 2,
+            "speedster": 1
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "If the public only remembered one thing about you, what would you hope it was?",
+      "answers": [
+        {
+          "label": "That I never stopped showing up",
+          "weights": {
+            "heart": 3
+          }
+        },
+        {
+          "label": "That I solved problems nobody else could untangle",
+          "weights": {
+            "scholar": 3
+          }
+        },
+        {
+          "label": "That I challenged a broken system and made it move",
+          "weights": {
+            "rebel": 3
+          }
+        },
+        {
+          "label": "That I kept people together when everything fell apart",
+          "weights": {
+            "leader": 3
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "Which kind of sacrifice feels most heroic to you?",
+      "answers": [
+        {
+          "label": "Giving up recognition",
+          "weights": {
+            "heart": 2,
+            "leader": 1
+          }
+        },
+        {
+          "label": "Giving up comfort to keep learning",
+          "weights": {
+            "scholar": 2,
+            "rebel": 1
+          }
+        },
+        {
+          "label": "Giving up control so someone else can grow",
+          "weights": {
+            "leader": 2,
+            "heart": 1
+          }
+        },
+        {
+          "label": "Giving up the easy path and taking the harder one",
+          "weights": {
+            "rebel": 2,
+            "feral": 1
+          }
+        }
+      ]
+    },
+    {
+      "prompt": "What kind of headline would make you smile the most?",
+      "answers": [
+        {
+          "label": "City saved, no casualties",
+          "weights": {
+            "heart": 3
+          }
+        },
+        {
+          "label": "Impossible strategy succeeds",
+          "weights": {
+            "scholar": 3
+          }
+        },
+        {
+          "label": "Hero breaks the rules to do the right thing",
+          "weights": {
+            "rebel": 3
+          }
+        },
+        {
+          "label": "Fastest response in the city’s history",
+          "weights": {
+            "speedster": 3
+          }
+        }
+      ]
+    }
+  ],
+  "triviaDecks": {
+    "easy": [
+      {
+        "question": "Which hero first appeared in Detective Comics #27?",
+        "choices": ["Batman", "Superman", "Spider-Man", "Iron Man"],
+        "answer": 0,
+        "explanation": "Batman made his debut in Detective Comics #27 in 1939."
+      },
+      {
+        "question": "What is Wonder Woman's most famous truth-based weapon?",
+        "choices": [
+          "The Shield of Athena",
+          "The Lasso of Truth",
+          "The Sword of Olympus",
+          "The Bracelets of Victory"
+        ],
+        "answer": 1,
+        "explanation": "The Lasso of Truth is one of Wonder Woman's signature tools."
+      },
+      {
+        "question": "What city is Superman most closely tied to?",
+        "choices": ["Gotham", "Metropolis", "Central City", "Atlantis"],
+        "answer": 1,
+        "explanation": "Metropolis is Superman's principal city and symbolically bright home base."
+      },
+      {
+        "question": "What metal is most associated with Wakanda's advanced technology in the wider Marvel mythos?",
+        "choices": ["Adamantium", "Vibranium", "Nth metal", "Titanium"],
+        "answer": 1,
+        "explanation": "Vibranium is the signature resource that powers Wakanda's advanced engineering."
+      },
+      {
+        "question": "What is the name of Thor's enchanted hammer?",
+        "choices": ["Stormbreaker", "Mjolnir", "Gungnir", "Aegis"],
+        "answer": 1,
+        "explanation": "Mjolnir is Thor's enchanted hammer; Stormbreaker is his axe."
+      },
+      {
+        "question": "What city is Spider-Man most closely tied to?",
+        "choices": ["New York City", "Chicago", "Gotham", "Metropolis"],
+        "answer": 0,
+        "explanation": "Spider-Man is defined by New York City."
+      },
+      {
+        "question": "Which metal is most closely associated with Captain America's shield?",
+        "choices": ["Copper", "Titanium", "Vibranium", "Nth metal"],
+        "answer": 2,
+        "explanation": "Vibranium is the signature metal associated with Captain America's shield."
+      },
+      {
+        "question": "What is Tony Stark's superhero identity?",
+        "choices": ["Iron Man", "War Machine", "Falcon", "Hawkeye"],
+        "answer": 0,
+        "explanation": "Tony Stark is Iron Man."
+      },
+      {
+        "question": "Which city is Batman's home base?",
+        "choices": ["Gotham", "Metropolis", "Central City", "Atlantis"],
+        "answer": 0,
+        "explanation": "Batman protects Gotham City."
+      },
+      {
+        "question": "Which hero is the Last Son of Krypton?",
+        "choices": ["Superman", "Thor", "Cyclops", "Aquaman"],
+        "answer": 0,
+        "explanation": "Superman is the famous Kryptonian hero."
+      },
+      {
+        "question": "What powers a Green Lantern's ring?",
+        "choices": ["Fear", "Anger", "Willpower", "Wealth"],
+        "answer": 2,
+        "explanation": "Green Lantern rings channel willpower into energy constructs."
+      },
+      {
+        "question": "Which Marvel hero uses web-shooters?",
+        "choices": ["Spider-Man", "Wolverine", "Doctor Strange", "Thor"],
+        "answer": 0,
+        "explanation": "Spider-Man is famous for his web-shooters."
+      },
+      {
+        "question": "Who is known as the World's Greatest Detective?",
+        "choices": ["Batman", "Superman", "The Flash", "Green Lantern"],
+        "answer": 0,
+        "explanation": "Batman is widely known as the World's Greatest Detective."
+      },
+      {
+        "question": "Which hero's symbol stands for hope?",
+        "choices": ["Superman", "Venom", "Joker", "Ultron"],
+        "answer": 0,
+        "explanation": "Superman's emblem is one of the most enduring symbols of hope in comics."
+      },
+      {
+        "question": "Which source of energy gives the Flash his extraordinary speed?",
+        "choices": [
+          "The Power Cosmic",
+          "The Phoenix Force",
+          "Chaos magic",
+          "The Speed Force"
+        ],
+        "answer": 3,
+        "explanation": "The Flash draws on the Speed Force, the energy source connected to DC's speedsters."
+      },
+      {
+        "question": "What is the name of Wonder Woman's homeland?",
+        "choices": ["Themyscira", "Asgard", "Latveria", "Genosha"],
+        "answer": 0,
+        "explanation": "Wonder Woman comes from Themyscira."
+      }
+    ],
+    "medium": [
+      {
+        "question": "Which story is a landmark exploration of Tony Stark's flaws and self-destruction?",
+        "choices": [
+          "Demon in a Bottle",
+          "Civil War",
+          "Secret Wars",
+          "Armor Wars"
+        ],
+        "answer": 0,
+        "explanation": "Demon in a Bottle is the classic Tony Stark character study."
+      },
+      {
+        "question": "What idea sits at the heart of Spider-Man's origin?",
+        "choices": [
+          "Duty before comfort",
+          "Power before identity",
+          "Secrets before family",
+          "Luck before planning"
+        ],
+        "answer": 0,
+        "explanation": "Spider-Man is built on the lesson that power means responsibility."
+      },
+      {
+        "question": "Which Batman storyline is known for breaking him physically and symbolically?",
+        "choices": ["Knightfall", "Hush", "The Long Halloween", "Earth One"],
+        "answer": 0,
+        "explanation": "Knightfall is the story where Bane breaks Batman's body and his myth is tested."
+      },
+      {
+        "question": "Which Marvel event is most associated with a fractured superhero community forcing Tony Stark into the center of the debate?",
+        "choices": [
+          "Civil War",
+          "Infinity Gauntlet",
+          "Secret Invasion",
+          "House of M"
+        ],
+        "answer": 0,
+        "explanation": "Civil War is the defining event for Tony's public ethical crisis."
+      },
+      {
+        "question": "Which Batman story is known for breaking him physically and symbolically?",
+        "choices": ["Knightfall", "Hush", "Year Two", "Black Mirror"],
+        "answer": 0,
+        "explanation": "Knightfall is the story where Bane breaks Batman's body and the myth is tested."
+      },
+      {
+        "question": "Which Superman story is often praised for distilling the character into hope and sacrifice?",
+        "choices": [
+          "All-Star Superman",
+          "The Killing Joke",
+          "Infinite Crisis",
+          "Secret Wars"
+        ],
+        "answer": 0,
+        "explanation": "All-Star Superman is a landmark meditation on hope and legacy."
+      },
+      {
+        "question": "What lesson defines Spider-Man more than any other?",
+        "choices": [
+          "Great power means responsibility",
+          "Power without limits",
+          "Fear is the only truth",
+          "Victory at any cost"
+        ],
+        "answer": 0,
+        "explanation": "Spider-Man's defining lesson is that great power requires responsibility."
+      },
+      {
+        "question": "Which city is central to The Court of Owls in Batman lore?",
+        "choices": ["Gotham", "Metropolis", "Central City", "Atlantis"],
+        "answer": 0,
+        "explanation": "The Court of Owls is a Gotham-centric conspiracy."
+      },
+      {
+        "question": "What best describes Iron Man's combat edge?",
+        "choices": [
+          "Biological mutation",
+          "Powered armor and rapid iteration",
+          "Mystic training",
+          "Speed Force manipulation"
+        ],
+        "answer": 1,
+        "explanation": "Iron Man's edge is powered armor plus constant design improvement."
+      },
+      {
+        "question": "Which Wonder Woman story is a famous mediation between sacred duty and mortal conflict?",
+        "choices": [
+          "The Hiketeia",
+          "No Man's Land",
+          "Armor Wars",
+          "Spider-Verse"
+        ],
+        "answer": 0,
+        "explanation": "The Hiketeia is one of Wonder Woman's most praised mythic stories."
+      },
+      {
+        "question": "Who is most likely to serve as Superman's emotional anchor in Metropolis?",
+        "choices": ["Lois Lane", "The Joker", "Bane", "Riddler"],
+        "answer": 0,
+        "explanation": "Lois Lane is a core emotional and narrative anchor for Superman."
+      },
+      {
+        "question": "Which Marvel hero's origin is tied to an accident that heightened his senses rather than giving him flight or armor?",
+        "choices": ["Daredevil", "Iron Man", "Thor", "Captain America"],
+        "answer": 0,
+        "explanation": "Daredevil's accident leads to his heightened senses."
+      },
+      {
+        "question": "What is the most accurate description of Ultron as an Iron Man adversary?",
+        "choices": [
+          "A magic clone",
+          "A mirror of Tony's logic without his conscience",
+          "A Kryptonian warlord",
+          "A mutant assassin"
+        ],
+        "answer": 1,
+        "explanation": "Ultron is Stark-like intelligence stripped of empathy."
+      },
+      {
+        "question": "Which superhero team is Wonder Woman a founding member of in DC continuity?",
+        "choices": [
+          "Justice League",
+          "Avengers",
+          "X-Men",
+          "Guardians of the Galaxy"
+        ],
+        "answer": 0,
+        "explanation": "Wonder Woman is a foundational Justice League member."
+      },
+      {
+        "question": "What is the defining dramatic tension of Batman stories?",
+        "choices": [
+          "Whether speed beats time",
+          "Whether trauma can become justice without becoming cruelty",
+          "Whether magic can be outlawed",
+          "Whether aliens can vote"
+        ],
+        "answer": 1,
+        "explanation": "Batman stories constantly test whether discipline can turn trauma into justice."
+      },
+      {
+        "question": "Which Marvel event pushed Iron Man into the center of a public superhero conflict over accountability?",
+        "choices": ["Civil War", "Flashpoint", "Blackest Night", "Zero Hour"],
+        "answer": 0,
+        "explanation": "Civil War is the key event for Tony's ethics under public scrutiny."
+      },
+      {
+        "question": "What is the best description of Batman's greatest advantage in a fight against stronger opponents?",
+        "choices": [
+          "Luck",
+          "Preparation and analysis",
+          "Alien blood",
+          "Infinite stamina"
+        ],
+        "answer": 1,
+        "explanation": "Batman wins many impossible fights by planning better than everyone else."
+      }
+    ],
+    "hard": [
+      {
+        "question": "Which Wonder Woman story is often praised for treating Diana as a mediator among gods and mortals?",
+        "choices": [
+          "The Hiketeia",
+          "Kingdom Come",
+          "Flashpoint",
+          "Superman: Red Son"
+        ],
+        "answer": 0,
+        "explanation": "The Hiketeia is a standout Wonder Woman story about duty, truth, and consequences."
+      },
+      {
+        "question": "What is the primary reason Ultron is such a strong Iron Man rival?",
+        "choices": [
+          "He copies Tony's armor line",
+          "He reflects Tony's logic without his conscience",
+          "He is Tony's older brother",
+          "He controls the Avengers"
+        ],
+        "answer": 1,
+        "explanation": "Ultron is terrifying because he is Stark-like intelligence stripped of empathy."
+      },
+      {
+        "question": "Which Spider-Man event expanded the character into a broader legacy rather than a single identity?",
+        "choices": ["Spider-Verse", "House of M", "Inferno", "Age of Ultron"],
+        "answer": 0,
+        "explanation": "Spider-Verse turns Spider-Man into a multi-hero legacy across realities."
+      },
+      {
+        "question": "Which Batman era is most associated with the discovery that Gotham has a hidden aristocracy watching from the shadows?",
+        "choices": [
+          "The Court of Owls",
+          "No Man's Land",
+          "Zero Year",
+          "Black Mirror"
+        ],
+        "answer": 0,
+        "explanation": "The Court of Owls arc reframes Gotham as a city with a secret ruling class."
+      },
+      {
+        "question": "What makes Brainiac such a strong Superman rival conceptually?",
+        "choices": [
+          "He is faster than Superman",
+          "He embodies cold collection without empathy",
+          "He was raised by the Kents",
+          "He commands the Bat-Family"
+        ],
+        "answer": 1,
+        "explanation": "Brainiac turns intelligence into a machine for control and extraction."
+      },
+      {
+        "question": "Which Spider-Man storyline expands his myth into a multiversal legacy?",
+        "choices": [
+          "Spider-Verse",
+          "Armor Wars",
+          "Knightfall",
+          "Infinite Crisis"
+        ],
+        "answer": 0,
+        "explanation": "Spider-Verse turns Spider-Man into a legacy across realities."
+      },
+      {
+        "question": "Which Wonder Woman story is often praised for mythic and moral tension between gods and mortals?",
+        "choices": [
+          "The Hiketeia",
+          "Demon in a Bottle",
+          "Crisis on Infinite Earths",
+          "Age of Ultron"
+        ],
+        "answer": 0,
+        "explanation": "The Hiketeia is a standout Wonder Woman story about duty and sacred obligation."
+      },
+      {
+        "question": "Why is Ultron such a powerful Iron Man adversary conceptually?",
+        "choices": [
+          "He is Tony's clone",
+          "He is Tony's technology without Tony's conscience",
+          "He created the arc reactor",
+          "He is from Krypton"
+        ],
+        "answer": 1,
+        "explanation": "Ultron is Stark-like intelligence stripped of ethics and empathy."
+      },
+      {
+        "question": "Which Batman storyline is especially famous for Gotham being effectively cut off and left to fend for itself?",
+        "choices": ["No Man's Land", "Hush", "Year One", "Dark Nights: Metal"],
+        "answer": 0,
+        "explanation": "No Man's Land turns Gotham into a fractured survival state."
+      },
+      {
+        "question": "Which Marvel storyline is the classic Tony Stark character study about addiction and accountability?",
+        "choices": [
+          "Demon in a Bottle",
+          "The Long Halloween",
+          "Kingdom Come",
+          "Blackest Night"
+        ],
+        "answer": 0,
+        "explanation": "Demon in a Bottle is the landmark Tony Stark character study."
+      },
+      {
+        "question": "Which Superman event is most remembered for the cultural shock of losing his greatest symbol?",
+        "choices": [
+          "The Death of Superman",
+          "Civil War",
+          "Spider-Verse",
+          "Flashpoint"
+        ],
+        "answer": 0,
+        "explanation": "The Death of Superman became a defining comics moment beyond the story itself."
+      },
+      {
+        "question": "Which teamup best represents Batman and Superman's contrasting strengths?",
+        "choices": [
+          "World's Finest",
+          "Secret Wars",
+          "X-Force",
+          "Legion of Doom"
+        ],
+        "answer": 0,
+        "explanation": "World's Finest is the classic Batman-Superman partnership."
+      },
+      {
+        "question": "What is the most accurate reason Superman remains relatable despite near-limitless power?",
+        "choices": [
+          "He constantly loses every fight",
+          "His restraint and compassion define the character",
+          "He is secretly a human detective",
+          "He never speaks to civilians"
+        ],
+        "answer": 1,
+        "explanation": "Superman remains relatable because his restraint matters as much as his power."
+      },
+      {
+        "question": "Which Marvel hero is most closely associated with the phrase 'genius, billionaire, playboy, philanthropist'?",
+        "choices": [
+          "Tony Stark",
+          "Peter Parker",
+          "Bruce Banner",
+          "Steve Rogers"
+        ],
+        "answer": 0,
+        "explanation": "That public persona belongs to Tony Stark."
+      },
+      {
+        "question": "Which DC concept frames Wonder Woman as a mediator between mythic authority and modern ethics?",
+        "choices": [
+          "Ambassadorial diplomacy",
+          "Speed Force training",
+          "Kryptonian inheritance",
+          "Lantern oath"
+        ],
+        "answer": 0,
+        "explanation": "Wonder Woman often functions as a bridge between gods, mortals, and ideals."
+      },
+      {
+        "question": "Which Batman era is most associated with the idea that Gotham hides older power structures than the hero can easily see?",
+        "choices": [
+          "The Court of Owls",
+          "The Age of Apocalypse",
+          "Infinity Crisis",
+          "The Red Zone"
+        ],
+        "answer": 0,
+        "explanation": "The Court of Owls arc exposes Gotham's hidden aristocracy."
+      },
+      {
+        "question": "Which character is most central to the emotional core of Superman's life on Earth?",
+        "choices": ["Lois Lane", "Bane", "Whiplash", "Brainiac"],
+        "answer": 0,
+        "explanation": "Lois Lane is one of the key emotional anchors in Superman stories."
+      }
+    ]
+  }
+}

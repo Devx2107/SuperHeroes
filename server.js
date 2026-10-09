@@ -6,6 +6,9 @@ const { getEnv } = require('./src/config/env');
 const env = getEnv();
 const app = createApp({ env });
 
-app.listen(env.port, () => {
-  console.log(`Legendrium server running at http://localhost:${env.port}`);
-});
+if (require.main === module) {
+  app.listen(env.port, () => {
+    console.log(`Legendrium server running at http://localhost:${env.port}`);
+  });
+}
+module.exports = app;

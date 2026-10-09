@@ -4,15 +4,31 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "dev": "vite --open /heroes.html",
+    "build": "vite build",
+    "prestart": "node node_modules/vite/bin/vite.js build",
+    "test:browser": "playwright test",
+    "cache:art": "node scripts/cache-art.cjs",
+    "vercel-build": "vite build"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "dotenv": "^17.2.2",
     "express": "^5.2.1",
-    "express-rate-limit": "^8.1.0"
+    "express-rate-limit": "^8.1.0",
+    "framer-motion": "^14.0.0",
+    "gsap": "^3.15.0",
+    "lucide-react": "^1.53.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "three": "^0.186.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "@vitejs/plugin-react": "^5.2.0",
     "jest": "^30.4.2",
-    "supertest": "^7.2.2"
+    "supertest": "^7.2.2",
+    "vite": "^7.3.7"
   }
 }

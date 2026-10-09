@@ -1,89 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Legendrium | Battle</title>
-  <script>document.documentElement.classList.add('js');</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-</head>
-<body data-page="battle">
-  <div class="page-noise" aria-hidden="true"></div>
-  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
-  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
-
-  <header class="topbar">
-    <a class="brand" href="heroes.html">Legendrium</a>
-    <nav class="topnav site-nav" id="siteNav" aria-label="Primary"></nav>
-  </header>
-
-  <main>
-    <section class="feature-hero section">
-      <div class="feature-shell reveal">
-        <p class="eyebrow">Battle Page</p>
-        <h1>One page. One arena. No scroll-to-find-it layout.</h1>
-        <p class="lede">Pick a hero, choose an opponent, and run the turn-based battle simulator on a dedicated page.</p>
-      </div>
-    </section>
-
-    <section class="section compact-picker-section">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Current Hero</p>
-        <h2>Carry your selected hero across pages</h2>
-      </div>
-      <div class="compact-picker reveal" id="heroPicker"></div>
-      <p class="picker-note reveal" id="pickerNote"></p>
-    </section>
-
-    <section class="section single-feature-section">
-      <article class="module-card reveal" id="battle">
-        <div class="module-head">
-          <p class="eyebrow">Arena</p>
-          <h3>Hero comparison showdown</h3>
-        </div>
-        <p class="battle-status" id="battleStatus">Choose two heroes to compare.</p>
-        <div class="battle-controls">
-          <label for="battleOpponent">Opponent</label>
-          <select id="battleOpponent"></select>
-          <button class="button button-secondary" id="battleStart" type="button">Compare Heroes</button>
-        </div>
-        <div class="battle-result" id="battleResult"></div>
-        <div class="battle-arena">
-          <div class="fighter-panel">
-            <div class="fighter-photo-frame">
-              <img id="battleHeroImage" alt="">
-            </div>
-            <p id="battleHeroName"></p>
-            <div class="health-track"><span id="battleHeroHealth"></span></div>
-          </div>
-          <div class="fighter-panel">
-            <div class="fighter-photo-frame">
-              <img id="battleEnemyImage" alt="">
-            </div>
-            <p id="battleEnemyName"></p>
-            <div class="health-track"><span id="battleEnemyHealth"></span></div>
-          </div>
-        </div>
-        <div class="battle-actions">
-          <button class="button button-primary" id="actionAttack" type="button">Compare</button>
-          <button class="button button-primary" id="actionSpecial" type="button">Random Opponent</button>
-          <button class="button button-primary" id="actionGuard" type="button">Reset</button>
-        </div>
-        <div class="battle-log" id="battleLog"></div>
-      </article>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <p>Legendrium</p>
-    <small>The header links now open standalone feature pages.</small>
-  </footer>
-
-  <script defer src="app.js"></script>
-  <script defer src="microinteractions.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#08090b" />
+    <meta
+      name="description"
+      content="Set the matchup. Compare six hero attributes in the Legendrium battle arena."
+    />
+    <title>Legendrium — Battle arena</title>
+    <link
+      rel="preload"
+      href="/fonts/barlow-condensed-normal-2.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>Enable JavaScript to enter the Legendrium archive.</noscript>
+    <script type="module" src="/frontend/main.jsx"></script>
+  </body>
 </html>

@@ -2,6 +2,7 @@
 
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 const { createVoteStore } = require('./services/vote-store');
 const { createHeroService } = require('./services/hero-service');
 const { createExternalHeroService } = require('./services/external-hero-service');
@@ -27,7 +28,9 @@ function createApp({ env }) {
 
   app.disable('x-powered-by');
   app.use(express.json());
-  app.use(globalRateLimit);
+  app.use('/api', globalRateLimit);
+  const buildDir = path.join(env.publicDir, 'dist');
+  app.use(express.static(buildDir));
   app.use(express.static(env.publicDir));
 
   app.get('/api/health', (_request, response) => {
@@ -39,7 +42,8 @@ function createApp({ env }) {
   app.use('/api/votes', createVotesRouter({ voteStore, voteHeroIds: voteRoster, voteRateLimit }));
 
   app.get('/', (_request, response) => {
-    response.sendFile(path.join(env.publicDir, 'heroes.html'));
+    const builtEntry = path.join(buildDir, 'heroes.html');
+    response.sendFile(fs.existsSync(builtEntry) ? builtEntry : path.join(env.publicDir, 'heroes.html'));
   });
 
   app.use(notFoundHandler);

@@ -1,0 +1,212 @@
+[
+  {
+    "id": 201,
+    "name": "Daredevil",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/201-daredevil.jpg"
+    }
+  },
+  {
+    "id": 391,
+    "name": "Kingpin",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/391-kingpin.jpg"
+    }
+  },
+  {
+    "id": 107,
+    "name": "Black Widow",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/107-black-widow.jpg"
+    }
+  },
+  {
+    "id": 157,
+    "name": "Captain Marvel",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/157-captain-marvel.jpg"
+    }
+  },
+  {
+    "id": 579,
+    "name": "Scarlet Witch",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/579-scarlet-witch.jpg"
+    }
+  },
+  {
+    "id": 31,
+    "name": "Ant-Man II",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/31-ant-man-ii.jpg"
+    }
+  },
+  {
+    "id": 298,
+    "name": "Green Arrow",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/298-green-arrow.jpg"
+    }
+  },
+  {
+    "id": 643,
+    "name": "Supergirl",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/643-supergirl.jpg"
+    }
+  },
+  {
+    "id": 156,
+    "name": "Captain Marvel",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/156-captain-marvel.jpg"
+    }
+  },
+  {
+    "id": 95,
+    "name": "Black Adam",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/95-black-adam.jpg"
+    }
+  },
+  {
+    "id": 213,
+    "name": "Deadpool",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/213-deadpool.jpg"
+    }
+  },
+  {
+    "id": 687,
+    "name": "Venom",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/687-venom.jpg"
+    }
+  },
+  {
+    "id": 162,
+    "name": "Carnage",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/162-carnage.jpg"
+    }
+  },
+  {
+    "id": 309,
+    "name": "Harley Quinn",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/309-harley-quinn.jpg"
+    }
+  },
+  {
+    "id": 370,
+    "name": "Joker",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/370-joker.jpg"
+    }
+  },
+  {
+    "id": 69,
+    "name": "Batman",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/69-batman.jpg"
+    }
+  },
+  {
+    "id": 405,
+    "name": "Lex Luthor",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/405-lex-luthor.jpg"
+    }
+  },
+  {
+    "id": 644,
+    "name": "Superman",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/644-superman.jpg"
+    }
+  },
+  {
+    "id": 204,
+    "name": "Darkseid",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/204-darkseid.jpg"
+    }
+  },
+  {
+    "id": 216,
+    "name": "Deathstroke",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/216-deathstroke.jpg"
+    }
+  },
+  {
+    "id": 491,
+    "name": "Nightwing",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/491-nightwing.jpg"
+    }
+  },
+  {
+    "id": 414,
+    "name": "Loki",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/414-loki.jpg"
+    }
+  },
+  {
+    "id": 659,
+    "name": "Thor",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/659-thor.jpg"
+    }
+  },
+  {
+    "id": 655,
+    "name": "Thanos",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/655-thanos.jpg"
+    }
+  },
+  {
+    "id": 222,
+    "name": "Doctor Doom",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/222-doctor-doom.jpg"
+    }
+  },
+  {
+    "id": 456,
+    "name": "Mister Fantastic",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/456-mister-fantastic.jpg"
+    }
+  },
+  {
+    "id": 423,
+    "name": "Magneto",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/423-magneto.jpg"
+    }
+  },
+  {
+    "id": 527,
+    "name": "Professor X",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/527-professor-x.jpg"
+    }
+  },
+  {
+    "id": 299,
+    "name": "Green Goblin",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/299-green-goblin.jpg"
+    }
+  },
+  {
+    "id": 620,
+    "name": "Spider-Man",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/620-spider-man.jpg"
+    }
+  }
+]
