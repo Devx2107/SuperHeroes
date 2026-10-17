@@ -35,6 +35,7 @@ export default memo(function CinematicStage({
       }
       if (data.type === "initialized") clearTimeout(timer);
       if (data.type === "ready") host.current.dataset.motif = data.motif;
+      if (data.type === "pulse") host.current.dataset.pulses = data.count;
     };
     const makeCanvas = () => {
       const canvas = document.createElement("canvas");
@@ -79,7 +80,7 @@ export default memo(function CinematicStage({
         host.current.dataset.engine = "main-thread";
         ticker = () => {
           if (document.hidden) return;
-          engine.pointer(raw.current.x, raw.current.y);
+          engine.pointer(raw.current.x, raw.current.y, raw.current.active);
           engine.update(performance.now());
         };
         gsap.ticker.add(ticker);
@@ -118,6 +119,7 @@ export default memo(function CinematicStage({
               type: "pointer",
               x: raw.current.x,
               y: raw.current.y,
+              active: raw.current.active,
             });
             lastMessage = now;
           }
@@ -144,9 +146,25 @@ export default memo(function CinematicStage({
       else
         worker?.postMessage({ type: "visibility", visible: !document.hidden });
     };
+    const pulse = (event) => {
+      if (
+        event.button !== 0 ||
+        event.target.closest(
+          'dialog,input,select,textarea,[contenteditable="true"]',
+        )
+      )
+        return;
+      const rect = host.current.getBoundingClientRect();
+      if (event.clientY < rect.top) return;
+      const x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+      const y = ((event.clientY - rect.top) / rect.height) * 2 - 1;
+      if (engine) engine.pulse(x, y);
+      else worker?.postMessage({ type: "pulse", x, y });
+    };
     visibility();
     window.addEventListener("resize", resize);
     document.addEventListener("visibilitychange", visibility);
+    window.addEventListener("pointerdown", pulse, { passive: true });
     return () => {
       cancelled = true;
       clearTimeout(timer);
@@ -156,6 +174,7 @@ export default memo(function CinematicStage({
       runtime.current = null;
       window.removeEventListener("resize", resize);
       document.removeEventListener("visibilitychange", visibility);
+      window.removeEventListener("pointerdown", pulse);
     };
   }, [raw, reduced]);
   useEffect(() => {

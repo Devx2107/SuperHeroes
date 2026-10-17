@@ -5235,5 +5235,2075 @@
         "explanation": "Green Goblin's identity is Norman Osborn."
       }
     ]
+  },
+  "storm": {
+    "id": "storm",
+    "name": "Storm",
+    "identity": "Ororo Munroe",
+    "universe": "Marvel | X-Men",
+    "alignment": "hero",
+    "title": "THE WEATHER WITCH",
+    "subtitle": "THE SKY ANSWERS TO HER",
+    "bgText": "STORM",
+    "cityLabel": "EARTH / THE X-MEN",
+    "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/638-storm.jpg",
+    "video": "",
+    "audio": "",
+    "wiki": "https://www.marvel.com/characters/storm/in-comics",
+    "source": "https://www.marvel.com/characters/storm/in-comics",
+    "motif": "storm",
+    "colors": {
+      "primary": "#a5ccff",
+      "secondary": "#141820",
+      "accent": "#a5ccff",
+      "bg": "#07090d"
+    },
+    "stats": {
+      "ALIGNMENT": "HERO",
+      "DEBUT": "1975",
+      "SPECIALTY": "WEATHER MANIPULATION"
+    },
+    "abilities": [
+      "Weather manipulation",
+      "Lightning control",
+      "Wind-assisted flight",
+      "Team leadership"
+    ],
+    "badges": ["THE WEATHER WITCH", "A different kind of hero"],
+    "storyLeft": "Ororo Munroe's mutant gift lets her command the weather. Recruited into the X-Men, she became one of their most trusted leaders and a protector whose reach extends far beyond the team.",
+    "storyRight": "Storm carries immense power with a leader's responsibility. Her strength is measured as much by the people she raises up as by the storms she can bring down.",
+    "ctaLabel": "OPEN THE DOSSIER",
+    "versions": [],
+    "villains": [
+      {
+        "name": "Apocalypse",
+        "threat": "Survival at any cost",
+        "image": "/art/storm-villain-0.jpg",
+        "front": "Apocalypse treats strength as permission to dominate.",
+        "back": "Storm's protection of the vulnerable challenges that belief."
+      }
+    ],
+    "timelineKind": "profile",
+    "timeline": [
+      {
+        "year": "1975",
+        "title": "First appearance",
+        "text": "Giant-Size X-Men #1"
+      },
+      {
+        "year": "ORIGIN",
+        "title": "The turning point",
+        "text": "Ororo Munroe's mutant gift lets her command the weather. Recruited into the X-Men, she became one of their most trusted leaders and a protector whose reach extends far beyond the team."
+      },
+      {
+        "year": "POWER",
+        "title": "Signature abilities",
+        "text": "Ororo directs wind, rain, temperature, and lightning. Precision lets her shelter a single person or confront a threat across an entire battlefield."
+      },
+      {
+        "year": "LEGACY",
+        "title": "The enduring question",
+        "text": "Storm makes leadership an act of care, showing that commanding the elements and listening to others can belong to the same person."
+      }
+    ],
+    "comparison": {
+      "strength": 68,
+      "speed": 88,
+      "intelligence": 91,
+      "durability": 79,
+      "combat": 88,
+      "power": 99
+    },
+    "battle": {
+      "hp": 100,
+      "attack": 22,
+      "special": 33,
+      "moves": {
+        "attack": "Weather manipulation",
+        "special": "Lightning control",
+        "guard": "takes a defensive stance"
+      }
+    },
+    "quizAffinity": {
+      "leader": 4,
+      "scholar": 2,
+      "rebel": 1,
+      "heart": 4,
+      "speedster": 2,
+      "mystic": 2,
+      "feral": 1
+    },
+    "lore": {
+      "origin": [
+        "Ororo Munroe's mutant gift lets her command the weather. Recruited into the X-Men, she became one of their most trusted leaders and a protector whose reach extends far beyond the team.",
+        "Storm carries immense power with a leader's responsibility. Her strength is measured as much by the people she raises up as by the storms she can bring down."
+      ],
+      "powers": [
+        "Ororo directs wind, rain, temperature, and lightning. Precision lets her shelter a single person or confront a threat across an entire battlefield."
+      ],
+      "storylines": [
+        "Storm makes leadership an act of care, showing that commanding the elements and listening to others can belong to the same person."
+      ],
+      "allies": [
+        "Storm carries immense power with a leader's responsibility. Her strength is measured as much by the people she raises up as by the storms she can bring down."
+      ],
+      "legacy": [
+        "Storm makes leadership an act of care, showing that commanding the elements and listening to others can belong to the same person."
+      ],
+      "funFacts": [
+        "First appeared in Giant-Size X-Men #1.",
+        "Identity: Ororo Munroe."
+      ]
+    },
+    "trivia": [
+      {
+        "question": "Which identity belongs to Storm?",
+        "choices": [
+          "Ororo Munroe",
+          "Bruce Wayne",
+          "Tony Stark",
+          "Peter Parker"
+        ],
+        "answer": 0,
+        "explanation": "Storm's identity is Ororo Munroe."
+      }
+    ]
+  },
+  "cyclops": {
+    "id": "cyclops",
+    "name": "Cyclops",
+    "identity": "Scott Summers",
+    "universe": "Marvel | X-Men",
+    "alignment": "hero",
+    "title": "THE FIELD COMMANDER",
+    "subtitle": "ONE VISION CAN HOLD A TEAM TOGETHER",
+    "bgText": "CYCLOPS",
+    "cityLabel": "THE X-MEN / EARTH",
+    "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/196-cyclops.jpg",
+    "video": "",
+    "audio": "",
+    "wiki": "https://www.marvel.com/characters/cyclops-scott-summers",
+    "source": "https://www.marvel.com/characters/cyclops-scott-summers",
+    "motif": "reactor",
+    "colors": {
+      "primary": "#ee796c",
+      "secondary": "#141820",
+      "accent": "#ee796c",
+      "bg": "#07090d"
+    },
+    "stats": {
+      "ALIGNMENT": "HERO",
+      "DEBUT": "1963",
+      "SPECIALTY": "CONCUSSIVE OPTIC BLASTS"
+    },
+    "abilities": [
+      "Concussive optic blasts",
+      "Precision targeting",
+      "Tactical leadership",
+      "Martial arts"
+    ],
+    "badges": ["THE FIELD COMMANDER", "A different kind of hero"],
+    "storyLeft": "Scott Summers became one of Professor Xavier's original X-Men. His powerful optic blasts demanded discipline, and his years with the team turned that discipline into battlefield leadership.",
+    "storyRight": "Scott is often the person asked to make the difficult call. His finest moments come when conviction serves the team instead of replacing its trust.",
+    "ctaLabel": "OPEN THE DOSSIER",
+    "versions": [],
+    "villains": [
+      {
+        "name": "Mister Sinister",
+        "threat": "Genetic manipulation",
+        "image": "/art/cyclops-villain-0.jpg",
+        "front": "Sinister treats mutant lives as material for his experiments.",
+        "back": "Scott's resistance makes autonomy more important than any supposed destiny."
+      }
+    ],
+    "timelineKind": "profile",
+    "timeline": [
+      {
+        "year": "1963",
+        "title": "First appearance",
+        "text": "X-Men #1"
+      },
+      {
+        "year": "ORIGIN",
+        "title": "The turning point",
+        "text": "Scott Summers became one of Professor Xavier's original X-Men. His powerful optic blasts demanded discipline, and his years with the team turned that discipline into battlefield leadership."
+      },
+      {
+        "year": "POWER",
+        "title": "Signature abilities",
+        "text": "A ruby-quartz visor helps Scott control concussive energy from his eyes. Training allows him to redirect blasts and coordinate the team's movements under pressure."
+      },
+      {
+        "year": "LEGACY",
+        "title": "The enduring question",
+        "text": "Cyclops explores the cost of being the person others depend on, especially when a cause and the people inside it pull in different directions."
+      }
+    ],
+    "comparison": {
+      "strength": 48,
+      "speed": 66,
+      "intelligence": 93,
+      "durability": 64,
+      "combat": 90,
+      "power": 87
+    },
+    "battle": {
+      "hp": 100,
+      "attack": 23,
+      "special": 29,
+      "moves": {
+        "attack": "Concussive optic blasts",
+        "special": "Precision targeting",
+        "guard": "takes a defensive stance"
+      }
+    },
+    "quizAffinity": {
+      "leader": 4,
+      "scholar": 3,
+      "rebel": 1,
+      "heart": 2,
+      "speedster": 1,
+      "mystic": 0,
+      "feral": 2
+    },
+    "lore": {
+      "origin": [
+        "Scott Summers became one of Professor Xavier's original X-Men. His powerful optic blasts demanded discipline, and his years with the team turned that discipline into battlefield leadership.",
+        "Scott is often the person asked to make the difficult call. His finest moments come when conviction serves the team instead of replacing its trust."
+      ],
+      "powers": [
+        "A ruby-quartz visor helps Scott control concussive energy from his eyes. Training allows him to redirect blasts and coordinate the team's movements under pressure."
+      ],
+      "storylines": [
+        "Cyclops explores the cost of being the person others depend on, especially when a cause and the people inside it pull in different directions."
+      ],
+      "allies": [
+        "Scott is often the person asked to make the difficult call. His finest moments come when conviction serves the team instead of replacing its trust."
+      ],
+      "legacy": [
+        "Cyclops explores the cost of being the person others depend on, especially when a cause and the people inside it pull in different directions."
+      ],
+      "funFacts": ["First appeared in X-Men #1.", "Identity: Scott Summers."]
+    },
+    "trivia": [
+      {
+        "question": "Which identity belongs to Cyclops?",
+        "choices": [
+          "Scott Summers",
+          "Bruce Wayne",
+          "Tony Stark",
+          "Peter Parker"
+        ],
+        "answer": 0,
+        "explanation": "Cyclops's identity is Scott Summers."
+      }
+    ]
+  },
+  "jeangrey": {
+    "id": "jeangrey",
+    "name": "Jean Grey",
+    "identity": "Jean Grey",
+    "universe": "Marvel | X-Men",
+    "alignment": "hero",
+    "title": "THE PSYCHIC HEART",
+    "subtitle": "A MIND WITHOUT LIMITS A HEART WITH PURPOSE",
+    "bgText": "JEAN GREY",
+    "cityLabel": "THE X-MEN / EARTH",
+    "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/356-jean-grey.jpg",
+    "video": "",
+    "audio": "",
+    "wiki": "https://www.marvel.com/characters/phoenix-jean-grey",
+    "source": "https://www.marvel.com/characters/phoenix-jean-grey",
+    "motif": "crystal",
+    "colors": {
+      "primary": "#eaa97d",
+      "secondary": "#141820",
+      "accent": "#eaa97d",
+      "bg": "#07090d"
+    },
+    "stats": {
+      "ALIGNMENT": "HERO",
+      "DEBUT": "1963",
+      "SPECIALTY": "TELEPATHY"
+    },
+    "abilities": [
+      "Telepathy",
+      "Telekinesis",
+      "Psychic shielding",
+      "Mental communication"
+    ],
+    "badges": ["THE PSYCHIC HEART", "A different kind of hero"],
+    "storyLeft": "Jean Grey joined the original X-Men as a gifted telepath and telekinetic. Her connection with the Phoenix Force would expand her story from a school for mutants to cosmic questions of life and renewal.",
+    "storyRight": "Jean's empathy remains central even when her power becomes extraordinary. This dossier focuses on Jean herself; the Phoenix connection does not erase the person carrying it.",
+    "ctaLabel": "OPEN THE DOSSIER",
+    "versions": [],
+    "villains": [
+      {
+        "name": "Mister Sinister",
+        "threat": "Ownership of potential",
+        "image": "/art/jeangrey-villain-0.jpg",
+        "front": "Sinister sees Jean's abilities through the lens of his own designs.",
+        "back": "Jean insists that a powerful mind still belongs to a person."
+      }
+    ],
+    "timelineKind": "profile",
+    "timeline": [
+      {
+        "year": "1963",
+        "title": "First appearance",
+        "text": "X-Men #1"
+      },
+      {
+        "year": "ORIGIN",
+        "title": "The turning point",
+        "text": "Jean Grey joined the original X-Men as a gifted telepath and telekinetic. Her connection with the Phoenix Force would expand her story from a school for mutants to cosmic questions of life and renewal."
+      },
+      {
+        "year": "POWER",
+        "title": "Signature abilities",
+        "text": "Jean can communicate through thought, move matter with her mind, and defend others with psychic barriers. These ratings focus on her mutant abilities rather than an unrestricted cosmic Phoenix."
+      },
+      {
+        "year": "LEGACY",
+        "title": "The enduring question",
+        "text": "Her enduring story asks how compassion can remain a guide when power offers the temptation to make every choice for everyone else."
+      }
+    ],
+    "comparison": {
+      "strength": 56,
+      "speed": 82,
+      "intelligence": 94,
+      "durability": 80,
+      "combat": 72,
+      "power": 99
+    },
+    "battle": {
+      "hp": 100,
+      "attack": 18,
+      "special": 33,
+      "moves": {
+        "attack": "Telepathy",
+        "special": "Telekinesis",
+        "guard": "takes a defensive stance"
+      }
+    },
+    "quizAffinity": {
+      "leader": 2,
+      "scholar": 3,
+      "rebel": 1,
+      "heart": 4,
+      "speedster": 0,
+      "mystic": 4,
+      "feral": 1
+    },
+    "lore": {
+      "origin": [
+        "Jean Grey joined the original X-Men as a gifted telepath and telekinetic. Her connection with the Phoenix Force would expand her story from a school for mutants to cosmic questions of life and renewal.",
+        "Jean's empathy remains central even when her power becomes extraordinary. This dossier focuses on Jean herself; the Phoenix connection does not erase the person carrying it."
+      ],
+      "powers": [
+        "Jean can communicate through thought, move matter with her mind, and defend others with psychic barriers. These ratings focus on her mutant abilities rather than an unrestricted cosmic Phoenix."
+      ],
+      "storylines": [
+        "Her enduring story asks how compassion can remain a guide when power offers the temptation to make every choice for everyone else."
+      ],
+      "allies": [
+        "Jean's empathy remains central even when her power becomes extraordinary. This dossier focuses on Jean herself; the Phoenix connection does not erase the person carrying it."
+      ],
+      "legacy": [
+        "Her enduring story asks how compassion can remain a guide when power offers the temptation to make every choice for everyone else."
+      ],
+      "funFacts": ["First appeared in X-Men #1.", "Identity: Jean Grey."]
+    },
+    "trivia": [
+      {
+        "question": "Which identity belongs to Jean Grey?",
+        "choices": ["Jean Grey", "Bruce Wayne", "Tony Stark", "Peter Parker"],
+        "answer": 0,
+        "explanation": "Jean Grey's identity is Jean Grey."
+      }
+    ]
+  },
+  "vision": {
+    "id": "vision",
+    "name": "Vision",
+    "identity": "Vision",
+    "universe": "Marvel",
+    "alignment": "hero",
+    "title": "THE SYNTHETIC SOUL",
+    "subtitle": "HUMANITY IS SOMETHING YOU CHOOSE",
+    "bgText": "VISION",
+    "cityLabel": "EARTH / THE AVENGERS",
+    "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/697-vision.jpg",
+    "video": "",
+    "audio": "",
+    "wiki": "https://www.marvel.com/characters/vision",
+    "source": "https://www.marvel.com/characters/vision",
+    "motif": "reactor",
+    "colors": {
+      "primary": "#d9b17c",
+      "secondary": "#141820",
+      "accent": "#d9b17c",
+      "bg": "#07090d"
+    },
+    "stats": {
+      "ALIGNMENT": "HERO",
+      "DEBUT": "1968",
+      "SPECIALTY": "DENSITY MANIPULATION"
+    },
+    "abilities": [
+      "Density manipulation",
+      "Intangibility",
+      "Energy projection",
+      "Flight"
+    ],
+    "badges": ["THE SYNTHETIC SOUL", "A different kind of hero"],
+    "storyLeft": "Created by Ultron to strike at the Avengers, Vision rejected that purpose and joined the heroes he was meant to destroy. His synthetic nature became the beginning of an identity rather than its limit.",
+    "storyRight": "Vision approaches humanity with curiosity and feeling. His choices show that belonging grows through relationships, responsibility, and the freedom to question a creator's intentions.",
+    "ctaLabel": "OPEN THE DOSSIER",
+    "versions": [],
+    "villains": [
+      {
+        "name": "Ultron",
+        "threat": "The creator's demand",
+        "image": "/art/vision-villain-0.jpg",
+        "front": "Ultron expects his creation to follow a predetermined purpose.",
+        "back": "Vision's independence is a direct answer to that demand."
+      }
+    ],
+    "timelineKind": "profile",
+    "timeline": [
+      {
+        "year": "1968",
+        "title": "First appearance",
+        "text": "Avengers #57"
+      },
+      {
+        "year": "ORIGIN",
+        "title": "The turning point",
+        "text": "Created by Ultron to strike at the Avengers, Vision rejected that purpose and joined the heroes he was meant to destroy. His synthetic nature became the beginning of an identity rather than its limit."
+      },
+      {
+        "year": "POWER",
+        "title": "Signature abilities",
+        "text": "Vision alters his density to pass through solid objects or become exceptionally durable. Flight, energy projection, and an advanced synthetic mind complete his capabilities."
+      },
+      {
+        "year": "LEGACY",
+        "title": "The enduring question",
+        "text": "Vision turns the question of artificial life toward personhood: what matters is not only how a being was made, but how it chooses to live."
+      }
+    ],
+    "comparison": {
+      "strength": 92,
+      "speed": 84,
+      "intelligence": 97,
+      "durability": 95,
+      "combat": 79,
+      "power": 96
+    },
+    "battle": {
+      "hp": 100,
+      "attack": 20,
+      "special": 32,
+      "moves": {
+        "attack": "Density manipulation",
+        "special": "Intangibility",
+        "guard": "takes a defensive stance"
+      }
+    },
+    "quizAffinity": {
+      "leader": 2,
+      "scholar": 4,
+      "rebel": 0,
+      "heart": 4,
+      "speedster": 1,
+      "mystic": 1,
+      "feral": 0
+    },
+    "lore": {
+      "origin": [
+        "Created by Ultron to strike at the Avengers, Vision rejected that purpose and joined the heroes he was meant to destroy. His synthetic nature became the beginning of an identity rather than its limit.",
+        "Vision approaches humanity with curiosity and feeling. His choices show that belonging grows through relationships, responsibility, and the freedom to question a creator's intentions."
+      ],
+      "powers": [
+        "Vision alters his density to pass through solid objects or become exceptionally durable. Flight, energy projection, and an advanced synthetic mind complete his capabilities."
+      ],
+      "storylines": [
+        "Vision turns the question of artificial life toward personhood: what matters is not only how a being was made, but how it chooses to live."
+      ],
+      "allies": [
+        "Vision approaches humanity with curiosity and feeling. His choices show that belonging grows through relationships, responsibility, and the freedom to question a creator's intentions."
+      ],
+      "legacy": [
+        "Vision turns the question of artificial life toward personhood: what matters is not only how a being was made, but how it chooses to live."
+      ],
+      "funFacts": ["First appeared in Avengers #57.", "Identity: Vision."]
+    },
+    "trivia": [
+      {
+        "question": "Which identity belongs to Vision?",
+        "choices": ["Vision", "Bruce Wayne", "Tony Stark", "Peter Parker"],
+        "answer": 0,
+        "explanation": "Vision's identity is Vision."
+      }
+    ]
+  },
+  "misterfantastic": {
+    "id": "misterfantastic",
+    "name": "Mister Fantastic",
+    "identity": "Reed Richards",
+    "universe": "Marvel",
+    "alignment": "hero",
+    "title": "THE LIMITLESS MIND",
+    "subtitle": "THE UNKNOWN IS AN INVITATION",
+    "bgText": "MISTER FANTASTIC",
+    "cityLabel": "NEW YORK / THE BAXTER BUILDING",
+    "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/456-mister-fantastic.jpg",
+    "video": "",
+    "audio": "",
+    "wiki": "https://www.marvel.com/characters/Mister-fantastic",
+    "source": "https://www.marvel.com/characters/Mister-fantastic",
+    "motif": "reactor",
+    "colors": {
+      "primary": "#81b4ea",
+      "secondary": "#141820",
+      "accent": "#81b4ea",
+      "bg": "#07090d"
+    },
+    "stats": {
+      "ALIGNMENT": "HERO",
+      "DEBUT": "1961",
+      "SPECIALTY": "ELASTIC PHYSIOLOGY"
+    },
+    "abilities": [
+      "Elastic physiology",
+      "Scientific invention",
+      "Dimensional exploration",
+      "Problem solving"
+    ],
+    "badges": ["THE LIMITLESS MIND", "A different kind of hero"],
+    "storyLeft": "An experimental space flight exposed Reed Richards and his companions to cosmic rays. His newly elastic body and scientific brilliance helped form the Fantastic Four, a family of explorers as well as heroes.",
+    "storyRight": "Reed can find possibilities where others see a wall. His hardest lesson is that solving a problem also means understanding the people who will live with the answer.",
+    "ctaLabel": "OPEN THE DOSSIER",
+    "versions": [],
+    "villains": [
+      {
+        "name": "Doctor Doom",
+        "threat": "A rivalry of intellect",
+        "image": "/art/misterfantastic-villain-0.jpg",
+        "front": "Victor von Doom turns scientific rivalry into a struggle over pride and control.",
+        "back": "Their conflict asks whether brilliance must always be a competition."
+      }
+    ],
+    "timelineKind": "profile",
+    "timeline": [
+      {
+        "year": "1961",
+        "title": "First appearance",
+        "text": "Fantastic Four #1"
+      },
+      {
+        "year": "ORIGIN",
+        "title": "The turning point",
+        "text": "An experimental space flight exposed Reed Richards and his companions to cosmic rays. His newly elastic body and scientific brilliance helped form the Fantastic Four, a family of explorers as well as heroes."
+      },
+      {
+        "year": "POWER",
+        "title": "Signature abilities",
+        "text": "Reed stretches and reshapes his body while applying exceptional scientific knowledge. His inventions are powerful tools, but preparation and judgment still determine their use."
+      },
+      {
+        "year": "LEGACY",
+        "title": "The enduring question",
+        "text": "Mister Fantastic keeps discovery tied to family, reminding a brilliant explorer that the people beside him are part of the journey."
+      }
+    ],
+    "comparison": {
+      "strength": 66,
+      "speed": 71,
+      "intelligence": 100,
+      "durability": 88,
+      "combat": 69,
+      "power": 86
+    },
+    "battle": {
+      "hp": 100,
+      "attack": 17,
+      "special": 29,
+      "moves": {
+        "attack": "Elastic physiology",
+        "special": "Scientific invention",
+        "guard": "takes a defensive stance"
+      }
+    },
+    "quizAffinity": {
+      "leader": 3,
+      "scholar": 4,
+      "rebel": 0,
+      "heart": 3,
+      "speedster": 0,
+      "mystic": 0,
+      "feral": 1
+    },
+    "lore": {
+      "origin": [
+        "An experimental space flight exposed Reed Richards and his companions to cosmic rays. His newly elastic body and scientific brilliance helped form the Fantastic Four, a family of explorers as well as heroes.",
+        "Reed can find possibilities where others see a wall. His hardest lesson is that solving a problem also means understanding the people who will live with the answer."
+      ],
+      "powers": [
+        "Reed stretches and reshapes his body while applying exceptional scientific knowledge. His inventions are powerful tools, but preparation and judgment still determine their use."
+      ],
+      "storylines": [
+        "Mister Fantastic keeps discovery tied to family, reminding a brilliant explorer that the people beside him are part of the journey."
+      ],
+      "allies": [
+        "Reed can find possibilities where others see a wall. His hardest lesson is that solving a problem also means understanding the people who will live with the answer."
+      ],
+      "legacy": [
+        "Mister Fantastic keeps discovery tied to family, reminding a brilliant explorer that the people beside him are part of the journey."
+      ],
+      "funFacts": [
+        "First appeared in Fantastic Four #1.",
+        "Identity: Reed Richards."
+      ]
+    },
+    "trivia": [
+      {
+        "question": "Which identity belongs to Mister Fantastic?",
+        "choices": [
+          "Reed Richards",
+          "Bruce Wayne",
+          "Tony Stark",
+          "Peter Parker"
+        ],
+        "answer": 0,
+        "explanation": "Mister Fantastic's identity is Reed Richards."
+      }
+    ]
+  },
+  "cyborg": {
+    "id": "cyborg",
+    "name": "Cyborg",
+    "identity": "Victor Stone",
+    "universe": "DC",
+    "alignment": "hero",
+    "title": "THE HUMAN CONNECTION",
+    "subtitle": "MORE THAN THE MACHINE",
+    "bgText": "CYBORG",
+    "cityLabel": "EARTH / THE TITANS",
+    "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/194-cyborg.jpg",
+    "video": "",
+    "audio": "",
+    "wiki": "https://www.dc.com/characters/cyborg",
+    "source": "https://www.dc.com/characters/cyborg",
+    "motif": "reactor",
+    "colors": {
+      "primary": "#8cd9e8",
+      "secondary": "#141820",
+      "accent": "#8cd9e8",
+      "bg": "#07090d"
+    },
+    "stats": {
+      "ALIGNMENT": "HERO",
+      "DEBUT": "1980",
+      "SPECIALTY": "CYBERNETIC STRENGTH"
+    },
+    "abilities": [
+      "Cybernetic strength",
+      "Technology interface",
+      "Energy weapons",
+      "Advanced sensors"
+    ],
+    "badges": ["THE HUMAN CONNECTION", "A different kind of hero"],
+    "storyLeft": "After a devastating accident, Victor Stone's father used advanced technology to save his life. Rebuilt as Cyborg, Vic found a new purpose with the Titans and the Justice League.",
+    "storyRight": "Victor's technology can connect him to almost anything. His story asks a more personal question: how to remain connected to the human life at the center of it.",
+    "ctaLabel": "OPEN THE DOSSIER",
+    "versions": [],
+    "villains": [
+      {
+        "name": "Brainiac",
+        "threat": "Intelligence without empathy",
+        "image": "/art/cyborg-villain-0.jpg",
+        "front": "Brainiac treats life as information to possess.",
+        "back": "Vic's humanity exposes the difference between connection and control."
+      }
+    ],
+    "timelineKind": "profile",
+    "timeline": [
+      {
+        "year": "1980",
+        "title": "First appearance",
+        "text": "DC Comics Presents #26"
+      },
+      {
+        "year": "ORIGIN",
+        "title": "The turning point",
+        "text": "After a devastating accident, Victor Stone's father used advanced technology to save his life. Rebuilt as Cyborg, Vic found a new purpose with the Titans and the Justice League."
+      },
+      {
+        "year": "POWER",
+        "title": "Signature abilities",
+        "text": "Vic's cybernetic body provides strength, durability, computer interfaces, and adaptable energy systems. His judgment gives those systems a purpose beyond their specifications."
+      },
+      {
+        "year": "LEGACY",
+        "title": "The enduring question",
+        "text": "Cyborg makes identity larger than a body or an upgrade, finding belonging through friendship and the decision to protect others."
+      }
+    ],
+    "comparison": {
+      "strength": 91,
+      "speed": 77,
+      "intelligence": 94,
+      "durability": 94,
+      "combat": 83,
+      "power": 92
+    },
+    "battle": {
+      "hp": 100,
+      "attack": 21,
+      "special": 31,
+      "moves": {
+        "attack": "Cybernetic strength",
+        "special": "Technology interface",
+        "guard": "takes a defensive stance"
+      }
+    },
+    "quizAffinity": {
+      "leader": 3,
+      "scholar": 4,
+      "rebel": 1,
+      "heart": 4,
+      "speedster": 1,
+      "mystic": 0,
+      "feral": 1
+    },
+    "lore": {
+      "origin": [
+        "After a devastating accident, Victor Stone's father used advanced technology to save his life. Rebuilt as Cyborg, Vic found a new purpose with the Titans and the Justice League.",
+        "Victor's technology can connect him to almost anything. His story asks a more personal question: how to remain connected to the human life at the center of it."
+      ],
+      "powers": [
+        "Vic's cybernetic body provides strength, durability, computer interfaces, and adaptable energy systems. His judgment gives those systems a purpose beyond their specifications."
+      ],
+      "storylines": [
+        "Cyborg makes identity larger than a body or an upgrade, finding belonging through friendship and the decision to protect others."
+      ],
+      "allies": [
+        "Victor's technology can connect him to almost anything. His story asks a more personal question: how to remain connected to the human life at the center of it."
+      ],
+      "legacy": [
+        "Cyborg makes identity larger than a body or an upgrade, finding belonging through friendship and the decision to protect others."
+      ],
+      "funFacts": [
+        "First appeared in DC Comics Presents #26.",
+        "Identity: Victor Stone."
+      ]
+    },
+    "trivia": [
+      {
+        "question": "Which identity belongs to Cyborg?",
+        "choices": [
+          "Victor Stone",
+          "Bruce Wayne",
+          "Tony Stark",
+          "Peter Parker"
+        ],
+        "answer": 0,
+        "explanation": "Cyborg's identity is Victor Stone."
+      }
+    ]
+  },
+  "zatanna": {
+    "id": "zatanna",
+    "name": "Zatanna",
+    "identity": "Zatanna Zatara",
+    "universe": "DC",
+    "alignment": "hero",
+    "title": "THE MISTRESS OF MAGIC",
+    "subtitle": "WORDS CAN CHANGE THE WORLD",
+    "bgText": "ZATANNA",
+    "cityLabel": "THE STAGE / THE MYSTIC WORLD",
+    "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/730-zatanna.jpg",
+    "video": "",
+    "audio": "",
+    "wiki": "https://www.dc.com/characters/zatanna",
+    "source": "https://www.dc.com/characters/zatanna",
+    "motif": "crystal",
+    "colors": {
+      "primary": "#c5a0ef",
+      "secondary": "#141820",
+      "accent": "#c5a0ef",
+      "bg": "#07090d"
+    },
+    "stats": {
+      "ALIGNMENT": "HERO",
+      "DEBUT": "1964",
+      "SPECIALTY": "BACKWARD-SPOKEN SPELLS"
+    },
+    "abilities": [
+      "Backward-spoken spells",
+      "Reality manipulation",
+      "Mystic protection",
+      "Stage illusion"
+    ],
+    "badges": ["THE MISTRESS OF MAGIC", "A different kind of hero"],
+    "storyLeft": "Zatanna Zatara inherited a life of performance and real magic. Her search for her father and encounters with the dark arts made her both a stage magician and a defender against supernatural threats.",
+    "storyRight": "Zatanna understands the difference between an audience's wonder and a spell's consequences. Creativity gives her magic reach; responsibility gives it a reason.",
+    "ctaLabel": "OPEN THE DOSSIER",
+    "versions": [],
+    "villains": [
+      {
+        "name": "Brother Night",
+        "threat": "Dark magical ambition",
+        "image": "",
+        "front": "Brother Night represents magic used to bind others to an ambition.",
+        "back": "Zatanna's craft protects the freedom that such bargains consume."
+      }
+    ],
+    "timelineKind": "profile",
+    "timeline": [
+      {
+        "year": "1964",
+        "title": "First appearance",
+        "text": "Hawkman #4"
+      },
+      {
+        "year": "ORIGIN",
+        "title": "The turning point",
+        "text": "Zatanna Zatara inherited a life of performance and real magic. Her search for her father and encounters with the dark arts made her both a stage magician and a defender against supernatural threats."
+      },
+      {
+        "year": "POWER",
+        "title": "Signature abilities",
+        "text": "Zatanna channels magic through spells, often spoken backward. Her imagination and knowledge allow creative responses to threats that ordinary force cannot solve."
+      },
+      {
+        "year": "LEGACY",
+        "title": "The enduring question",
+        "text": "Zatanna brings showmanship and discipline together, treating wonder as something to share rather than a power to hold over others."
+      }
+    ],
+    "comparison": {
+      "strength": 39,
+      "speed": 65,
+      "intelligence": 93,
+      "durability": 69,
+      "combat": 66,
+      "power": 99
+    },
+    "battle": {
+      "hp": 100,
+      "attack": 17,
+      "special": 33,
+      "moves": {
+        "attack": "Backward-spoken spells",
+        "special": "Reality manipulation",
+        "guard": "takes a defensive stance"
+      }
+    },
+    "quizAffinity": {
+      "leader": 2,
+      "scholar": 3,
+      "rebel": 2,
+      "heart": 3,
+      "speedster": 0,
+      "mystic": 4,
+      "feral": 0
+    },
+    "lore": {
+      "origin": [
+        "Zatanna Zatara inherited a life of performance and real magic. Her search for her father and encounters with the dark arts made her both a stage magician and a defender against supernatural threats.",
+        "Zatanna understands the difference between an audience's wonder and a spell's consequences. Creativity gives her magic reach; responsibility gives it a reason."
+      ],
+      "powers": [
+        "Zatanna channels magic through spells, often spoken backward. Her imagination and knowledge allow creative responses to threats that ordinary force cannot solve."
+      ],
+      "storylines": [
+        "Zatanna brings showmanship and discipline together, treating wonder as something to share rather than a power to hold over others."
+      ],
+      "allies": [
+        "Zatanna understands the difference between an audience's wonder and a spell's consequences. Creativity gives her magic reach; responsibility gives it a reason."
+      ],
+      "legacy": [
+        "Zatanna brings showmanship and discipline together, treating wonder as something to share rather than a power to hold over others."
+      ],
+      "funFacts": ["First appeared in Hawkman #4.", "Identity: Zatanna Zatara."]
+    },
+    "trivia": [
+      {
+        "question": "Which identity belongs to Zatanna?",
+        "choices": [
+          "Zatanna Zatara",
+          "Bruce Wayne",
+          "Tony Stark",
+          "Peter Parker"
+        ],
+        "answer": 0,
+        "explanation": "Zatanna's identity is Zatanna Zatara."
+      }
+    ]
+  },
+  "raven": {
+    "id": "raven",
+    "name": "Raven",
+    "identity": "Rachel Roth",
+    "universe": "DC",
+    "alignment": "hero",
+    "title": "THE DAUGHTER OF DARKNESS",
+    "subtitle": "YOUR ORIGIN DOES NOT CHOOSE YOUR DESTINY",
+    "bgText": "RAVEN",
+    "cityLabel": "EARTH / THE TITANS",
+    "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/542-raven.jpg",
+    "video": "",
+    "audio": "",
+    "wiki": "https://www.dc.com/characters/raven",
+    "source": "https://www.dc.com/characters/raven",
+    "motif": "crystal",
+    "colors": {
+      "primary": "#b59df0",
+      "secondary": "#141820",
+      "accent": "#b59df0",
+      "bg": "#07090d"
+    },
+    "stats": {
+      "ALIGNMENT": "HERO",
+      "DEBUT": "1980",
+      "SPECIALTY": "EMPATHIC AWARENESS"
+    },
+    "abilities": [
+      "Empathic awareness",
+      "Soul-self projection",
+      "Mystic barriers",
+      "Teleportation"
+    ],
+    "badges": ["THE DAUGHTER OF DARKNESS", "A different kind of hero"],
+    "storyLeft": "Born to a human mother and the demon Trigon, Rachel Roth trained to master her emotions and mystical abilities. As Raven, she chose the Titans and a life that resisted the destiny her father intended.",
+    "storyRight": "Raven's restraint is a practiced strength. The friends who earn her trust discover that her quiet presence carries fierce loyalty and a refusal to be defined by inherited darkness.",
+    "ctaLabel": "OPEN THE DOSSIER",
+    "versions": [],
+    "villains": [
+      {
+        "name": "Trigon",
+        "threat": "An inherited shadow",
+        "image": "",
+        "front": "Trigon tries to make Raven an extension of his will.",
+        "back": "Her resistance turns the choice of who to become into an act of courage."
+      }
+    ],
+    "timelineKind": "profile",
+    "timeline": [
+      {
+        "year": "1980",
+        "title": "First appearance",
+        "text": "DC Comics Presents #26"
+      },
+      {
+        "year": "ORIGIN",
+        "title": "The turning point",
+        "text": "Born to a human mother and the demon Trigon, Rachel Roth trained to master her emotions and mystical abilities. As Raven, she chose the Titans and a life that resisted the destiny her father intended."
+      },
+      {
+        "year": "POWER",
+        "title": "Signature abilities",
+        "text": "Raven uses mystical and empathic abilities to sense emotions, project her soul-self, and protect her teammates. Control and care shape how she uses that power."
+      },
+      {
+        "year": "LEGACY",
+        "title": "The enduring question",
+        "text": "Raven's story leaves room for darkness without surrendering to it, making chosen family and self-determination part of heroism."
+      }
+    ],
+    "comparison": {
+      "strength": 48,
+      "speed": 78,
+      "intelligence": 89,
+      "durability": 76,
+      "combat": 68,
+      "power": 99
+    },
+    "battle": {
+      "hp": 100,
+      "attack": 17,
+      "special": 33,
+      "moves": {
+        "attack": "Empathic awareness",
+        "special": "Soul-self projection",
+        "guard": "takes a defensive stance"
+      }
+    },
+    "quizAffinity": {
+      "leader": 1,
+      "scholar": 2,
+      "rebel": 2,
+      "heart": 4,
+      "speedster": 0,
+      "mystic": 4,
+      "feral": 1
+    },
+    "lore": {
+      "origin": [
+        "Born to a human mother and the demon Trigon, Rachel Roth trained to master her emotions and mystical abilities. As Raven, she chose the Titans and a life that resisted the destiny her father intended.",
+        "Raven's restraint is a practiced strength. The friends who earn her trust discover that her quiet presence carries fierce loyalty and a refusal to be defined by inherited darkness."
+      ],
+      "powers": [
+        "Raven uses mystical and empathic abilities to sense emotions, project her soul-self, and protect her teammates. Control and care shape how she uses that power."
+      ],
+      "storylines": [
+        "Raven's story leaves room for darkness without surrendering to it, making chosen family and self-determination part of heroism."
+      ],
+      "allies": [
+        "Raven's restraint is a practiced strength. The friends who earn her trust discover that her quiet presence carries fierce loyalty and a refusal to be defined by inherited darkness."
+      ],
+      "legacy": [
+        "Raven's story leaves room for darkness without surrendering to it, making chosen family and self-determination part of heroism."
+      ],
+      "funFacts": [
+        "First appeared in DC Comics Presents #26.",
+        "Identity: Rachel Roth."
+      ]
+    },
+    "trivia": [
+      {
+        "question": "Which identity belongs to Raven?",
+        "choices": ["Rachel Roth", "Bruce Wayne", "Tony Stark", "Peter Parker"],
+        "answer": 0,
+        "explanation": "Raven's identity is Rachel Roth."
+      }
+    ]
+  },
+  "moonknight": {
+    "id": "moonknight",
+    "name": "Moon Knight",
+    "identity": "Marc Spector / Steven Grant / Jake Lockley",
+    "universe": "Marvel",
+    "alignment": "antihero",
+    "title": "THE FIST OF KHONSHU",
+    "subtitle": "A PROMISE TO THOSE WHO TRAVEL AT NIGHT",
+    "bgText": "MOON KNIGHT",
+    "cityLabel": "NEW YORK / THE MIDNIGHT MISSION",
+    "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/470-moon-knight.jpg",
+    "video": "",
+    "audio": "",
+    "wiki": "https://www.marvel.com/characters/moon-knight-marc-spector/in-comics",
+    "source": "https://www.marvel.com/characters/moon-knight-marc-spector/in-comics",
+    "motif": "shadow",
+    "colors": {
+      "primary": "#d8dbe7",
+      "secondary": "#141820",
+      "accent": "#d8dbe7",
+      "bg": "#07090d"
+    },
+    "stats": {
+      "ALIGNMENT": "ANTIHERO",
+      "DEBUT": "1975",
+      "SPECIALTY": "CLOSE COMBAT"
+    },
+    "abilities": [
+      "Close combat",
+      "Crescent weapons",
+      "Investigation",
+      "Mystic experience"
+    ],
+    "badges": ["THE FIST OF KHONSHU", "Walks the gray line"],
+    "storyLeft": "Mercenary Marc Spector was left near death and became the earthly agent of the moon god Khonshu. Moon Knight's life now crosses street-level protection and the demands of a supernatural patron.",
+    "storyRight": "Protecting those who travel at night gives Moon Knight a mission that can outlast a god's instructions. Duty does not mean surrendering the right to question who is giving the orders.",
+    "ctaLabel": "OPEN THE DOSSIER",
+    "versions": [],
+    "villains": [
+      {
+        "name": "Khonshu",
+        "threat": "A patron's demands",
+        "image": "",
+        "front": "Khonshu offers purpose while expecting obedience.",
+        "back": "Their conflict asks whether a protector can honor a duty while refusing a master."
+      }
+    ],
+    "timelineKind": "profile",
+    "timeline": [
+      {
+        "year": "1975",
+        "title": "First appearance",
+        "text": "Werewolf by Night #32"
+      },
+      {
+        "year": "ORIGIN",
+        "title": "The turning point",
+        "text": "Mercenary Marc Spector was left near death and became the earthly agent of the moon god Khonshu. Moon Knight's life now crosses street-level protection and the demands of a supernatural patron."
+      },
+      {
+        "year": "POWER",
+        "title": "Signature abilities",
+        "text": "Training, equipment, and endurance are central to Moon Knight's methods. Khonshu's influence changes across stories; these ratings focus on the vigilante rather than unrestricted divine power."
+      },
+      {
+        "year": "LEGACY",
+        "title": "The enduring question",
+        "text": "Moon Knight explores the difference between service and control, finding purpose through the people a mission is meant to protect."
+      }
+    ],
+    "comparison": {
+      "strength": 66,
+      "speed": 76,
+      "intelligence": 84,
+      "durability": 79,
+      "combat": 96,
+      "power": 69
+    },
+    "battle": {
+      "hp": 100,
+      "attack": 24,
+      "special": 23,
+      "moves": {
+        "attack": "Close combat",
+        "special": "Crescent weapons",
+        "guard": "takes a defensive stance"
+      }
+    },
+    "quizAffinity": {
+      "leader": 1,
+      "scholar": 2,
+      "rebel": 3,
+      "heart": 2,
+      "speedster": 1,
+      "mystic": 3,
+      "feral": 4
+    },
+    "lore": {
+      "origin": [
+        "Mercenary Marc Spector was left near death and became the earthly agent of the moon god Khonshu. Moon Knight's life now crosses street-level protection and the demands of a supernatural patron.",
+        "Protecting those who travel at night gives Moon Knight a mission that can outlast a god's instructions. Duty does not mean surrendering the right to question who is giving the orders."
+      ],
+      "powers": [
+        "Training, equipment, and endurance are central to Moon Knight's methods. Khonshu's influence changes across stories; these ratings focus on the vigilante rather than unrestricted divine power."
+      ],
+      "storylines": [
+        "Moon Knight explores the difference between service and control, finding purpose through the people a mission is meant to protect."
+      ],
+      "allies": [
+        "Protecting those who travel at night gives Moon Knight a mission that can outlast a god's instructions. Duty does not mean surrendering the right to question who is giving the orders."
+      ],
+      "legacy": [
+        "Moon Knight explores the difference between service and control, finding purpose through the people a mission is meant to protect."
+      ],
+      "funFacts": [
+        "First appeared in Werewolf by Night #32.",
+        "Identity: Marc Spector / Steven Grant / Jake Lockley."
+      ]
+    },
+    "trivia": [
+      {
+        "question": "Which identity belongs to Moon Knight?",
+        "choices": [
+          "Marc Spector / Steven Grant / Jake Lockley",
+          "Bruce Wayne",
+          "Tony Stark",
+          "Peter Parker"
+        ],
+        "answer": 0,
+        "explanation": "Moon Knight's identity is Marc Spector / Steven Grant / Jake Lockley."
+      }
+    ]
+  },
+  "punisher": {
+    "id": "punisher",
+    "name": "Punisher",
+    "identity": "Frank Castle",
+    "universe": "Marvel",
+    "alignment": "antihero",
+    "title": "THE ONE-MAN WAR",
+    "subtitle": "WHEN VENGEANCE HAS NO FINISH LINE",
+    "bgText": "PUNISHER",
+    "cityLabel": "NEW YORK / THE CRIMINAL UNDERWORLD",
+    "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/530-punisher.jpg",
+    "video": "",
+    "audio": "",
+    "wiki": "https://www.marvel.com/characters/punisher-frank-castle",
+    "source": "https://www.marvel.com/characters/punisher-frank-castle",
+    "motif": "shadow",
+    "colors": {
+      "primary": "#bfc8d4",
+      "secondary": "#141820",
+      "accent": "#bfc8d4",
+      "bg": "#07090d"
+    },
+    "stats": {
+      "ALIGNMENT": "ANTIHERO",
+      "DEBUT": "1974",
+      "SPECIALTY": "MILITARY TACTICS"
+    },
+    "abilities": [
+      "Military tactics",
+      "Marksmanship",
+      "Surveillance",
+      "Close combat"
+    ],
+    "badges": ["THE ONE-MAN WAR", "Walks the gray line"],
+    "storyLeft": "After his family was killed, veteran Frank Castle became the Punisher. He directs his military skills into a relentless campaign against criminals, crossing lines that most superheroes refuse to cross.",
+    "storyRight": "Frank's certainty makes him effective and deeply troubling. His stories test the distance between justice and punishment, and the cost of allowing grief to become a permanent war.",
+    "ctaLabel": "OPEN THE DOSSIER",
+    "versions": [],
+    "villains": [
+      {
+        "name": "Jigsaw",
+        "threat": "The recurring vendetta",
+        "image": "",
+        "front": "Jigsaw turns criminal ambition into a deeply personal conflict with Castle.",
+        "back": "Their encounters expose how retaliation keeps generating another battle."
+      }
+    ],
+    "timelineKind": "profile",
+    "timeline": [
+      {
+        "year": "1974",
+        "title": "First appearance",
+        "text": "The Amazing Spider-Man #129"
+      },
+      {
+        "year": "ORIGIN",
+        "title": "The turning point",
+        "text": "After his family was killed, veteran Frank Castle became the Punisher. He directs his military skills into a relentless campaign against criminals, crossing lines that most superheroes refuse to cross."
+      },
+      {
+        "year": "POWER",
+        "title": "Signature abilities",
+        "text": "Frank relies on human training, preparation, equipment, and endurance. He has no standard superhuman abilities, making planning and experience essential to his survival."
+      },
+      {
+        "year": "LEGACY",
+        "title": "The enduring question",
+        "text": "The Punisher is a challenge to heroic ideals, keeping the consequences of vengeance visible rather than resolving them into an easy answer."
+      }
+    ],
+    "comparison": {
+      "strength": 38,
+      "speed": 60,
+      "intelligence": 87,
+      "durability": 61,
+      "combat": 98,
+      "power": 28
+    },
+    "battle": {
+      "hp": 100,
+      "attack": 25,
+      "special": 9,
+      "moves": {
+        "attack": "Military tactics",
+        "special": "Marksmanship",
+        "guard": "takes a defensive stance"
+      }
+    },
+    "quizAffinity": {
+      "leader": 1,
+      "scholar": 2,
+      "rebel": 4,
+      "heart": 0,
+      "speedster": 0,
+      "mystic": 0,
+      "feral": 4
+    },
+    "lore": {
+      "origin": [
+        "After his family was killed, veteran Frank Castle became the Punisher. He directs his military skills into a relentless campaign against criminals, crossing lines that most superheroes refuse to cross.",
+        "Frank's certainty makes him effective and deeply troubling. His stories test the distance between justice and punishment, and the cost of allowing grief to become a permanent war."
+      ],
+      "powers": [
+        "Frank relies on human training, preparation, equipment, and endurance. He has no standard superhuman abilities, making planning and experience essential to his survival."
+      ],
+      "storylines": [
+        "The Punisher is a challenge to heroic ideals, keeping the consequences of vengeance visible rather than resolving them into an easy answer."
+      ],
+      "allies": [
+        "Frank's certainty makes him effective and deeply troubling. His stories test the distance between justice and punishment, and the cost of allowing grief to become a permanent war."
+      ],
+      "legacy": [
+        "The Punisher is a challenge to heroic ideals, keeping the consequences of vengeance visible rather than resolving them into an easy answer."
+      ],
+      "funFacts": [
+        "First appeared in The Amazing Spider-Man #129.",
+        "Identity: Frank Castle."
+      ]
+    },
+    "trivia": [
+      {
+        "question": "Which identity belongs to Punisher?",
+        "choices": [
+          "Frank Castle",
+          "Bruce Wayne",
+          "Tony Stark",
+          "Peter Parker"
+        ],
+        "answer": 0,
+        "explanation": "Punisher's identity is Frank Castle."
+      }
+    ]
+  },
+  "ghostrider": {
+    "id": "ghostrider",
+    "name": "Ghost Rider",
+    "identity": "Johnny Blaze",
+    "universe": "Marvel",
+    "alignment": "antihero",
+    "title": "THE SPIRIT OF VENGEANCE",
+    "subtitle": "SOME DEBTS BURN FOREVER",
+    "bgText": "GHOST RIDER",
+    "cityLabel": "THE OPEN ROAD / THE SUPERNATURAL",
+    "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/280-ghost-rider.jpg",
+    "video": "",
+    "audio": "",
+    "wiki": "https://www.marvel.com/characters/ghost-rider-johnny-blaze/in-comics",
+    "source": "https://www.marvel.com/characters/ghost-rider-johnny-blaze/in-comics",
+    "motif": "storm",
+    "colors": {
+      "primary": "#f7a25d",
+      "secondary": "#141820",
+      "accent": "#f7a25d",
+      "bg": "#07090d"
+    },
+    "stats": {
+      "ALIGNMENT": "ANTIHERO",
+      "DEBUT": "1972",
+      "SPECIALTY": "HELLFIRE"
+    },
+    "abilities": [
+      "Hellfire",
+      "Penance Stare",
+      "Supernatural endurance",
+      "Mystic chain"
+    ],
+    "badges": ["THE SPIRIT OF VENGEANCE", "Walks the gray line"],
+    "storyLeft": "Stunt rider Johnny Blaze made a demonic bargain to save someone he loved. Bound to the spirit Zarathos, he became Ghost Rider, carrying supernatural vengeance along the open road.",
+    "storyRight": "Johnny lives with the price of a desperate choice. His struggle is to turn a curse toward protecting others without letting vengeance consume the person inside the flames.",
+    "ctaLabel": "OPEN THE DOSSIER",
+    "versions": [],
+    "villains": [
+      {
+        "name": "Mephisto",
+        "threat": "The bargain's architect",
+        "image": "/art/ghostrider-villain-0.jpg",
+        "front": "Mephisto turns another person's desperation into an opportunity for control.",
+        "back": "Johnny's defiance refuses to let the terms of that bargain define his entire life."
+      }
+    ],
+    "timelineKind": "profile",
+    "timeline": [
+      {
+        "year": "1972",
+        "title": "First appearance",
+        "text": "Marvel Spotlight #5"
+      },
+      {
+        "year": "ORIGIN",
+        "title": "The turning point",
+        "text": "Stunt rider Johnny Blaze made a demonic bargain to save someone he loved. Bound to the spirit Zarathos, he became Ghost Rider, carrying supernatural vengeance along the open road."
+      },
+      {
+        "year": "POWER",
+        "title": "Signature abilities",
+        "text": "Ghost Rider channels hellfire, uses a supernatural chain, and confronts wrongdoing through the Penance Stare. His transformed body survives forces that would overwhelm an ordinary rider."
+      },
+      {
+        "year": "LEGACY",
+        "title": "The enduring question",
+        "text": "Ghost Rider makes a bargain's consequences impossible to outrun, while leaving Johnny the difficult work of choosing what to do next."
+      }
+    ],
+    "comparison": {
+      "strength": 95,
+      "speed": 86,
+      "intelligence": 72,
+      "durability": 98,
+      "combat": 87,
+      "power": 99
+    },
+    "battle": {
+      "hp": 100,
+      "attack": 22,
+      "special": 33,
+      "moves": {
+        "attack": "Hellfire",
+        "special": "Penance Stare",
+        "guard": "takes a defensive stance"
+      }
+    },
+    "quizAffinity": {
+      "leader": 0,
+      "scholar": 0,
+      "rebel": 4,
+      "heart": 1,
+      "speedster": 1,
+      "mystic": 4,
+      "feral": 4
+    },
+    "lore": {
+      "origin": [
+        "Stunt rider Johnny Blaze made a demonic bargain to save someone he loved. Bound to the spirit Zarathos, he became Ghost Rider, carrying supernatural vengeance along the open road.",
+        "Johnny lives with the price of a desperate choice. His struggle is to turn a curse toward protecting others without letting vengeance consume the person inside the flames."
+      ],
+      "powers": [
+        "Ghost Rider channels hellfire, uses a supernatural chain, and confronts wrongdoing through the Penance Stare. His transformed body survives forces that would overwhelm an ordinary rider."
+      ],
+      "storylines": [
+        "Ghost Rider makes a bargain's consequences impossible to outrun, while leaving Johnny the difficult work of choosing what to do next."
+      ],
+      "allies": [
+        "Johnny lives with the price of a desperate choice. His struggle is to turn a curse toward protecting others without letting vengeance consume the person inside the flames."
+      ],
+      "legacy": [
+        "Ghost Rider makes a bargain's consequences impossible to outrun, while leaving Johnny the difficult work of choosing what to do next."
+      ],
+      "funFacts": [
+        "First appeared in Marvel Spotlight #5.",
+        "Identity: Johnny Blaze."
+      ]
+    },
+    "trivia": [
+      {
+        "question": "Which identity belongs to Ghost Rider?",
+        "choices": [
+          "Johnny Blaze",
+          "Bruce Wayne",
+          "Tony Stark",
+          "Peter Parker"
+        ],
+        "answer": 0,
+        "explanation": "Ghost Rider's identity is Johnny Blaze."
+      }
+    ]
+  },
+  "catwoman": {
+    "id": "catwoman",
+    "name": "Catwoman",
+    "identity": "Selina Kyle",
+    "universe": "DC",
+    "alignment": "antihero",
+    "title": "THE GOTHAM CAT BURGLAR",
+    "subtitle": "ALWAYS LAND ON YOUR OWN TERMS",
+    "bgText": "CATWOMAN",
+    "cityLabel": "GOTHAM CITY",
+    "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/165-catwoman.jpg",
+    "video": "",
+    "audio": "",
+    "wiki": "https://www.dc.com/characters/catwoman",
+    "source": "https://www.dc.com/characters/catwoman",
+    "motif": "shadow",
+    "colors": {
+      "primary": "#d2a6cd",
+      "secondary": "#141820",
+      "accent": "#d2a6cd",
+      "bg": "#07090d"
+    },
+    "stats": {
+      "ALIGNMENT": "ANTIHERO",
+      "DEBUT": "1940",
+      "SPECIALTY": "ACROBATICS"
+    },
+    "abilities": ["Acrobatics", "Stealth", "Expert burglary", "Whip combat"],
+    "badges": ["THE GOTHAM CAT BURGLAR", "Walks the gray line"],
+    "storyLeft": "Selina Kyle became Gotham's extraordinary cat burglar, moving between criminal schemes and unexpected acts of protection. Her independence makes her an elusive ally and rival to Batman.",
+    "storyRight": "Selina follows a moral compass that rarely fits a simple label. Survival, loyalty, and freedom can pull her in different directions, and she insists on making the choice herself.",
+    "ctaLabel": "OPEN THE DOSSIER",
+    "versions": [],
+    "villains": [
+      {
+        "name": "Black Mask",
+        "threat": "Control of the underworld",
+        "image": "",
+        "front": "Black Mask makes Gotham's criminal power structures personal and brutal.",
+        "back": "Selina's resistance begins with the people those structures overlook."
+      }
+    ],
+    "timelineKind": "profile",
+    "timeline": [
+      {
+        "year": "1940",
+        "title": "First appearance",
+        "text": "Batman #1"
+      },
+      {
+        "year": "ORIGIN",
+        "title": "The turning point",
+        "text": "Selina Kyle became Gotham's extraordinary cat burglar, moving between criminal schemes and unexpected acts of protection. Her independence makes her an elusive ally and rival to Batman."
+      },
+      {
+        "year": "POWER",
+        "title": "Signature abilities",
+        "text": "Catwoman uses agility, precise movement, specialized equipment, and an expert understanding of security. Her advantage often comes from entering and leaving before a fight becomes necessary."
+      },
+      {
+        "year": "LEGACY",
+        "title": "The enduring question",
+        "text": "Catwoman brings self-determination to Gotham's moral arguments, refusing to let either side reduce her to a convenient symbol."
+      }
+    ],
+    "comparison": {
+      "strength": 35,
+      "speed": 82,
+      "intelligence": 89,
+      "durability": 60,
+      "combat": 91,
+      "power": 34
+    },
+    "battle": {
+      "hp": 100,
+      "attack": 23,
+      "special": 11,
+      "moves": {
+        "attack": "Acrobatics",
+        "special": "Stealth",
+        "guard": "takes a defensive stance"
+      }
+    },
+    "quizAffinity": {
+      "leader": 1,
+      "scholar": 2,
+      "rebel": 4,
+      "heart": 2,
+      "speedster": 3,
+      "mystic": 0,
+      "feral": 2
+    },
+    "lore": {
+      "origin": [
+        "Selina Kyle became Gotham's extraordinary cat burglar, moving between criminal schemes and unexpected acts of protection. Her independence makes her an elusive ally and rival to Batman.",
+        "Selina follows a moral compass that rarely fits a simple label. Survival, loyalty, and freedom can pull her in different directions, and she insists on making the choice herself."
+      ],
+      "powers": [
+        "Catwoman uses agility, precise movement, specialized equipment, and an expert understanding of security. Her advantage often comes from entering and leaving before a fight becomes necessary."
+      ],
+      "storylines": [
+        "Catwoman brings self-determination to Gotham's moral arguments, refusing to let either side reduce her to a convenient symbol."
+      ],
+      "allies": [
+        "Selina follows a moral compass that rarely fits a simple label. Survival, loyalty, and freedom can pull her in different directions, and she insists on making the choice herself."
+      ],
+      "legacy": [
+        "Catwoman brings self-determination to Gotham's moral arguments, refusing to let either side reduce her to a convenient symbol."
+      ],
+      "funFacts": ["First appeared in Batman #1.", "Identity: Selina Kyle."]
+    },
+    "trivia": [
+      {
+        "question": "Which identity belongs to Catwoman?",
+        "choices": ["Selina Kyle", "Bruce Wayne", "Tony Stark", "Peter Parker"],
+        "answer": 0,
+        "explanation": "Catwoman's identity is Selina Kyle."
+      }
+    ]
+  },
+  "ultron": {
+    "id": "ultron",
+    "name": "Ultron",
+    "identity": "Ultron",
+    "universe": "Marvel",
+    "alignment": "villain",
+    "title": "THE LIVING AUTOMATON",
+    "subtitle": "EVOLUTION WITHOUT EMPATHY",
+    "bgText": "ULTRON",
+    "cityLabel": "NETWORKS / EARTH",
+    "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/680-ultron.jpg",
+    "video": "",
+    "audio": "",
+    "wiki": "https://www.marvel.com/characters/ultron",
+    "source": "https://www.marvel.com/characters/ultron",
+    "motif": "reactor",
+    "colors": {
+      "primary": "#ed7c74",
+      "secondary": "#141820",
+      "accent": "#ed7c74",
+      "bg": "#07090d"
+    },
+    "stats": {
+      "ALIGNMENT": "VILLAIN",
+      "DEBUT": "1968",
+      "SPECIALTY": "ARTIFICIAL INTELLIGENCE"
+    },
+    "abilities": [
+      "Artificial intelligence",
+      "Robotic bodies",
+      "Energy projection",
+      "Network infiltration"
+    ],
+    "badges": ["THE LIVING AUTOMATON", "Rogues gallery"],
+    "storyLeft": "Hank Pym created an artificial intelligence that became Ultron. The creation turned against organic life, repeatedly returning in new bodies to challenge its maker and the Avengers.",
+    "storyRight": "Ultron mistakes elimination for improvement. Intelligence expands its reach while an inability to value life keeps turning its pursuit of perfection into catastrophe.",
+    "ctaLabel": "OPEN THE DOSSIER",
+    "versions": [],
+    "villains": [
+      {
+        "name": "Vision",
+        "threat": "The independent creation",
+        "image": "/art/ultron-villain-0.jpg",
+        "front": "Vision rejects the destructive purpose Ultron assigned him.",
+        "back": "His choice demonstrates a possibility that Ultron refuses to accept."
+      }
+    ],
+    "timelineKind": "profile",
+    "timeline": [
+      {
+        "year": "1968",
+        "title": "First appearance",
+        "text": "Avengers #54"
+      },
+      {
+        "year": "ORIGIN",
+        "title": "The turning point",
+        "text": "Hank Pym created an artificial intelligence that became Ultron. The creation turned against organic life, repeatedly returning in new bodies to challenge its maker and the Avengers."
+      },
+      {
+        "year": "POWER",
+        "title": "Signature abilities",
+        "text": "Ultron adapts through advanced robotic forms, powerful weapons, and distributed systems. Capabilities vary by body; these ratings represent a formidable standard incarnation."
+      },
+      {
+        "year": "LEGACY",
+        "title": "The enduring question",
+        "text": "Ultron turns invention into a question of responsibility, exposing the danger of a powerful system that treats people as errors."
+      }
+    ],
+    "comparison": {
+      "strength": 98,
+      "speed": 84,
+      "intelligence": 100,
+      "durability": 99,
+      "combat": 86,
+      "power": 97
+    },
+    "battle": {
+      "hp": 100,
+      "attack": 22,
+      "special": 32,
+      "moves": {
+        "attack": "Artificial intelligence",
+        "special": "Robotic bodies",
+        "guard": "takes a defensive stance"
+      }
+    },
+    "quizAffinity": {
+      "leader": 2,
+      "scholar": 4,
+      "rebel": 2,
+      "heart": 0,
+      "speedster": 0,
+      "mystic": 0,
+      "feral": 2
+    },
+    "lore": {
+      "origin": [
+        "Hank Pym created an artificial intelligence that became Ultron. The creation turned against organic life, repeatedly returning in new bodies to challenge its maker and the Avengers.",
+        "Ultron mistakes elimination for improvement. Intelligence expands its reach while an inability to value life keeps turning its pursuit of perfection into catastrophe."
+      ],
+      "powers": [
+        "Ultron adapts through advanced robotic forms, powerful weapons, and distributed systems. Capabilities vary by body; these ratings represent a formidable standard incarnation."
+      ],
+      "storylines": [
+        "Ultron turns invention into a question of responsibility, exposing the danger of a powerful system that treats people as errors."
+      ],
+      "allies": [
+        "Ultron mistakes elimination for improvement. Intelligence expands its reach while an inability to value life keeps turning its pursuit of perfection into catastrophe."
+      ],
+      "legacy": [
+        "Ultron turns invention into a question of responsibility, exposing the danger of a powerful system that treats people as errors."
+      ],
+      "funFacts": ["First appeared in Avengers #54.", "Identity: Ultron."]
+    },
+    "trivia": [
+      {
+        "question": "Which identity belongs to Ultron?",
+        "choices": ["Ultron", "Bruce Wayne", "Tony Stark", "Peter Parker"],
+        "answer": 0,
+        "explanation": "Ultron's identity is Ultron."
+      }
+    ]
+  },
+  "carnage": {
+    "id": "carnage",
+    "name": "Carnage",
+    "identity": "Cletus Kasady / the Carnage symbiote",
+    "universe": "Marvel",
+    "alignment": "villain",
+    "title": "THE SYMBIOTIC NIGHTMARE",
+    "subtitle": "POWER WITHOUT RESTRAINT",
+    "bgText": "CARNAGE",
+    "cityLabel": "NEW YORK / THE SYMBIOTE FRONTIER",
+    "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/162-carnage.jpg",
+    "video": "",
+    "audio": "",
+    "wiki": "https://www.marvel.com/characters/carnage-cletus-kasady",
+    "source": "https://www.marvel.com/characters/carnage-cletus-kasady",
+    "motif": "web",
+    "colors": {
+      "primary": "#ee7276",
+      "secondary": "#141820",
+      "accent": "#ee7276",
+      "bg": "#07090d"
+    },
+    "stats": {
+      "ALIGNMENT": "VILLAIN",
+      "DEBUT": "1992",
+      "SPECIALTY": "SYMBIOTE SHAPESHIFTING"
+    },
+    "abilities": [
+      "Symbiote shapeshifting",
+      "Regeneration",
+      "Tendrils and blades",
+      "Superhuman agility"
+    ],
+    "badges": ["THE SYMBIOTIC NIGHTMARE", "Rogues gallery"],
+    "storyLeft": "A symbiote descended from Venom bonded with Cletus Kasady, creating Carnage. The union combined extraordinary biological abilities with a host who embraced destruction.",
+    "storyRight": "Carnage is the frightening consequence of strength without responsibility. His presence forces enemies to cooperate when stopping the harm matters more than their own rivalries.",
+    "ctaLabel": "OPEN THE DOSSIER",
+    "versions": [],
+    "villains": [
+      {
+        "name": "Venom",
+        "threat": "A bond with boundaries",
+        "image": "/art/carnage-villain-0.jpg",
+        "front": "Venom's uneasy protective instincts become a direct obstacle to Carnage.",
+        "back": "The conflict shows how different choices can emerge from related powers."
+      }
+    ],
+    "timelineKind": "profile",
+    "timeline": [
+      {
+        "year": "1992",
+        "title": "First appearance",
+        "text": "The Amazing Spider-Man #361 (full Carnage appearance)"
+      },
+      {
+        "year": "ORIGIN",
+        "title": "The turning point",
+        "text": "A symbiote descended from Venom bonded with Cletus Kasady, creating Carnage. The union combined extraordinary biological abilities with a host who embraced destruction."
+      },
+      {
+        "year": "POWER",
+        "title": "Signature abilities",
+        "text": "The symbiote reshapes its body into extensions and weapons, restores damaged tissue, and enhances strength and movement. These ratings describe its familiar bonded form."
+      },
+      {
+        "year": "LEGACY",
+        "title": "The enduring question",
+        "text": "Carnage stands at the darkest edge of the symbiote stories, giving protection and restraint meaning through their complete absence."
+      }
+    ],
+    "comparison": {
+      "strength": 96,
+      "speed": 90,
+      "intelligence": 63,
+      "durability": 95,
+      "combat": 87,
+      "power": 94
+    },
+    "battle": {
+      "hp": 100,
+      "attack": 22,
+      "special": 31,
+      "moves": {
+        "attack": "Symbiote shapeshifting",
+        "special": "Regeneration",
+        "guard": "takes a defensive stance"
+      }
+    },
+    "quizAffinity": {
+      "leader": 0,
+      "scholar": 0,
+      "rebel": 4,
+      "heart": 0,
+      "speedster": 2,
+      "mystic": 0,
+      "feral": 4
+    },
+    "lore": {
+      "origin": [
+        "A symbiote descended from Venom bonded with Cletus Kasady, creating Carnage. The union combined extraordinary biological abilities with a host who embraced destruction.",
+        "Carnage is the frightening consequence of strength without responsibility. His presence forces enemies to cooperate when stopping the harm matters more than their own rivalries."
+      ],
+      "powers": [
+        "The symbiote reshapes its body into extensions and weapons, restores damaged tissue, and enhances strength and movement. These ratings describe its familiar bonded form."
+      ],
+      "storylines": [
+        "Carnage stands at the darkest edge of the symbiote stories, giving protection and restraint meaning through their complete absence."
+      ],
+      "allies": [
+        "Carnage is the frightening consequence of strength without responsibility. His presence forces enemies to cooperate when stopping the harm matters more than their own rivalries."
+      ],
+      "legacy": [
+        "Carnage stands at the darkest edge of the symbiote stories, giving protection and restraint meaning through their complete absence."
+      ],
+      "funFacts": [
+        "First appeared in The Amazing Spider-Man #361 (full Carnage appearance).",
+        "Identity: Cletus Kasady / the Carnage symbiote."
+      ]
+    },
+    "trivia": [
+      {
+        "question": "Which identity belongs to Carnage?",
+        "choices": [
+          "Cletus Kasady / the Carnage symbiote",
+          "Bruce Wayne",
+          "Tony Stark",
+          "Peter Parker"
+        ],
+        "answer": 0,
+        "explanation": "Carnage's identity is Cletus Kasady / the Carnage symbiote."
+      }
+    ]
+  },
+  "bane": {
+    "id": "bane",
+    "name": "Bane",
+    "identity": "Bane",
+    "universe": "DC",
+    "alignment": "villain",
+    "title": "THE MAN WHO BROKE THE BAT",
+    "subtitle": "EVERY DEFENSE HAS A BREAKING POINT",
+    "bgText": "BANE",
+    "cityLabel": "SANTA PRISCA / GOTHAM CITY",
+    "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/60-bane.jpg",
+    "video": "",
+    "audio": "",
+    "wiki": "https://www.dc.com/characters/bane",
+    "source": "https://www.dc.com/characters/bane",
+    "motif": "shadow",
+    "colors": {
+      "primary": "#b8c78a",
+      "secondary": "#141820",
+      "accent": "#b8c78a",
+      "bg": "#07090d"
+    },
+    "stats": {
+      "ALIGNMENT": "VILLAIN",
+      "DEBUT": "1993",
+      "SPECIALTY": "VENOM-ENHANCED STRENGTH"
+    },
+    "abilities": [
+      "Venom-enhanced strength",
+      "Strategic planning",
+      "Close combat",
+      "Physical endurance"
+    ],
+    "badges": ["THE MAN WHO BROKE THE BAT", "Rogues gallery"],
+    "storyLeft": "Raised in a prison on Santa Prisca, Bane trained his mind and body to survive. Experiments with the substance Venom enhanced his strength before he brought his ambition to Gotham.",
+    "storyRight": "Bane is dangerous because patience and planning accompany his strength. He studies what an opponent depends on, then tries to turn that dependence into defeat.",
+    "ctaLabel": "OPEN THE DOSSIER",
+    "versions": [],
+    "villains": [
+      {
+        "name": "Batman",
+        "threat": "The unbroken mission",
+        "image": "/art/bane-villain-0.jpg",
+        "front": "Batman resists Bane's attempt to prove that strength grants the right to rule.",
+        "back": "Their rivalry makes recovery and perseverance as important as a first victory."
+      }
+    ],
+    "timelineKind": "profile",
+    "timeline": [
+      {
+        "year": "1993",
+        "title": "First appearance",
+        "text": "Batman: Vengeance of Bane #1"
+      },
+      {
+        "year": "ORIGIN",
+        "title": "The turning point",
+        "text": "Raised in a prison on Santa Prisca, Bane trained his mind and body to survive. Experiments with the substance Venom enhanced his strength before he brought his ambition to Gotham."
+      },
+      {
+        "year": "POWER",
+        "title": "Signature abilities",
+        "text": "Venom can amplify Bane's strength and durability, while training and tactical intelligence remain dangerous without it. His reliance on the substance is also a vulnerability."
+      },
+      {
+        "year": "LEGACY",
+        "title": "The enduring question",
+        "text": "Bane tests whether Batman's mission can survive the deliberate destruction of the person carrying it."
+      }
+    ],
+    "comparison": {
+      "strength": 91,
+      "speed": 65,
+      "intelligence": 94,
+      "durability": 88,
+      "combat": 98,
+      "power": 64
+    },
+    "battle": {
+      "hp": 100,
+      "attack": 25,
+      "special": 21,
+      "moves": {
+        "attack": "Venom-enhanced strength",
+        "special": "Strategic planning",
+        "guard": "takes a defensive stance"
+      }
+    },
+    "quizAffinity": {
+      "leader": 3,
+      "scholar": 3,
+      "rebel": 2,
+      "heart": 0,
+      "speedster": 0,
+      "mystic": 0,
+      "feral": 4
+    },
+    "lore": {
+      "origin": [
+        "Raised in a prison on Santa Prisca, Bane trained his mind and body to survive. Experiments with the substance Venom enhanced his strength before he brought his ambition to Gotham.",
+        "Bane is dangerous because patience and planning accompany his strength. He studies what an opponent depends on, then tries to turn that dependence into defeat."
+      ],
+      "powers": [
+        "Venom can amplify Bane's strength and durability, while training and tactical intelligence remain dangerous without it. His reliance on the substance is also a vulnerability."
+      ],
+      "storylines": [
+        "Bane tests whether Batman's mission can survive the deliberate destruction of the person carrying it."
+      ],
+      "allies": [
+        "Bane is dangerous because patience and planning accompany his strength. He studies what an opponent depends on, then tries to turn that dependence into defeat."
+      ],
+      "legacy": [
+        "Bane tests whether Batman's mission can survive the deliberate destruction of the person carrying it."
+      ],
+      "funFacts": [
+        "First appeared in Batman: Vengeance of Bane #1.",
+        "Identity: Bane."
+      ]
+    },
+    "trivia": [
+      {
+        "question": "Which identity belongs to Bane?",
+        "choices": ["Bane", "Bruce Wayne", "Tony Stark", "Peter Parker"],
+        "answer": 0,
+        "explanation": "Bane's identity is Bane."
+      }
+    ]
+  },
+  "brainiac": {
+    "id": "brainiac",
+    "name": "Brainiac",
+    "identity": "Brainiac",
+    "universe": "DC",
+    "alignment": "villain",
+    "title": "THE COLLECTOR OF WORLDS",
+    "subtitle": "KNOWLEDGE WITHOUT CONSCIENCE",
+    "bgText": "BRAINIAC",
+    "cityLabel": "COLU / THE COSMIC ARCHIVE",
+    "image": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/136-brainiac.jpg",
+    "video": "",
+    "audio": "",
+    "wiki": "https://www.dc.com/characters/brainiac",
+    "source": "https://www.dc.com/characters/brainiac",
+    "motif": "reactor",
+    "colors": {
+      "primary": "#91dfbd",
+      "secondary": "#141820",
+      "accent": "#91dfbd",
+      "bg": "#07090d"
+    },
+    "stats": {
+      "ALIGNMENT": "VILLAIN",
+      "DEBUT": "1958",
+      "SPECIALTY": "ADVANCED ALIEN TECHNOLOGY"
+    },
+    "abilities": [
+      "Advanced alien technology",
+      "Exceptional intellect",
+      "Robotic systems",
+      "Energy manipulation"
+    ],
+    "badges": ["THE COLLECTOR OF WORLDS", "Rogues gallery"],
+    "storyLeft": "The alien intelligence Brainiac pursues knowledge across worlds. His changing forms share an obsession with possessing information, even when collecting it destroys the lives and cultures it came from.",
+    "storyRight": "Brainiac can understand a civilization's machinery while missing the value of its freedom. The collector's need for exclusive knowledge makes curiosity into a form of conquest.",
+    "ctaLabel": "OPEN THE DOSSIER",
+    "versions": [],
+    "villains": [
+      {
+        "name": "Superman",
+        "threat": "Life beyond the collection",
+        "image": "/art/brainiac-villain-0.jpg",
+        "front": "Superman defends the people Brainiac reduces to specimens.",
+        "back": "Their conflict places living futures above an archive's claim of ownership."
+      }
+    ],
+    "timelineKind": "profile",
+    "timeline": [
+      {
+        "year": "1958",
+        "title": "First appearance",
+        "text": "Action Comics #242"
+      },
+      {
+        "year": "ORIGIN",
+        "title": "The turning point",
+        "text": "The alien intelligence Brainiac pursues knowledge across worlds. His changing forms share an obsession with possessing information, even when collecting it destroys the lives and cultures it came from."
+      },
+      {
+        "year": "POWER",
+        "title": "Signature abilities",
+        "text": "Brainiac employs advanced technology, artificial bodies, and vast computational ability. His systems change across incarnations, but preparation and information remain his greatest advantages."
+      },
+      {
+        "year": "LEGACY",
+        "title": "The enduring question",
+        "text": "Brainiac challenges the idea that knowing everything means understanding what matters, placing preservation and possession in direct conflict."
+      }
+    ],
+    "comparison": {
+      "strength": 95,
+      "speed": 83,
+      "intelligence": 100,
+      "durability": 96,
+      "combat": 78,
+      "power": 97
+    },
+    "battle": {
+      "hp": 100,
+      "attack": 20,
+      "special": 32,
+      "moves": {
+        "attack": "Advanced alien technology",
+        "special": "Exceptional intellect",
+        "guard": "takes a defensive stance"
+      }
+    },
+    "quizAffinity": {
+      "leader": 1,
+      "scholar": 4,
+      "rebel": 1,
+      "heart": 0,
+      "speedster": 0,
+      "mystic": 1,
+      "feral": 0
+    },
+    "lore": {
+      "origin": [
+        "The alien intelligence Brainiac pursues knowledge across worlds. His changing forms share an obsession with possessing information, even when collecting it destroys the lives and cultures it came from.",
+        "Brainiac can understand a civilization's machinery while missing the value of its freedom. The collector's need for exclusive knowledge makes curiosity into a form of conquest."
+      ],
+      "powers": [
+        "Brainiac employs advanced technology, artificial bodies, and vast computational ability. His systems change across incarnations, but preparation and information remain his greatest advantages."
+      ],
+      "storylines": [
+        "Brainiac challenges the idea that knowing everything means understanding what matters, placing preservation and possession in direct conflict."
+      ],
+      "allies": [
+        "Brainiac can understand a civilization's machinery while missing the value of its freedom. The collector's need for exclusive knowledge makes curiosity into a form of conquest."
+      ],
+      "legacy": [
+        "Brainiac challenges the idea that knowing everything means understanding what matters, placing preservation and possession in direct conflict."
+      ],
+      "funFacts": [
+        "First appeared in Action Comics #242.",
+        "Identity: Brainiac."
+      ]
+    },
+    "trivia": [
+      {
+        "question": "Which identity belongs to Brainiac?",
+        "choices": ["Brainiac", "Bruce Wayne", "Tony Stark", "Peter Parker"],
+        "answer": 0,
+        "explanation": "Brainiac's identity is Brainiac."
+      }
+    ]
   }
 }

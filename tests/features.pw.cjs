@@ -313,8 +313,10 @@ test("a successful vote locks the ballot in another open tab", async ({
     route.fulfill({ json: voteBoard }),
   );
   await page.goto("/votes.html");
+  await expect(page.locator(".vote-total strong")).toHaveText("10");
   const second = await context.newPage();
   await second.goto("/votes.html");
+  await expect(second.locator(".vote-total strong")).toHaveText("10");
   await second.locator(".ballot-card").nth(1).click();
   await page.locator(".ballot-card").first().click();
   await page.getByRole("button", { name: "Cast my vote" }).click();

@@ -1,4 +1,6 @@
 @import "./fonts.css";
+@import "./interactions.css";
+@import "./react-bits/react-bits.css";
 
 :root {
   --accent: #ed5444;
@@ -348,7 +350,7 @@ main,
 }
 .hero-intro {
   height: calc(100vh - 80px);
-  min-height: 750px;
+  min-height: max(750px, calc(var(--copy-content-height, 0px) + 320px));
   max-height: 1100px;
   position: relative;
   overflow: hidden;
@@ -376,7 +378,8 @@ main,
 }
 .hero-copy {
   position: absolute;
-  top: 19%;
+  --copy-top: 19%;
+  top: calc(var(--copy-top) - var(--copy-lift, 0px));
   left: 7.2%;
   width: 37%;
   max-width: 515px;
@@ -2038,7 +2041,7 @@ body[data-hero="superman"] .primary-button:hover {
 }
 @media (min-width: 1700px) {
   .hero-copy {
-    top: 22%;
+    --copy-top: 22%;
     max-width: 610px;
   }
   .hero-description {
@@ -2090,7 +2093,7 @@ body[data-hero="superman"] .primary-button:hover {
   .hero-copy {
     left: 6%;
     width: 41%;
-    top: 20%;
+    --copy-top: 20%;
   }
   .hero-description {
     font-size: 11px;

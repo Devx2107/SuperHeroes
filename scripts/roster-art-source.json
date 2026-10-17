@@ -208,5 +208,124 @@
     "images": {
       "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/620-spider-man.jpg"
     }
+  },
+  {
+    "id": 638,
+    "name": "Storm",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/638-storm.jpg"
+    }
+  },
+  {
+    "id": 35,
+    "name": "Apocalypse",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/35-apocalypse.jpg"
+    }
+  },
+  {
+    "id": 196,
+    "name": "Cyclops",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/196-cyclops.jpg"
+    }
+  },
+  {
+    "id": 460,
+    "name": "Mister Sinister",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/460-mister-sinister.jpg"
+    }
+  },
+  {
+    "id": 356,
+    "name": "Jean Grey",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/356-jean-grey.jpg"
+    }
+  },
+  {
+    "id": 697,
+    "name": "Vision",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/697-vision.jpg"
+    }
+  },
+  {
+    "id": 680,
+    "name": "Ultron",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/680-ultron.jpg"
+    }
+  },
+  {
+    "id": 194,
+    "name": "Cyborg",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/194-cyborg.jpg"
+    }
+  },
+  {
+    "id": 136,
+    "name": "Brainiac",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/136-brainiac.jpg"
+    }
+  },
+  {
+    "id": 730,
+    "name": "Zatanna",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/730-zatanna.jpg"
+    }
+  },
+  {
+    "id": 542,
+    "name": "Raven",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/542-raven.jpg"
+    }
+  },
+  {
+    "id": 470,
+    "name": "Moon Knight",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/470-moon-knight.jpg"
+    }
+  },
+  {
+    "id": 530,
+    "name": "Punisher",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/530-punisher.jpg"
+    }
+  },
+  {
+    "id": 280,
+    "name": "Ghost Rider",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/280-ghost-rider.jpg"
+    }
+  },
+  {
+    "id": 443,
+    "name": "Mephisto",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/443-mephisto.jpg"
+    }
+  },
+  {
+    "id": 165,
+    "name": "Catwoman",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/165-catwoman.jpg"
+    }
+  },
+  {
+    "id": 60,
+    "name": "Bane",
+    "images": {
+      "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/60-bane.jpg"
+    }
   }
 ]

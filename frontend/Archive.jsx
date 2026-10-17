@@ -1,11 +1,61 @@
-import { useMemo, useState } from "react";
-import { motion } from "framer-motion";
-import { ArrowUpRight, Heart, Search, Shuffle, X } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import { ArrowUpRight, Heart, Search, Shuffle, Swords, X } from "lucide-react";
 import { Emblem, SafeImage } from "./Microinteractions";
 import { signatureFor } from "./motion";
 import useSavedHeroes from "./useSavedHeroes";
+import GlareHover from "./react-bits/GlareHover";
+import ScrollVelocity from "./react-bits/ScrollVelocity";
 
-export default function Archive({ heroes, activeId, onSelect }) {
+function ReactiveCard({ children, reduced, ...props }) {
+  const rx = useMotionValue(0),
+    ry = useMotionValue(0);
+  const rotateX = useSpring(rx, { stiffness: 230, damping: 24 }),
+    rotateY = useSpring(ry, { stiffness: 230, damping: 24 });
+  useEffect(() => {
+    if (reduced) {
+      rx.set(0);
+      ry.set(0);
+    }
+  }, [reduced, rx, ry]);
+  return (
+    <motion.button
+      {...props}
+      style={{
+        ...props.style,
+        rotateX: reduced ? 0 : rotateX,
+        rotateY: reduced ? 0 : rotateY,
+        transformPerspective: 900,
+      }}
+      onPointerMove={(event) => {
+        if (reduced || event.pointerType === "touch") return;
+        const rect = event.currentTarget.getBoundingClientRect();
+        const x = Math.max(
+          0,
+          Math.min(1, (event.clientX - rect.left) / rect.width),
+        );
+        const y = Math.max(
+          0,
+          Math.min(1, (event.clientY - rect.top) / rect.height),
+        );
+        rx.set((0.5 - y) * 10);
+        ry.set((x - 0.5) * 12);
+        event.currentTarget.style.setProperty("--spot-x", `${x * 100}%`);
+        event.currentTarget.style.setProperty("--spot-y", `${y * 100}%`);
+        event.currentTarget.dataset.tilt = "active";
+      }}
+      onPointerLeave={(event) => {
+        rx.set(0);
+        ry.set(0);
+        event.currentTarget.dataset.tilt = "rest";
+      }}
+    >
+      {children}
+    </motion.button>
+  );
+}
+
+export default function Archive({ heroes, activeId, onSelect, reduced }) {
   const [query, setQuery] = useState(""),
     [universe, setUniverse] = useState("all"),
     [alignment, setAlignment] = useState("all");
@@ -47,7 +97,11 @@ export default function Archive({ heroes, activeId, onSelect }) {
   );
   const surprises = filtered.filter((hero) => hero.id !== activeId);
   return (
-    <section className="archive-section" id="archive">
+    <section
+      className="archive-section"
+      id="archive"
+      data-motion={reduced ? "reduced" : "full"}
+    >
       <div className="section-title">
         <div>
           <span className="eyebrow">THE MULTIVERSE IS WAITING</span>
@@ -63,6 +117,7 @@ export default function Archive({ heroes, activeId, onSelect }) {
           Choose a different perspective.
         </p>
       </div>
+      <ScrollVelocity heroes={heroes} activeId={activeId} />
       <div className="archive-toolbar">
         <div
           className="archive-filters"
@@ -170,10 +225,11 @@ export default function Archive({ heroes, activeId, onSelect }) {
       <div className="archive-grid">
         {filtered.map((hero) => (
           <article className="archive-tile" key={hero.id}>
-            <motion.button
+            <ReactiveCard
+              reduced={reduced}
               className={`archive-card ${activeId === hero.id ? "selected" : ""}`}
               onClick={() => onSelect(hero.id)}
-              whileHover={{ y: -7 }}
+              whileHover={reduced ? undefined : { y: -7 }}
               whileTap={{ scale: 0.98 }}
               style={{ "--card-accent": signatureFor(hero).accent }}
               aria-label={`Open ${hero.name} dossier`}
@@ -185,6 +241,8 @@ export default function Archive({ heroes, activeId, onSelect }) {
                 fallback={<Emblem id={hero.id} />}
               />
               <span className="archive-card-shade" />
+              <span className="archive-card-light" aria-hidden="true" />
+              <GlareHover reduced={reduced} />
               <span className="archive-card-id mono">
                 {String(ids.indexOf(hero.id) + 1).padStart(2, "0")} /{" "}
                 {hero.universe.toUpperCase()}
@@ -194,13 +252,24 @@ export default function Archive({ heroes, activeId, onSelect }) {
               >
                 {hero.alignment || "hero"}
               </span>
+              <span className="archive-hover-stats mono">
+                <span>
+                  POWER <strong>{hero.comparison.power}</strong>
+                </span>
+                <span>
+                  INTEL <strong>{hero.comparison.intelligence}</strong>
+                </span>
+                <span>
+                  COMBAT <strong>{hero.comparison.combat}</strong>
+                </span>
+              </span>
               <div>
                 <Emblem id={hero.id} />
                 <h3>{hero.name.toUpperCase()}</h3>
                 <span className="mono">{hero.title}</span>
               </div>
               <ArrowUpRight className="archive-card-arrow" size={20} />
-            </motion.button>
+            </ReactiveCard>
             <button
               className={`save-hero ${saved.includes(hero.id) ? "saved" : ""}`}
               aria-label={`${saved.includes(hero.id) ? "Unsave" : "Save"} ${hero.name}`}
@@ -212,6 +281,16 @@ export default function Archive({ heroes, activeId, onSelect }) {
                 fill={saved.includes(hero.id) ? "currentColor" : "none"}
               />
             </button>
+            {hero.id !== activeId && (
+              <a
+                className="card-compare"
+                href={`battle.html?hero=${activeId}&opponent=${hero.id}&mode=balanced`}
+                aria-label={`Compare ${heroes[activeId].name} with ${hero.name}`}
+                data-cursor="COMPARE"
+              >
+                <Swords size={14} />
+              </a>
+            )}
           </article>
         ))}
       </div>

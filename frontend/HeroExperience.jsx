@@ -1,10 +1,11 @@
-import { useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { motion, useSpring, useTransform } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Crosshair, MoveUpRight } from "lucide-react";
 import { usePointer } from "./PointerField";
 import { gsap, useGSAP, ease } from "./motion";
 import KineticHeading from "./KineticHeading";
 import StoryRail from "./StoryRail";
+import DecryptedText from "./react-bits/DecryptedText";
 import {
   Emblem,
   RadialButton,
@@ -90,6 +91,49 @@ export default function HeroExperience({ hero, signature, reduced, selector }) {
     stiffness: 70,
     damping: 25,
   });
+  useLayoutEffect(() => {
+    const intro = root.current.querySelector(".hero-intro"),
+      copy = intro.querySelector(".hero-copy"),
+      index = intro.querySelector(".hero-index"),
+      hint = intro.querySelector(".hero-bottom");
+    let alive = true,
+      frame;
+    const fit = () => {
+      if (!alive) return;
+      intro.style.setProperty(
+        "--copy-content-height",
+        `${Math.ceil(copy.offsetHeight)}px`,
+      );
+      // Measure layout boxes so scroll transforms cannot alter the spacing.
+      const baseTop =
+        copy.offsetTop +
+        (parseFloat(copy.style.getPropertyValue("--copy-lift")) || 0);
+      const overflow = Math.max(
+        0,
+        baseTop + copy.offsetHeight + 24 - hint.offsetTop,
+      );
+      const room = Math.max(
+        0,
+        baseTop - index.offsetTop - index.offsetHeight - 32,
+      );
+      copy.style.setProperty("--copy-lift", `${Math.min(overflow, room)}px`);
+    };
+    const schedule = () => {
+      if (!alive) return;
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(fit);
+    };
+    const observer = new ResizeObserver(schedule);
+    observer.observe(intro);
+    observer.observe(copy);
+    fit();
+    document.fonts.ready.then(schedule);
+    return () => {
+      alive = false;
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
+  }, [hero.id]);
   useGSAP(
     () => {
       if (reduced) return;
@@ -204,7 +248,8 @@ export default function HeroExperience({ hero, signature, reduced, selector }) {
         </div>
         <div className="hero-copy">
           <div className="hero-kicker wipe-reveal">
-            <span className="tiny-rule" /> {signature.label}
+            <span className="tiny-rule" />{" "}
+            <DecryptedText text={signature.label} />
           </div>
           <div className="hero-heading-skew">
             <KineticHeading
@@ -263,7 +308,10 @@ export default function HeroExperience({ hero, signature, reduced, selector }) {
         </aside>
         <div className="hero-bottom">
           <span className="mono">
-            <Crosshair size={12} /> THE EXTRAORDINARY, DOCUMENTED.
+            <Crosshair size={12} />{" "}
+            {reduced
+              ? "THE EXTRAORDINARY, DOCUMENTED."
+              : "MOVE TO EXPLORE / CLICK TO LEAVE YOUR MARK."}
           </span>
           <button onClick={explore} className="scroll-cue mono">
             SCROLL TO DISCOVER <ArrowDown size={14} />

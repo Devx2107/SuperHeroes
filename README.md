@@ -1,6 +1,6 @@
 # SuperHeroes
 
-Legendrium is a desktop cinematic superhero archive built with React, Framer Motion, GSAP, and Three.js, backed by Express. All five tabs share the cinematic React shell, atmosphere, preferences, and navigation. The roster includes **36 dossiers: 24 heroes, 3 antiheroes, and 9 villains**, using five atmosphere motifs with character-specific accents and emblems.
+Legendrium is a desktop cinematic superhero archive built with React, Framer Motion, GSAP, and Three.js, backed by Express. All five tabs share the cinematic React shell, atmosphere, preferences, and navigation. The roster includes **52 dossiers: 32 heroes, 7 antiheroes, and 13 villains**, using five atmosphere motifs with character-specific accents and emblems.
 
 ## Features
 
@@ -12,6 +12,8 @@ Legendrium is a desktop cinematic superhero archive built with React, Framer Mot
 - Team-up section
 - Dark-only cinematic theme
 - Character and identity search, hero/antihero/villain and universe filters, archive sorting, saved collections, and filtered random discovery
+- Global keyboard character finder, pointer-reactive background particles, click ripples, contextual cursor trails, and tilting roster cards with hover ratings and quick battle links
+- React Bits effects: decrypted dossier labels, magnetic action buttons, click sparks, reflective card sweeps, and a scroll-reactive legend ticker with pause/resume
 - Twenty-question hero alignment quiz with editable result reviews, keyboard choices, live trait scores, weighted hero matches, related dossiers, and saved progress/results across refreshes
 - Three trivia difficulties with timed and untimed practice modes, optional question shuffling, pause/resume, explanations, scoring, streaks, missed-answer reviews, and personal records for each difficulty and mode
 - Visual fan ballot and shared leaderboard with serialized JSON persistence, vote locks shared across browser tabs, request timeouts, retry, and duplicate-vote handling
@@ -73,7 +75,13 @@ Settings support keyboard focus, Escape, and backdrop dismissal. Quiz progress s
 
 Save heroes with the heart on their archive cards, then use **My collection** to revisit them. Sorting and **Surprise me** respect your current search and filters. Saved collections sync between tabs in the same browser.
 
-The expanded roster adds Daredevil, Black Widow, Captain Marvel, Scarlet Witch, Ant-Man, Green Arrow, Supergirl, Shazam, Deadpool, Venom, Harley Quinn, Joker, Lex Luthor, Darkseid, Deathstroke, Loki, Thanos, Doctor Doom, Magneto, and Green Goblin. Every addition has local artwork, origin and power chapters, an opposing character, an editorial legacy, and six battle ratings. Character type reflects the version featured in each dossier; characters such as Loki, Magneto, and Scarlet Witch have other roles in different stories. The alignment quiz matches heroes and antiheroes. All 36 characters are available in the battle arena.
+Open **Find a character** from any page, or press **Ctrl+K**, **Cmd+K**, or **/** outside a text field. Search names, identities, universes, and abilities; use the arrow keys and Enter to open a result, or Escape to close. Hover a roster card to tilt its portrait, reveal power/intelligence/combat ratings, and use its crossed-swords link to compare that character with the current dossier.
+
+Moving the pointer bends nearby background particles and brings a glow through the atmosphere. Click the scene to send out expanding energy rings. The contextual cursor follows with spring trails and labels interactive controls; text fields and dialogs retain the native cursor. Reduced motion disables the custom cursor, animated background, and card tilt. The particle field also works when WebGL is unavailable, and pauses while the page is hidden.
+
+[React Bits](https://reactbits.dev/) effects are adapted to the existing experience. Dossier and activity labels decrypt on entry and hover, action buttons ease toward the pointer, scene clicks release sparks, and roster cards catch a diagonal light sweep. The legend ticker speeds up and changes direction with scrolling; hover it or use **Pause legend ticker** to stop the flow. These effects follow the shared motion setting, including an explicit Full override of the operating system preference. Reduced motion keeps text readable and the ticker static. Source links and the upstream license are preserved in `frontend/react-bits/`.
+
+The first expansion adds Daredevil, Black Widow, Captain Marvel, Scarlet Witch, Ant-Man, Green Arrow, Supergirl, Shazam, Deadpool, Venom, Harley Quinn, Joker, Lex Luthor, Darkseid, Deathstroke, Loki, Thanos, Doctor Doom, Magneto, and Green Goblin. The latest batch adds **Storm, Cyclops, Jean Grey, Vision, Mister Fantastic, Cyborg, Zatanna, Raven, Moon Knight, Punisher, Ghost Rider, Catwoman, Ultron, Carnage, Bane, and Brainiac**. Every addition has local artwork, origin and power chapters, an opposing character, an editorial legacy, and six battle ratings. Character type reflects the version featured in each dossier; characters such as Loki, Magneto, and Scarlet Witch have other roles in different stories. The alignment quiz matches heroes and antiheroes. All 52 characters are available in the battle arena.
 
 Battle styles explain their attribute weights above the comparison. The radar always shows the original ratings. **Share matchup** copies a link containing both heroes and the selected style, with a selectable link fallback when clipboard access is unavailable. These are editorial ratings, not predictions of a canonical fight.
 
@@ -127,7 +135,9 @@ $env:PLAYWRIGHT_CHANNEL = "msedge"
 npm.cmd run test:browser
 ```
 
-The browser suite checks all five featured signatures across twenty switches, rapid navigation, history/refresh, pinned chapters, archive discovery and collections, keyboard settings and actor interaction, persisted preferences, renderer resizing, and worker/main-thread/static fallbacks. Expanded roster checks open all twenty additions, verify their local portraits and chapters, combine character type, publisher, and identity filters, save a villain, compare new characters, and validate hero and antihero quiz results. Feature checks cover desktop layouts, weighted battle totals and share links, saved alignment results and result editing, blocked browser storage, complete timed and practice trivia rounds, shuffled decks, personal records, timeouts, and voting success/error/timeout/duplicate flows across tabs. Browser voting checks mock the API. Backend tests use temporary vote files and exercise concurrent submissions, duplicate locks, expanded profiles, and filtered search. Screenshots and traces are written to ignored `test-results/`.
+The browser suite checks all five featured signatures across twenty switches, rapid navigation, history/refresh, pinned chapters, archive discovery and collections, keyboard settings and actor interaction, persisted preferences, renderer resizing, and worker/main-thread/static fallbacks. Expanded roster checks open all thirty-six additions, verify their local portraits and chapters, combine character type, publisher, and identity filters, save a villain, compare new characters, and validate hero and antihero quiz results. Interaction checks exercise keyboard search and focus restoration, contextual and native cursors, card tilt and quick battle links, pointer/click effects with and without WebGL, and reduced-motion settings. Feature checks cover desktop layouts, weighted battle totals and share links, saved alignment results and result editing, blocked browser storage, complete timed and practice trivia rounds, shuffled decks, personal records, timeouts, and voting success/error/timeout/duplicate flows across tabs. Browser voting checks mock the API. Backend tests use temporary vote files and exercise concurrent submissions, duplicate locks, expanded profiles, and filtered search. Screenshots and traces are written to ignored `test-results/`.
+
+The React Bits browser checks additionally cover stable accessible decryption, magnetic button hit areas and keyboard activation, card glare with collection/battle controls, ticker scrolling and pause/resume, bounded spark lifetimes, hidden-tab behavior, and reduced-motion overrides.
 
 ## Frontend structure
 
@@ -137,6 +147,10 @@ The browser suite checks all five featured signatures across twenty switches, ra
 - `frontend/scene-engine.js`: atmosphere shader, particles, shards, web growth, storm arcs, and reactor rings.
 - `frontend/atmosphere.worker.js`: OffscreenCanvas renderer lifecycle and messages.
 - `frontend/PointerField.jsx`: pointer motion values, compatible SVG cursor morphs, trailing springs.
+- `frontend/InteractiveField.jsx`: bounded pointer-reactive Canvas particles and click ripples, including the non-WebGL fallback.
+- `frontend/CharacterFinder.jsx`: modal global character search and keyboard navigation.
+- `frontend/interactions.css`: finder, cursor, and interactive archive styles.
+- `frontend/react-bits/`: adapted React Bits effects, shared preference handling, styles, source attribution, and license.
 - `frontend/HeroExperience.jsx`: opening composition, nested pointer/scroll wrappers, portrait entry, actor cards.
 - `frontend/KineticHeading.jsx`: grapheme splitting, masked entry, breathing, proximity repulsion.
 - `frontend/StoryRail.jsx`: pinned GSAP master timeline and reversible chapter effects.
@@ -151,8 +165,10 @@ The browser suite checks all five featured signatures across twenty switches, ra
 - `frontend/trivia-records.js`: validated personal records with separate difficulty and mode entries.
 - `frontend/vote-api.js`: bounded vote requests and leaderboard response validation.
 - `frontend/heroes.json`: existing editorial archive content imported into the React frontend.
-- `scripts/new-characters.json`: editable source for the twenty expanded dossiers, including official publisher profile links.
-- `scripts/expand-roster.cjs`: rebuilds expanded dossier content from that source.
+- `scripts/new-characters.json`: editable source for the first twenty expanded dossiers, including official publisher profile links.
+- `scripts/next-characters.json`: editable source for the next sixteen dossiers.
+- `scripts/roster-additions.cjs`: combines both expansion sources for generation, artwork caching, and validation.
+- `scripts/expand-roster.cjs`: rebuilds expanded dossier content from those sources.
 
 Motion owns presence and interactive springs, GSAP owns scroll timelines and glyph choreography, and Three.js owns the atmosphere. Separate nested wrappers prevent engines from writing the same transform. Pointer and render-frame updates do not use React state.
 

@@ -1,7 +1,7 @@
 // Rebuild the expanded dossiers from their editable editorial source.
 const fs = require("node:fs");
 const path = require("node:path");
-const additions = require("./new-characters.json");
+const additions = require("./roster-additions.cjs");
 const catalog = require("./roster-art-source.json");
 const localArt = require("../frontend/art.json");
 const target = path.resolve(__dirname, "../frontend/heroes.json");

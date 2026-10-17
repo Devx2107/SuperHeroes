@@ -1,6 +1,6 @@
 const fs = require("node:fs/promises");
 const path = require("node:path");
-const additions = require("./new-characters.json");
+const additions = require("./roster-additions.cjs");
 const root = path.resolve(__dirname, "..");
 const normalize = (name) => name.replace(/^The /, "").toLowerCase();
 

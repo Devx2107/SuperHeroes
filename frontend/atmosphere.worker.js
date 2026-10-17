@@ -19,7 +19,9 @@ self.onmessage = ({ data }) => {
       if (visible) frame = requestAnimationFrame(tick);
     } else if (data.type === "hero")
       engine?.hero(data.hero, data.accent, data.motif);
-    else if (data.type === "pointer") engine?.pointer(data.x, data.y);
+    else if (data.type === "pointer")
+      engine?.pointer(data.x, data.y, data.active);
+    else if (data.type === "pulse") engine?.pulse(data.x, data.y);
     else if (data.type === "resize")
       engine?.resize(data.width, data.height, data.dpr);
     else if (data.type === "visibility") {

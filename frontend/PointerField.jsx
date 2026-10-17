@@ -12,10 +12,12 @@ export function PointerField({ children }) {
     screenX: -100,
     screenY: -100,
     active: false,
+    pressed: false,
   });
   useEffect(() => {
     const move = (event) => {
       raw.current = {
+        ...raw.current,
         x: (event.clientX / innerWidth) * 2 - 1,
         y: (event.clientY / innerHeight) * 2 - 1,
         screenX: event.clientX,
@@ -27,15 +29,33 @@ export function PointerField({ children }) {
     };
     const leave = () => {
       raw.current.active = false;
+      raw.current.pressed = false;
       raw.current.x = 0;
       raw.current.y = 0;
       x.set(0);
       y.set(0);
     };
-    window.addEventListener("pointermove", move, { passive: true });
+    window.addEventListener("pointermove", move, {
+      passive: true,
+      capture: true,
+    });
+    const down = () => {
+      raw.current.pressed = true;
+    };
+    const up = () => {
+      raw.current.pressed = false;
+    };
+    window.addEventListener("pointerdown", down, { passive: true });
+    window.addEventListener("pointerup", up, { passive: true });
+    window.addEventListener("pointercancel", up);
+    window.addEventListener("blur", leave);
     document.documentElement.addEventListener("pointerleave", leave);
     return () => {
-      window.removeEventListener("pointermove", move);
+      window.removeEventListener("pointermove", move, true);
+      window.removeEventListener("pointerdown", down);
+      window.removeEventListener("pointerup", up);
+      window.removeEventListener("pointercancel", up);
+      window.removeEventListener("blur", leave);
       document.documentElement.removeEventListener("pointerleave", leave);
     };
   }, [x, y]);
@@ -120,48 +140,85 @@ export function CinematicCursor({ signature, reduced }) {
     y = useSpring(sy, { stiffness: 600, damping: 42 });
   const trailX = useSpring(sx, signature.spring),
     trailY = useSpring(sy, signature.spring);
-  const cursor = useRef(null);
+  const echoX = useSpring(trailX, { stiffness: 130, damping: 25 }),
+    echoY = useSpring(trailY, { stiffness: 130, damping: 25 });
+  const cursor = useRef(null),
+    label = useRef(null);
   useEffect(() => {
-    if (reduced) return;
+    if (reduced || !matchMedia("(pointer: fine)").matches) return;
     let frame;
     const tick = () => {
       sx.set(raw.current.screenX);
       sy.set(raw.current.screenY);
+      cursor.current?.classList.toggle("cursor-pressed", raw.current.pressed);
       frame = requestAnimationFrame(tick);
     };
     tick();
     document.documentElement.classList.add("custom-cursor");
     const over = (event) => {
+      const native = !!event.target.closest(
+        'input,textarea,select,dialog,[contenteditable="true"]',
+      );
+      const target = event.target.closest("a,button,[role=option]");
       cursor.current?.classList.toggle(
         "cursor-hidden",
-        !!event.target.closest('input,textarea,[contenteditable="true"]'),
+        native || !raw.current.active,
       );
       cursor.current?.classList.toggle(
         "cursor-interactive",
-        !!event.target.closest("a,button"),
+        !!target && !native,
       );
+      const text =
+        target?.dataset.cursor ||
+        (target?.disabled
+          ? "LOCKED"
+          : target?.classList.contains("archive-card")
+            ? "OPEN"
+            : target?.tagName === "A"
+              ? "EXPLORE"
+              : target
+                ? "SELECT"
+                : "");
+      if (label.current) label.current.textContent = native ? "" : text;
+      if (cursor.current)
+        cursor.current.dataset.action = native ? "" : text.toLowerCase();
     };
     const leave = () => cursor.current?.classList.add("cursor-hidden");
-    const enter = () => cursor.current?.classList.remove("cursor-hidden");
+    const enter = (event) => over(event);
+    const move = (event) => over(event);
     document.addEventListener("pointerover", over);
+    document.addEventListener("pointermove", move, { passive: true });
     document.documentElement.addEventListener("pointerleave", leave);
     document.documentElement.addEventListener("pointerenter", enter);
     return () => {
       cancelAnimationFrame(frame);
       document.documentElement.classList.remove("custom-cursor");
       document.removeEventListener("pointerover", over);
+      document.removeEventListener("pointermove", move);
       document.documentElement.removeEventListener("pointerleave", leave);
       document.documentElement.removeEventListener("pointerenter", enter);
     };
   }, [raw, reduced, sx, sy]);
   if (reduced) return null;
   return (
-    <div ref={cursor} className="cursor-system" aria-hidden="true">
-      {signature.motif === "web" && <svg className="web-cursor-thread"><motion.line x1={trailX} y1={trailY} x2={x} y2={y} /></svg>}
+    <div
+      ref={cursor}
+      className="cursor-system cursor-hidden"
+      aria-hidden="true"
+      data-motif={signature.motif}
+    >
+      {signature.motif === "web" && (
+        <svg className="web-cursor-thread">
+          <motion.line x1={trailX} y1={trailY} x2={x} y2={y} />
+        </svg>
+      )}
       <motion.div
         className={`cursor-trail cursor-${signature.motif}`}
         style={{ x: trailX, y: trailY }}
-      />
+      >
+        <span className="cursor-orbit" />
+      </motion.div>
+      <motion.div className="cursor-echo" style={{ x: echoX, y: echoY }} />
       <motion.svg
         className="cinematic-cursor"
         viewBox="0 0 24 24"
@@ -174,6 +231,7 @@ export function CinematicCursor({ signature, reduced }) {
         <circle cx="12" cy="12" r="1" />
       </motion.svg>
       <motion.div className="pointer-glow" style={{ x: trailX, y: trailY }} />
+      <motion.span ref={label} className="cursor-label mono" style={{ x, y }} />
     </div>
   );
 }

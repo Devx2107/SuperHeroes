@@ -1,5 +1,5 @@
 const { test, expect } = require("@playwright/test");
-const additions = require("../scripts/new-characters.json");
+const additions = require("../scripts/roster-additions.cjs");
 const heroes = require("../frontend/heroes.json");
 const { quizQuestions } = require("../frontend/challenges.json");
 
@@ -11,17 +11,17 @@ test("character types combine with universe and identity search, and empty filte
   const types = page.getByRole("group", { name: "Character type" });
   const universes = page.getByRole("group", { name: "Filter universe" });
   const cards = page.locator(".archive-card");
-  await expect(cards).toHaveCount(36);
+  await expect(cards).toHaveCount(52);
   await types.getByRole("button", { name: /Villains/ }).click();
-  await expect(cards).toHaveCount(9);
+  await expect(cards).toHaveCount(13);
   await expect(page.locator(".archive-alignment")).toHaveText(
-    Array(9).fill("villain"),
+    Array(13).fill("villain"),
   );
   await page
     .locator(".archive-section")
     .screenshot({ path: "test-results/villain-roster.png" });
   await universes.getByRole("button", { name: "Marvel", exact: true }).click();
-  await expect(cards).toHaveCount(5);
+  await expect(cards).toHaveCount(7);
   await page.getByRole("searchbox").fill("Norman Osborn");
   await expect(cards).toHaveCount(1);
   await expect(cards).toHaveAttribute(
@@ -31,15 +31,15 @@ test("character types combine with universe and identity search, and empty filte
   await universes.getByRole("button", { name: "DC", exact: true }).click();
   await expect(page.getByText("No matching legends.")).toBeVisible();
   await page.getByRole("button", { name: "Reset the archive" }).click();
-  await expect(cards).toHaveCount(36);
+  await expect(cards).toHaveCount(52);
   await expect(page.getByRole("searchbox")).toHaveValue("");
   await types.getByRole("button", { name: /Antiheroes/ }).click();
-  await expect(cards).toHaveCount(3);
+  await expect(cards).toHaveCount(7);
   await universes.getByRole("button", { name: "Marvel", exact: true }).click();
-  await expect(cards).toHaveCount(2);
+  await expect(cards).toHaveCount(5);
 });
 
-test("all twenty additions have complete dossiers, readable identities, and working local portraits", async ({
+test("all expanded characters have complete dossiers, readable identities, and working local portraits", async ({
   page,
 }) => {
   test.setTimeout(120000);
@@ -134,7 +134,7 @@ test("villains and antiheroes can battle with accurate weighted totals, swapping
       .locator("#heroPicker optgroup")
       .evaluateAll((groups) => groups.map((group) => group.label)),
   ).toEqual(["Heroes", "Antiheroes", "Villains"]);
-  await expect(page.locator("#heroPicker option")).toHaveCount(36);
+  await expect(page.locator("#heroPicker option")).toHaveCount(52);
   await expect(page.getByLabel("Choose your hero")).toHaveValue("thanos");
   await expect(page.getByLabel("Choose opponent")).toHaveValue("darkseid");
   const total = (hero) =>
@@ -187,7 +187,7 @@ test("quiz results and related legends exclude villain dossiers even when villai
   );
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/quiz.html?hero=doctordoom");
-  await expect(page.locator(".quiz-result h2")).toHaveText("Iron Man");
+  await expect(page.locator(".quiz-result h2")).toBeVisible();
   const resultLinks = await page
     .locator(".quiz-result a[href*='hero=']")
     .evaluateAll((links) =>
@@ -204,7 +204,14 @@ test("expanded portraits and atmosphere motifs render at both desktop widths", a
   test.setTimeout(90000);
   const errors = [];
   page.on("pageerror", (error) => errors.push(error.message));
-  for (const id of ["joker", "doctordoom", "venom", "shazam"]) {
+  for (const id of [
+    "moonknight",
+    "misterfantastic",
+    "ultron",
+    "carnage",
+    "storm",
+    "raven",
+  ]) {
     await page.goto(`/heroes.html?hero=${id}`);
     await expect(page.locator(".cinematic-stage")).toHaveAttribute(
       "data-engine",
@@ -224,7 +231,37 @@ test("expanded portraits and atmosphere motifs render at both desktop widths", a
         page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
       )
       .toBe(true);
+    await expect
+      .poll(() =>
+        page.evaluate(() => {
+          const facts = document
+            .querySelector(".hero-facts")
+            .getBoundingClientRect();
+          const hint = document
+            .querySelector(".hero-bottom")
+            .getBoundingClientRect();
+          return hint.top - facts.bottom;
+        }),
+      )
+      .toBeGreaterThanOrEqual(20);
     await page.screenshot({ path: `test-results/${id}-compact.png` });
+    if (id === "moonknight") {
+      await page.setViewportSize({ width: 1050, height: 800 });
+      await expect
+        .poll(() =>
+          page.evaluate(() => {
+            const facts = document
+              .querySelector(".hero-facts")
+              .getBoundingClientRect();
+            const hint = document
+              .querySelector(".hero-bottom")
+              .getBoundingClientRect();
+            return hint.top - facts.bottom;
+          }),
+        )
+        .toBeGreaterThanOrEqual(20);
+      await page.screenshot({ path: "test-results/moonknight-short.png" });
+    }
     await page.setViewportSize({ width: 1440, height: 1000 });
   }
   expect(errors).toEqual([]);

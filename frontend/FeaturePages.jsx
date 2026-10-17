@@ -27,6 +27,7 @@ import {
 } from "./quiz-progress";
 import { requestVotes } from "./vote-api";
 import RadarChart from "./RadarChart";
+import DecryptedText from "./react-bits/DecryptedText";
 import { readTriviaRecord, saveTriviaRecord } from "./trivia-records";
 import "./features.css";
 
@@ -104,7 +105,7 @@ function FeatureIntro({ page, reduced }) {
         className="eyebrow"
       >
         <span className="tiny-rule" />
-        {tag}
+        <DecryptedText text={tag} />
       </motion.div>
       <h1 tabIndex={-1}>
         {[first, second].map((line, index) => (

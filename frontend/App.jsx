@@ -15,13 +15,21 @@ import {
   useAnimationControls,
   useReducedMotion,
 } from "framer-motion";
-import { ArrowUpRight, ChevronDown, SlidersHorizontal, X } from "lucide-react";
+import {
+  ArrowUpRight,
+  ChevronDown,
+  Search,
+  SlidersHorizontal,
+  X,
+} from "lucide-react";
 import archiveData from "./heroes.json";
 import localArt from "./art.json";
 import { ease, featuredIds, routeVariants, signatureFor } from "./motion";
 import { prepareImage, warmAssets } from "./assets";
 import { PointerField, CinematicCursor } from "./PointerField";
 import CinematicStage from "./CinematicStage";
+import InteractiveField from "./InteractiveField";
+import CharacterFinder from "./CharacterFinder";
 import HeroExperience from "./HeroExperience";
 import Archive from "./Archive";
 import { Emblem, NavLink } from "./Microinteractions";
@@ -222,7 +230,30 @@ function Experience() {
   const [motionMode, setMotionState] = useState(() =>
     storedChoice("legendrium-motion", ["system", "full", "reduced"], "system"),
   );
-  const [settings, setSettings] = useState(false);
+  const [settings, setSettings] = useState(false),
+    [finder, setFinder] = useState(false);
+  useEffect(() => {
+    const shortcut = (event) => {
+      if (settings || event.repeat || event.isComposing) return;
+      const typing = event.target.closest(
+        'input,textarea,select,[contenteditable="true"]',
+      );
+      if (
+        (event.key.toLowerCase() === "k" && (event.ctrlKey || event.metaKey)) ||
+        (event.key === "/" &&
+          !typing &&
+          !event.ctrlKey &&
+          !event.metaKey &&
+          !event.altKey &&
+          !finder)
+      ) {
+        event.preventDefault();
+        setFinder((previous) => !previous);
+      }
+    };
+    window.addEventListener("keydown", shortcut);
+    return () => window.removeEventListener("keydown", shortcut);
+  }, [settings, finder]);
   const systemReduced = useReducedMotion(),
     reduced =
       motionMode === "reduced" || (motionMode === "system" && systemReduced);
@@ -336,9 +367,17 @@ function Experience() {
         },
       });
       if (cancelled || !mounted.current) return;
-      document
-        .querySelector(".kinetic-heading")
-        ?.focus({ preventScroll: true });
+      const focused = document.activeElement;
+      if (
+        !document.querySelector("dialog[open]") &&
+        (!focused ||
+          focused === document.body ||
+          focused.closest(".hero-route,.archive-card"))
+      ) {
+        document
+          .querySelector(".kinetic-heading")
+          ?.focus({ preventScroll: true });
+      }
       await new Promise((resolve) => setTimeout(resolve, reduced ? 0 : 400));
       if (cancelled || !mounted.current) return;
       setPhase("idle");
@@ -408,6 +447,11 @@ function Experience() {
             quality={quality}
           />
         </div>
+        <InteractiveField
+          accent={signature.accent}
+          reduced={reduced}
+          quality={quality}
+        />
         <div className="page-grain" aria-hidden="true" />
         <header className="topbar">
           <a className="brand" href="heroes.html" aria-label="Legendrium home">
@@ -453,6 +497,17 @@ function Experience() {
               AN ARCHIVE OF THE EXTRAORDINARY
             </span>
             <button
+              className="finder-trigger"
+              aria-label="Find a character"
+              aria-expanded={finder}
+              aria-keyshortcuts="Control+k Meta+k /"
+              onClick={() => setFinder(true)}
+              data-cursor="SEARCH"
+            >
+              <Search size={16} />
+              <kbd>/</kbd>
+            </button>
+            <button
               className={`icon-button ${settings ? "active" : ""}`}
               aria-label="Experience settings"
               aria-expanded={settings}
@@ -474,6 +529,16 @@ function Experience() {
             />
           )}
         </AnimatePresence>
+        {finder && (
+          <CharacterFinder
+            heroes={heroes}
+            onClose={() => setFinder(false)}
+            onSelect={(id) => {
+              if (isRoster) navigate(id);
+              else location.assign(`heroes.html?hero=${id}`);
+            }}
+          />
+        )}
         <main
           id="main"
           data-phase={phase}
@@ -518,7 +583,12 @@ function Experience() {
                   </motion.div>
                 )}
               </AnimatePresence>
-              <Archive heroes={heroes} activeId={heroId} onSelect={navigate} />
+              <Archive
+                heroes={heroes}
+                activeId={heroId}
+                onSelect={navigate}
+                reduced={reduced}
+              />
             </>
           ) : (
             <Suspense

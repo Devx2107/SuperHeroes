@@ -7,9 +7,9 @@ import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
 const vertex = `varying vec2 vUv; void main(){vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`;
 const fragment = `
   varying vec2 vUv;
-  uniform float uTime,uMode,uReveal,uIntensity;
+  uniform float uTime,uMode,uReveal,uIntensity,uPointerActive,uPulseAge,uAspect;
   uniform vec3 uAccent;
-  uniform vec2 uPointer;
+  uniform vec2 uPointer,uPulsePosition;
   float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
   float noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(hash(i),hash(i+vec2(1,0)),f.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),f.x),f.y);}
   float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<5;i++){v+=a*noise(p);p=p*2.03+12.7;a*=.5;}return v;}
@@ -48,19 +48,36 @@ const fragment = `
       float scan=pow(max(0.,1.-abs(uv.y-fract(uTime*.08))*25.),3.);
       color+=uAccent*(lines*.045+scan*.09);
     }
+    vec2 cursorUV=vec2((uPointer.x+1.)*.5,(1.-uPointer.y)*.5);
+    float cursorDistance=length((vUv-cursorUV)*vec2(uAspect,1.));
+    color+=uAccent*exp(-cursorDistance*cursorDistance*28.)*.09*uPointerActive;
+    vec2 pulseUV=vec2((uPulsePosition.x+1.)*.5,(1.-uPulsePosition.y)*.5);
+    float pulseDistance=length((vUv-pulseUV)*vec2(uAspect,1.));
+    float pulse=exp(-pow((pulseDistance-uPulseAge*.38)*85.,2.))*max(0.,1.-uPulseAge/1.4);
+    color+=uAccent*pulse*.22;
     float vignette=1.-smoothstep(.2,.9,length((vUv-.5)*vec2(1.,.8)));
     gl_FragColor=vec4(color*vignette*uIntensity,1.);
   }
 `;
 const particleVertex = `
-  uniform float uTime,uMode,uReveal; attribute float aSeed; varying float vAlpha;
+  uniform float uTime,uMode,uReveal,uPointerActive,uPulseAge;
+  uniform vec2 uPointer,uPulsePosition;
+  attribute float aSeed; varying float vAlpha;
   void main(){vec3 p=position;
     if(uMode<.5){p.y=mod(p.y+uTime*.08+4.,8.)-4.;p.x+=sin(uTime*.22+aSeed*20.)*.18;}
     else if(uMode>3.5){float a=uTime*.16+aSeed*6.283;p.x+=sin(a)*.3;p.y+=cos(a)*.3;}
     else{p.y+=sin(uTime*.3+aSeed*12.)*.15;}
+    vec2 pointer=vec2(uPointer.x*6.5,-uPointer.y*3.6);
+    vec2 direction=p.xy-pointer;float distance=length(direction);
+    float influence=pow(max(0.,1.-distance/1.7),2.)*uPointerActive;
+    p.xy+=direction/max(distance,.01)*influence*.9;
+    vec2 pulseDirection=p.xy-vec2(uPulsePosition.x*6.5,-uPulsePosition.y*3.6);
+    float pulseDistance=length(pulseDirection);
+    float wave=exp(-pow((pulseDistance-uPulseAge*5.)*2.,2.))*max(0.,1.-uPulseAge/1.4);
+    p.xy+=pulseDirection/max(pulseDistance,.01)*wave*.5;
     vec4 mv=modelViewMatrix*vec4(p,1.);gl_Position=projectionMatrix*mv;
     gl_PointSize=clamp((uMode>3.5?12.:18.)/-mv.z,1.,5.);
-    vAlpha=(.2+.8*aSeed)*uReveal;
+    vAlpha=(.2+.8*aSeed)*uReveal*(1.+influence*.7+wave*.6);
   }
 `;
 const particleFragment = `uniform vec3 uAccent; varying float vAlpha; void main(){float d=length(gl_PointCoord-.5);if(d>.5)discard;gl_FragColor=vec4(uAccent,(1.-smoothstep(.05,.5,d))*vAlpha*.65);}`;
@@ -101,6 +118,10 @@ export function createSceneEngine(canvas, initial, report = () => {}) {
     uIntensity: { value: 1 },
     uAccent: { value: new THREE.Color("#ed5444") },
     uPointer: { value: new THREE.Vector2() },
+    uPointerActive: { value: 0 },
+    uPulseAge: { value: 10 },
+    uPulsePosition: { value: new THREE.Vector2() },
+    uAspect: { value: initial.width / initial.height },
   };
   const atmosphere = new THREE.Mesh(
     new THREE.PlaneGeometry(38, 22),
@@ -134,7 +155,9 @@ export function createSceneEngine(canvas, initial, report = () => {}) {
     transitionTime = started,
     frames = 0,
     totalFrame = 0;
-  const pointer = { x: 0, y: 0 };
+  const pointer = { x: 0, y: 0, active: false };
+  let pulseTime = -10000,
+    pulses = 0;
   const pointerTarget = new THREE.Vector2();
   let viewportWidth = initial.width,
     viewportHeight = initial.height,
@@ -144,6 +167,10 @@ export function createSceneEngine(canvas, initial, report = () => {}) {
     const group = new THREE.Group();
     const localUniforms = {
       uTime: uniforms.uTime,
+      uPointer: uniforms.uPointer,
+      uPointerActive: uniforms.uPointerActive,
+      uPulseAge: uniforms.uPulseAge,
+      uPulsePosition: uniforms.uPulsePosition,
       uMode: { value: mode },
       uReveal: { value: 0 },
       uAccent: { value: new THREE.Color(accent) },
@@ -305,6 +332,7 @@ export function createSceneEngine(canvas, initial, report = () => {}) {
     viewportHeight = Math.max(1, height);
     viewportDpr = dpr;
     camera.aspect = viewportWidth / viewportHeight;
+    uniforms.uAspect.value = camera.aspect;
     camera.updateProjectionMatrix();
     renderer.setPixelRatio(Math.min(dpr, quality === "high" ? 1.5 : 1));
     renderer.setSize(viewportWidth, viewportHeight, false);
@@ -318,6 +346,9 @@ export function createSceneEngine(canvas, initial, report = () => {}) {
     const delta = Math.min((now - last) / 1000, 0.05);
     last = now;
     uniforms.uTime.value += delta;
+    uniforms.uPulseAge.value = (now - pulseTime) / 1000;
+    uniforms.uPointerActive.value +=
+      ((pointer.active ? 1 : 0) - uniforms.uPointerActive.value) * 0.1;
     const progress = Math.min((now - transitionTime) / 1100, 1);
     uniforms.uReveal.value = progress;
     uniforms.uPointer.value.lerp(
@@ -396,9 +427,15 @@ export function createSceneEngine(canvas, initial, report = () => {}) {
     update,
     hero,
     resize,
-    pointer(x, y) {
+    pointer(x, y, active = true) {
       pointer.x = x;
       pointer.y = y;
+      pointer.active = active;
+    },
+    pulse(x, y) {
+      uniforms.uPulsePosition.value.set(x, y);
+      pulseTime = performance.now();
+      report({ type: "pulse", count: ++pulses });
     },
     visibility(value) {
       visible = value;

@@ -48,7 +48,7 @@ describe("Legendrium API", () => {
   });
 
   test("expanded roster exposes every new character with local artwork and battle ratings", async () => {
-    const additions = require("../scripts/new-characters.json");
+    const additions = require("../scripts/roster-additions.cjs");
     const archive = require("../frontend/heroes.json");
     const list = await request(app).get("/api/heroes?summary=true");
     expect(list.body.rosterOrder.slice().sort()).toEqual(
@@ -79,7 +79,7 @@ describe("Legendrium API", () => {
       "/api/search?alignment=villain&universe=Marvel",
     );
     expect(villains.status).toBe(200);
-    expect(villains.body.count).toBe(5);
+    expect(villains.body.count).toBe(7);
     expect(
       villains.body.results.every(
         (character) => character.alignment === "villain",
@@ -97,7 +97,7 @@ describe("Legendrium API", () => {
     const dc = await request(app).get(
       "/api/search?alignment=villain&universe=DC",
     );
-    expect(dc.body.count).toBe(4);
+    expect(dc.body.count).toBe(6);
   });
 
   test("static assets do not consume the API rate limit", async () => {
